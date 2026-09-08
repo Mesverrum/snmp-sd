@@ -1,0 +1,821 @@
+# GENERATED from kentik/snmp-profiles — module ibm_datapower_gateway
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ibm_datapower_gateway:
+    walk:
+    - 1.3.6.1.4.1.14685.3.1.28
+    - 1.3.6.1.4.1.14685.3.1.124
+    get:
+    - 1.3.6.1.4.1.14685.3.1.14.2.0
+    - 1.3.6.1.4.1.14685.3.1.5.1.0
+    - 1.3.6.1.4.1.14685.3.1.52.2.0
+    - 1.3.6.1.4.1.14685.3.1.12.1.0
+    - 1.3.6.1.4.1.14685.3.1.12.2.0
+    - 1.3.6.1.4.1.14685.3.1.12.3.0
+    - 1.3.6.1.4.1.14685.3.1.12.4.0
+    - 1.3.6.1.4.1.14685.3.1.12.5.0
+    - 1.3.6.1.4.1.14685.3.1.12.6.0
+    - 1.3.6.1.4.1.14685.3.1.12.7.0
+    - 1.3.6.1.4.1.14685.3.1.12.8.0
+    - 1.3.6.1.4.1.14685.3.1.12.9.0
+    - 1.3.6.1.4.1.14685.3.1.12.10.0
+    - 1.3.6.1.4.1.14685.3.1.12.11.0
+    - 1.3.6.1.4.1.14685.3.1.13.1.0
+    - 1.3.6.1.4.1.14685.3.1.13.2.0
+    - 1.3.6.1.4.1.14685.3.1.13.3.0
+    - 1.3.6.1.4.1.14685.3.1.13.4.0
+    - 1.3.6.1.4.1.14685.3.1.13.5.0
+    - 1.3.6.1.4.1.14685.3.1.29.1.0
+    - 1.3.6.1.4.1.14685.3.1.29.2.0
+    - 1.3.6.1.4.1.14685.3.1.29.5.0
+    - 1.3.6.1.4.1.14685.3.1.29.6.0
+    - 1.3.6.1.4.1.14685.3.1.29.7.0
+    - 1.3.6.1.4.1.14685.3.1.29.8.0
+    - 1.3.6.1.4.1.14685.3.1.55.1.0
+    - 1.3.6.1.4.1.14685.3.1.55.2.0
+    - 1.3.6.1.4.1.14685.3.1.55.3.0
+    - 1.3.6.1.4.1.14685.3.1.55.4.0
+    - 1.3.6.1.4.1.14685.3.1.55.5.0
+    - 1.3.6.1.4.1.14685.3.1.55.6.0
+    - 1.3.6.1.4.1.14685.3.1.55.7.0
+    - 1.3.6.1.4.1.14685.3.1.55.8.0
+    - 1.3.6.1.4.1.14685.3.1.55.9.0
+    - 1.3.6.1.4.1.14685.3.1.55.13.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.14685.3.1.14.2
+      type: gauge
+      help: dpStatusCPUUsageOneMinute (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.14.2.0
+      lookups: []
+    - name: snmp_dpStatusMemoryStatusUsage
+      oid: 1.3.6.1.4.1.14685.3.1.5.1
+      type: gauge
+      help: dpStatusMemoryStatusUsage (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.5.1.0
+      lookups: []
+    - name: snmp_dpStatusSystemUsageLoad
+      oid: 1.3.6.1.4.1.14685.3.1.52.2
+      type: gauge
+      help: dpStatusSystemUsageLoad (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.52.2.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryEstablished
+      oid: 1.3.6.1.4.1.14685.3.1.12.1
+      type: counter
+      help: dpStatusTCPSummaryEstablished (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.1.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummarySynSent
+      oid: 1.3.6.1.4.1.14685.3.1.12.2
+      type: counter
+      help: dpStatusTCPSummarySynSent (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.2.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummarySynReceived
+      oid: 1.3.6.1.4.1.14685.3.1.12.3
+      type: counter
+      help: dpStatusTCPSummarySynReceived (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.3.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryFinWait1
+      oid: 1.3.6.1.4.1.14685.3.1.12.4
+      type: counter
+      help: dpStatusTCPSummaryFinWait1 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.4.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryFinWait2
+      oid: 1.3.6.1.4.1.14685.3.1.12.5
+      type: counter
+      help: dpStatusTCPSummaryFinWait2 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.5.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryTimeWait
+      oid: 1.3.6.1.4.1.14685.3.1.12.6
+      type: counter
+      help: dpStatusTCPSummaryTimeWait (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.6.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryClosed
+      oid: 1.3.6.1.4.1.14685.3.1.12.7
+      type: counter
+      help: dpStatusTCPSummaryClosed (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.7.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryClosedWait
+      oid: 1.3.6.1.4.1.14685.3.1.12.8
+      type: counter
+      help: dpStatusTCPSummaryClosedWait (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.8.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryLastAck
+      oid: 1.3.6.1.4.1.14685.3.1.12.9
+      type: counter
+      help: dpStatusTCPSummaryLastAck (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.9.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryListen
+      oid: 1.3.6.1.4.1.14685.3.1.12.10
+      type: counter
+      help: dpStatusTCPSummaryListen (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.10.0
+      lookups: []
+    - name: snmp_dpStatusTCPSummaryClosing
+      oid: 1.3.6.1.4.1.14685.3.1.12.11
+      type: counter
+      help: dpStatusTCPSummaryClosing (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.12.11.0
+      lookups: []
+    - name: snmp_dpStatusConnectionsAcceptedTenSeconds
+      oid: 1.3.6.1.4.1.14685.3.1.13.1
+      type: counter
+      help: dpStatusConnectionsAcceptedTenSeconds (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.13.1.0
+      lookups: []
+    - name: snmp_dpStatusConnectionsAcceptedOneMinute
+      oid: 1.3.6.1.4.1.14685.3.1.13.2
+      type: counter
+      help: dpStatusConnectionsAcceptedOneMinute (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.13.2.0
+      lookups: []
+    - name: snmp_dpStatusConnectionsAcceptedTenMinutes
+      oid: 1.3.6.1.4.1.14685.3.1.13.3
+      type: counter
+      help: dpStatusConnectionsAcceptedTenMinutes (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.13.3.0
+      lookups: []
+    - name: snmp_dpStatusConnectionsAcceptedOneHour
+      oid: 1.3.6.1.4.1.14685.3.1.13.4
+      type: counter
+      help: dpStatusConnectionsAcceptedOneHour (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.13.4.0
+      lookups: []
+    - name: snmp_dpStatusConnectionsAcceptedOneDay
+      oid: 1.3.6.1.4.1.14685.3.1.13.5
+      type: counter
+      help: dpStatusConnectionsAcceptedOneDay (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.13.5.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusFreeEncrypted
+      oid: 1.3.6.1.4.1.14685.3.1.29.1
+      type: gauge
+      help: dpStatusFilesystemStatusFreeEncrypted (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.1.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusTotalEncrypted
+      oid: 1.3.6.1.4.1.14685.3.1.29.2
+      type: gauge
+      help: dpStatusFilesystemStatusTotalEncrypted (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.2.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusFreeTemporary
+      oid: 1.3.6.1.4.1.14685.3.1.29.5
+      type: gauge
+      help: dpStatusFilesystemStatusFreeTemporary (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.5.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusTotalTemporary
+      oid: 1.3.6.1.4.1.14685.3.1.29.6
+      type: gauge
+      help: dpStatusFilesystemStatusTotalTemporary (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.6.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusFreeInternal
+      oid: 1.3.6.1.4.1.14685.3.1.29.7
+      type: gauge
+      help: dpStatusFilesystemStatusFreeInternal (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.7.0
+      lookups: []
+    - name: snmp_dpStatusFilesystemStatusTotalInternal
+      oid: 1.3.6.1.4.1.14685.3.1.29.8
+      type: gauge
+      help: dpStatusFilesystemStatusTotalInternal (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.29.8.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsSystemTemp
+      oid: 1.3.6.1.4.1.14685.3.1.55.1
+      type: gauge
+      help: dpStatusEnvironmentalSensorsSystemTemp (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.1.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsCpu1Temp
+      oid: 1.3.6.1.4.1.14685.3.1.55.2
+      type: gauge
+      help: dpStatusEnvironmentalSensorsCpu1Temp (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.2.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsCpu2Temp
+      oid: 1.3.6.1.4.1.14685.3.1.55.3
+      type: gauge
+      help: dpStatusEnvironmentalSensorsCpu2Temp (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.3.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsCpu1RPM
+      oid: 1.3.6.1.4.1.14685.3.1.55.4
+      type: gauge
+      help: dpStatusEnvironmentalSensorsCpu1RPM (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.4.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsCpu2RPM
+      oid: 1.3.6.1.4.1.14685.3.1.55.5
+      type: gauge
+      help: dpStatusEnvironmentalSensorsCpu2RPM (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.5.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsChassis1RPM
+      oid: 1.3.6.1.4.1.14685.3.1.55.6
+      type: gauge
+      help: dpStatusEnvironmentalSensorsChassis1RPM (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.6.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsChassis2RPM
+      oid: 1.3.6.1.4.1.14685.3.1.55.7
+      type: gauge
+      help: dpStatusEnvironmentalSensorsChassis2RPM (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.7.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsChassis3RPM
+      oid: 1.3.6.1.4.1.14685.3.1.55.8
+      type: gauge
+      help: dpStatusEnvironmentalSensorsChassis3RPM (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.8.0
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsCaseOpen
+      oid: 1.3.6.1.4.1.14685.3.1.55.9
+      type: gauge
+      help: dpStatusEnvironmentalSensorsCaseOpen (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.9.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_dpStatusEnvironmentalSensorsPowerSupply
+      oid: 1.3.6.1.4.1.14685.3.1.55.13
+      type: gauge
+      help: dpStatusEnvironmentalSensorsPowerSupply (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.55.13.0
+      enum_values:
+        1: ok
+        2: power-1-failure
+        3: power-2-failure
+        4: power-1-ac-lost
+        5: power-2-ac-lost
+      lookups: []
+    - name: snmp_dpStatusLogTargetStatusStatus
+      oid: 1.3.6.1.4.1.14685.3.1.28.1.2
+      type: gauge
+      help: dpStatusLogTargetStatusStatus (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.28.1.2
+      indexes:
+      - labelname: IMPLIEDdpConfigLogTargetIndex
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDdpConfigLogTargetIndex
+        labelname: dpStatusLogTargetStatusLogTarget
+        oid: 1.3.6.1.4.1.14685.3.1.28.1.1
+        type: DisplayString
+      enum_values:
+        1: active
+        2: warning
+        3: failure
+        4: suspended
+    - name: snmp_dpStatusLogTargetStatusEventsProcessed
+      oid: 1.3.6.1.4.1.14685.3.1.28.1.3
+      type: counter
+      help: dpStatusLogTargetStatusEventsProcessed (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.28.1.3
+      indexes:
+      - labelname: IMPLIEDdpConfigLogTargetIndex
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDdpConfigLogTargetIndex
+        labelname: dpStatusLogTargetStatusLogTarget
+        oid: 1.3.6.1.4.1.14685.3.1.28.1.1
+        type: DisplayString
+    - name: snmp_dpStatusLogTargetStatusEventsDropped
+      oid: 1.3.6.1.4.1.14685.3.1.28.1.4
+      type: counter
+      help: dpStatusLogTargetStatusEventsDropped (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.28.1.4
+      indexes:
+      - labelname: IMPLIEDdpConfigLogTargetIndex
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDdpConfigLogTargetIndex
+        labelname: dpStatusLogTargetStatusLogTarget
+        oid: 1.3.6.1.4.1.14685.3.1.28.1.1
+        type: DisplayString
+    - name: snmp_dpStatusLogTargetStatusEventsPending
+      oid: 1.3.6.1.4.1.14685.3.1.28.1.5
+      type: counter
+      help: dpStatusLogTargetStatusEventsPending (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.28.1.5
+      indexes:
+      - labelname: IMPLIEDdpConfigLogTargetIndex
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDdpConfigLogTargetIndex
+        labelname: dpStatusLogTargetStatusLogTarget
+        oid: 1.3.6.1.4.1.14685.3.1.28.1.1
+        type: DisplayString
+    - name: snmp_dpStatusLogTargetStatusErrorInfo
+      oid: 1.3.6.1.4.1.14685.3.1.28.1.6
+      type: gauge
+      help: dpStatusLogTargetStatusErrorInfo (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.28.1.6
+      indexes:
+      - labelname: IMPLIEDdpConfigLogTargetIndex
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDdpConfigLogTargetIndex
+        labelname: dpStatusLogTargetStatusLogTarget
+        oid: 1.3.6.1.4.1.14685.3.1.28.1.1
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusAdminStatus
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.4
+      type: gauge
+      help: dpStatusNetworkInterfaceStatusAdminStatus (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.4
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_dpStatusNetworkInterfaceStatusOperStatus
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.5
+      type: gauge
+      help: dpStatusNetworkInterfaceStatusOperStatus (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.5
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+    - name: snmp_dpStatusNetworkInterfaceStatusRxHCBytes
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.19
+      type: counter
+      help: dpStatusNetworkInterfaceStatusRxHCBytes (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.19
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusRxHCPackets
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.20
+      type: counter
+      help: dpStatusNetworkInterfaceStatusRxHCPackets (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.20
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusRxErrors2
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.21
+      type: counter
+      help: dpStatusNetworkInterfaceStatusRxErrors2 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.21
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusRxDrops2
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.22
+      type: counter
+      help: dpStatusNetworkInterfaceStatusRxDrops2 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.22
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusTxHCBytes
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.23
+      type: counter
+      help: dpStatusNetworkInterfaceStatusTxHCBytes (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.23
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusTxHCPackets
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.24
+      type: counter
+      help: dpStatusNetworkInterfaceStatusTxHCPackets (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.24
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusTxErrors2
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.25
+      type: counter
+      help: dpStatusNetworkInterfaceStatusTxErrors2 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.25
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString
+    - name: snmp_dpStatusNetworkInterfaceStatusTxDrops2
+      oid: 1.3.6.1.4.1.14685.3.1.124.1.26
+      type: counter
+      help: dpStatusNetworkInterfaceStatusTxDrops2 (DATAPOWER-STATUS-MIB) - 1.3.6.1.4.1.14685.3.1.124.1.26
+      indexes:
+      - labelname: dpStatusNetworkInterfaceStatusInterfaceIndex
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusIP
+        type: gauge
+      - labelname: dpStatusNetworkInterfaceStatusPrefixLength
+        type: gauge
+      lookups:
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusInterfaceType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.2
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusName
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.3
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIPType
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.6
+        type: EnumAsInfo
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusIP
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.7
+        type: DisplayString
+      - labels:
+        - dpStatusNetworkInterfaceStatusInterfaceIndex
+        - dpStatusNetworkInterfaceStatusIP
+        - dpStatusNetworkInterfaceStatusPrefixLength
+        labelname: dpStatusNetworkInterfaceStatusMACAddress
+        oid: 1.3.6.1.4.1.14685.3.1.124.1.9
+        type: DisplayString

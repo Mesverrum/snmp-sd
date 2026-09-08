@@ -1,0 +1,1025 @@
+# GENERATED from kentik/snmp-profiles — module panduit_pdu
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  panduit_pdu:
+    walk:
+    - 1.3.6.1.4.1.19536.10.1.1.2
+    - 1.3.6.1.4.1.19536.10.1.2.1
+    - 1.3.6.1.4.1.19536.10.1.2.2
+    - 1.3.6.1.4.1.19536.10.1.3.1
+    - 1.3.6.1.4.1.19536.10.1.5.1
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_pdug5IndentIndex
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+      type: gauge
+      help: pdug5IndentIndex (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.1
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5Name
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.2
+      type: gauge
+      help: pdug5Name (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.2
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5FirmwareVersion
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.5
+      type: gauge
+      help: pdug5FirmwareVersion (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.5
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5SerialNumber
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.8
+      type: gauge
+      help: pdug5SerialNumber (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.8
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5Status
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.9
+      type: gauge
+      help: pdug5Status (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.9
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_pdug5MACAddress
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.14
+      type: gauge
+      help: pdug5MACAddress (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.14
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5IPv4Address
+      oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+      type: gauge
+      help: pdug5IPv4Address (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.1.2.1.15
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputPhaseCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5OutletCount
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.13
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IPv4Address
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.15
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5IdentIndex
+        oid: 1.3.6.1.4.1.19536.10.1.1.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputFrequency
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.2
+      type: gauge
+      help: pdug5InputFrequency (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.2
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputFrequencyStatus
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.3
+      type: gauge
+      help: pdug5InputFrequencyStatus (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.3
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+      enum_values:
+        1: good
+        2: outOfRange
+    - name: snmp_pdug5InputPowerVA
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.4
+      type: gauge
+      help: pdug5InputPowerVA (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.4
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPowerWatts
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.5
+      type: gauge
+      help: pdug5InputPowerWatts (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.5
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPowerFactor
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.9
+      type: gauge
+      help: pdug5InputPowerFactor (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.9
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPowerVAR
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.10
+      type: gauge
+      help: pdug5InputPowerVAR (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.10
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputTotalCurrent
+      oid: 1.3.6.1.4.1.19536.10.1.2.1.1.11
+      type: gauge
+      help: pdug5InputTotalCurrent (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.1.1.11
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPhasePowerVA
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.19
+      type: gauge
+      help: pdug5InputPhasePowerVA (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.19
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPhasePowerWatts
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.20
+      type: gauge
+      help: pdug5InputPhasePowerWatts (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.20
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPhasePowerFactor
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.23
+      type: gauge
+      help: pdug5InputPhasePowerFactor (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.23
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPhasePowerVAR
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.24
+      type: gauge
+      help: pdug5InputPhasePowerVAR (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.24
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        labelname: pdug5InputType
+        oid: 1.3.6.1.4.1.19536.10.1.2.1.1.1
+        type: EnumAsInfo
+    - name: snmp_pdug5InputPhaseIndex
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+      type: gauge
+      help: pdug5InputPhaseIndex (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.1
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhaseVoltage
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.3
+      type: gauge
+      help: pdug5InputPhaseVoltage (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.3
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhaseCurrent
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.11
+      type: gauge
+      help: pdug5InputPhaseCurrent (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.11
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhaseCurrentPercentLoad
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.17
+      type: gauge
+      help: pdug5InputPhaseCurrentPercentLoad (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.17
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhaseCurrentMeasType
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.18
+      type: gauge
+      help: pdug5InputPhaseCurrentMeasType (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.18
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhasePowerVA
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.19
+      type: gauge
+      help: pdug5InputPhasePowerVA (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.19
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhasePowerWatts
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.20
+      type: gauge
+      help: pdug5InputPhasePowerWatts (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.20
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhasePowerFactor
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.23
+      type: gauge
+      help: pdug5InputPhasePowerFactor (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.23
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5InputPhasePowerVAR
+      oid: 1.3.6.1.4.1.19536.10.1.2.2.1.24
+      type: gauge
+      help: pdug5InputPhasePowerVAR (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.2.2.1.24
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5InputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseCurrentMeasType
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - pdug5IdentIndex
+        - pdug5InputPhaseIndex
+        labelname: pdug5InputPhaseIndex
+        oid: 1.3.6.1.4.1.19536.10.1.2.2.1.1
+        type: gauge
+    - name: snmp_pdug5GroupIndex
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+      type: gauge
+      help: pdug5GroupIndex (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.1
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupName
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.2
+      type: gauge
+      help: pdug5GroupName (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.2
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupCurrent
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.12
+      type: gauge
+      help: pdug5GroupCurrent (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.12
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupVoltage
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.5
+      type: gauge
+      help: pdug5GroupVoltage (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.5
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupCurrentPercentLoad
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.18
+      type: gauge
+      help: pdug5GroupCurrentPercentLoad (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.18
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupVoltageMeasType
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.4
+      type: EnumAsInfo
+      help: pdug5GroupVoltageMeasType (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.4
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+      enum_values:
+        0: notApplicable
+        1: singlePhase
+        2: phase1toN
+        3: phase2toN
+        4: phase3toN
+        5: phase1to2
+        6: phase2to3
+        7: phase3to1
+    - name: snmp_pdug5GroupPowerVA
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.19
+      type: gauge
+      help: pdug5GroupPowerVA (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.19
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupPowerWatts
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.20
+      type: gauge
+      help: pdug5GroupPowerWatts (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.20
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5GroupBreakerStatus
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.26
+      type: gauge
+      help: pdug5GroupBreakerStatus (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.26
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+      enum_values:
+        0: notApplicable
+        1: notApplicableA
+        2: breakerOn
+        3: breakerOff
+    - name: snmp_pdug5GroupPowerVAR
+      oid: 1.3.6.1.4.1.19536.10.1.3.1.1.24
+      type: gauge
+      help: pdug5GroupPowerVAR (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.3.1.1.24
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5GroupIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5GroupIndex
+        labelname: pdug5GroupIndex
+        oid: 1.3.6.1.4.1.19536.10.1.3.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletIndex
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+      type: gauge
+      help: pdug5OutletIndex (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.1
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletName
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+      type: gauge
+      help: pdug5OutletName (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.2
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletType
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.3
+      type: gauge
+      help: pdug5OutletType (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.3
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletCurrent
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.5
+      type: gauge
+      help: pdug5OutletCurrent (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.5
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletCurrentPercentLoad
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.11
+      type: gauge
+      help: pdug5OutletCurrentPercentLoad (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.11
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletVA
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.12
+      type: gauge
+      help: pdug5OutletVA (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.12
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletWatts
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.13
+      type: gauge
+      help: pdug5OutletWatts (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.13
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletPowerFactor
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.16
+      type: gauge
+      help: pdug5OutletPowerFactor (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.16
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    - name: snmp_pdug5OutletVAR
+      oid: 1.3.6.1.4.1.19536.10.1.5.1.1.17
+      type: gauge
+      help: pdug5OutletVAR (PANDUIT-MIB) - 1.3.6.1.4.1.19536.10.1.5.1.1.17
+      indexes:
+      - labelname: pdug5IdentIndex
+        type: gauge
+      - labelname: pdug5OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletName
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.2
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletBranch
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.18
+        type: DisplayString
+      - labels:
+        - pdug5IdentIndex
+        - pdug5OutletIndex
+        labelname: pdug5OutletIndex
+        oid: 1.3.6.1.4.1.19536.10.1.5.1.1.1
+        type: gauge
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

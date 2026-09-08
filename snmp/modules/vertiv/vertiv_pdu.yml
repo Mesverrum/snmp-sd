@@ -1,0 +1,297 @@
+# GENERATED from kentik/snmp-profiles — module vertiv_pdu
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  vertiv_pdu:
+    walk:
+    - 1.3.6.1.4.1.21239.5.2.3.1
+    - 1.3.6.1.4.1.21239.5.2.3.2
+    - 1.3.6.1.4.1.21239.5.2.3.3
+    - 1.3.6.1.4.1.21239.5.2.3.4
+    - 1.3.6.1.4.1.21239.5.2.3.5
+    - 1.3.6.1.4.1.21239.5.2.3.6
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: product_version
+        oid: 1.3.6.1.4.1.21239.5.2.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: product_manufacturer
+        oid: 1.3.6.1.4.1.21239.5.2.1.15
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: model
+        oid: 1.3.6.1.4.1.21239.5.2.1.8
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.21239.5.2.1.10
+        type: DisplayString
+    - name: snmp_pduTotalApparentPower
+      oid: 1.3.6.1.4.1.21239.5.2.3.1.1.10
+      type: gauge
+      help: pduTotalApparentPower (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.1.1.10
+      indexes:
+      - labelname: pduMainIndex
+        type: gauge
+      lookups: []
+    - name: snmp_pduTotalPowerFactor
+      oid: 1.3.6.1.4.1.21239.5.2.3.1.1.11
+      type: gauge
+      help: pduTotalPowerFactor (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.1.1.11
+      indexes:
+      - labelname: pduMainIndex
+        type: gauge
+      lookups: []
+    - name: snmp_pduTotalEnergy
+      oid: 1.3.6.1.4.1.21239.5.2.3.1.1.12
+      type: gauge
+      help: pduTotalEnergy (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.1.1.12
+      indexes:
+      - labelname: pduMainIndex
+        type: gauge
+      lookups: []
+    - name: snmp_pduMainAvail
+      oid: 1.3.6.1.4.1.21239.5.2.3.1.1.5
+      type: gauge
+      help: pduMainAvail (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.1.1.5
+      indexes:
+      - labelname: pduMainIndex
+        type: gauge
+      enum_values:
+        0: Unavailable
+        1: Available
+        2: PartiallyUnAvailable
+      lookups: []
+    - name: snmp_pduPhaseVoltage
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.4
+      type: gauge
+      help: pduPhaseVoltage (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.4
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduPhaseCurrent
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.8
+      type: gauge
+      help: pduPhaseCurrent (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.8
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduPhaseEnergy
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.15
+      type: gauge
+      help: pduPhaseEnergy (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.15
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduPhaseRealPower
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.12
+      type: gauge
+      help: pduPhaseRealPower (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.12
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduPhaseApparentPower
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.13
+      type: gauge
+      help: pduPhaseApparentPower (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.13
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduPhasePowerFactor
+      oid: 1.3.6.1.4.1.21239.5.2.3.2.1.14
+      type: gauge
+      help: pduPhasePowerFactor (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.2.1.14
+      indexes:
+      - labelname: pduPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduPhaseIndex
+        labelname: pduPhaseName
+        oid: 1.3.6.1.4.1.21239.5.2.3.2.1.2
+        type: DisplayString
+    - name: snmp_pduBreakerCurrent
+      oid: 1.3.6.1.4.1.21239.5.2.3.3.1.4
+      type: gauge
+      help: pduBreakerCurrent (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.3.1.4
+      indexes:
+      - labelname: pduBreakerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduBreakerIndex
+        labelname: pduBreakerName
+        oid: 1.3.6.1.4.1.21239.5.2.3.3.1.2
+        type: DisplayString
+    - name: snmp_pduLineCurrent
+      oid: 1.3.6.1.4.1.21239.5.2.3.4.1.4
+      type: gauge
+      help: pduLineCurrent (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.4.1.4
+      indexes:
+      - labelname: pduLineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduLineIndex
+        labelname: pduLineName
+        oid: 1.3.6.1.4.1.21239.5.2.3.4.1.2
+        type: DisplayString
+    - name: snmp_pduOutletSwitchState
+      oid: 1.3.6.1.4.1.21239.5.2.3.5.1.4
+      type: gauge
+      help: pduOutletSwitchState (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.5.1.4
+      indexes:
+      - labelname: pduOutletSwitchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletSwitchIndex
+        labelname: pduOutletSwitchName
+        oid: 1.3.6.1.4.1.21239.5.2.3.5.1.2
+        type: DisplayString
+    - name: snmp_pduOutletMeterRealPower
+      oid: 1.3.6.1.4.1.21239.5.2.3.6.1.12
+      type: gauge
+      help: pduOutletMeterRealPower (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.6.1.12
+      indexes:
+      - labelname: pduOutletMeterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletMeterIndex
+        labelname: pduOutletMeterName
+        oid: 1.3.6.1.4.1.21239.5.2.3.6.1.2
+        type: DisplayString
+    - name: snmp_pduOutletMeterApparentPower
+      oid: 1.3.6.1.4.1.21239.5.2.3.6.1.13
+      type: gauge
+      help: pduOutletMeterApparentPower (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.6.1.13
+      indexes:
+      - labelname: pduOutletMeterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletMeterIndex
+        labelname: pduOutletMeterName
+        oid: 1.3.6.1.4.1.21239.5.2.3.6.1.2
+        type: DisplayString
+    - name: snmp_pduOutletMeterPowerFactor
+      oid: 1.3.6.1.4.1.21239.5.2.3.6.1.14
+      type: gauge
+      help: pduOutletMeterPowerFactor (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.6.1.14
+      indexes:
+      - labelname: pduOutletMeterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletMeterIndex
+        labelname: pduOutletMeterName
+        oid: 1.3.6.1.4.1.21239.5.2.3.6.1.2
+        type: DisplayString
+    - name: snmp_pduOutletMeterEnergy
+      oid: 1.3.6.1.4.1.21239.5.2.3.6.1.15
+      type: gauge
+      help: pduOutletMeterEnergy (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.6.1.15
+      indexes:
+      - labelname: pduOutletMeterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletMeterIndex
+        labelname: pduOutletMeterName
+        oid: 1.3.6.1.4.1.21239.5.2.3.6.1.2
+        type: DisplayString
+    - name: snmp_pduOutletMeterVoltage
+      oid: 1.3.6.1.4.1.21239.5.2.3.6.1.4
+      type: gauge
+      help: pduOutletMeterVoltage (VERTIV-V5-MIB) - 1.3.6.1.4.1.21239.5.2.3.6.1.4
+      indexes:
+      - labelname: pduOutletMeterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - pduOutletMeterIndex
+        labelname: pduOutletMeterName
+        oid: 1.3.6.1.4.1.21239.5.2.3.6.1.2
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.21239.5.2.1.2
+    - 1.3.6.1.4.1.21239.5.2.1.15
+    - 1.3.6.1.4.1.21239.5.2.1.8
+    - 1.3.6.1.4.1.21239.5.2.1.10

@@ -1,0 +1,766 @@
+# GENERATED from kentik/snmp-profiles — module vmware_nsx
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  vmware_nsx:
+    get:
+    - 1.3.6.1.4.1.6876.120.1.1.122
+    - 1.3.6.1.4.1.6876.120.1.1.41
+    - 1.3.6.1.4.1.6876.120.1.1.42
+    - 1.3.6.1.4.1.6876.120.1.1.25
+    - 1.3.6.1.4.1.6876.120.1.1.89
+    - 1.3.6.1.4.1.6876.120.1.1.52
+    - 1.3.6.1.4.1.6876.120.1.1.66
+    - 1.3.6.1.4.1.6876.120.1.1.121
+    - 1.3.6.1.4.1.6876.120.1.1.58
+    - 1.3.6.1.4.1.6876.120.1.1.59
+    - 1.3.6.1.4.1.6876.120.1.1.47
+    - 1.3.6.1.4.1.6876.120.1.1.26
+    - 1.3.6.1.4.1.6876.120.1.1.27
+    - 1.3.6.1.4.1.6876.120.1.1.29
+    - 1.3.6.1.4.1.6876.120.1.1.36
+    - 1.3.6.1.4.1.6876.120.1.1.100
+    - 1.3.6.1.4.1.6876.120.1.1.101
+    - 1.3.6.1.4.1.6876.120.1.1.28
+    - 1.3.6.1.4.1.6876.120.1.1.81
+    - 1.3.6.1.4.1.6876.120.1.1.23
+    - 1.3.6.1.4.1.6876.120.1.1.92
+    - 1.3.6.1.4.1.6876.120.1.1.57
+    - 1.3.6.1.4.1.6876.120.1.1.146
+    - 1.3.6.1.4.1.6876.120.1.1.60
+    - 1.3.6.1.4.1.6876.120.1.1.127
+    - 1.3.6.1.4.1.6876.120.1.1.123
+    - 1.3.6.1.4.1.6876.120.1.1.30
+    - 1.3.6.1.4.1.6876.120.1.1.93
+    - 1.3.6.1.4.1.6876.120.1.1.124
+    - 1.3.6.1.4.1.6876.120.1.1.126
+    - 1.3.6.1.4.1.6876.120.1.1.21
+    - 1.3.6.1.4.1.6876.120.1.1.40
+    - 1.3.6.1.4.1.6876.120.1.1.4
+    - 1.3.6.1.4.1.6876.120.1.1.3
+    - 1.3.6.1.4.1.6876.120.1.1.31
+    - 1.3.6.1.4.1.6876.120.1.1.2
+    - 1.3.6.1.4.1.6876.120.1.1.95
+    - 1.3.6.1.4.1.6876.120.1.1.96
+    - 1.3.6.1.4.1.6876.120.1.1.99
+    - 1.3.6.1.4.1.6876.120.1.1.125
+    - 1.3.6.1.4.1.6876.120.1.1.98
+    - 1.3.6.1.4.1.6876.120.1.1.138
+    - 1.3.6.1.4.1.6876.120.1.1.49
+    - 1.3.6.1.4.1.6876.120.1.1.39
+    - 1.3.6.1.4.1.6876.120.1.1.64
+    - 1.3.6.1.4.1.6876.120.1.1.38
+    - 1.3.6.1.4.1.6876.120.1.1.94
+    - 1.3.6.1.4.1.6876.120.1.1.53
+    - 1.3.6.1.4.1.6876.120.1.1.86
+    - 1.3.6.1.4.1.6876.120.1.1.87
+    - 1.3.6.1.4.1.6876.120.1.1.88
+    - 1.3.6.1.4.1.6876.120.1.1.24
+    - 1.3.6.1.4.1.6876.120.1.1.70
+    - 1.3.6.1.4.1.6876.120.1.1.75
+    - 1.3.6.1.4.1.6876.120.1.1.139
+    - 1.3.6.1.4.1.6876.120.1.1.91
+    - 1.3.6.1.4.1.6876.120.1.1.44
+    - 1.3.6.1.4.1.6876.120.1.1.83
+    - 1.3.6.1.4.1.6876.120.1.1.55
+    - 1.3.6.1.4.1.6876.120.1.1.85
+    - 1.3.6.1.4.1.6876.120.1.1.50
+    - 1.3.6.1.4.1.6876.120.1.1.84
+    - 1.3.6.1.4.1.6876.120.1.1.144
+    - 1.3.6.1.4.1.6876.120.1.1.145
+    - 1.3.6.1.4.1.6876.120.1.1.129
+    - 1.3.6.1.4.1.6876.120.1.1.130
+    - 1.3.6.1.4.1.6876.120.1.1.131
+    - 1.3.6.1.4.1.6876.120.1.1.147
+    - 1.3.6.1.4.1.6876.120.1.1.132
+    - 1.3.6.1.4.1.6876.120.1.1.5
+    - 1.3.6.1.4.1.6876.120.1.1.6
+    - 1.3.6.1.4.1.6876.120.1.1.51
+    - 1.3.6.1.4.1.6876.120.1.1.54
+    - 1.3.6.1.4.1.6876.120.1.1.32
+    - 1.3.6.1.4.1.6876.120.1.1.33
+    - 1.3.6.1.4.1.6876.120.1.1.135
+    - 1.3.6.1.4.1.6876.120.1.1.136
+    - 1.3.6.1.4.1.6876.120.1.1.137
+    - 1.3.6.1.4.1.6876.120.1.1.90
+    - 1.3.6.1.4.1.6876.120.1.1.80
+    - 1.3.6.1.4.1.6876.120.1.1.67
+    - 1.3.6.1.4.1.6876.120.1.1.65
+    - 1.3.6.1.4.1.6876.120.1.1.71
+    - 1.3.6.1.4.1.6876.120.1.1.72
+    - 1.3.6.1.4.1.6876.120.1.1.61
+    - 1.3.6.1.4.1.6876.120.1.1.128
+    - 1.3.6.1.4.1.6876.120.1.1.97
+    - 1.3.6.1.4.1.6876.120.1.1.77
+    - 1.3.6.1.4.1.6876.120.1.1.37
+    - 1.3.6.1.4.1.6876.120.1.1.140
+    - 1.3.6.1.4.1.6876.120.1.1.43
+    - 1.3.6.1.4.1.6876.120.1.1.68
+    - 1.3.6.1.4.1.6876.120.1.1.69
+    - 1.3.6.1.4.1.6876.120.1.1.63
+    - 1.3.6.1.4.1.6876.120.1.1.56
+    - 1.3.6.1.4.1.6876.120.1.1.134
+    - 1.3.6.1.4.1.6876.120.1.1.22
+    - 1.3.6.1.4.1.6876.120.1.1.34
+    - 1.3.6.1.4.1.6876.120.1.1.82
+    - 1.3.6.1.4.1.6876.120.1.1.143
+    - 1.3.6.1.4.1.6876.120.1.1.45
+    - 1.3.6.1.4.1.6876.120.1.1.141
+    - 1.3.6.1.4.1.6876.120.1.1.46
+    - 1.3.6.1.4.1.6876.120.1.1.48
+    - 1.3.6.1.4.1.6876.120.1.1.73
+    - 1.3.6.1.4.1.6876.120.1.1.74
+    - 1.3.6.1.4.1.6876.120.1.1.62
+    - 1.3.6.1.4.1.6876.120.1.1.35
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.6876.120.1.1.133
+    - 1.3.6.1.4.1.6876.120.1.1.142
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: vmwNsxTDataCenterFlowIdentifier
+        oid: 1.3.6.1.4.1.6876.120.1.1.133
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: vmwNsxTDataCenterFromGMPath
+        oid: 1.3.6.1.4.1.6876.120.1.1.142
+        type: DisplayString
+    - name: snmp_vmwNsxTDataCenterAPICollectionPath
+      oid: 1.3.6.1.4.1.6876.120.1.1.122
+      type: gauge
+      help: vmwNsxTDataCenterAPICollectionPath (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.122
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterActiveGlobalManager
+      oid: 1.3.6.1.4.1.6876.120.1.1.41
+      type: gauge
+      help: vmwNsxTDataCenterActiveGlobalManager (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.41
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterActiveGlobalManagers
+      oid: 1.3.6.1.4.1.6876.120.1.1.42
+      type: gauge
+      help: vmwNsxTDataCenterActiveGlobalManagers (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.42
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterApplianceAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.25
+      type: gauge
+      help: vmwNsxTDataCenterApplianceAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.25
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterApplianceFQDN
+      oid: 1.3.6.1.4.1.6876.120.1.1.89
+      type: gauge
+      help: vmwNsxTDataCenterApplianceFQDN (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.89
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterBGPNeighborIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.52
+      type: gauge
+      help: vmwNsxTDataCenterBGPNeighborIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.52
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterBGPSourceIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.66
+      type: gauge
+      help: vmwNsxTDataCenterBGPSourceIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.66
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCABundleAgeThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.121
+      type: gauge
+      help: vmwNsxTDataCenterCABundleAgeThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.121
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCapacityDisplayName
+      oid: 1.3.6.1.4.1.6876.120.1.1.58
+      type: gauge
+      help: vmwNsxTDataCenterCapacityDisplayName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.58
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCapacityUsageCount
+      oid: 1.3.6.1.4.1.6876.120.1.1.59
+      type: gauge
+      help: vmwNsxTDataCenterCapacityUsageCount (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.59
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCentralControlPlaneId
+      oid: 1.3.6.1.4.1.6876.120.1.1.47
+      type: gauge
+      help: vmwNsxTDataCenterCentralControlPlaneId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.47
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCurrentGatewayState
+      oid: 1.3.6.1.4.1.6876.120.1.1.26
+      type: gauge
+      help: vmwNsxTDataCenterCurrentGatewayState (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.26
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterCurrentServiceState
+      oid: 1.3.6.1.4.1.6876.120.1.1.27
+      type: gauge
+      help: vmwNsxTDataCenterCurrentServiceState (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.27
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDHCPPoolUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.29
+      type: gauge
+      help: vmwNsxTDataCenterDHCPPoolUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.29
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDHCPServerId
+      oid: 1.3.6.1.4.1.6876.120.1.1.36
+      type: gauge
+      help: vmwNsxTDataCenterDHCPServerId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.36
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDNSId
+      oid: 1.3.6.1.4.1.6876.120.1.1.100
+      type: gauge
+      help: vmwNsxTDataCenterDNSId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.100
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDNSUpstreamIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.101
+      type: gauge
+      help: vmwNsxTDataCenterDNSUpstreamIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.101
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDatapathResourceUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.28
+      type: gauge
+      help: vmwNsxTDataCenterDatapathResourceUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.28
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDirectoryDomain
+      oid: 1.3.6.1.4.1.6876.120.1.1.81
+      type: gauge
+      help: vmwNsxTDataCenterDirectoryDomain (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.81
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDiskPartitionName
+      oid: 1.3.6.1.4.1.6876.120.1.1.23
+      type: gauge
+      help: vmwNsxTDataCenterDiskPartitionName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.23
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDisplayedLicenseKey
+      oid: 1.3.6.1.4.1.6876.120.1.1.92
+      type: gauge
+      help: vmwNsxTDataCenterDisplayedLicenseKey (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.92
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterDuplicateIPAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.57
+      type: gauge
+      help: vmwNsxTDataCenterDuplicateIPAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.57
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeCryptoDrvName
+      oid: 1.3.6.1.4.1.6876.120.1.1.146
+      type: gauge
+      help: vmwNsxTDataCenterEdgeCryptoDrvName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.146
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeNICName
+      oid: 1.3.6.1.4.1.6876.120.1.1.60
+      type: gauge
+      help: vmwNsxTDataCenterEdgeNICName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.60
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeNodeAndvSphereSettingsMismatchReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.127
+      type: gauge
+      help: vmwNsxTDataCenterEdgeNodeAndvSphereSettingsMismatchReason (VMWARE-NSX-MIB)
+        - 1.3.6.1.4.1.6876.120.1.1.127
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeNodeSettingMismatchReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.123
+      type: gauge
+      help: vmwNsxTDataCenterEdgeNodeSettingMismatchReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.123
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeServiceName
+      oid: 1.3.6.1.4.1.6876.120.1.1.30
+      type: gauge
+      help: vmwNsxTDataCenterEdgeServiceName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.30
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeThreadName
+      oid: 1.3.6.1.4.1.6876.120.1.1.93
+      type: gauge
+      help: vmwNsxTDataCenterEdgeThreadName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.93
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgeVMvSphereSettingsMismatchReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.124
+      type: gauge
+      help: vmwNsxTDataCenterEdgeVMvSphereSettingsMismatchReason (VMWARE-NSX-MIB)
+        - 1.3.6.1.4.1.6876.120.1.1.124
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEdgevSphereLocationMismatchReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.126
+      type: gauge
+      help: vmwNsxTDataCenterEdgevSphereLocationMismatchReason (VMWARE-NSX-MIB) -
+        1.3.6.1.4.1.6876.120.1.1.126
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEntityId
+      oid: 1.3.6.1.4.1.6876.120.1.1.21
+      type: gauge
+      help: vmwNsxTDataCenterEntityId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.21
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEventId
+      oid: 1.3.6.1.4.1.6876.120.1.1.40
+      type: gauge
+      help: vmwNsxTDataCenterEventId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.40
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEventSeverity
+      oid: 1.3.6.1.4.1.6876.120.1.1.4
+      type: gauge
+      help: vmwNsxTDataCenterEventSeverity (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.4
+      enum_values:
+        1: alert
+        2: critical
+        7: debug
+        0: emergency
+        3: error
+        6: informational
+        5: notice
+        4: warning
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterEventType
+      oid: 1.3.6.1.4.1.6876.120.1.1.3
+      type: gauge
+      help: vmwNsxTDataCenterEventType (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.3
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFailureReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.31
+      type: gauge
+      help: vmwNsxTDataCenterFailureReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.31
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFeatureName
+      oid: 1.3.6.1.4.1.6876.120.1.1.2
+      type: gauge
+      help: vmwNsxTDataCenterFeatureName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.2
+      enum_values:
+        16: alarmManagement
+        24: auditLogHealth
+        22: capacity
+        3: certificates
+        40: clustering
+        10: cniHealth
+        35: communication
+        20: dhcp
+        31: distributedFirewall
+        33: distributedIdsIps
+        30: dns
+        45: edge
+        2: edgeHealth
+        13: endpointProtection
+        32: federation
+        39: gatewayFirewall
+        21: highAvailability
+        36: identityFirewall
+        7: infrastructureCommunication
+        19: infrastructureService
+        9: intelligenceCommunication
+        6: intelligenceHealth
+        38: ipam
+        5: licenses
+        17: loadBalancer
+        1: managerHealth
+        42: mtuCheck
+        46: nat
+        11: ncpHealth
+        12: nodeAgentsHealth
+        41: nsxApplicationPlatformCommunication
+        43: nsxApplicationPlatformHealth
+        4: passwordManagement
+        28: routing
+        18: transportNodeHealth
+        15: vpn
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFirewallHalfopenFlowUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.95
+      type: gauge
+      help: vmwNsxTDataCenterFirewallHalfopenFlowUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.95
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFirewallICMPFlowUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.96
+      type: gauge
+      help: vmwNsxTDataCenterFirewallICMPFlowUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.96
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFirewallIPFlowUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.99
+      type: gauge
+      help: vmwNsxTDataCenterFirewallIPFlowUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.99
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFirewallSNATPortsUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.125
+      type: gauge
+      help: vmwNsxTDataCenterFirewallSNATPortsUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.125
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterFirewallUDPFlowUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.98
+      type: gauge
+      help: vmwNsxTDataCenterFirewallUDPFlowUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.98
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterGroupType
+      oid: 1.3.6.1.4.1.6876.120.1.1.138
+      type: gauge
+      help: vmwNsxTDataCenterGroupType (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.138
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterHeapType
+      oid: 1.3.6.1.4.1.6876.120.1.1.49
+      type: gauge
+      help: vmwNsxTDataCenterHeapType (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.49
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterHostnameOrIPAddressWithPort
+      oid: 1.3.6.1.4.1.6876.120.1.1.39
+      type: gauge
+      help: vmwNsxTDataCenterHostnameOrIPAddressWithPort (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.39
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterIDSEventsCount
+      oid: 1.3.6.1.4.1.6876.120.1.1.64
+      type: gauge
+      help: vmwNsxTDataCenterIDSEventsCount (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.64
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterIntelligenceNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.38
+      type: gauge
+      help: vmwNsxTDataCenterIntelligenceNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.38
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterIntentPath
+      oid: 1.3.6.1.4.1.6876.120.1.1.94
+      type: gauge
+      help: vmwNsxTDataCenterIntentPath (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.94
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLDAPServer
+      oid: 1.3.6.1.4.1.6876.120.1.1.53
+      type: gauge
+      help: vmwNsxTDataCenterLDAPServer (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.53
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLatencySource
+      oid: 1.3.6.1.4.1.6876.120.1.1.86
+      type: gauge
+      help: vmwNsxTDataCenterLatencySource (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.86
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLatencyThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.87
+      type: gauge
+      help: vmwNsxTDataCenterLatencyThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.87
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLatencyValue
+      oid: 1.3.6.1.4.1.6876.120.1.1.88
+      type: gauge
+      help: vmwNsxTDataCenterLatencyValue (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.88
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLicenseEditionType
+      oid: 1.3.6.1.4.1.6876.120.1.1.24
+      type: gauge
+      help: vmwNsxTDataCenterLicenseEditionType (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.24
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLrId
+      oid: 1.3.6.1.4.1.6876.120.1.1.70
+      type: gauge
+      help: vmwNsxTDataCenterLrId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.70
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterLrportId
+      oid: 1.3.6.1.4.1.6876.120.1.1.75
+      type: gauge
+      help: vmwNsxTDataCenterLrportId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.75
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterManagerNodeIDS
+      oid: 1.3.6.1.4.1.6876.120.1.1.139
+      type: gauge
+      help: vmwNsxTDataCenterManagerNodeIDS (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.139
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterManagerNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.91
+      type: gauge
+      help: vmwNsxTDataCenterManagerNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.91
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterManagerNodeName
+      oid: 1.3.6.1.4.1.6876.120.1.1.44
+      type: gauge
+      help: vmwNsxTDataCenterManagerNodeName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.44
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterMaxCapacityThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.83
+      type: gauge
+      help: vmwNsxTDataCenterMaxCapacityThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.83
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterMaxIDSEventsAllowed
+      oid: 1.3.6.1.4.1.6876.120.1.1.55
+      type: gauge
+      help: vmwNsxTDataCenterMaxIDSEventsAllowed (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.55
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterMaxSupportedCapacityCount
+      oid: 1.3.6.1.4.1.6876.120.1.1.85
+      type: gauge
+      help: vmwNsxTDataCenterMaxSupportedCapacityCount (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.85
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterMempoolName
+      oid: 1.3.6.1.4.1.6876.120.1.1.50
+      type: gauge
+      help: vmwNsxTDataCenterMempoolName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.50
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterMinCapacityThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.84
+      type: gauge
+      help: vmwNsxTDataCenterMinCapacityThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.84
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNICThroughput
+      oid: 1.3.6.1.4.1.6876.120.1.1.144
+      type: gauge
+      help: vmwNsxTDataCenterNICThroughput (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.144
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNICThroughputThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.145
+      type: gauge
+      help: vmwNsxTDataCenterNICThroughputThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.145
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNappClusterId
+      oid: 1.3.6.1.4.1.6876.120.1.1.129
+      type: gauge
+      help: vmwNsxTDataCenterNappClusterId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.129
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNappMessagingLAGThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.130
+      type: gauge
+      help: vmwNsxTDataCenterNappMessagingLAGThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.130
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNappNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.131
+      type: gauge
+      help: vmwNsxTDataCenterNappNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.131
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNappNodeName
+      oid: 1.3.6.1.4.1.6876.120.1.1.147
+      type: gauge
+      help: vmwNsxTDataCenterNappNodeName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.147
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNappServiceName
+      oid: 1.3.6.1.4.1.6876.120.1.1.132
+      type: gauge
+      help: vmwNsxTDataCenterNappServiceName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.132
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.5
+      type: gauge
+      help: vmwNsxTDataCenterNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.5
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterNodeType
+      oid: 1.3.6.1.4.1.6876.120.1.1.6
+      type: EnumAsInfo
+      help: vmwNsxTDataCenterNodeType (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.6
+      enum_values:
+        6: autonomousedge
+        1: edge
+        2: esx
+        7: globalmanager
+        5: intelligence
+        3: kvm
+        0: manager
+        4: publiccloudgateway
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterPasswordExpirationDays
+      oid: 1.3.6.1.4.1.6876.120.1.1.51
+      type: gauge
+      help: vmwNsxTDataCenterPasswordExpirationDays (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.51
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterPeerAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.54
+      type: gauge
+      help: vmwNsxTDataCenterPeerAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.54
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterPreviousGatewayState
+      oid: 1.3.6.1.4.1.6876.120.1.1.32
+      type: gauge
+      help: vmwNsxTDataCenterPreviousGatewayState (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.32
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterPreviousServiceState
+      oid: 1.3.6.1.4.1.6876.120.1.1.33
+      type: gauge
+      help: vmwNsxTDataCenterPreviousServiceState (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.33
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterQueueName
+      oid: 1.3.6.1.4.1.6876.120.1.1.135
+      type: gauge
+      help: vmwNsxTDataCenterQueueName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.135
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterQueueSize
+      oid: 1.3.6.1.4.1.6876.120.1.1.136
+      type: gauge
+      help: vmwNsxTDataCenterQueueSize (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.136
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterQueueSizeThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.137
+      type: gauge
+      help: vmwNsxTDataCenterQueueSizeThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.137
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRemoteApplianceAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.90
+      type: gauge
+      help: vmwNsxTDataCenterRemoteApplianceAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.90
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRemoteManagerNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.80
+      type: gauge
+      help: vmwNsxTDataCenterRemoteManagerNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.80
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRemoteSiteId
+      oid: 1.3.6.1.4.1.6876.120.1.1.67
+      type: gauge
+      help: vmwNsxTDataCenterRemoteSiteId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.67
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRemoteSiteName
+      oid: 1.3.6.1.4.1.6876.120.1.1.65
+      type: gauge
+      help: vmwNsxTDataCenterRemoteSiteName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.65
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRxMisses
+      oid: 1.3.6.1.4.1.6876.120.1.1.71
+      type: gauge
+      help: vmwNsxTDataCenterRxMisses (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.71
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRxProcessed
+      oid: 1.3.6.1.4.1.6876.120.1.1.72
+      type: gauge
+      help: vmwNsxTDataCenterRxProcessed (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.72
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterRxRingBufferOverflowPercentage
+      oid: 1.3.6.1.4.1.6876.120.1.1.61
+      type: gauge
+      help: vmwNsxTDataCenterRxRingBufferOverflowPercentage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.61
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSNATIPAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.128
+      type: gauge
+      help: vmwNsxTDataCenterSNATIPAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.128
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterServiceDownReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.97
+      type: gauge
+      help: vmwNsxTDataCenterServiceDownReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.97
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterServiceIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.77
+      type: gauge
+      help: vmwNsxTDataCenterServiceIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.77
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterServiceName
+      oid: 1.3.6.1.4.1.6876.120.1.1.37
+      type: gauge
+      help: vmwNsxTDataCenterServiceName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.37
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterServiceRouterId
+      oid: 1.3.6.1.4.1.6876.120.1.1.140
+      type: gauge
+      help: vmwNsxTDataCenterServiceRouterId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.140
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSessionDownReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.43
+      type: gauge
+      help: vmwNsxTDataCenterSessionDownReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.43
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSiteId
+      oid: 1.3.6.1.4.1.6876.120.1.1.68
+      type: gauge
+      help: vmwNsxTDataCenterSiteId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.68
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSiteName
+      oid: 1.3.6.1.4.1.6876.120.1.1.69
+      type: gauge
+      help: vmwNsxTDataCenterSiteName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.69
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSrId
+      oid: 1.3.6.1.4.1.6876.120.1.1.63
+      type: gauge
+      help: vmwNsxTDataCenterSrId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.63
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterStaticAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.56
+      type: gauge
+      help: vmwNsxTDataCenterStaticAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.56
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSyncIssueReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.134
+      type: gauge
+      help: vmwNsxTDataCenterSyncIssueReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.134
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSystemResourceUsage
+      oid: 1.3.6.1.4.1.6876.120.1.1.22
+      type: gauge
+      help: vmwNsxTDataCenterSystemResourceUsage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.22
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterSystemUsageThreshold
+      oid: 1.3.6.1.4.1.6876.120.1.1.34
+      type: gauge
+      help: vmwNsxTDataCenterSystemUsageThreshold (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.34
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTimeoutInMinutes
+      oid: 1.3.6.1.4.1.6876.120.1.1.82
+      type: gauge
+      help: vmwNsxTDataCenterTimeoutInMinutes (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.82
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterToGMPath
+      oid: 1.3.6.1.4.1.6876.120.1.1.143
+      type: gauge
+      help: vmwNsxTDataCenterToGMPath (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.143
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTransportNodeAddress
+      oid: 1.3.6.1.4.1.6876.120.1.1.45
+      type: gauge
+      help: vmwNsxTDataCenterTransportNodeAddress (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.45
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTransportNodeId
+      oid: 1.3.6.1.4.1.6876.120.1.1.141
+      type: gauge
+      help: vmwNsxTDataCenterTransportNodeId (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.141
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTransportNodeName
+      oid: 1.3.6.1.4.1.6876.120.1.1.46
+      type: gauge
+      help: vmwNsxTDataCenterTransportNodeName (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.46
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTunnelDownReason
+      oid: 1.3.6.1.4.1.6876.120.1.1.48
+      type: gauge
+      help: vmwNsxTDataCenterTunnelDownReason (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.48
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTxMisses
+      oid: 1.3.6.1.4.1.6876.120.1.1.73
+      type: gauge
+      help: vmwNsxTDataCenterTxMisses (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.73
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTxProcessed
+      oid: 1.3.6.1.4.1.6876.120.1.1.74
+      type: gauge
+      help: vmwNsxTDataCenterTxProcessed (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.74
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterTxRingBufferOverflowPercentage
+      oid: 1.3.6.1.4.1.6876.120.1.1.62
+      type: gauge
+      help: vmwNsxTDataCenterTxRingBufferOverflowPercentage (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.62
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterUsername
+      oid: 1.3.6.1.4.1.6876.120.1.1.35
+      type: gauge
+      help: vmwNsxTDataCenterUsername (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.35
+      lookups: []

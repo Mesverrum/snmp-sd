@@ -1,0 +1,71 @@
+# Authored IP-MIB address inventory (not kentik ip-mib.yml stats).
+# ipAddrTable + ipAddressTable with ifIndex labels for dashboard joins.
+modules:
+  ip_addr:
+    walk:
+    - 1.3.6.1.2.1.4.20.1.2
+    - 1.3.6.1.2.1.4.20.1.3
+    - 1.3.6.1.2.1.4.34.1.3
+    - 1.3.6.1.2.1.4.34.1.4
+    - 1.3.6.1.2.1.4.34.1.6
+    - 1.3.6.1.2.1.4.34.1.7
+    - 1.3.6.1.2.1.31.1.1.1.1
+    metrics:
+    - name: snmp_ipAdEntIfIndex
+      oid: 1.3.6.1.2.1.4.20.1.2
+      type: gauge
+      help: "ipAdEntIfIndex (IP-MIB ipAddrTable) \u2014 IPv4 address \u2192 ifIndex.\
+        \ Join IF-MIB on (device_name, ifIndex)."
+      indexes:
+      - labelname: ipAdEntAddr
+        type: InetAddressIPv4
+      lookups:
+      - labels:
+        - ipAdEntAddr
+        labelname: ifIndex
+        oid: 1.3.6.1.2.1.4.20.1.2
+        type: gauge
+      - labels:
+        - ipAdEntAddr
+        labelname: ipAdEntNetMask
+        oid: 1.3.6.1.2.1.4.20.1.3
+        type: InetAddressIPv4
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipAddressIfIndex
+      oid: 1.3.6.1.2.1.4.34.1.3
+      type: gauge
+      help: "ipAddressIfIndex (IP-MIB ipAddressTable) \u2014 IPv4/IPv6 address \u2192\
+        \ ifIndex. Join IF-MIB on (device_name, ifIndex)."
+      indexes:
+      - labelname: ipAddressAddr
+        type: InetAddress
+      lookups:
+      - labels:
+        - ipAddressAddr
+        labelname: ifIndex
+        oid: 1.3.6.1.2.1.4.34.1.3
+        type: gauge
+      - labels:
+        - ipAddressAddr
+        labelname: ipAddressType
+        oid: 1.3.6.1.2.1.4.34.1.4
+        type: EnumAsInfo
+      - labels:
+        - ipAddressAddr
+        labelname: ipAddressOrigin
+        oid: 1.3.6.1.2.1.4.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - ipAddressAddr
+        labelname: ipAddressStatus
+        oid: 1.3.6.1.2.1.4.34.1.7
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

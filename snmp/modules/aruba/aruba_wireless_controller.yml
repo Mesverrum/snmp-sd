@@ -1,0 +1,718 @@
+# GENERATED from kentik/snmp-profiles — module aruba_wireless_controller
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  aruba_wireless_controller:
+    walk:
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.10
+    - 1.3.6.1.4.1.14823.2.2.1.1.3.3
+    - 1.3.6.1.4.1.14823.2.2.1.1.3.5
+    - 1.3.6.1.4.1.14823.2.2.1.20.1.5
+    - 1.3.6.1.4.1.14823.2.2.1.5.2.2.1
+    - 1.3.6.1.4.1.14823.2.2.1.5.3.2.1
+    - 1.3.6.1.4.1.14823.2.2.1.5.3.3.1
+    get:
+    - 1.3.6.1.4.1.14823.2.2.1.2.1.30.0
+    - 1.3.6.1.4.1.14823.2.2.1.2.1.31.0
+    - 1.3.6.1.4.1.14823.2.2.1.2.1.32.0
+    - 1.3.6.1.4.1.14823.2.2.1.4.1.4.1.0
+    - 1.3.6.1.4.1.14823.2.2.1.4.1.4.2.0
+    - 1.3.6.1.4.1.14823.2.2.1.4.1.4.3.0
+    - 1.3.6.1.4.1.14823.2.2.1.4.1.4.4.0
+    - 1.3.6.1.4.1.14823.2.2.1.4.1.4.5.0
+    - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.1.0
+    - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.2.0
+    - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.3.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.14823.2.2.1.2.1.27.0
+    - 1.3.6.1.4.1.14823.2.2.1.2.1.28.0
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.2.0
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.12.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: wlsxSysExtHwVersion
+        oid: 1.3.6.1.4.1.14823.2.2.1.2.1.27
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: firmware
+        oid: 1.3.6.1.4.1.14823.2.2.1.2.1.28
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: wlsxModelName
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.12
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.14823.2.2.1.2.1.30
+      type: gauge
+      help: wlsxSysExtCpuUsedPercent (WLSX-SYSTEMEXT-MIB) - 1.3.6.1.4.1.14823.2.2.1.2.1.30.0
+      lookups: []
+    - name: snmp_wlsxSysExtMemoryUsedPercent
+      oid: 1.3.6.1.4.1.14823.2.2.1.2.1.31
+      type: gauge
+      help: wlsxSysExtMemoryUsedPercent (WLSX-SYSTEMEXT-MIB) - 1.3.6.1.4.1.14823.2.2.1.2.1.31.0
+      lookups: []
+    - name: snmp_wlsxSysExtPacketLossPercent
+      oid: 1.3.6.1.4.1.14823.2.2.1.2.1.32
+      type: gauge
+      help: wlsxSysExtPacketLossPercent (WLSX-SYSTEMEXT-MIB) - 1.3.6.1.4.1.14823.2.2.1.2.1.32.0
+      lookups: []
+    - name: snmp_sysXStorageSize
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.3
+      type: gauge
+      help: sysXStorageSize (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.3
+      indexes:
+      - labelname: sysXStorageIndex
+        type: gauge
+      lookups:
+      - labels:
+        - sysXStorageIndex
+        labelname: sysXStorageType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.2
+        type: EnumAsInfo
+      - labels:
+        - sysXStorageIndex
+        labelname: sysXStorageName
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.5
+        type: DisplayString
+    - name: snmp_sysXStorageUsed
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.4
+      type: gauge
+      help: sysXStorageUsed (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.4
+      indexes:
+      - labelname: sysXStorageIndex
+        type: gauge
+      lookups:
+      - labels:
+        - sysXStorageIndex
+        labelname: sysXStorageType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.2
+        type: EnumAsInfo
+      - labels:
+        - sysXStorageIndex
+        labelname: sysXStorageName
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.5
+        type: DisplayString
+    - name: snmp_apChannelNoise
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.13
+      type: gauge
+      help: apChannelNoise (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.13
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: apPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.6
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: apType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.7
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: apCurrentChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: apLoadBalancing
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.12
+        type: EnumAsInfo
+    - name: snmp_apSignalToNoiseRatio
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.14
+      type: gauge
+      help: apSignalToNoiseRatio (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.14
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: apPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.6
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: apType
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.7
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: apCurrentChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: apLoadBalancing
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.3.1.12
+        type: EnumAsInfo
+    - name: snmp_apChannelBwRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.2
+      type: gauge
+      help: apChannelBwRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apChannelFrameRetryRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.3
+      type: gauge
+      help: apChannelFrameRetryRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apChannelFrameLowSpeedRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.4
+      type: gauge
+      help: apChannelFrameLowSpeedRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apChannelFrameNonUnicastRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.5
+      type: gauge
+      help: apChannelFrameNonUnicastRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apChannelFrameFragmentationRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.6
+      type: gauge
+      help: apChannelFrameFragmentationRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apChannelFrameReceiveErrorRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.7
+      type: gauge
+      help: apChannelFrameReceiveErrorRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSTxPackets
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.8
+      type: counter
+      help: apBSSTxPackets (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSTxBytes
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.9
+      type: counter
+      help: apBSSTxBytes (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSRxPackets
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.10
+      type: counter
+      help: apBSSRxPackets (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSRxBytes
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.11
+      type: counter
+      help: apBSSRxBytes (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSBwRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.12
+      type: gauge
+      help: apBSSBwRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.12
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSFrameRetryRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.13
+      type: gauge
+      help: apBSSFrameRetryRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.13
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSFrameLowSpeedRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.14
+      type: gauge
+      help: apBSSFrameLowSpeedRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.14
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSFrameNonUnicastRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.15
+      type: gauge
+      help: apBSSFrameNonUnicastRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.15
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSFrameFragmentationRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.16
+      type: gauge
+      help: apBSSFrameFragmentationRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.16
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_apBSSFrameReceiveErrorRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.17
+      type: gauge
+      help: apBSSFrameReceiveErrorRate (WLSX-SWITCH-MIB) - 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.17
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: apStatsChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.1.3.5.1.1
+        type: DisplayString
+    - name: snmp_wlsxNumOfUsers8021x
+      oid: 1.3.6.1.4.1.14823.2.2.1.4.1.4.1
+      type: gauge
+      help: wlsxNumOfUsers8021x (WLSX-USER-MIB) - 1.3.6.1.4.1.14823.2.2.1.4.1.4.1.0
+      lookups: []
+    - name: snmp_wlsxNumOfUsersVPN
+      oid: 1.3.6.1.4.1.14823.2.2.1.4.1.4.2
+      type: gauge
+      help: wlsxNumOfUsersVPN (WLSX-USER-MIB) - 1.3.6.1.4.1.14823.2.2.1.4.1.4.2.0
+      lookups: []
+    - name: snmp_wlsxNumOfUsersCP
+      oid: 1.3.6.1.4.1.14823.2.2.1.4.1.4.3
+      type: gauge
+      help: wlsxNumOfUsersCP (WLSX-USER-MIB) - 1.3.6.1.4.1.14823.2.2.1.4.1.4.3.0
+      lookups: []
+    - name: snmp_wlsxNumOfUsersMAC
+      oid: 1.3.6.1.4.1.14823.2.2.1.4.1.4.4
+      type: gauge
+      help: wlsxNumOfUsersMAC (WLSX-USER-MIB) - 1.3.6.1.4.1.14823.2.2.1.4.1.4.4.0
+      lookups: []
+    - name: snmp_wlsxNumOfUsersStateful8021x
+      oid: 1.3.6.1.4.1.14823.2.2.1.4.1.4.5
+      type: gauge
+      help: wlsxNumOfUsersStateful8021x (WLSX-USER-MIB) - 1.3.6.1.4.1.14823.2.2.1.4.1.4.5.0
+      lookups: []
+    - name: snmp_haActiveAPs
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.1
+      type: gauge
+      help: haActiveAPs (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.1.0
+      lookups: []
+    - name: snmp_haStandbyAPs
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.2
+      type: gauge
+      help: haStandbyAPs (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.2.0
+      lookups: []
+    - name: snmp_haTotalAPs
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.3
+      type: gauge
+      help: haTotalAPs (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.2.1.3.0
+      lookups: []
+    - name: snmp_haActiveVapTunnels
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.1
+      type: gauge
+      help: haActiveVapTunnels (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_haStandbyVapTunnels
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.2
+      type: gauge
+      help: haStandbyVapTunnels (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_haTotalVapTunnels
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.3
+      type: gauge
+      help: haTotalVapTunnels (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_haAPHbtTunnels
+      oid: 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.4
+      type: gauge
+      help: haAPHbtTunnels (WLSX-HA-MIB) - 1.3.6.1.4.1.14823.2.2.1.20.1.5.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_wlanStaTransmitRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.10
+      type: gauge
+      help: wlanStaTransmitRate (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.3
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaAccessPointESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaVlanId
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaIsAuthenticated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaIsAssociated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaHTMode
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.16
+        type: EnumAsInfo
+    - name: snmp_wlanStaRSSI
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.14
+      type: gauge
+      help: wlanStaRSSI (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.14
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.3
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaAccessPointESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaVlanId
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaIsAuthenticated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaIsAssociated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaHTMode
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.16
+        type: EnumAsInfo
+    - name: snmp_wlanStaUpTime
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.15
+      type: gauge
+      help: wlanStaUpTime (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.15
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.3
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaAccessPointESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaVlanId
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaIsAuthenticated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaIsAssociated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaHTMode
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.16
+        type: EnumAsInfo
+    - name: snmp_wlanStaTransmitRateCode
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.17
+      type: gauge
+      help: wlanStaTransmitRateCode (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.17
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaPhyType
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.3
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaAccessPointESSID
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaChannel
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaVlanId
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: wlanStaIsAuthenticated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaIsAssociated
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: wlanStaHTMode
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.2.2.1.1.16
+        type: EnumAsInfo
+    - name: snmp_wlanStaTxBytes64
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.25
+      type: counter
+      help: wlanStaTxBytes64 (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.25
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaChannelNum
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.1
+        type: DisplayString
+    - name: snmp_wlanStaRxBytes64
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.26
+      type: counter
+      help: wlanStaRxBytes64 (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.26
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: wlanStaChannelNum
+        oid: 1.3.6.1.4.1.14823.2.2.1.5.3.2.1.1.1
+        type: DisplayString
+    - name: snmp_wlanESSIDRxRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.8
+      type: gauge
+      help: wlanESSIDRxRate (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_wlanESSIDTxRate
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.9
+      type: gauge
+      help: wlanESSIDTxRate (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_wlanESSIDWiredRxBytes
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.11
+      type: counter
+      help: wlanESSIDWiredRxBytes (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_wlanESSIDWiredTxBytes
+      oid: 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.12
+      type: counter
+      help: wlanESSIDWiredTxBytes (WLSX-WLAN-MIB) - 1.3.6.1.4.1.14823.2.2.1.5.3.3.1.1.12
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []

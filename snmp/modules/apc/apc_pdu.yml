@@ -1,0 +1,353 @@
+# GENERATED from kentik/snmp-profiles — module apc_pdu
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  apc_pdu:
+    walk:
+    - 1.3.6.1.4.1.318.1.1.12.2.3.1
+    - 1.3.6.1.4.1.318.1.1.12.3.5.1
+    - 1.3.6.1.4.1.318.1.1.12.5.2
+    - 1.3.6.1.4.1.318.1.1.12.5.4
+    - 1.3.6.1.4.1.318.1.1.12.5.6
+    - 1.3.6.1.4.1.318.1.1.26.10.2.2
+    get:
+    - 1.3.6.1.4.1.318.1.1.12.4.1.1.0
+    - 1.3.6.1.4.1.318.1.1.12.4.1.2.0
+    - 1.3.6.1.4.1.318.1.1.12.4.1.3.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.318.1.1.12.1.1.0
+    - 1.3.6.1.4.1.318.1.1.12.1.2.0
+    - 1.3.6.1.4.1.318.1.1.12.1.3.0
+    - 1.3.6.1.4.1.318.1.1.12.1.5.0
+    - 1.3.6.1.4.1.318.1.1.12.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: pdu_name
+        oid: 1.3.6.1.4.1.318.1.1.12.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: hardware_revision
+        oid: 1.3.6.1.4.1.318.1.1.12.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: firmware_revision
+        oid: 1.3.6.1.4.1.318.1.1.12.1.3
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: model
+        oid: 1.3.6.1.4.1.318.1.1.12.1.5
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.318.1.1.12.1.6
+        type: DisplayString
+    - name: snmp_rPDULoadStatusLoad
+      oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.2
+      type: gauge
+      help: rPDULoadStatusLoad (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.2.3.1.1.2
+      indexes:
+      - labelname: rPDULoadStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDULoadStatusIndex
+        labelname: load_index
+        oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.1
+        type: gauge
+    - name: snmp_rPDULoadStatusLoadState
+      oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.3
+      type: gauge
+      help: rPDULoadStatusLoadState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.2.3.1.1.3
+      indexes:
+      - labelname: rPDULoadStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDULoadStatusIndex
+        labelname: load_index
+        oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.1
+        type: gauge
+      enum_values:
+        1: phaseLoadNormal
+        2: phaseLoadLow
+        3: phaseLoadNearOverload
+        4: phaseLoadOverload
+    - name: snmp_rPDUOutletStatusOutletState
+      oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.4
+      type: gauge
+      help: rPDUOutletStatusOutletState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.3.5.1.1.4
+      indexes:
+      - labelname: rPDUOutletStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_index
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.1
+        type: gauge
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_name
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.2
+        type: DisplayString
+      enum_values:
+        1: outletStatusOn
+        0: outletStatusOff
+    - name: snmp_rPDUOutletStatusLoad
+      oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.7
+      type: gauge
+      help: rPDUOutletStatusLoad (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.3.5.1.1.7
+      indexes:
+      - labelname: rPDUOutletStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_index
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.1
+        type: gauge
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_name
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.2
+        type: DisplayString
+    - name: snmp_rPDUPowerSupply1Status
+      oid: 1.3.6.1.4.1.318.1.1.12.4.1.1
+      type: gauge
+      help: rPDUPowerSupply1Status (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.4.1.1.0
+      enum_values:
+        1: powerSupplyOneOk
+        2: powerSupplyOneFailed
+      lookups: []
+    - name: snmp_rPDUPowerSupply2Status
+      oid: 1.3.6.1.4.1.318.1.1.12.4.1.2
+      type: gauge
+      help: rPDUPowerSupply2Status (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.4.1.2.0
+      enum_values:
+        1: powerSupplyTwoOk
+        2: powerSupplyTwoFailed
+        3: powerSupplyTwoNotPresent
+      lookups: []
+    - name: snmp_rPDUPowerSupplyAlarm
+      oid: 1.3.6.1.4.1.318.1.1.12.4.1.3
+      type: gauge
+      help: rPDUPowerSupplyAlarm (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.4.1.3.0
+      lookups: []
+    - name: snmp_rPDUStatusBankState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.3
+      type: gauge
+      help: rPDUStatusBankState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.2.1.3
+      indexes:
+      - labelname: rPDUStatusBankIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusBankIndex
+        labelname: bank_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusBankIndex
+        labelname: bank_number
+        oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.2
+        type: DisplayString
+      enum_values:
+        1: bankLoadNormal
+        2: bankLoadLow
+        3: bankLoadNearOverload
+        4: bankLoadOverload
+    - name: snmp_rPDUStatusPhaseState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.3
+      type: gauge
+      help: rPDUStatusPhaseState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.4.1.3
+      indexes:
+      - labelname: rPDUStatusPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusPhaseIndex
+        labelname: phase_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusPhaseIndex
+        labelname: phase_number
+        oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.2
+        type: DisplayString
+      enum_values:
+        1: phaseLoadNormal
+        2: phaseLoadLow
+        3: phaseLoadNearOverload
+        4: phaseLoadOverload
+    - name: snmp_rPDUStatusOutletState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.3
+      type: gauge
+      help: rPDUStatusOutletState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.6.1.3
+      indexes:
+      - labelname: rPDUStatusOutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusOutletIndex
+        labelname: outlet_status_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusOutletIndex
+        labelname: outlet_status_name
+        oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.2
+        type: DisplayString
+      enum_values:
+        1: outletLoadNormal
+        2: outletLoadLow
+        3: outletLoadNearOverload
+        4: outletLoadOverload
+    - name: snmp_rPDU2SensorTempHumidityStatusTempF
+      oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.7
+      type: gauge
+      help: rPDU2SensorTempHumidityStatusTempF (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.26.10.2.2.1.7
+      indexes:
+      - labelname: rPDU2SensorTempHumidityStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_name
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.3
+        type: DisplayString
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_type
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.5
+        type: EnumAsInfo
+    - name: snmp_rPDU2SensorTempHumidityStatusTempC
+      oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.8
+      type: gauge
+      help: rPDU2SensorTempHumidityStatusTempC (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.26.10.2.2.1.8
+      indexes:
+      - labelname: rPDU2SensorTempHumidityStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_name
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.3
+        type: DisplayString
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_type
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.5
+        type: EnumAsInfo
+    - name: snmp_rPDU2SensorTempHumidityStatusTempStatus
+      oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.9
+      type: gauge
+      help: rPDU2SensorTempHumidityStatusTempStatus (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.26.10.2.2.1.9
+      indexes:
+      - labelname: rPDU2SensorTempHumidityStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_name
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.3
+        type: DisplayString
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_type
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.5
+        type: EnumAsInfo
+      enum_values:
+        1: notPresent
+        2: belowMin
+        3: belowLow
+        4: normal
+        5: aboveHigh
+        6: aboveMax
+    - name: snmp_rPDU2SensorTempHumidityStatusRelativeHumidity
+      oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.10
+      type: gauge
+      help: rPDU2SensorTempHumidityStatusRelativeHumidity (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.26.10.2.2.1.10
+      indexes:
+      - labelname: rPDU2SensorTempHumidityStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_name
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.3
+        type: DisplayString
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_type
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.5
+        type: EnumAsInfo
+    - name: snmp_rPDU2SensorTempHumidityStatusHumidityStatus
+      oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.11
+      type: gauge
+      help: rPDU2SensorTempHumidityStatusHumidityStatus (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.26.10.2.2.1.11
+      indexes:
+      - labelname: rPDU2SensorTempHumidityStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_name
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.3
+        type: DisplayString
+      - labels:
+        - rPDU2SensorTempHumidityStatusIndex
+        labelname: humidity_sensor_type
+        oid: 1.3.6.1.4.1.318.1.1.26.10.2.2.1.5
+        type: EnumAsInfo
+      enum_values:
+        1: notPresent
+        2: belowMin
+        3: belowLow
+        4: normal
+        5: aboveHigh
+        6: aboveMax

@@ -1,0 +1,350 @@
+# GENERATED from kentik/snmp-profiles — module ucd_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ucd_mib:
+    walk:
+    - 1.3.6.1.4.1.2021.9
+    - 1.3.6.1.4.1.2021.13.15.1
+    get:
+    - 1.3.6.1.4.1.2021.10.1.5.1
+    - 1.3.6.1.4.1.2021.4.5.0
+    - 1.3.6.1.4.1.2021.4.6.0
+    - 1.3.6.1.4.1.2021.4.3.0
+    - 1.3.6.1.4.1.2021.4.4.0
+    - 1.3.6.1.4.1.2021.4.11.0
+    - 1.3.6.1.4.1.2021.4.12.0
+    - 1.3.6.1.4.1.2021.4.13.0
+    - 1.3.6.1.4.1.2021.4.14.0
+    - 1.3.6.1.4.1.2021.4.15.0
+    - 1.3.6.1.4.1.2021.11.9.0
+    - 1.3.6.1.4.1.2021.11.10.0
+    - 1.3.6.1.4.1.2021.11.11.0
+    - 1.3.6.1.4.1.2021.11.50.0
+    - 1.3.6.1.4.1.2021.11.51.0
+    - 1.3.6.1.4.1.2021.11.52.0
+    - 1.3.6.1.4.1.2021.11.53.0
+    - 1.3.6.1.4.1.2021.11.54.0
+    - 1.3.6.1.4.1.2021.11.55.0
+    - 1.3.6.1.4.1.2021.11.56.0
+    metrics:
+    - name: snmp_CPULoad
+      oid: 1.3.6.1.4.1.2021.10.1.5.1
+      type: gauge
+      help: laLoadInt1Min (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.10.1.5.1 [Unix load average,
+        not utilization %]
+      lookups: []
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.4.1.2021.4.5
+      type: gauge
+      help: memTotalReal (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.5.0
+      lookups: []
+    - name: snmp_MemoryFree
+      oid: 1.3.6.1.4.1.2021.4.6
+      type: gauge
+      help: memAvailReal (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.6.0
+      lookups: []
+    - name: snmp_memTotalSwap
+      oid: 1.3.6.1.4.1.2021.4.3
+      type: gauge
+      help: memTotalSwap (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.3.0
+      lookups: []
+    - name: snmp_memAvailSwap
+      oid: 1.3.6.1.4.1.2021.4.4
+      type: gauge
+      help: memAvailSwap (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.4.0
+      lookups: []
+    - name: snmp_memTotalFree
+      oid: 1.3.6.1.4.1.2021.4.11
+      type: gauge
+      help: memTotalFree (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.11.0
+      lookups: []
+    - name: snmp_memMinimumSwap
+      oid: 1.3.6.1.4.1.2021.4.12
+      type: gauge
+      help: memMinimumSwap (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.12.0
+      lookups: []
+    - name: snmp_memShared
+      oid: 1.3.6.1.4.1.2021.4.13
+      type: gauge
+      help: memShared (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.13.0
+      lookups: []
+    - name: snmp_memBuffer
+      oid: 1.3.6.1.4.1.2021.4.14
+      type: gauge
+      help: memBuffer (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.14.0
+      lookups: []
+    - name: snmp_memCached
+      oid: 1.3.6.1.4.1.2021.4.15
+      type: gauge
+      help: memCached (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.15.0
+      lookups: []
+    - name: snmp_dskTotal
+      oid: 1.3.6.1.4.1.2021.9.1.6
+      type: gauge
+      help: dskTotal (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.6
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskAvail
+      oid: 1.3.6.1.4.1.2021.9.1.7
+      type: gauge
+      help: dskAvail (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.7
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskUsed
+      oid: 1.3.6.1.4.1.2021.9.1.8
+      type: gauge
+      help: dskUsed (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.8
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskPercent
+      oid: 1.3.6.1.4.1.2021.9.1.9
+      type: gauge
+      help: dskPercent (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.9
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskPercentNode
+      oid: 1.3.6.1.4.1.2021.9.1.10
+      type: gauge
+      help: dskPercentNode (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.10
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskErrorFlag
+      oid: 1.3.6.1.4.1.2021.9.1.100
+      type: gauge
+      help: dskErrorFlag (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.100
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+      enum_values:
+        0: noError
+        1: error
+    - name: snmp_dskErrorMsg
+      oid: 1.3.6.1.4.1.2021.9.1.101
+      type: gauge
+      help: dskErrorMsg (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.101
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_diskIOReads
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.5
+      type: counter
+      help: diskIOReads (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.5
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOWrites
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.6
+      type: counter
+      help: diskIOWrites (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.6
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA1
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.9
+      type: gauge
+      help: diskIOLA1 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.9
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA5
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.10
+      type: gauge
+      help: diskIOLA5 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.10
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA15
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.11
+      type: gauge
+      help: diskIOLA15 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.11
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIONReadX
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.12
+      type: counter
+      help: diskIONReadX (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.12
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIONWrittenX
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.13
+      type: counter
+      help: diskIONWrittenX (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.13
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_ssCpuUser
+      oid: 1.3.6.1.4.1.2021.11.9
+      type: gauge
+      help: ssCpuUser (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.9.0
+      lookups: []
+    - name: snmp_ssCpuSystem
+      oid: 1.3.6.1.4.1.2021.11.10
+      type: gauge
+      help: ssCpuSystem (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.10.0
+      lookups: []
+    - name: snmp_ssCpuIdle
+      oid: 1.3.6.1.4.1.2021.11.11
+      type: gauge
+      help: ssCpuIdle (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.11.0
+      lookups: []
+    - name: snmp_ssCpuRawUser
+      oid: 1.3.6.1.4.1.2021.11.50
+      type: counter
+      help: ssCpuRawUser (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.50.0
+      lookups: []
+    - name: snmp_ssCpuRawNice
+      oid: 1.3.6.1.4.1.2021.11.51
+      type: counter
+      help: ssCpuRawNice (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.51.0
+      lookups: []
+    - name: snmp_ssCpuRawSystem
+      oid: 1.3.6.1.4.1.2021.11.52
+      type: counter
+      help: ssCpuRawSystem (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.52.0
+      lookups: []
+    - name: snmp_ssCpuRawIdle
+      oid: 1.3.6.1.4.1.2021.11.53
+      type: counter
+      help: ssCpuRawIdle (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.53.0
+      lookups: []
+    - name: snmp_ssCpuRawWait
+      oid: 1.3.6.1.4.1.2021.11.54
+      type: counter
+      help: ssCpuRawWait (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.54.0
+      lookups: []
+    - name: snmp_ssCpuRawKernel
+      oid: 1.3.6.1.4.1.2021.11.55
+      type: counter
+      help: ssCpuRawKernel (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.55.0
+      lookups: []
+    - name: snmp_ssCpuRawInterrupt
+      oid: 1.3.6.1.4.1.2021.11.56
+      type: counter
+      help: ssCpuRawInterrupt (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.11.56.0
+      lookups: []

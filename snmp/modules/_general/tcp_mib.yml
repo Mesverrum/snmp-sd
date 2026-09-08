@@ -1,0 +1,66 @@
+# GENERATED from kentik/snmp-profiles — module tcp_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  tcp_mib:
+    get:
+    - 1.3.6.1.2.1.6.5.0
+    - 1.3.6.1.2.1.6.6.0
+    - 1.3.6.1.2.1.6.7.0
+    - 1.3.6.1.2.1.6.8.0
+    - 1.3.6.1.2.1.6.9.0
+    - 1.3.6.1.2.1.6.17.0
+    - 1.3.6.1.2.1.6.18.0
+    - 1.3.6.1.2.1.6.12.0
+    - 1.3.6.1.2.1.6.14.0
+    - 1.3.6.1.2.1.6.15.0
+    metrics:
+    - name: snmp_tcpActiveOpens
+      oid: 1.3.6.1.2.1.6.5
+      type: counter
+      help: tcpActiveOpens (TCP-MIB) - 1.3.6.1.2.1.6.5.0
+      lookups: []
+    - name: snmp_tcpPassiveOpens
+      oid: 1.3.6.1.2.1.6.6
+      type: counter
+      help: tcpPassiveOpens (TCP-MIB) - 1.3.6.1.2.1.6.6.0
+      lookups: []
+    - name: snmp_tcpAttemptFails
+      oid: 1.3.6.1.2.1.6.7
+      type: counter
+      help: tcpAttemptFails (TCP-MIB) - 1.3.6.1.2.1.6.7.0
+      lookups: []
+    - name: snmp_tcpEstabResets
+      oid: 1.3.6.1.2.1.6.8
+      type: counter
+      help: tcpEstabResets (TCP-MIB) - 1.3.6.1.2.1.6.8.0
+      lookups: []
+    - name: snmp_tcpCurrEstab
+      oid: 1.3.6.1.2.1.6.9
+      type: gauge
+      help: tcpCurrEstab (TCP-MIB) - 1.3.6.1.2.1.6.9.0
+      lookups: []
+    - name: snmp_tcpHCInSegs
+      oid: 1.3.6.1.2.1.6.17
+      type: counter
+      help: tcpHCInSegs (TCP-MIB) - 1.3.6.1.2.1.6.17.0
+      lookups: []
+    - name: snmp_tcpHCOutSegs
+      oid: 1.3.6.1.2.1.6.18
+      type: counter
+      help: tcpHCOutSegs (TCP-MIB) - 1.3.6.1.2.1.6.18.0
+      lookups: []
+    - name: snmp_tcpRetransSegs
+      oid: 1.3.6.1.2.1.6.12
+      type: counter
+      help: tcpRetransSegs (TCP-MIB) - 1.3.6.1.2.1.6.12.0
+      lookups: []
+    - name: snmp_tcpInErrs
+      oid: 1.3.6.1.2.1.6.14
+      type: counter
+      help: tcpInErrs (TCP-MIB) - 1.3.6.1.2.1.6.14.0
+      lookups: []
+    - name: snmp_tcpOutRsts
+      oid: 1.3.6.1.2.1.6.15
+      type: counter
+      help: tcpOutRsts (TCP-MIB) - 1.3.6.1.2.1.6.15.0
+      lookups: []

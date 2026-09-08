@@ -1,0 +1,121 @@
+# GENERATED from kentik/snmp-profiles — module fortinet_fortiap
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  fortinet_fortiap:
+    get:
+    - 1.3.6.1.4.1.12356.120.2.1
+    - 1.3.6.1.4.1.12356.120.2.2
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.12356.120.1.1
+    - 1.3.6.1.4.1.12356.120.1.2
+    - 1.3.6.1.4.1.12356.120.1.3
+    - 1.3.6.1.4.1.12356.120.1.6
+    - 1.3.6.1.4.1.12356.120.1.7
+    - 1.3.6.1.4.1.12356.120.1.8
+    - 1.3.6.1.4.1.12356.120.2.14
+    - 1.3.6.1.4.1.12356.120.2.15
+    - 1.3.6.1.4.1.12356.120.2.16
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapVersion
+        oid: 1.3.6.1.4.1.12356.120.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.12356.120.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapHostName
+        oid: 1.3.6.1.4.1.12356.120.1.3
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapBiosVer
+        oid: 1.3.6.1.4.1.12356.120.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapBiosDataVer
+        oid: 1.3.6.1.4.1.12356.120.1.7
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapSysPartNum
+        oid: 1.3.6.1.4.1.12356.120.1.8
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapWtpApAcHostname1
+        oid: 1.3.6.1.4.1.12356.120.2.14
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapWtpApAcHostname2
+        oid: 1.3.6.1.4.1.12356.120.2.15
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: fapWtpApAcHostname3
+        oid: 1.3.6.1.4.1.12356.120.2.16
+        type: DisplayString
+    - name: snmp_fapWtpWanMode
+      oid: 1.3.6.1.4.1.12356.120.2.1
+      type: gauge
+      help: fapWtpWanMode (FORTINET-FORTIAP-MIB) - 1.3.6.1.4.1.12356.120.2.1
+      enum_values:
+        0: wanOnly
+        1: wanLan
+        2: aggregate
+      lookups: []
+    - name: snmp_fapWtpApAddrMode
+      oid: 1.3.6.1.4.1.12356.120.2.2
+      type: gauge
+      help: fapWtpApAddrMode (FORTINET-FORTIAP-MIB) - 1.3.6.1.4.1.12356.120.2.2
+      enum_values:
+        0: dhcp
+        1: static
+      lookups: []

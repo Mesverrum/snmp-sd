@@ -1,0 +1,511 @@
+# GENERATED from kentik/snmp-profiles — module infinera
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  infinera:
+    walk:
+    - 1.3.6.1.4.1.42229.1.2.3.1.1
+    - 1.3.6.1.4.1.42229.1.2.3.3.1
+    - 1.3.6.1.4.1.42229.1.2.3.6.1
+    - 1.3.6.1.4.1.42229.1.2.4.1.19.1
+    get:
+    - 1.3.6.1.4.1.42229.1.2.2.2.2.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_systemPowerConsumptionCurrent
+      oid: 1.3.6.1.4.1.42229.1.2.2.2.2
+      type: gauge
+      help: systemPowerConsumptionCurrent (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.2.2.2.0
+      lookups: []
+    - name: snmp_shelfInletTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.3
+      type: gauge
+      help: shelfInletTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.3
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+    - name: snmp_shelfOutletTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+      type: gauge
+      help: shelfOutletTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+    - name: snmp_shelfAdminStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.5
+      type: gauge
+      help: shelfAdminStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_shelfOperStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.6
+      type: gauge
+      help: shelfOperStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.6
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_shelfAvailStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.7
+      type: gauge
+      help: shelfAvailStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.7
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        0: none
+        1: failed
+        2: mismatch
+        3: lowerLayerDown
+        4: notPresent
+        5: shutdown
+        6: degraded
+        7: idle
+        8: busy
+        9: hibernation
+        10: inTest
+        11: loopback
+        12: softwareUpgrade
+        13: initializing
+        14: unknown
+        15: incomplete
+        16: laserSafetyShutoff
+        17: measuring
+        18: firmwareLoading
+        19: connected
+    - name: snmp_cardAdminStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.3
+      type: gauge
+      help: cardAdminStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.3
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_cardOperStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.4
+      type: gauge
+      help: cardOperStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_cardAvailStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.5
+      type: gauge
+      help: cardAvailStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        0: none
+        1: failed
+        2: mismatch
+        3: lowerLayerDown
+        4: notPresent
+        5: shutdown
+        6: degraded
+        7: idle
+        8: busy
+        9: hibernation
+        10: inTest
+        11: loopback
+        12: softwareUpgrade
+        13: initializing
+        14: unknown
+        15: incomplete
+        16: laserSafetyShutoff
+        17: measuring
+        18: firmwareLoading
+        19: connected
+    - name: snmp_cardFanSpeedRate
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.7
+      type: gauge
+      help: cardFanSpeedRate (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.7
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+    - name: snmp_cardTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.9
+      type: gauge
+      help: cardTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.9
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+    - name: snmp_cardMode
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.10
+      type: gauge
+      help: cardMode (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.10
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: normal
+        2: regen
+    - name: snmp_portRxOpticalPower
+      oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.4
+      type: gauge
+      help: portRxOpticalPower (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.6.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.16
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.22
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.23
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portConnectedTo
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.24
+        type: DisplayString
+    - name: snmp_portTxOpticalPower
+      oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.5
+      type: gauge
+      help: portTxOpticalPower (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.6.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.16
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.22
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.23
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portConnectedTo
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.24
+        type: DisplayString
+    - name: snmp_ochOsCD
+      oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.23
+      type: gauge
+      help: ochOsCD (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.23
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: ochOsServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.21
+        type: DisplayString
+    - name: snmp_ochOsOSNR
+      oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.24
+      type: gauge
+      help: ochOsOSNR (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.24
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: ochOsServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.21
+        type: DisplayString

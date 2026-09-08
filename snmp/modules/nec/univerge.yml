@@ -1,0 +1,300 @@
+# GENERATED from kentik/snmp-profiles — module univerge
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  univerge:
+    get:
+    - 1.3.6.1.4.1.119.2.3.84.2.1.1.0
+    - 1.3.6.1.4.1.119.2.3.84.2.1.2.0
+    - 1.3.6.1.4.1.119.2.3.84.2.2.0
+    - 1.3.6.1.4.1.119.2.3.84.2.5.3.0
+    - 1.3.6.1.4.1.119.2.3.84.2.6.2.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.1.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.6.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.7.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.8.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.9.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.10.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.14.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.15.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.16.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.17.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.18.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.19.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.20.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.21.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.23.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.24.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.25.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.27.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.30.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.31.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.1.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.3.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.9.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.10.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.11.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.12.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.13.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.14.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.15.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.16.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.22.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.23.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.24.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.25.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.26.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.27.0
+    - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.33.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_picoCelsius
+      oid: 1.3.6.1.4.1.119.2.3.84.2.1.1
+      type: gauge
+      help: picoCelsius (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.2.1.1.0
+      lookups: []
+    - name: snmp_picoFahrenheit
+      oid: 1.3.6.1.4.1.119.2.3.84.2.1.2
+      type: gauge
+      help: picoFahrenheit (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.2.1.2.0
+      lookups: []
+    - name: snmp_picoVoltage
+      oid: 1.3.6.1.4.1.119.2.3.84.2.2
+      type: gauge
+      help: picoVoltage (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.2.2.0
+      lookups: []
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.119.2.3.84.2.5.3
+      type: gauge
+      help: picoSchedRtUtl1Sec (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.2.5.3.0
+      lookups: []
+    - name: snmp_picoHeapUtil
+      oid: 1.3.6.1.4.1.119.2.3.84.2.6.2
+      type: gauge
+      help: picoHeapUtil (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.2.6.2.0
+      lookups: []
+    - name: snmp_pikeGlobalActiveTunnels
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.1
+      type: gauge
+      help: pikeGlobalActiveTunnels (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.1.0
+      lookups: []
+    - name: snmp_pikeGlobalInNotifys
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.6
+      type: counter
+      help: pikeGlobalInNotifys (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.6.0
+      lookups: []
+    - name: snmp_pikeGlobalInP2Exchgs
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.7
+      type: counter
+      help: pikeGlobalInP2Exchgs (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.7.0
+      lookups: []
+    - name: snmp_pikeGlobalInP2ExchgInvalids
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.8
+      type: counter
+      help: pikeGlobalInP2ExchgInvalids (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.8.0
+      lookups: []
+    - name: snmp_pikeGlobalInP2ExchgRejects
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.9
+      type: counter
+      help: pikeGlobalInP2ExchgRejects (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.9.0
+      lookups: []
+    - name: snmp_pikeGlobalInP2SaDelRequests
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.10
+      type: counter
+      help: pikeGlobalInP2SaDelRequests (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.10.0
+      lookups: []
+    - name: snmp_pikeGlobalOutNotifys
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.14
+      type: counter
+      help: pikeGlobalOutNotifys (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.14.0
+      lookups: []
+    - name: snmp_pikeGlobalOutP2Exchgs
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.15
+      type: counter
+      help: pikeGlobalOutP2Exchgs (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.15.0
+      lookups: []
+    - name: snmp_pikeGlobalOutP2ExchgInvalids
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.16
+      type: counter
+      help: pikeGlobalOutP2ExchgInvalids (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.16.0
+      lookups: []
+    - name: snmp_pikeGlobalOutP2ExchgRejects
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.17
+      type: counter
+      help: pikeGlobalOutP2ExchgRejects (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.17.0
+      lookups: []
+    - name: snmp_pikeGlobalOutP2SaDelRequests
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.18
+      type: counter
+      help: pikeGlobalOutP2SaDelRequests (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.18.0
+      lookups: []
+    - name: snmp_pikeGlobalInitTunnels
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.19
+      type: counter
+      help: pikeGlobalInitTunnels (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.19.0
+      lookups: []
+    - name: snmp_pikeGlobalInitTunnelFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.20
+      type: counter
+      help: pikeGlobalInitTunnelFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.20.0
+      lookups: []
+    - name: snmp_pikeGlobalRespTunnelFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.21
+      type: counter
+      help: pikeGlobalRespTunnelFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.21.0
+      lookups: []
+    - name: snmp_pikeGlobalAuthFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.23
+      type: counter
+      help: pikeGlobalAuthFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.23.0
+      lookups: []
+    - name: snmp_pikeGlobalDecryptFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.24
+      type: counter
+      help: pikeGlobalDecryptFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.24.0
+      lookups: []
+    - name: snmp_pikeGlobalHashValidFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.25
+      type: counter
+      help: pikeGlobalHashValidFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.25.0
+      lookups: []
+    - name: snmp_pikeGlobalRespTunnels
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.27
+      type: counter
+      help: pikeGlobalRespTunnels (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.27.0
+      lookups: []
+    - name: snmp_pikeGlobalInP1SaDelRequests
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.30
+      type: counter
+      help: pikeGlobalInP1SaDelRequests (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.30.0
+      lookups: []
+    - name: snmp_pikeGlobalOutP1SaDelRequests
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.2.1.31
+      type: counter
+      help: pikeGlobalOutP1SaDelRequests (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.2.1.31.0
+      lookups: []
+    - name: snmp_pipSecGlobalActiveTunnels
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.1
+      type: gauge
+      help: pipSecGlobalActiveTunnels (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.1.0
+      lookups: []
+    - name: snmp_pipSecGlobalInOctets
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.3
+      type: counter
+      help: pipSecGlobalInOctets (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.3.0
+      lookups: []
+    - name: snmp_pipSecGlobalInPkts
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.9
+      type: counter
+      help: pipSecGlobalInPkts (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.9.0
+      lookups: []
+    - name: snmp_pipSecGlobalInDrops
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.10
+      type: counter
+      help: pipSecGlobalInDrops (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.10.0
+      lookups: []
+    - name: snmp_pipSecGlobalInReplayDrops
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.11
+      type: counter
+      help: pipSecGlobalInReplayDrops (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.11.0
+      lookups: []
+    - name: snmp_pipSecGlobalInAuths
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.12
+      type: counter
+      help: pipSecGlobalInAuths (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.12.0
+      lookups: []
+    - name: snmp_pipSecGlobalInAuthFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.13
+      type: counter
+      help: pipSecGlobalInAuthFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.13.0
+      lookups: []
+    - name: snmp_pipSecGlobalInDecrypts
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.14
+      type: counter
+      help: pipSecGlobalInDecrypts (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.14.0
+      lookups: []
+    - name: snmp_pipSecGlobalInDecryptFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.15
+      type: counter
+      help: pipSecGlobalInDecryptFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.15.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutOctets
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.16
+      type: counter
+      help: pipSecGlobalOutOctets (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.16.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutPkts
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.22
+      type: counter
+      help: pipSecGlobalOutPkts (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.22.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutDrops
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.23
+      type: counter
+      help: pipSecGlobalOutDrops (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.23.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutAuths
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.24
+      type: counter
+      help: pipSecGlobalOutAuths (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.24.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutAuthFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.25
+      type: counter
+      help: pipSecGlobalOutAuthFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.25.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutEncrypts
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.26
+      type: counter
+      help: pipSecGlobalOutEncrypts (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.26.0
+      lookups: []
+    - name: snmp_pipSecGlobalOutEncryptFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.27
+      type: counter
+      help: pipSecGlobalOutEncryptFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.27.0
+      lookups: []
+    - name: snmp_pipSecGlobalNoSaFails
+      oid: 1.3.6.1.4.1.119.2.3.84.3.1.3.1.33
+      type: counter
+      help: pipSecGlobalNoSaFails (PICO-SMI-MIB) - 1.3.6.1.4.1.119.2.3.84.3.1.3.1.33.0
+      lookups: []

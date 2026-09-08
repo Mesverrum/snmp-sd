@@ -1,0 +1,12 @@
+/snmp-discovery
+/snmp-discovery.exe
+/snmp-targets.yml
+/snmp-targets.yml.state.json
+/snmp-file-sd.json
+*.state.json
+.env
+auths.yml
+dist/
+.idea/
+.vscode/
+*.exe

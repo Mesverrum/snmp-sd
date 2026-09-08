@@ -1,0 +1,136 @@
+# GENERATED from kentik/snmp-profiles — module juniper_all_devices
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  juniper_all_devices:
+    walk:
+    - 1.3.6.1.4.1.2636.3.1.13.1
+    - 1.3.6.1.4.1.2636.3.1.15
+    get:
+    - 1.3.6.1.4.1.2636.3.4.2.2.1.0
+    - 1.3.6.1.4.1.2636.3.4.2.2.2.0
+    - 1.3.6.1.4.1.2636.3.4.2.2.3.0
+    - 1.3.6.1.4.1.2636.3.4.2.3.1.0
+    - 1.3.6.1.4.1.2636.3.4.2.3.2.0
+    - 1.3.6.1.4.1.2636.3.4.2.3.3.0
+    metrics:
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.2636.3.1.13.1.8
+      type: gauge
+      help: jnxOperatingCPU (JUNIPER-MIB) - 1.3.6.1.4.1.2636.3.1.13.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: chassis
+        oid: 1.3.6.1.4.1.2636.3.1.13.1.18
+        type: DisplayString
+    - name: snmp_jnxOperatingBuffer
+      oid: 1.3.6.1.4.1.2636.3.1.13.1.11
+      type: gauge
+      help: jnxOperatingBuffer (JUNIPER-MIB) - 1.3.6.1.4.1.2636.3.1.13.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: chassis
+        oid: 1.3.6.1.4.1.2636.3.1.13.1.18
+        type: DisplayString
+    - name: snmp_jnxFruState
+      oid: 1.3.6.1.4.1.2636.3.1.15.1.8
+      type: gauge
+      help: jnxFruState (JUNIPER-MIB) - 1.3.6.1.4.1.2636.3.1.15.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: jnxFruName
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: jnxFruType
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.6
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: jnxFruChassisDescr
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.15
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: empty
+        3: present
+        4: ready
+        5: announceOnline
+        6: online
+        7: anounceOffline
+        8: offline
+        9: diagnostic
+        10: standby
+    - name: snmp_jnxFruTemp
+      oid: 1.3.6.1.4.1.2636.3.1.15.1.9
+      type: gauge
+      help: jnxFruTemp (JUNIPER-MIB) - 1.3.6.1.4.1.2636.3.1.15.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: jnxFruName
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: jnxFruType
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.6
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: jnxFruChassisDescr
+        oid: 1.3.6.1.4.1.2636.3.1.15.1.15
+        type: DisplayString
+    - name: snmp_jnxYellowAlarmState
+      oid: 1.3.6.1.4.1.2636.3.4.2.2.1
+      type: gauge
+      help: jnxYellowAlarmState (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.2.1.0
+      enum_values:
+        1: other
+        2: 'off'
+        3: 'on'
+      lookups: []
+    - name: snmp_jnxYellowAlarmCount
+      oid: 1.3.6.1.4.1.2636.3.4.2.2.2
+      type: gauge
+      help: jnxYellowAlarmCount (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.2.2.0
+      lookups: []
+    - name: snmp_jnxYellowAlarmLastChange
+      oid: 1.3.6.1.4.1.2636.3.4.2.2.3
+      type: gauge
+      help: jnxYellowAlarmLastChange (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.2.3.0
+      lookups: []
+    - name: snmp_jnxRedAlarmState
+      oid: 1.3.6.1.4.1.2636.3.4.2.3.1
+      type: gauge
+      help: jnxRedAlarmState (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.3.1.0
+      enum_values:
+        1: other
+        2: 'off'
+        3: 'on'
+      lookups: []
+    - name: snmp_jnxRedAlarmCount
+      oid: 1.3.6.1.4.1.2636.3.4.2.3.2
+      type: gauge
+      help: jnxRedAlarmCount (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.3.2.0
+      lookups: []
+    - name: snmp_jnxRedAlarmLastChange
+      oid: 1.3.6.1.4.1.2636.3.4.2.3.3
+      type: gauge
+      help: jnxRedAlarmLastChange (JUNIPER-ALARM-MIB) - 1.3.6.1.4.1.2636.3.4.2.3.3.0
+      lookups: []

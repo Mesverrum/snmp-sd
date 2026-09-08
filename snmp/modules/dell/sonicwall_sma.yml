@@ -1,0 +1,303 @@
+# GENERATED from kentik/snmp-profiles — module sonicwall_sma
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  sonicwall_sma:
+    walk:
+    - 1.3.6.1.4.1.8741.8.1.3.1
+    - 1.3.6.1.4.1.8741.8.1.5.3
+    - 1.3.6.1.4.1.8741.8.1.5.5
+    get:
+    - 1.3.6.1.4.1.8741.8.1.2.1.1.0
+    - 1.3.6.1.4.1.8741.8.1.2.1.2.0
+    - 1.3.6.1.4.1.8741.8.1.2.1.3.0
+    - 1.3.6.1.4.1.8741.8.1.2.2.1.0
+    - 1.3.6.1.4.1.8741.8.1.2.2.2.0
+    - 1.3.6.1.4.1.8741.8.1.2.3.0
+    - 1.3.6.1.4.1.8741.8.1.2.4.1.0
+    - 1.3.6.1.4.1.8741.8.1.2.4.2.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.1.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.2.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.3.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.4.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.5.0
+    - 1.3.6.1.4.1.8741.8.1.2.5.6.0
+    - 1.3.6.1.4.1.8741.8.1.2.9.0
+    - 1.3.6.1.4.1.8741.8.1.4.1.0
+    - 1.3.6.1.4.1.8741.8.1.4.2.1.0
+    - 1.3.6.1.4.1.8741.8.1.4.2.2.0
+    - 1.3.6.1.4.1.8741.8.1.4.3.0
+    - 1.3.6.1.4.1.8741.8.1.4.4.1.0
+    - 1.3.6.1.4.1.8741.8.1.4.4.2.0
+    - 1.3.6.1.4.1.8741.8.1.4.4.3.0
+    - 1.3.6.1.4.1.8741.8.1.5.1.0
+    - 1.3.6.1.4.1.8741.8.1.5.2.0
+    - 1.3.6.1.4.1.8741.8.1.5.4.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.8741.2.1.1.1.0
+    - 1.3.6.1.4.1.8741.2.1.1.2.0
+    - 1.3.6.1.4.1.8741.2.1.1.3.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: snwlSysModel
+        oid: 1.3.6.1.4.1.8741.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.8741.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: snwlSysFirmwareVersion
+        oid: 1.3.6.1.4.1.8741.2.1.1.3
+        type: DisplayString
+    - name: snmp_currentlyLoggedIn
+      oid: 1.3.6.1.4.1.8741.8.1.2.1.1
+      type: gauge
+      help: currentlyLoggedIn (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.1.1.0
+      lookups: []
+    - name: snmp_peakLoggedIn
+      oid: 1.3.6.1.4.1.8741.8.1.2.1.2
+      type: gauge
+      help: peakLoggedIn (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.1.2.0
+      lookups: []
+    - name: snmp_maximumLicensedUsers
+      oid: 1.3.6.1.4.1.8741.8.1.2.1.3
+      type: gauge
+      help: maximumLicensedUsers (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.1.3.0
+      lookups: []
+    - name: snmp_currentConnections
+      oid: 1.3.6.1.4.1.8741.8.1.2.2.1
+      type: gauge
+      help: currentConnections (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.2.1.0
+      lookups: []
+    - name: snmp_peakConnections
+      oid: 1.3.6.1.4.1.8741.8.1.2.2.2
+      type: gauge
+      help: peakConnections (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.2.2.0
+      lookups: []
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.8741.8.1.2.3
+      type: gauge
+      help: cpuUtilization (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.3.0
+      lookups: []
+    - name: snmp_ramUtilization
+      oid: 1.3.6.1.4.1.8741.8.1.2.4.1
+      type: gauge
+      help: ramUtilization (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.4.1.0
+      lookups: []
+    - name: snmp_swapUtilization
+      oid: 1.3.6.1.4.1.8741.8.1.2.4.2
+      type: gauge
+      help: swapUtilization (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.4.2.0
+      lookups: []
+    - name: snmp_internalInterfaceCurrentThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.1
+      type: gauge
+      help: internalInterfaceCurrentThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.1.0
+      lookups: []
+    - name: snmp_internalInterfacePeakThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.2
+      type: gauge
+      help: internalInterfacePeakThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.2.0
+      lookups: []
+    - name: snmp_externalInterfaceCurrentThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.3
+      type: gauge
+      help: externalInterfaceCurrentThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.3.0
+      lookups: []
+    - name: snmp_externalInterfacePeakThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.4
+      type: gauge
+      help: externalInterfacePeakThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.4.0
+      lookups: []
+    - name: snmp_clusterInterfaceCurrentThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.5
+      type: gauge
+      help: clusterInterfaceCurrentThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.5.0
+      lookups: []
+    - name: snmp_clusterInterfacePeakThroughput
+      oid: 1.3.6.1.4.1.8741.8.1.2.5.6
+      type: gauge
+      help: clusterInterfacePeakThroughput (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB)
+        - 1.3.6.1.4.1.8741.8.1.2.5.6.0
+      lookups: []
+    - name: snmp_logUtilization
+      oid: 1.3.6.1.4.1.8741.8.1.2.9
+      type: gauge
+      help: logUtilization (SONICWALL-SMA-APPLIANCE-SYSTEM-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.2.9.0
+      lookups: []
+    - name: snmp_serviceState
+      oid: 1.3.6.1.4.1.8741.8.1.3.1.1.3
+      type: gauge
+      help: serviceState (SONICWALL-SMA-APPLIANCE-SERVICE-HEALTH-MIB) - 1.3.6.1.4.1.8741.8.1.3.1.1.3
+      indexes:
+      - labelname: serviceId
+        type: gauge
+      lookups:
+      - labels:
+        - serviceId
+        labelname: serviceDescription
+        oid: 1.3.6.1.4.1.8741.8.1.3.1.1.2
+        type: DisplayString
+      enum_values:
+        1: active
+        2: down
+        6: crashed
+    - name: snmp_numOfLoginDenials
+      oid: 1.3.6.1.4.1.8741.8.1.4.1
+      type: gauge
+      help: numOfLoginDenials (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) - 1.3.6.1.4.1.8741.8.1.4.1.0
+      lookups: []
+    - name: snmp_lastLoginDeniedUser
+      oid: 1.3.6.1.4.1.8741.8.1.4.2.1
+      type: gauge
+      help: lastLoginDeniedUser (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) - 1.3.6.1.4.1.8741.8.1.4.2.1.0
+      lookups: []
+    - name: snmp_lastLoginDeniedTime
+      oid: 1.3.6.1.4.1.8741.8.1.4.2.2
+      type: gauge
+      help: lastLoginDeniedTime (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) - 1.3.6.1.4.1.8741.8.1.4.2.2.0
+      lookups: []
+    - name: snmp_numOfAccessDenials
+      oid: 1.3.6.1.4.1.8741.8.1.4.3
+      type: gauge
+      help: numOfAccessDenials (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) - 1.3.6.1.4.1.8741.8.1.4.3.0
+      lookups: []
+    - name: snmp_lastAccessDeniedUser
+      oid: 1.3.6.1.4.1.8741.8.1.4.4.1
+      type: gauge
+      help: lastAccessDeniedUser (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) -
+        1.3.6.1.4.1.8741.8.1.4.4.1.0
+      lookups: []
+    - name: snmp_lastAccessDeniedResource
+      oid: 1.3.6.1.4.1.8741.8.1.4.4.2
+      type: gauge
+      help: lastAccessDeniedResource (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB)
+        - 1.3.6.1.4.1.8741.8.1.4.4.2.0
+      lookups: []
+    - name: snmp_lastAccessDeniedTime
+      oid: 1.3.6.1.4.1.8741.8.1.4.4.3
+      type: gauge
+      help: lastAccessDeniedTime (SONICWALL-SMA-APPLIANCE-SECURITY-HISTORY-MIB) -
+        1.3.6.1.4.1.8741.8.1.4.4.3.0
+      lookups: []
+    - name: snmp_tunnelServerState
+      oid: 1.3.6.1.4.1.8741.8.1.5.1
+      type: gauge
+      help: tunnelServerState (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB) - 1.3.6.1.4.1.8741.8.1.5.1.0
+      lookups: []
+    - name: snmp_numOfTunnelServiceClientAddrPool
+      oid: 1.3.6.1.4.1.8741.8.1.5.2
+      type: gauge
+      help: numOfTunnelServiceClientAddrPool (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.2.0
+      lookups: []
+    - name: snmp_tunnelServiceClientAddrPoolUtilization
+      oid: 1.3.6.1.4.1.8741.8.1.5.3.1.2
+      type: gauge
+      help: tunnelServiceClientAddrPoolUtilization (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.3.1.2
+      indexes:
+      - labelname: tunnelServiceClientAddrPoolId
+        type: gauge
+      lookups:
+      - labels:
+        - tunnelServiceClientAddrPoolId
+        labelname: tunnelServiceStartRangeOfClientAddrPool
+        oid: 1.3.6.1.4.1.8741.8.1.5.3.1.3
+        type: DisplayString
+      - labels:
+        - tunnelServiceClientAddrPoolId
+        labelname: tunnelServiceEndRangeOfClientAddrPool
+        oid: 1.3.6.1.4.1.8741.8.1.5.3.1.4
+        type: DisplayString
+    - name: snmp_numberOfTunnelServiceSslTunnels
+      oid: 1.3.6.1.4.1.8741.8.1.5.4
+      type: gauge
+      help: numberOfTunnelServiceSslTunnels (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.4.0
+      lookups: []
+    - name: snmp_tunnelServiceSslTunnelUser
+      oid: 1.3.6.1.4.1.8741.8.1.5.5.1.2
+      type: gauge
+      help: tunnelServiceSslTunnelUser (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.5.1.2
+      indexes:
+      - labelname: tunnelServiceSslTunnelId
+        type: gauge
+      lookups: []
+    - name: snmp_tunnelServiceSslTunnelVIP
+      oid: 1.3.6.1.4.1.8741.8.1.5.5.1.3
+      type: gauge
+      help: tunnelServiceSslTunnelVIP (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.5.1.3
+      indexes:
+      - labelname: tunnelServiceSslTunnelId
+        type: gauge
+      lookups: []
+    - name: snmp_numOfTunnelServiceFlowsPerTunnel
+      oid: 1.3.6.1.4.1.8741.8.1.5.5.1.4
+      type: gauge
+      help: numOfTunnelServiceFlowsPerTunnel (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.5.1.4
+      indexes:
+      - labelname: tunnelServiceSslTunnelId
+        type: gauge
+      lookups: []
+    - name: snmp_tunnelServiceSslTunnelUpTime
+      oid: 1.3.6.1.4.1.8741.8.1.5.5.1.5
+      type: gauge
+      help: tunnelServiceSslTunnelUpTime (SONICWALL-SMA-APPLIANCE-TUNNEL-SERVER-MIB)
+        - 1.3.6.1.4.1.8741.8.1.5.5.1.5
+      indexes:
+      - labelname: tunnelServiceSslTunnelId
+        type: gauge
+      lookups: []

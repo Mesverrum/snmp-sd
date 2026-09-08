@@ -1,0 +1,44 @@
+# Discoverer config — CIDR-scoped named auths. Community stays in snmp.yml.
+#
+# mode: both (default) = CIDR sweep + LLDP/CDP crawl
+#       sweep          = ping then SNMP every host in cidrs (max /22)
+#       crawl          = SNMP seeds/catalog, walk xDP, probe neighbors in cidrs
+groups:
+  - name: srl-hq
+    cidrs:
+      - 172.20.20.0/24
+    # exclude:
+    #   - 172.20.20.1/32
+    seeds:
+      - 172.20.20.2
+    auths:
+      - public_v2
+    fingerprinter: network
+    mode: both
+    ping: true
+    port: 161
+
+  - name: dc1
+    cidrs:
+      - 10.12.0.0/22          # max /22 (~1024). /21+ needs allow_large
+      # - 2001:db8:1::/118    # IPv6: same ~1024 cap (/118); wider needs allow_large
+    # Try order: v2c then v3. Secrets live under auths: in snmp.yml, e.g.
+    #   dc1_v3:
+    #     version: 3
+    #     security_level: authPriv
+    #     username: netops
+    #     password: …
+    #     auth_protocol: SHA
+    #     priv_protocol: AES
+    #     priv_password: …
+    auths:
+      - dc1_v2
+      - dc1_v3
+    mode: both
+
+overrides: []
+# - address: 172.20.20.9
+#   ignore: true
+# - address: 172.20.20.2
+#   name: spine1
+#   module: system_mib,if_mib,nokia_srlinux

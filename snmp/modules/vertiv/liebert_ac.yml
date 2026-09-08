@@ -1,0 +1,143 @@
+# GENERATED from kentik/snmp-profiles — module liebert_ac
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  liebert_ac:
+    walk:
+    - 1.3.6.1.4.1.476.1.42.3.4.1.2.3
+    get:
+    - 1.3.6.1.4.1.476.1.42.3.4.6.1.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.2.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.3.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.4.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.7.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.8.0
+    - 1.3.6.1.4.1.476.1.42.3.4.6.9.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.476.1.42.2.1.2.0
+    - 1.3.6.1.4.1.476.1.42.2.1.4.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: model
+        oid: 1.3.6.1.4.1.476.1.42.2.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.476.1.42.2.1.4
+        type: DisplayString
+    - name: snmp_lgpEnvTemperatureMeasurementDegF
+      oid: 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3
+      type: gauge
+      help: lgpEnvTemperatureMeasurementDegF (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3
+      indexes:
+      - labelname: lgpEnvTemperatureIdDegF
+        type: gauge
+      lookups:
+      - labels:
+        - lgpEnvTemperatureIdDegF
+        labelname: lgpEnvTemperatureDescrDegF
+        oid: 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.2
+        type: DisplayString
+    - name: snmp_lgpEnvTemperatureMeasurementDegC
+      oid: 1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.3
+      type: gauge
+      help: lgpEnvTemperatureMeasurementDegC (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.3
+      indexes:
+      - labelname: lgpEnvTemperatureIdDegF
+        type: gauge
+      lookups:
+      - labels:
+        - lgpEnvTemperatureIdDegF
+        labelname: lgpEnvTemperatureDescrDegF
+        oid: 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.2
+        type: DisplayString
+    - name: snmp_lgpEnvHumidityMeasurementRel
+      oid: 1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.3
+      type: gauge
+      help: lgpEnvHumidityMeasurementRel (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.2.2.3.1.3
+      indexes:
+      - labelname: lgpEnvTemperatureIdDegF
+        type: gauge
+      lookups:
+      - labels:
+        - lgpEnvTemperatureIdDegF
+        labelname: lgpEnvTemperatureDescrDegF
+        oid: 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.2
+        type: DisplayString
+    - name: snmp_lgpEnvStatisticsComp1RunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.1
+      type: gauge
+      help: lgpEnvStatisticsComp1RunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.1.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsComp2RunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.2
+      type: gauge
+      help: lgpEnvStatisticsComp2RunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.2.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsFanRunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.3
+      type: gauge
+      help: lgpEnvStatisticsFanRunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.3.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsHumRunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.4
+      type: gauge
+      help: lgpEnvStatisticsHumRunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.4.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsReheat1RunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.7
+      type: gauge
+      help: lgpEnvStatisticsReheat1RunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.7.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsReheat2RunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.8
+      type: gauge
+      help: lgpEnvStatisticsReheat2RunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.8.0
+      lookups: []
+    - name: snmp_lgpEnvStatisticsReheat3RunHr
+      oid: 1.3.6.1.4.1.476.1.42.3.4.6.9
+      type: gauge
+      help: lgpEnvStatisticsReheat3RunHr (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.6.9.0
+      lookups: []

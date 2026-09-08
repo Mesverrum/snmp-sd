@@ -1,0 +1,240 @@
+# GENERATED from kentik/snmp-profiles — module ups_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ups_mib:
+    walk:
+    - 1.3.6.1.2.1.33.1.4.4
+    - 1.3.6.1.2.1.33.1.3.3
+    - 1.3.6.1.2.1.33.1.5.3
+    - 1.3.6.1.2.1.33.1.6.2
+    get:
+    - 1.3.6.1.2.1.33.1.2.1.0
+    - 1.3.6.1.2.1.33.1.2.2.0
+    - 1.3.6.1.2.1.33.1.2.3.0
+    - 1.3.6.1.2.1.33.1.2.4.0
+    - 1.3.6.1.2.1.33.1.2.5.0
+    - 1.3.6.1.2.1.33.1.2.6.0
+    - 1.3.6.1.2.1.33.1.2.7.0
+    - 1.3.6.1.2.1.33.1.3.1.0
+    - 1.3.6.1.2.1.33.1.3.2.0
+    - 1.3.6.1.2.1.33.1.4.1.0
+    - 1.3.6.1.2.1.33.1.4.2.0
+    - 1.3.6.1.2.1.33.1.4.3.0
+    - 1.3.6.1.2.1.33.1.5.1.0
+    - 1.3.6.1.2.1.33.1.5.2.0
+    - 1.3.6.1.2.1.33.1.6.1.0
+    - 1.3.6.1.2.1.33.1.7.3.0
+    - 1.3.6.1.2.1.33.1.7.4.0
+    - 1.3.6.1.2.1.33.1.7.5.0
+    metrics:
+    - name: snmp_upsBatteryStatus
+      oid: 1.3.6.1.2.1.33.1.2.1
+      type: gauge
+      help: upsBatteryStatus (UPS-MIB) - 1.3.6.1.2.1.33.1.2.1.0
+      enum_values:
+        1: unknown
+        2: batteryNormal
+        3: batteryLow
+        4: batteryDepleted
+      lookups: []
+    - name: snmp_upsSecondsOnBattery
+      oid: 1.3.6.1.2.1.33.1.2.2
+      type: gauge
+      help: upsSecondsOnBattery (UPS-MIB) - 1.3.6.1.2.1.33.1.2.2.0
+      lookups: []
+    - name: snmp_upsEstimatedMinutesRemaining
+      oid: 1.3.6.1.2.1.33.1.2.3
+      type: gauge
+      help: upsEstimatedMinutesRemaining (UPS-MIB) - 1.3.6.1.2.1.33.1.2.3.0
+      lookups: []
+    - name: snmp_upsEstimatedChargeRemaining
+      oid: 1.3.6.1.2.1.33.1.2.4
+      type: gauge
+      help: upsEstimatedChargeRemaining (UPS-MIB) - 1.3.6.1.2.1.33.1.2.4.0
+      lookups: []
+    - name: snmp_upsBatteryVoltage
+      oid: 1.3.6.1.2.1.33.1.2.5
+      type: gauge
+      help: upsBatteryVoltage (UPS-MIB) - 1.3.6.1.2.1.33.1.2.5.0
+      lookups: []
+    - name: snmp_upsBatteryCurrent
+      oid: 1.3.6.1.2.1.33.1.2.6
+      type: gauge
+      help: upsBatteryCurrent (UPS-MIB) - 1.3.6.1.2.1.33.1.2.6.0
+      lookups: []
+    - name: snmp_upsBatteryTemperature
+      oid: 1.3.6.1.2.1.33.1.2.7
+      type: gauge
+      help: upsBatteryTemperature (UPS-MIB) - 1.3.6.1.2.1.33.1.2.7.0
+      lookups: []
+    - name: snmp_upsInputLineBads
+      oid: 1.3.6.1.2.1.33.1.3.1
+      type: counter
+      help: upsInputLineBads (UPS-MIB) - 1.3.6.1.2.1.33.1.3.1.0
+      lookups: []
+    - name: snmp_upsInputNumLines
+      oid: 1.3.6.1.2.1.33.1.3.2
+      type: gauge
+      help: upsInputNumLines (UPS-MIB) - 1.3.6.1.2.1.33.1.3.2.0
+      lookups: []
+    - name: snmp_upsOutputSource
+      oid: 1.3.6.1.2.1.33.1.4.1
+      type: gauge
+      help: upsOutputSource (UPS-MIB) - 1.3.6.1.2.1.33.1.4.1.0
+      enum_values:
+        1: other
+        2: none
+        3: normal
+        4: bypass
+        5: battery
+        6: booster
+        7: reducer
+      lookups: []
+    - name: snmp_upsOutputFrequency
+      oid: 1.3.6.1.2.1.33.1.4.2
+      type: gauge
+      help: upsOutputFrequency (UPS-MIB) - 1.3.6.1.2.1.33.1.4.2.0
+      lookups: []
+    - name: snmp_upsOutputNumLines
+      oid: 1.3.6.1.2.1.33.1.4.3
+      type: gauge
+      help: upsOutputNumLines (UPS-MIB) - 1.3.6.1.2.1.33.1.4.3.0
+      lookups: []
+    - name: snmp_upsBypassFrequency
+      oid: 1.3.6.1.2.1.33.1.5.1
+      type: gauge
+      help: upsBypassFrequency (UPS-MIB) - 1.3.6.1.2.1.33.1.5.1.0
+      lookups: []
+    - name: snmp_upsBypassNumLines
+      oid: 1.3.6.1.2.1.33.1.5.2
+      type: gauge
+      help: upsBypassNumLines (UPS-MIB) - 1.3.6.1.2.1.33.1.5.2.0
+      lookups: []
+    - name: snmp_upsAlarmsPresent
+      oid: 1.3.6.1.2.1.33.1.6.1
+      type: gauge
+      help: upsAlarmsPresent (UPS-MIB) - 1.3.6.1.2.1.33.1.6.1.0
+      lookups: []
+    - name: snmp_upsTestResultsSummary
+      oid: 1.3.6.1.2.1.33.1.7.3
+      type: gauge
+      help: upsTestResultsSummary (UPS-MIB) - 1.3.6.1.2.1.33.1.7.3.0
+      enum_values:
+        1: donePass
+        2: doneWarning
+        3: doneError
+        4: aborted
+        5: inProgress
+        6: noTestsInitiated
+      lookups: []
+    - name: snmp_upsTestResultsDetail
+      oid: 1.3.6.1.2.1.33.1.7.4
+      type: gauge
+      help: upsTestResultsDetail (UPS-MIB) - 1.3.6.1.2.1.33.1.7.4.0
+      lookups: []
+    - name: snmp_upsTestStartTime
+      oid: 1.3.6.1.2.1.33.1.7.5
+      type: gauge
+      help: upsTestStartTime (UPS-MIB) - 1.3.6.1.2.1.33.1.7.5.0
+      lookups: []
+    - name: snmp_upsOutputVoltage
+      oid: 1.3.6.1.2.1.33.1.4.4.1.2
+      type: gauge
+      help: upsOutputVoltage (UPS-MIB) - 1.3.6.1.2.1.33.1.4.4.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsOutputCurrent
+      oid: 1.3.6.1.2.1.33.1.4.4.1.3
+      type: gauge
+      help: upsOutputCurrent (UPS-MIB) - 1.3.6.1.2.1.33.1.4.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsOutputPower
+      oid: 1.3.6.1.2.1.33.1.4.4.1.4
+      type: gauge
+      help: upsOutputPower (UPS-MIB) - 1.3.6.1.2.1.33.1.4.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsOutputPercentLoad
+      oid: 1.3.6.1.2.1.33.1.4.4.1.5
+      type: gauge
+      help: upsOutputPercentLoad (UPS-MIB) - 1.3.6.1.2.1.33.1.4.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsInputFrequency
+      oid: 1.3.6.1.2.1.33.1.3.3.1.2
+      type: gauge
+      help: upsInputFrequency (UPS-MIB) - 1.3.6.1.2.1.33.1.3.3.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsInputVoltage
+      oid: 1.3.6.1.2.1.33.1.3.3.1.3
+      type: gauge
+      help: upsInputVoltage (UPS-MIB) - 1.3.6.1.2.1.33.1.3.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsInputCurrent
+      oid: 1.3.6.1.2.1.33.1.3.3.1.4
+      type: gauge
+      help: upsInputCurrent (UPS-MIB) - 1.3.6.1.2.1.33.1.3.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsInputTruePower
+      oid: 1.3.6.1.2.1.33.1.3.3.1.5
+      type: gauge
+      help: upsInputTruePower (UPS-MIB) - 1.3.6.1.2.1.33.1.3.3.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsBypassVoltage
+      oid: 1.3.6.1.2.1.33.1.5.3.1.2
+      type: gauge
+      help: upsBypassVoltage (UPS-MIB) - 1.3.6.1.2.1.33.1.5.3.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsBypassCurrent
+      oid: 1.3.6.1.2.1.33.1.5.3.1.3
+      type: gauge
+      help: upsBypassCurrent (UPS-MIB) - 1.3.6.1.2.1.33.1.5.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsBypassPower
+      oid: 1.3.6.1.2.1.33.1.5.3.1.4
+      type: gauge
+      help: upsBypassPower (UPS-MIB) - 1.3.6.1.2.1.33.1.5.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_upsAlarmTime
+      oid: 1.3.6.1.2.1.33.1.6.2.1.3
+      type: gauge
+      help: upsAlarmTime (UPS-MIB) - 1.3.6.1.2.1.33.1.6.2.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: upsAlarmDescr
+        oid: 1.3.6.1.2.1.33.1.6.2.1.2
+        type: DisplayString

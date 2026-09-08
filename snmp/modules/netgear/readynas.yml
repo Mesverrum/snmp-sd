@@ -1,0 +1,332 @@
+# GENERATED from kentik/snmp-profiles — module readynas
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  readynas:
+    walk:
+    - 1.3.6.1.4.1.4526.22.3
+    - 1.3.6.1.4.1.4526.22.4
+    - 1.3.6.1.4.1.4526.22.5
+    - 1.3.6.1.4.1.4526.22.7
+    - 1.3.6.1.4.1.4526.22.8
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: firmware
+        oid: 1.3.6.1.4.1.4526.22.1
+        type: DisplayString
+    - name: snmp_ataError
+      oid: 1.3.6.1.4.1.4526.22.3.1.6
+      type: gauge
+      help: ataError (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.3.1.6
+      indexes:
+      - labelname: diskNumber
+        type: gauge
+      lookups:
+      - labels:
+        - diskNumber
+        labelname: diskID
+        oid: 1.3.6.1.4.1.4526.22.3.1.2
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSlotName
+        oid: 1.3.6.1.4.1.4526.22.3.1.3
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSerial
+        oid: 1.3.6.1.4.1.4526.22.3.1.4
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.4526.22.3.1.5
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskInterface
+        oid: 1.3.6.1.4.1.4526.22.3.1.8
+        type: DisplayString
+    - name: snmp_diskCapacity
+      oid: 1.3.6.1.4.1.4526.22.3.1.7
+      type: gauge
+      help: diskCapacity (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.3.1.7
+      indexes:
+      - labelname: diskNumber
+        type: gauge
+      lookups:
+      - labels:
+        - diskNumber
+        labelname: diskID
+        oid: 1.3.6.1.4.1.4526.22.3.1.2
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSlotName
+        oid: 1.3.6.1.4.1.4526.22.3.1.3
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSerial
+        oid: 1.3.6.1.4.1.4526.22.3.1.4
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.4526.22.3.1.5
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskInterface
+        oid: 1.3.6.1.4.1.4526.22.3.1.8
+        type: DisplayString
+    - name: snmp_diskState
+      oid: 1.3.6.1.4.1.4526.22.3.1.9
+      type: gauge
+      help: diskState (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.3.1.9
+      indexes:
+      - labelname: diskNumber
+        type: gauge
+      lookups:
+      - labels:
+        - diskNumber
+        labelname: diskID
+        oid: 1.3.6.1.4.1.4526.22.3.1.2
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSlotName
+        oid: 1.3.6.1.4.1.4526.22.3.1.3
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSerial
+        oid: 1.3.6.1.4.1.4526.22.3.1.4
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.4526.22.3.1.5
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskInterface
+        oid: 1.3.6.1.4.1.4526.22.3.1.8
+        type: DisplayString
+      enum_values:
+        1: online
+        0: offline
+    - name: snmp_diskTemperature
+      oid: 1.3.6.1.4.1.4526.22.3.1.10
+      type: gauge
+      help: diskTemperature (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.3.1.10
+      indexes:
+      - labelname: diskNumber
+        type: gauge
+      lookups:
+      - labels:
+        - diskNumber
+        labelname: diskID
+        oid: 1.3.6.1.4.1.4526.22.3.1.2
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSlotName
+        oid: 1.3.6.1.4.1.4526.22.3.1.3
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskSerial
+        oid: 1.3.6.1.4.1.4526.22.3.1.4
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.4526.22.3.1.5
+        type: DisplayString
+      - labels:
+        - diskNumber
+        labelname: diskInterface
+        oid: 1.3.6.1.4.1.4526.22.3.1.8
+        type: DisplayString
+    - name: snmp_fanRPM
+      oid: 1.3.6.1.4.1.4526.22.4.1.2
+      type: gauge
+      help: fanRPM (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.4.1.2
+      indexes:
+      - labelname: fanNumber
+        type: gauge
+      lookups:
+      - labels:
+        - fanNumber
+        labelname: fanType
+        oid: 1.3.6.1.4.1.4526.22.4.1.4
+        type: DisplayString
+    - name: snmp_fanStatus
+      oid: 1.3.6.1.4.1.4526.22.4.1.3
+      type: gauge
+      help: fanStatus (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.4.1.3
+      indexes:
+      - labelname: fanNumber
+        type: gauge
+      lookups:
+      - labels:
+        - fanNumber
+        labelname: fanType
+        oid: 1.3.6.1.4.1.4526.22.4.1.4
+        type: DisplayString
+    - name: snmp_temperatureValue
+      oid: 1.3.6.1.4.1.4526.22.5.1.2
+      type: gauge
+      help: temperatureValue (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.5.1.2
+      indexes:
+      - labelname: temperatureNumber
+        type: gauge
+      lookups:
+      - labels:
+        - temperatureNumber
+        labelname: temperatureType
+        oid: 1.3.6.1.4.1.4526.22.5.1.3
+        type: DisplayString
+    - name: snmp_temperatureMin
+      oid: 1.3.6.1.4.1.4526.22.5.1.4
+      type: gauge
+      help: temperatureMin (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.5.1.4
+      indexes:
+      - labelname: temperatureNumber
+        type: gauge
+      lookups:
+      - labels:
+        - temperatureNumber
+        labelname: temperatureType
+        oid: 1.3.6.1.4.1.4526.22.5.1.3
+        type: DisplayString
+    - name: snmp_temperatureMax
+      oid: 1.3.6.1.4.1.4526.22.5.1.5
+      type: gauge
+      help: temperatureMax (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.5.1.5
+      indexes:
+      - labelname: temperatureNumber
+        type: gauge
+      lookups:
+      - labels:
+        - temperatureNumber
+        labelname: temperatureType
+        oid: 1.3.6.1.4.1.4526.22.5.1.3
+        type: DisplayString
+    - name: snmp_volumeRAIDLevel
+      oid: 1.3.6.1.4.1.4526.22.7.1.3
+      type: gauge
+      help: volumeRAIDLevel (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.7.1.3
+      indexes:
+      - labelname: volumeNumber
+        type: gauge
+      lookups:
+      - labels:
+        - volumeNumber
+        labelname: volumeName
+        oid: 1.3.6.1.4.1.4526.22.7.1.2
+        type: DisplayString
+    - name: snmp_volumeStatus
+      oid: 1.3.6.1.4.1.4526.22.7.1.4
+      type: gauge
+      help: volumeStatus (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.7.1.4
+      indexes:
+      - labelname: volumeNumber
+        type: gauge
+      lookups:
+      - labels:
+        - volumeNumber
+        labelname: volumeName
+        oid: 1.3.6.1.4.1.4526.22.7.1.2
+        type: DisplayString
+      enum_values:
+        1: REDUNDANT
+        2: UNPROTECTED
+        3: DEGRADED
+        4: DEAD
+        5: INACTIVE
+        6: UNKNOWN
+    - name: snmp_volumeSize
+      oid: 1.3.6.1.4.1.4526.22.7.1.5
+      type: gauge
+      help: volumeSize (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.7.1.5
+      indexes:
+      - labelname: volumeNumber
+        type: gauge
+      lookups:
+      - labels:
+        - volumeNumber
+        labelname: volumeName
+        oid: 1.3.6.1.4.1.4526.22.7.1.2
+        type: DisplayString
+    - name: snmp_volumeFreeSpace
+      oid: 1.3.6.1.4.1.4526.22.7.1.6
+      type: gauge
+      help: volumeFreeSpace (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.7.1.6
+      indexes:
+      - labelname: volumeNumber
+        type: gauge
+      lookups:
+      - labels:
+        - volumeNumber
+        labelname: volumeName
+        oid: 1.3.6.1.4.1.4526.22.7.1.2
+        type: DisplayString
+    - name: snmp_psuStatus
+      oid: 1.3.6.1.4.1.4526.22.8.1.3
+      type: gauge
+      help: psuStatus (READYNASOS-MIB) - 1.3.6.1.4.1.4526.22.8.1.3
+      indexes:
+      - labelname: psuNumber
+        type: gauge
+      lookups:
+      - labels:
+        - psuNumber
+        labelname: psuDescription
+        oid: 1.3.6.1.4.1.4526.22.8.1.2
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.4526.22.1.0

@@ -1,0 +1,972 @@
+# GENERATED from kentik/snmp-profiles — module zscaler_nss
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  zscaler_nss:
+    walk:
+    - 1.3.6.1.4.1.46262.4.2.1
+    - 1.3.6.1.4.1.46262.5.2.1
+    - 1.3.6.1.4.1.46262.6.2.1
+    - 1.3.6.1.4.1.46262.7.2.1
+    - 1.3.6.1.4.1.46262.8.2.1
+    - 1.3.6.1.4.1.46262.3.2.1
+    - 1.3.6.1.4.1.46262.2.2.1
+    - 1.3.6.1.4.1.46262.1.2.1
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_present_in_system_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.5
+      type: gauge
+      help: os_cur_physical_memory_present_in_system_inMB (ZSCALER-ROLEHEALTH-MIB)
+        - 1.3.6.1.4.1.46262.4.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_free_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.6
+      type: gauge
+      help: os_cur_physical_memory_free_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_usable_physical_memory_free_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.7
+      type: gauge
+      help: os_cur_usable_physical_memory_free_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_wired_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.8
+      type: gauge
+      help: os_cur_physical_memory_wired_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_active_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.9
+      type: gauge
+      help: os_cur_physical_memory_active_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_inactive_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.10
+      type: gauge
+      help: os_cur_physical_memory_inactive_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_os_cur_physical_memory_cached_inMB
+      oid: 1.3.6.1.4.1.46262.4.2.1.11
+      type: gauge
+      help: os_cur_physical_memory_cached_inMB (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_cpu_cur_use
+      oid: 1.3.6.1.4.1.46262.4.2.1.12
+      type: gauge
+      help: cpu_cur_use (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.12
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_sys_cur_rootfs_usedsizeinpercentage
+      oid: 1.3.6.1.4.1.46262.4.2.1.13
+      type: gauge
+      help: sys_cur_rootfs_usedsizeinpercentage (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.13
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_sys_cur_varfs_usedsizeinpercentage
+      oid: 1.3.6.1.4.1.46262.4.2.1.14
+      type: gauge
+      help: sys_cur_varfs_usedsizeinpercentage (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.14
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_sys_cur_scfs_usedsizeinpercentage
+      oid: 1.3.6.1.4.1.46262.4.2.1.15
+      type: gauge
+      help: sys_cur_scfs_usedsizeinpercentage (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.15
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_tcp_sessions
+      oid: 1.3.6.1.4.1.46262.4.2.1.16
+      type: gauge
+      help: tcp_sessions (ZSCALER-ROLEHEALTH-MIB) - 1.3.6.1.4.1.46262.4.2.1.16
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_role_name
+        oid: 1.3.6.1.4.1.46262.4.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_role
+        oid: 1.3.6.1.4.1.46262.4.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_instance
+        oid: 1.3.6.1.4.1.46262.4.2.1.4
+        type: DisplayString
+    - name: snmp_process_tot_execution_timeus
+      oid: 1.3.6.1.4.1.46262.5.2.1.5
+      type: gauge
+      help: process_tot_execution_timeus (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_process_cur_memory_size
+      oid: 1.3.6.1.4.1.46262.5.2.1.6
+      type: gauge
+      help: process_cur_memory_size (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_process_cur_memory_size_resident
+      oid: 1.3.6.1.4.1.46262.5.2.1.7
+      type: gauge
+      help: process_cur_memory_size_resident (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_process_msb_cur_allocated
+      oid: 1.3.6.1.4.1.46262.5.2.1.8
+      type: gauge
+      help: process_msb_cur_allocated (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_process_msb_cur_free
+      oid: 1.3.6.1.4.1.46262.5.2.1.9
+      type: gauge
+      help: process_msb_cur_free (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_module_cpu_use
+      oid: 1.3.6.1.4.1.46262.5.2.1.10
+      type: gauge
+      help: module_cpu_use (ZSCALER-PROCESSHEALTH-MIB) - 1.3.6.1.4.1.46262.5.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_process_name
+        oid: 1.3.6.1.4.1.46262.5.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_role
+        oid: 1.3.6.1.4.1.46262.5.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_process_instance
+        oid: 1.3.6.1.4.1.46262.5.2.1.4
+        type: DisplayString
+    - name: snmp_osswap_cur_total_pages
+      oid: 1.3.6.1.4.1.46262.6.2.1.5
+      type: gauge
+      help: osswap_cur_total_pages (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_total_MB
+      oid: 1.3.6.1.4.1.46262.6.2.1.6
+      type: gauge
+      help: osswap_cur_total_MB (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_used_pages
+      oid: 1.3.6.1.4.1.46262.6.2.1.7
+      type: gauge
+      help: osswap_cur_used_pages (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_free_pages
+      oid: 1.3.6.1.4.1.46262.6.2.1.8
+      type: gauge
+      help: osswap_cur_free_pages (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_used_MB
+      oid: 1.3.6.1.4.1.46262.6.2.1.9
+      type: gauge
+      help: osswap_cur_used_MB (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_free_MB
+      oid: 1.3.6.1.4.1.46262.6.2.1.10
+      type: gauge
+      help: osswap_cur_free_MB (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_used_inpercentage
+      oid: 1.3.6.1.4.1.46262.6.2.1.11
+      type: gauge
+      help: osswap_cur_used_inpercentage (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_osswap_cur_flags
+      oid: 1.3.6.1.4.1.46262.6.2.1.12
+      type: gauge
+      help: osswap_cur_flags (ZSCALER-SWAPINFO-MIB) - 1.3.6.1.4.1.46262.6.2.1.12
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_swapinfo_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_role
+        oid: 1.3.6.1.4.1.46262.6.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_instance
+        oid: 1.3.6.1.4.1.46262.6.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_swap_device_name
+        oid: 1.3.6.1.4.1.46262.6.2.1.13
+        type: DisplayString
+    - name: snmp_smsm_cur_smca_conn_est
+      oid: 1.3.6.1.4.1.46262.7.2.1.5
+      type: gauge
+      help: smsm_cur_smca_conn_est (ZSCALER-NSS-MIB) - 1.3.6.1.4.1.46262.7.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nss_name
+        oid: 1.3.6.1.4.1.46262.7.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_role
+        oid: 1.3.6.1.4.1.46262.7.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_instance
+        oid: 1.3.6.1.4.1.46262.7.2.1.4
+        type: DisplayString
+    - name: snmp_smsm_cur_weblog_time
+      oid: 1.3.6.1.4.1.46262.7.2.1.6
+      type: gauge
+      help: smsm_cur_weblog_time (ZSCALER-NSS-MIB) - 1.3.6.1.4.1.46262.7.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nss_name
+        oid: 1.3.6.1.4.1.46262.7.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_role
+        oid: 1.3.6.1.4.1.46262.7.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_instance
+        oid: 1.3.6.1.4.1.46262.7.2.1.4
+        type: DisplayString
+    - name: snmp_smsm_nss_tot_transactions_processed
+      oid: 1.3.6.1.4.1.46262.7.2.1.7
+      type: gauge
+      help: smsm_nss_tot_transactions_processed (ZSCALER-NSS-MIB) - 1.3.6.1.4.1.46262.7.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nss_name
+        oid: 1.3.6.1.4.1.46262.7.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_role
+        oid: 1.3.6.1.4.1.46262.7.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nss_instance
+        oid: 1.3.6.1.4.1.46262.7.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_cur_datatimestamp
+      oid: 1.3.6.1.4.1.46262.8.2.1.5
+      type: gauge
+      help: smsmclt_cur_datatimestamp (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_tot_nss_buf_roff_overwritten
+      oid: 1.3.6.1.4.1.46262.8.2.1.6
+      type: gauge
+      help: smsmclt_tot_nss_buf_roff_overwritten (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_tot_transactions_count
+      oid: 1.3.6.1.4.1.46262.8.2.1.7
+      type: gauge
+      help: smsmclt_tot_transactions_count (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_tot_conn_closed
+      oid: 1.3.6.1.4.1.46262.8.2.1.8
+      type: gauge
+      help: smsmclt_tot_conn_closed (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_tot_nss_ratelimit_events_allowed
+      oid: 1.3.6.1.4.1.46262.8.2.1.9
+      type: gauge
+      help: smsmclt_tot_nss_ratelimit_events_allowed (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_smsmclt_tot_nss_ratelimit_yield_for_credits
+      oid: 1.3.6.1.4.1.46262.8.2.1.10
+      type: gauge
+      help: smsmclt_tot_nss_ratelimit_yield_for_credits (ZSCALER-NSSFEED-MIB) - 1.3.6.1.4.1.46262.8.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_name
+        oid: 1.3.6.1.4.1.46262.8.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_role
+        oid: 1.3.6.1.4.1.46262.8.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nssfeed_instance
+        oid: 1.3.6.1.4.1.46262.8.2.1.4
+        type: DisplayString
+    - name: snmp_zscaler_processwatchdog_status
+      oid: 1.3.6.1.4.1.46262.3.2.1.1
+      type: gauge
+      help: zscaler_processwatchdog_status (ZSCALER-PROCESSWATCHDOG-MIB) - 1.3.6.1.4.1.46262.3.2.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_processwatchdog_name
+        oid: 1.3.6.1.4.1.46262.3.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_processwatchdog_role
+        oid: 1.3.6.1.4.1.46262.3.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_processwatchdog_instance
+        oid: 1.3.6.1.4.1.46262.3.2.1.4
+        type: DisplayString
+    - name: snmp_zscaler_nic_status
+      oid: 1.3.6.1.4.1.46262.2.2.1.1
+      type: gauge
+      help: zscaler_nic_status (ZSCALER-ZSCALERNIC-MIB) - 1.3.6.1.4.1.46262.2.2.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_nic_name
+        oid: 1.3.6.1.4.1.46262.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nic_role
+        oid: 1.3.6.1.4.1.46262.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_nic_instance
+        oid: 1.3.6.1.4.1.46262.2.2.1.4
+        type: DisplayString
+    - name: snmp_zscaler_osnic_status
+      oid: 1.3.6.1.4.1.46262.1.2.1.1
+      type: gauge
+      help: zscaler_osnic_status (ZSCALER-OSNIC-MIB) - 1.3.6.1.4.1.46262.1.2.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: zscaler_osnic_name
+        oid: 1.3.6.1.4.1.46262.1.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_osnic_role
+        oid: 1.3.6.1.4.1.46262.1.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: zscaler_osnic_instance
+        oid: 1.3.6.1.4.1.46262.1.2.1.4
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

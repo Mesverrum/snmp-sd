@@ -1,0 +1,817 @@
+# GENERATED from kentik/snmp-profiles — module ip_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ip_mib:
+    walk:
+    - 1.3.6.1.2.1.4.31.1
+    - 1.3.6.1.2.1.4.31.3
+    metrics:
+    - name: snmp_ipSystemStatsHCInReceives
+      oid: 1.3.6.1.2.1.4.31.1.1.4
+      type: counter
+      help: ipSystemStatsHCInReceives (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.4
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInOctets
+      oid: 1.3.6.1.2.1.4.31.1.1.6
+      type: counter
+      help: ipSystemStatsHCInOctets (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.6
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInHdrErrors
+      oid: 1.3.6.1.2.1.4.31.1.1.7
+      type: counter
+      help: ipSystemStatsInHdrErrors (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.7
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInNoRoutes
+      oid: 1.3.6.1.2.1.4.31.1.1.8
+      type: counter
+      help: ipSystemStatsInNoRoutes (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.8
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInAddrErrors
+      oid: 1.3.6.1.2.1.4.31.1.1.9
+      type: counter
+      help: ipSystemStatsInAddrErrors (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.9
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInUnknownProtos
+      oid: 1.3.6.1.2.1.4.31.1.1.10
+      type: counter
+      help: ipSystemStatsInUnknownProtos (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.10
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInTruncatedPkts
+      oid: 1.3.6.1.2.1.4.31.1.1.11
+      type: counter
+      help: ipSystemStatsInTruncatedPkts (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.11
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInForwDatagrams
+      oid: 1.3.6.1.2.1.4.31.1.1.13
+      type: counter
+      help: ipSystemStatsHCInForwDatagrams (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.13
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsReasmReqds
+      oid: 1.3.6.1.2.1.4.31.1.1.14
+      type: counter
+      help: ipSystemStatsReasmReqds (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.14
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsReasmOKs
+      oid: 1.3.6.1.2.1.4.31.1.1.15
+      type: counter
+      help: ipSystemStatsReasmOKs (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.15
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsReasmFails
+      oid: 1.3.6.1.2.1.4.31.1.1.16
+      type: counter
+      help: ipSystemStatsReasmFails (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.16
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsInDiscards
+      oid: 1.3.6.1.2.1.4.31.1.1.17
+      type: counter
+      help: ipSystemStatsInDiscards (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.17
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInDelivers
+      oid: 1.3.6.1.2.1.4.31.1.1.19
+      type: counter
+      help: ipSystemStatsHCInDelivers (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.19
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutRequests
+      oid: 1.3.6.1.2.1.4.31.1.1.21
+      type: counter
+      help: ipSystemStatsHCOutRequests (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.21
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutNoRoutes
+      oid: 1.3.6.1.2.1.4.31.1.1.22
+      type: counter
+      help: ipSystemStatsOutNoRoutes (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.22
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutForwDatagrams
+      oid: 1.3.6.1.2.1.4.31.1.1.24
+      type: counter
+      help: ipSystemStatsHCOutForwDatagrams (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.24
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutDiscards
+      oid: 1.3.6.1.2.1.4.31.1.1.25
+      type: counter
+      help: ipSystemStatsOutDiscards (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.25
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutFragReqds
+      oid: 1.3.6.1.2.1.4.31.1.1.26
+      type: counter
+      help: ipSystemStatsOutFragReqds (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.26
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutFragOKs
+      oid: 1.3.6.1.2.1.4.31.1.1.27
+      type: counter
+      help: ipSystemStatsOutFragOKs (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.27
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutFragFails
+      oid: 1.3.6.1.2.1.4.31.1.1.28
+      type: counter
+      help: ipSystemStatsOutFragFails (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.28
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsOutFragCreates
+      oid: 1.3.6.1.2.1.4.31.1.1.29
+      type: counter
+      help: ipSystemStatsOutFragCreates (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.29
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutTransmits
+      oid: 1.3.6.1.2.1.4.31.1.1.31
+      type: counter
+      help: ipSystemStatsHCOutTransmits (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.31
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutOctets
+      oid: 1.3.6.1.2.1.4.31.1.1.33
+      type: counter
+      help: ipSystemStatsHCOutOctets (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.33
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInMcastPkts
+      oid: 1.3.6.1.2.1.4.31.1.1.35
+      type: counter
+      help: ipSystemStatsHCInMcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.35
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInMcastOctets
+      oid: 1.3.6.1.2.1.4.31.1.1.37
+      type: counter
+      help: ipSystemStatsHCInMcastOctets (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.37
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutMcastPkts
+      oid: 1.3.6.1.2.1.4.31.1.1.39
+      type: counter
+      help: ipSystemStatsHCOutMcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.39
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutMcastOctets
+      oid: 1.3.6.1.2.1.4.31.1.1.41
+      type: counter
+      help: ipSystemStatsHCOutMcastOctets (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.41
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCInBcastPkts
+      oid: 1.3.6.1.2.1.4.31.1.1.43
+      type: counter
+      help: ipSystemStatsHCInBcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.43
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipSystemStatsHCOutBcastPkts
+      oid: 1.3.6.1.2.1.4.31.1.1.45
+      type: counter
+      help: ipSystemStatsHCOutBcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.1.1.45
+      indexes:
+      - labelname: ipSystemStatsIPVersion
+        type: gauge
+      lookups:
+      - labels:
+        - ipSystemStatsIPVersion
+        labelname: ip_version
+        oid: 1.3.6.1.2.1.4.31.1.1.1
+        type: EnumAsInfo
+    - name: snmp_ipIfStatsHCInOctets
+      oid: 1.3.6.1.2.1.4.31.3.1.6
+      type: counter
+      help: ipIfStatsHCInOctets (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.6
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInHdrErrors
+      oid: 1.3.6.1.2.1.4.31.3.1.7
+      type: counter
+      help: ipIfStatsInHdrErrors (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.7
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInNoRoutes
+      oid: 1.3.6.1.2.1.4.31.3.1.8
+      type: counter
+      help: ipIfStatsInNoRoutes (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.8
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInAddrErrors
+      oid: 1.3.6.1.2.1.4.31.3.1.9
+      type: counter
+      help: ipIfStatsInAddrErrors (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.9
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInUnknownProtos
+      oid: 1.3.6.1.2.1.4.31.3.1.10
+      type: counter
+      help: ipIfStatsInUnknownProtos (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.10
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInTruncatedPkts
+      oid: 1.3.6.1.2.1.4.31.3.1.11
+      type: counter
+      help: ipIfStatsInTruncatedPkts (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.11
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCInForwDatagrams
+      oid: 1.3.6.1.2.1.4.31.3.1.13
+      type: counter
+      help: ipIfStatsHCInForwDatagrams (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.13
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsReasmReqds
+      oid: 1.3.6.1.2.1.4.31.3.1.14
+      type: counter
+      help: ipIfStatsReasmReqds (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.14
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsReasmOKs
+      oid: 1.3.6.1.2.1.4.31.3.1.15
+      type: counter
+      help: ipIfStatsReasmOKs (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.15
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsReasmFails
+      oid: 1.3.6.1.2.1.4.31.3.1.16
+      type: counter
+      help: ipIfStatsReasmFails (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.16
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsInDiscards
+      oid: 1.3.6.1.2.1.4.31.3.1.17
+      type: counter
+      help: ipIfStatsInDiscards (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.17
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCInDelivers
+      oid: 1.3.6.1.2.1.4.31.3.1.19
+      type: counter
+      help: ipIfStatsHCInDelivers (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.19
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutRequests
+      oid: 1.3.6.1.2.1.4.31.3.1.21
+      type: counter
+      help: ipIfStatsHCOutRequests (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.21
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutForwDatagrams
+      oid: 1.3.6.1.2.1.4.31.3.1.24
+      type: counter
+      help: ipIfStatsHCOutForwDatagrams (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.24
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsOutDiscards
+      oid: 1.3.6.1.2.1.4.31.3.1.25
+      type: counter
+      help: ipIfStatsOutDiscards (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.25
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsOutFragReqds
+      oid: 1.3.6.1.2.1.4.31.3.1.26
+      type: counter
+      help: ipIfStatsOutFragReqds (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.26
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsOutFragOKs
+      oid: 1.3.6.1.2.1.4.31.3.1.27
+      type: counter
+      help: ipIfStatsOutFragOKs (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.27
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsOutFragFails
+      oid: 1.3.6.1.2.1.4.31.3.1.28
+      type: counter
+      help: ipIfStatsOutFragFails (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.28
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsOutFragCreates
+      oid: 1.3.6.1.2.1.4.31.3.1.29
+      type: counter
+      help: ipIfStatsOutFragCreates (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.29
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutTransmits
+      oid: 1.3.6.1.2.1.4.31.3.1.31
+      type: counter
+      help: ipIfStatsHCOutTransmits (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.31
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutOctets
+      oid: 1.3.6.1.2.1.4.31.3.1.33
+      type: counter
+      help: ipIfStatsHCOutOctets (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.33
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCInMcastPkts
+      oid: 1.3.6.1.2.1.4.31.3.1.35
+      type: counter
+      help: ipIfStatsHCInMcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.35
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCInMcastOctets
+      oid: 1.3.6.1.2.1.4.31.3.1.37
+      type: counter
+      help: ipIfStatsHCInMcastOctets (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.37
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutMcastPkts
+      oid: 1.3.6.1.2.1.4.31.3.1.39
+      type: counter
+      help: ipIfStatsHCOutMcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.39
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutMcastOctets
+      oid: 1.3.6.1.2.1.4.31.3.1.41
+      type: counter
+      help: ipIfStatsHCOutMcastOctets (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.41
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCInBcastPkts
+      oid: 1.3.6.1.2.1.4.31.3.1.43
+      type: counter
+      help: ipIfStatsHCInBcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.43
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_ipIfStatsHCOutBcastPkts
+      oid: 1.3.6.1.2.1.4.31.3.1.45
+      type: counter
+      help: ipIfStatsHCOutBcastPkts (IP-MIB) - 1.3.6.1.2.1.4.31.3.1.45
+      indexes:
+      - labelname: ipIfStatsIPVersion
+        type: gauge
+      - labelname: ipIfStatsIfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ipIfStatsIPVersion
+        - ipIfStatsIfIndex
+        labelname: interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

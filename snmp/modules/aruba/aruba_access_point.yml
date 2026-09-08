@@ -1,0 +1,66 @@
+# GENERATED from kentik/snmp-profiles — module aruba_access_point
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  aruba_access_point:
+    get:
+    - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.7
+    - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.8
+    - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.10
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.7
+      type: gauge
+      help: aiAPCPUUtilization (STATISTICS-MIB) - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.7
+      lookups: []
+    - name: snmp_MemoryFree
+      oid: 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.8
+      type: gauge
+      help: aiAPMemoryFree (STATISTICS-MIB) - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.8
+      lookups: []
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.10
+      type: gauge
+      help: aiAPTotalMemory (STATISTICS-MIB) - 1.3.6.1.4.1.14823.2.3.3.1.2.1.1.10
+      lookups: []

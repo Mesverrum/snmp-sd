@@ -1,0 +1,711 @@
+# GENERATED from kentik/snmp-profiles — module alcatel_lucent_ind
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  alcatel_lucent_ind:
+    walk:
+    - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1
+    get:
+    - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.14.0
+    - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.10
+    - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.18
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.14
+      type: gauge
+      help: healthDeviceCpu1MinAvg (ALCATEL-IND1-HEALTH-MIB) - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.14.0
+      lookups: []
+    - name: snmp_healthDeviceMemory1MinAvg
+      oid: 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.10
+      type: gauge
+      help: healthDeviceMemory1MinAvg (ALCATEL-IND1-HEALTH-MIB) - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.10
+      lookups: []
+    - name: snmp_healthDeviceTemperatureChas1MinAvg
+      oid: 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.18
+      type: gauge
+      help: healthDeviceTemperatureChas1MinAvg (ALCATEL-IND1-HEALTH-MIB) - 1.3.6.1.4.1.6486.800.1.2.1.16.1.1.1.18
+      lookups: []
+    - name: snmp_chasEntPhysAdminStatus
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.1
+      type: gauge
+      help: chasEntPhysAdminStatus (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: powerOff
+        3: powerOn
+        4: reset
+        5: takeover
+        6: resetAll
+        7: standby
+    - name: snmp_chasEntPhysOperStatus
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.2
+      type: gauge
+      help: chasEntPhysOperStatus (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: secondary
+        6: notPresent
+        7: unpowered
+        8: master
+    - name: snmp_chasEntPhysLedStatusOk1
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.8
+      type: gauge
+      help: chasEntPhysLedStatusOk1 (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.8
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusOk2
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.9
+      type: gauge
+      help: chasEntPhysLedStatusOk2 (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.9
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusPrimaryCMM
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.10
+      type: gauge
+      help: chasEntPhysLedStatusPrimaryCMM (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.10
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusSecondaryCMM
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.11
+      type: gauge
+      help: chasEntPhysLedStatusSecondaryCMM (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.11
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusTemperature
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.12
+      type: gauge
+      help: chasEntPhysLedStatusTemperature (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.12
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFan
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.13
+      type: gauge
+      help: chasEntPhysLedStatusFan (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.13
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFan1
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.14
+      type: gauge
+      help: chasEntPhysLedStatusFan1 (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.14
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFan2
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.15
+      type: gauge
+      help: chasEntPhysLedStatusFan2 (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.15
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFan3
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.16
+      type: gauge
+      help: chasEntPhysLedStatusFan3 (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.16
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusBackupPS
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.17
+      type: gauge
+      help: chasEntPhysLedStatusBackupPS (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.17
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusInternalPS
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.18
+      type: gauge
+      help: chasEntPhysLedStatusInternalPS (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.18
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusControl
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.19
+      type: gauge
+      help: chasEntPhysLedStatusControl (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.19
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFabric
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.20
+      type: gauge
+      help: chasEntPhysLedStatusFabric (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.20
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusPSU
+      oid: 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.21
+      type: gauge
+      help: chasEntPhysLedStatusPSU (ALCATEL-IND1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.800.1.1.1.1.1.1.1.21
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink

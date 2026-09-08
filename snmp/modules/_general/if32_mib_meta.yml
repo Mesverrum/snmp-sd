@@ -1,0 +1,548 @@
+# GENERATED from kentik/snmp-profiles — module if32_mib_meta
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+# filters: ifAdminStatus=up only (drop admin-down ifIndex rows; list form).
+modules:
+  if32_mib_meta:
+    metrics:
+    - name: snmp_ifInOctets
+      oid: 1.3.6.1.2.1.2.2.1.10
+      type: counter
+      help: ifInOctets (IF-MIB) - 1.3.6.1.2.1.2.2.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutOctets
+      oid: 1.3.6.1.2.1.2.2.1.16
+      type: counter
+      help: ifOutOctets (IF-MIB) - 1.3.6.1.2.1.2.2.1.16
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifInErrors
+      oid: 1.3.6.1.2.1.2.2.1.14
+      type: counter
+      help: ifInErrors (IF-MIB) - 1.3.6.1.2.1.2.2.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutErrors
+      oid: 1.3.6.1.2.1.2.2.1.20
+      type: counter
+      help: ifOutErrors (IF-MIB) - 1.3.6.1.2.1.2.2.1.20
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifInDiscards
+      oid: 1.3.6.1.2.1.2.2.1.13
+      type: counter
+      help: ifInDiscards (IF-MIB) - 1.3.6.1.2.1.2.2.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutDiscards
+      oid: 1.3.6.1.2.1.2.2.1.19
+      type: counter
+      help: ifOutDiscards (IF-MIB) - 1.3.6.1.2.1.2.2.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifInUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.11
+      type: counter
+      help: ifInUcastPkts (IF-MIB) - 1.3.6.1.2.1.2.2.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutUcastPkts
+      oid: 1.3.6.1.2.1.2.2.1.17
+      type: counter
+      help: ifOutUcastPkts (IF-MIB) - 1.3.6.1.2.1.2.2.1.17
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifInMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.2
+      type: counter
+      help: ifInMulticastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.4
+      type: counter
+      help: ifOutMulticastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifInBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.3
+      type: counter
+      help: ifInBroadcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifOutBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.5
+      type: counter
+      help: ifOutBroadcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+    - name: snmp_ifAdminStatus
+      oid: 1.3.6.1.2.1.2.2.1.7
+      type: gauge
+      help: ifAdminStatus (IF-MIB) - 1.3.6.1.2.1.2.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_Description
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_Alias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: if_MAC
+        oid: 1.3.6.1.2.1.2.2.1.6
+        type: PhysAddress48
+      enum_values:
+        1: up
+        2: down
+        3: testing
+    walk:
+    - 1.3.6.1.2.1.2.2.1.10
+    - 1.3.6.1.2.1.2.2.1.1
+    - 1.3.6.1.2.1.2.2.1.2
+    - 1.3.6.1.2.1.2.2.1.3
+    - 1.3.6.1.2.1.31.1.1.1.1
+    - 1.3.6.1.2.1.31.1.1.1.18
+    - 1.3.6.1.2.1.2.2.1.6
+    - 1.3.6.1.2.1.2.2.1.16
+    - 1.3.6.1.2.1.2.2.1.14
+    - 1.3.6.1.2.1.2.2.1.20
+    - 1.3.6.1.2.1.2.2.1.13
+    - 1.3.6.1.2.1.2.2.1.19
+    - 1.3.6.1.2.1.2.2.1.11
+    - 1.3.6.1.2.1.2.2.1.17
+    - 1.3.6.1.2.1.31.1.1.1.2
+    - 1.3.6.1.2.1.31.1.1.1.4
+    - 1.3.6.1.2.1.31.1.1.1.3
+    - 1.3.6.1.2.1.31.1.1.1.5
+    - 1.3.6.1.2.1.2.2.1.7
+    filters:
+    - oid: 1.3.6.1.2.1.2.2.1.7
+      targets:
+      - 1.3.6.1.2.1.2.2.1.10
+      - 1.3.6.1.2.1.2.2.1.1
+      - 1.3.6.1.2.1.2.2.1.2
+      - 1.3.6.1.2.1.2.2.1.3
+      - 1.3.6.1.2.1.31.1.1.1.1
+      - 1.3.6.1.2.1.31.1.1.1.18
+      - 1.3.6.1.2.1.2.2.1.6
+      - 1.3.6.1.2.1.2.2.1.16
+      - 1.3.6.1.2.1.2.2.1.14
+      - 1.3.6.1.2.1.2.2.1.20
+      - 1.3.6.1.2.1.2.2.1.13
+      - 1.3.6.1.2.1.2.2.1.19
+      - 1.3.6.1.2.1.2.2.1.11
+      - 1.3.6.1.2.1.2.2.1.17
+      - 1.3.6.1.2.1.31.1.1.1.2
+      - 1.3.6.1.2.1.31.1.1.1.4
+      - 1.3.6.1.2.1.31.1.1.1.3
+      - 1.3.6.1.2.1.31.1.1.1.5
+      - 1.3.6.1.2.1.2.2.1.7
+      values:
+      - '1'

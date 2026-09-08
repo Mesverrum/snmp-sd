@@ -1,0 +1,158 @@
+# GENERATED from kentik/snmp-profiles — module extreme_switching
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  extreme_switching:
+    walk:
+    - 1.3.6.1.4.1.1916.1.32.2.2
+    get:
+    - 1.3.6.1.4.1.1916.1.32.1.2.0
+    - 1.3.6.1.4.1.1916.1.1.1.7.0
+    - 1.3.6.1.4.1.1916.1.1.1.8.0
+    - 1.3.6.1.4.1.1916.1.1.1.10.0
+    - 1.3.6.1.4.1.1916.1.1.1.11.0
+    - 1.3.6.1.4.1.1916.1.1.1.12.0
+    - 1.3.6.1.4.1.1916.1.1.1.20.0
+    - 1.3.6.1.4.1.1916.1.1.1.21.0
+    - 1.3.6.1.4.1.1916.1.1.1.22.0
+    - 1.3.6.1.4.1.1916.1.1.1.36.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.1916.1.1.1.13.0
+    - 1.3.6.1.4.1.1916.1.1.1.14.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: firmware
+        oid: 1.3.6.1.4.1.1916.1.1.1.13
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.1916.1.32.1.2
+      type: gauge
+      help: extremeCpuMonitorTotalUtilization (EXTREME-SOFTWARE-MONITOR-MIB) - 1.3.6.1.4.1.1916.1.32.1.2.0
+      lookups: []
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.4.1.1916.1.32.2.2.1.2
+      type: gauge
+      help: extremeMemoryMonitorSystemTotal (EXTREME-SOFTWARE-MONITOR-MIB) - 1.3.6.1.4.1.1916.1.32.2.2.1.2
+      indexes:
+      - labelname: extremeMemoryMonitorSystemSlotId
+        type: gauge
+      lookups: []
+    - name: snmp_MemoryFree
+      oid: 1.3.6.1.4.1.1916.1.32.2.2.1.3
+      type: gauge
+      help: extremeMemoryMonitorSystemFree (EXTREME-SOFTWARE-MONITOR-MIB) - 1.3.6.1.4.1.1916.1.32.2.2.1.3
+      indexes:
+      - labelname: extremeMemoryMonitorSystemSlotId
+        type: gauge
+      lookups: []
+    - name: snmp_extremeOverTemperatureAlarm
+      oid: 1.3.6.1.4.1.1916.1.1.1.7
+      type: gauge
+      help: extremeOverTemperatureAlarm (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.7.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_extremeCurrentTemperature
+      oid: 1.3.6.1.4.1.1916.1.1.1.8
+      type: gauge
+      help: extremeCurrentTemperature (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.8.0
+      lookups: []
+    - name: snmp_extremePrimaryPowerOperational
+      oid: 1.3.6.1.4.1.1916.1.1.1.10
+      type: gauge
+      help: extremePrimaryPowerOperational (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.10.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_extremeRedundantPowerStatus
+      oid: 1.3.6.1.4.1.1916.1.1.1.11
+      type: gauge
+      help: extremeRedundantPowerStatus (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.11.0
+      enum_values:
+        1: notPresent
+        2: presentOK
+        3: presentNotOK
+      lookups: []
+    - name: snmp_extremeRedundantPowerAlarm
+      oid: 1.3.6.1.4.1.1916.1.1.1.12
+      type: gauge
+      help: extremeRedundantPowerAlarm (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.12.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_extremeInputPowerVoltage
+      oid: 1.3.6.1.4.1.1916.1.1.1.20
+      type: gauge
+      help: extremeInputPowerVoltage (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.20.0
+      lookups: []
+    - name: snmp_extremePowerStatus
+      oid: 1.3.6.1.4.1.1916.1.1.1.21
+      type: gauge
+      help: extremePowerStatus (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.21.0
+      enum_values:
+        1: notPresent
+        2: presentOK
+        3: presentNotOK
+      lookups: []
+    - name: snmp_extremePowerAlarm
+      oid: 1.3.6.1.4.1.1916.1.1.1.22
+      type: gauge
+      help: extremePowerAlarm (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.22.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_extremeSystemPowerState
+      oid: 1.3.6.1.4.1.1916.1.1.1.36
+      type: gauge
+      help: extremeSystemPowerState (EXTREME-SYSTEM-MIB) - 1.3.6.1.4.1.1916.1.1.1.36.0
+      enum_values:
+        1: computing
+        2: sufficientButNotRedundantPower
+        3: redundantPowerAvailable
+        4: insufficientPower
+      lookups: []

@@ -1,0 +1,5 @@
+# GENERATED from kentik/snmp-profiles — module Ruckus_Contoller_SNMP
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  Ruckus_Contoller_SNMP:
+    metrics: []

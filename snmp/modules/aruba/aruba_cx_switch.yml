@@ -1,0 +1,307 @@
+# GENERATED from kentik/snmp-profiles — module aruba_cx_switch
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  aruba_cx_switch:
+    walk:
+    - 1.3.6.1.4.1.47196.4.1.1.3.11.3.1
+    - 1.3.6.1.4.1.47196.4.1.1.3.11.2.1
+    - 1.3.6.1.4.1.47196.4.1.1.3.11.4.1
+    - 1.3.6.1.4.1.47196.4.1.1.3.11.5.1
+    get:
+    - 1.3.6.1.2.1.25.2.3.1.5.1
+    - 1.3.6.1.2.1.25.2.3.1.6.1
+    - 1.3.6.1.2.1.25.3.3.1.2.196608
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.2.1.25.2.3.1.5.1
+      type: gauge
+      help: hrStorageSizeRAM (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.5.1
+      lookups: []
+    - name: snmp_MemoryUsed
+      oid: 1.3.6.1.2.1.25.2.3.1.6.1
+      type: gauge
+      help: hrStorageUsedRAM (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.6.1
+      lookups: []
+    - name: snmp_CPU
+      oid: 1.3.6.1.2.1.25.3.3.1.2.196608
+      type: gauge
+      help: hrProcessorLoadCombined (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.3.3.1.2.196608
+      lookups: []
+    - name: snmp_arubaWiredTempSensorTemperature
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.7
+      type: gauge
+      help: arubaWiredTempSensorTemperature (ARUBAWIRED-TEMPSENSOR-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: arubaWiredTempSensorName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.5
+        type: DisplayString
+    - name: snmp_arubaWiredTempSensorState
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.6
+      type: gauge
+      help: arubaWiredTempSensorState (ARUBAWIRED-TEMPSENSOR-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: arubaWiredTempSensorName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.3.1.1.5
+        type: DisplayString
+    - name: snmp_arubaWiredPSUState
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.4
+      type: gauge
+      help: arubaWiredPSUState (ARUBAWIRED-POWERSUPPLY-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.4
+      indexes:
+      - labelname: arubaWiredPSUGroupIndex
+        type: gauge
+      - labelname: arubaWiredPSUSlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.3
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.5
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUSerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.6
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUAirflowDirection
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.10
+        type: DisplayString
+    - name: snmp_arubaWiredPSUInstantaneousPower
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.7
+      type: gauge
+      help: arubaWiredPSUInstantaneousPower (ARUBAWIRED-POWERSUPPLY-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.7
+      indexes:
+      - labelname: arubaWiredPSUGroupIndex
+        type: gauge
+      - labelname: arubaWiredPSUSlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.3
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.5
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUSerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.6
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUAirflowDirection
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.10
+        type: DisplayString
+    - name: snmp_arubaWiredPSUNumberFailures
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.9
+      type: gauge
+      help: arubaWiredPSUNumberFailures (ARUBAWIRED-POWERSUPPLY-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.9
+      indexes:
+      - labelname: arubaWiredPSUGroupIndex
+        type: gauge
+      - labelname: arubaWiredPSUSlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.3
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.5
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUSerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.6
+        type: DisplayString
+      - labels:
+        - arubaWiredPSUGroupIndex
+        - arubaWiredPSUSlotIndex
+        labelname: arubaWiredPSUAirflowDirection
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.2.1.1.10
+        type: DisplayString
+    - name: snmp_arubaWiredFanTrayState
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.4.1.1.4
+      type: gauge
+      help: arubaWiredFanTrayState (ARUBAWIRED-FANTRAY-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.4.1.1.4
+      indexes:
+      - labelname: arubaWiredFanTrayGroupIndex
+        type: gauge
+      - labelname: arubaWiredFanTraySlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredFanTrayGroupIndex
+        - arubaWiredFanTraySlotIndex
+        labelname: arubaWiredFanTrayName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.4.1.1.3
+        type: DisplayString
+      - labels:
+        - arubaWiredFanTrayGroupIndex
+        - arubaWiredFanTraySlotIndex
+        labelname: arubaWiredFanTrayProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.4.1.1.5
+        type: DisplayString
+      - labels:
+        - arubaWiredFanTrayGroupIndex
+        - arubaWiredFanTraySlotIndex
+        labelname: arubaWiredFanTraySerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.4.1.1.6
+        type: DisplayString
+    - name: snmp_arubaWiredFanState
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.5
+      type: gauge
+      help: arubaWiredFanState (ARUBAWIRED-FAN-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.5
+      indexes:
+      - labelname: arubaWiredFanGroupIndex
+        type: gauge
+      - labelname: arubaWiredFanTrayIndex
+        type: gauge
+      - labelname: arubaWiredFanSlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.4
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.6
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanSerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.7
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanAirflowDirection
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.9
+        type: DisplayString
+    - name: snmp_arubaWiredFanRPM
+      oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.8
+      type: gauge
+      help: arubaWiredFanRPM (ARUBAWIRED-FAN-MIB) - 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.8
+      indexes:
+      - labelname: arubaWiredFanGroupIndex
+        type: gauge
+      - labelname: arubaWiredFanTrayIndex
+        type: gauge
+      - labelname: arubaWiredFanSlotIndex
+        type: gauge
+      lookups:
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.4
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanProductName
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.6
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanSerialNumber
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.7
+        type: DisplayString
+      - labels:
+        - arubaWiredFanGroupIndex
+        - arubaWiredFanTrayIndex
+        - arubaWiredFanSlotIndex
+        labelname: arubaWiredFanAirflowDirection
+        oid: 1.3.6.1.4.1.47196.4.1.1.3.11.5.1.1.9
+        type: DisplayString

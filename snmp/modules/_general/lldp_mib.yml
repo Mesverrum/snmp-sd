@@ -1,0 +1,39 @@
+# GENERATED from kentik/snmp-profiles — module lldp_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  lldp_mib:
+    walk:
+    - 1.0.8802.1.1.2.1.4.1
+    metrics:
+    - name: snmp_lldpRemPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.4.1.1.6
+      type: EnumAsInfo
+      help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups: []
+    - name: snmp_lldpRemPortId
+      oid: 1.0.8802.1.1.2.1.4.1.1.7
+      type: gauge
+      help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_lldpRemSysName
+      oid: 1.0.8802.1.1.2.1.4.1.1.9
+      type: gauge
+      help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []

@@ -1,0 +1,157 @@
+# GENERATED from kentik/snmp-profiles — module ospf_mib
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ospf_mib:
+    walk:
+    - 1.3.6.1.2.1.14.10
+    - 1.3.6.1.2.1.14.7
+    metrics:
+    - name: snmp_ospfNbrState
+      oid: 1.3.6.1.2.1.14.10.1.6
+      type: gauge
+      help: ospfNbrState (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.6
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+      enum_values:
+        1: down
+        2: attempt
+        3: init
+        4: twoWay
+        5: exchangeStart
+        6: exchange
+        7: loading
+        8: full
+    - name: snmp_ospfNbrEvents
+      oid: 1.3.6.1.2.1.14.10.1.7
+      type: counter
+      help: ospfNbrEvents (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.7
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+    - name: snmp_ospfNbrLsRetransQLen
+      oid: 1.3.6.1.2.1.14.10.1.8
+      type: gauge
+      help: ospfNbrLsRetransQLen (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.8
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+    - name: snmp_ospfIfRetransInterval
+      oid: 1.3.6.1.2.1.14.7.1.8
+      type: gauge
+      help: ospfIfRetransInterval (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.8
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+    - name: snmp_ospfIfState
+      oid: 1.3.6.1.2.1.14.7.1.12
+      type: gauge
+      help: ospfIfState (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.12
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      enum_values:
+        1: down
+        2: loopback
+        3: waiting
+        4: pointToPoint
+        5: designatedRouter
+        6: backupDesignatedRouter
+        7: otherDesignatedRouter
+    - name: snmp_ospfIfLsaCount
+      oid: 1.3.6.1.2.1.14.7.1.21
+      type: gauge
+      help: ospfIfLsaCount (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.21
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString

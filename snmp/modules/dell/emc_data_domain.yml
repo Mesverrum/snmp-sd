@@ -1,0 +1,690 @@
+# GENERATED from kentik/snmp-profiles — module emc_data_domain
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  emc_data_domain:
+    walk:
+    - 1.3.6.1.4.1.19746.1.1.1.1.1
+    - 1.3.6.1.4.1.19746.1.1.2.1.1
+    - 1.3.6.1.4.1.19746.1.1.3.1.1
+    - 1.3.6.1.4.1.19746.1.3.2.1
+    - 1.3.6.1.4.1.19746.1.3.3.1
+    - 1.3.6.1.4.1.19746.1.5.1.1
+    - 1.3.6.1.4.1.19746.1.6.1.1
+    - 1.3.6.1.4.1.19746.1.6.2.1
+    get:
+    - 1.3.6.1.2.1.25.2.3.1.5.1
+    - 1.3.6.1.2.1.25.2.3.1.6.1
+    - 1.3.6.1.2.1.25.2.3.1.6.6
+    - 1.3.6.1.2.1.25.2.3.1.6.7
+    - 1.3.6.1.4.1.19746.1.3.1.1.0
+    - 1.3.6.1.4.1.19746.1.3.1.2.0
+    - 1.3.6.1.4.1.19746.1.3.1.3.0
+    - 1.3.6.1.4.1.19746.1.3.1.4.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.2.1.25.2.3.1.5.1
+      type: gauge
+      help: hrStorageSize (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.5.1
+      lookups: []
+    - name: snmp_MemoryUsed
+      oid: 1.3.6.1.2.1.25.2.3.1.6.1
+      type: gauge
+      help: hrStorageUsed (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.6.1
+      lookups: []
+    - name: snmp_hrStorageUsed
+      oid: 1.3.6.1.2.1.25.2.3.1.6.6
+      type: gauge
+      help: hrStorageUsed (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.6.6
+      lookups: []
+    - name: snmp_hrStorageUsed
+      oid: 1.3.6.1.2.1.25.2.3.1.6.7
+      type: gauge
+      help: hrStorageUsed (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.2.3.1.6.7
+      lookups: []
+    - name: snmp_fileSystemStatus
+      oid: 1.3.6.1.4.1.19746.1.3.1.1
+      type: gauge
+      help: fileSystemStatus (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.1.1.0
+      enum_values:
+        1: enabled
+        2: disabled
+        3: running
+        4: unknown
+        5: error
+        6: cleaning
+      lookups: []
+    - name: snmp_fileSystemVirtualSpace
+      oid: 1.3.6.1.4.1.19746.1.3.1.2
+      type: gauge
+      help: fileSystemVirtualSpace (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.1.2.0
+      lookups: []
+    - name: snmp_fileSystemUptime
+      oid: 1.3.6.1.4.1.19746.1.3.1.3
+      type: gauge
+      help: fileSystemUptime (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.1.3.0
+      lookups: []
+    - name: snmp_fileSystemStatusMessage
+      oid: 1.3.6.1.4.1.19746.1.3.1.4
+      type: gauge
+      help: fileSystemStatusMessage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.1.4.0
+      lookups: []
+    - name: snmp_powerModuleStatus
+      oid: 1.3.6.1.4.1.19746.1.1.1.1.1.1.4
+      type: gauge
+      help: powerModuleStatus (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.1.1.1.1.1.4
+      indexes:
+      - labelname: powerEnclosureID
+        type: gauge
+      - labelname: powerModuleIndex
+        type: gauge
+      lookups:
+      - labels:
+        - powerEnclosureID
+        - powerModuleIndex
+        labelname: powerModuleDescription
+        oid: 1.3.6.1.4.1.19746.1.1.1.1.1.1.3
+        type: DisplayString
+      enum_values:
+        0: absent
+        1: ok
+        2: failed
+        3: faulty
+        4: acnone
+        99: unknown
+    - name: snmp_tempSensorCurrentValue
+      oid: 1.3.6.1.4.1.19746.1.1.2.1.1.1.5
+      type: gauge
+      help: tempSensorCurrentValue (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.1.2.1.1.1.5
+      indexes:
+      - labelname: tempEnclosureID
+        type: gauge
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempEnclosureID
+        - tempSensorIndex
+        labelname: tempSensorDescription
+        oid: 1.3.6.1.4.1.19746.1.1.2.1.1.1.4
+        type: DisplayString
+    - name: snmp_tempSensorStatus
+      oid: 1.3.6.1.4.1.19746.1.1.2.1.1.1.6
+      type: gauge
+      help: tempSensorStatus (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.1.2.1.1.1.6
+      indexes:
+      - labelname: tempEnclosureID
+        type: gauge
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempEnclosureID
+        - tempSensorIndex
+        labelname: tempSensorDescription
+        oid: 1.3.6.1.4.1.19746.1.1.2.1.1.1.4
+        type: DisplayString
+      enum_values:
+        0: failed
+        1: ok
+        2: notfound
+        3: overheatWarning
+        4: overheatCritical
+    - name: snmp_fanLevel
+      oid: 1.3.6.1.4.1.19746.1.1.3.1.1.1.5
+      type: gauge
+      help: fanLevel (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.1.3.1.1.1.5
+      indexes:
+      - labelname: fanEnclosureID
+        type: gauge
+      - labelname: fanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fanEnclosureID
+        - fanIndex
+        labelname: fanDescription
+        oid: 1.3.6.1.4.1.19746.1.1.3.1.1.1.4
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: low
+        2: medium
+        3: high
+    - name: snmp_fanStatus
+      oid: 1.3.6.1.4.1.19746.1.1.3.1.1.1.6
+      type: gauge
+      help: fanStatus (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.1.3.1.1.1.6
+      indexes:
+      - labelname: fanEnclosureID
+        type: gauge
+      - labelname: fanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fanEnclosureID
+        - fanIndex
+        labelname: fanDescription
+        oid: 1.3.6.1.4.1.19746.1.1.3.1.1.1.4
+        type: DisplayString
+      enum_values:
+        0: notfound
+        1: ok
+        2: fail
+    - name: snmp_fileSystemSpaceSize
+      oid: 1.3.6.1.4.1.19746.1.3.2.1.1.4
+      type: gauge
+      help: fileSystemSpaceSize (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.2.1.1.4
+      indexes:
+      - labelname: fileSystemResourceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceName
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceTier
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.9
+        type: DisplayString
+    - name: snmp_fileSystemSpaceUsed
+      oid: 1.3.6.1.4.1.19746.1.3.2.1.1.5
+      type: gauge
+      help: fileSystemSpaceUsed (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.2.1.1.5
+      indexes:
+      - labelname: fileSystemResourceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceName
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceTier
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.9
+        type: DisplayString
+    - name: snmp_fileSystemSpaceAvail
+      oid: 1.3.6.1.4.1.19746.1.3.2.1.1.6
+      type: gauge
+      help: fileSystemSpaceAvail (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.2.1.1.6
+      indexes:
+      - labelname: fileSystemResourceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceName
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceTier
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.9
+        type: DisplayString
+    - name: snmp_fileSystemPercentUsed
+      oid: 1.3.6.1.4.1.19746.1.3.2.1.1.7
+      type: gauge
+      help: fileSystemPercentUsed (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.2.1.1.7
+      indexes:
+      - labelname: fileSystemResourceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceName
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceTier
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.9
+        type: DisplayString
+    - name: snmp_fileSystemSpaceCleanable
+      oid: 1.3.6.1.4.1.19746.1.3.2.1.1.8
+      type: gauge
+      help: fileSystemSpaceCleanable (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.2.1.1.8
+      indexes:
+      - labelname: fileSystemResourceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceName
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - fileSystemResourceIndex
+        labelname: fileSystemResourceTier
+        oid: 1.3.6.1.4.1.19746.1.3.2.1.1.9
+        type: DisplayString
+    - name: snmp_fileSystemCompressionStartTime
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.3
+      type: gauge
+      help: fileSystemCompressionStartTime (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.3
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemCompressionEndTime
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.4
+      type: gauge
+      help: fileSystemCompressionEndTime (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.4
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemPreCompressionSize
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.5
+      type: gauge
+      help: fileSystemPreCompressionSize (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.5
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemPostCompressionSize
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.6
+      type: gauge
+      help: fileSystemPostCompressionSize (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.6
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemGlobalCompressionFactor
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.7
+      type: gauge
+      help: fileSystemGlobalCompressionFactor (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.7
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemLocalCompressionFactor
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.8
+      type: gauge
+      help: fileSystemLocalCompressionFactor (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.8
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemTotalCompressionFactor
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.9
+      type: gauge
+      help: fileSystemTotalCompressionFactor (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.9
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_fileSystemReductionPercent
+      oid: 1.3.6.1.4.1.19746.1.3.3.1.1.11
+      type: gauge
+      help: fileSystemReductionPercent (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.3.3.1.1.11
+      indexes:
+      - labelname: fileSystemCompressionIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fileSystemCompressionIndex
+        labelname: fileSystemCompressionPeriod
+        oid: 1.3.6.1.4.1.19746.1.3.3.1.1.2
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.2
+      type: gauge
+      help: cpuAvgPercentageBusy (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.2
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cpuMaxPercentageBusy
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.3
+      type: gauge
+      help: cpuMaxPercentageBusy (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.3
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nfsOpsPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.4
+      type: gauge
+      help: nfsOpsPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.4
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nfsIdlePercentage
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.5
+      type: gauge
+      help: nfsIdlePercentage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.5
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nfsProcPercentage
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.6
+      type: gauge
+      help: nfsProcPercentage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.6
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nfsSendPercentage
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.7
+      type: gauge
+      help: nfsSendPercentage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.7
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nfsReceivePercentage
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.8
+      type: gauge
+      help: nfsReceivePercentage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.8
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cifsOpsPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.9
+      type: gauge
+      help: cifsOpsPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.9
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskReadKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.10
+      type: gauge
+      help: diskReadKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.10
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskWriteKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.11
+      type: gauge
+      help: diskWriteKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.11
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskBusyPercentage
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.12
+      type: gauge
+      help: diskBusyPercentage (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.12
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nvramReadKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.13
+      type: gauge
+      help: nvramReadKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.13
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_nvramWriteKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.14
+      type: gauge
+      help: nvramWriteKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.14
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_replInKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.15
+      type: gauge
+      help: replInKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.15
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_relOutKBytesPerSecond
+      oid: 1.3.6.1.4.1.19746.1.5.1.1.1.16
+      type: gauge
+      help: relOutKBytesPerSecond (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.5.1.1.1.16
+      indexes:
+      - labelname: systemStatsIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskPropState
+      oid: 1.3.6.1.4.1.19746.1.6.1.1.1.8
+      type: gauge
+      help: diskPropState (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.1.1.1.8
+      indexes:
+      - labelname: diskPropEnclosureID
+        type: gauge
+      - labelname: diskPropIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskPropEnclosureID
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.1
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskPropIndex
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.2
+        type: gauge
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.4
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskFirmwareVersion
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.5
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskSerialNumber
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.6
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskCapacity
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.7
+        type: DisplayString
+      enum_values:
+        1: ok
+        2: unknown
+        3: absent
+        4: failed
+        5: spare
+        6: available
+    - name: snmp_diskPack
+      oid: 1.3.6.1.4.1.19746.1.6.1.1.1.9
+      type: gauge
+      help: diskPack (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.1.1.1.9
+      indexes:
+      - labelname: diskPropEnclosureID
+        type: gauge
+      - labelname: diskPropIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskPropEnclosureID
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.1
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskPropIndex
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.2
+        type: gauge
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.4
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskFirmwareVersion
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.5
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskSerialNumber
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.6
+        type: DisplayString
+      - labels:
+        - diskPropEnclosureID
+        - diskPropIndex
+        labelname: diskCapacity
+        oid: 1.3.6.1.4.1.19746.1.6.1.1.1.7
+        type: DisplayString
+      enum_values:
+        0: notapplicable
+        1: pack1
+        2: pack2
+        3: pack3
+        4: pack4
+    - name: snmp_diskSectorsRead
+      oid: 1.3.6.1.4.1.19746.1.6.2.1.1.3
+      type: gauge
+      help: diskSectorsRead (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.2.1.1.3
+      indexes:
+      - labelname: diskPerfEnclosureID
+        type: gauge
+      - labelname: diskPerfIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskSectorsWritten
+      oid: 1.3.6.1.4.1.19746.1.6.2.1.1.4
+      type: gauge
+      help: diskSectorsWritten (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.2.1.1.4
+      indexes:
+      - labelname: diskPerfEnclosureID
+        type: gauge
+      - labelname: diskPerfIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskTotalKBytes
+      oid: 1.3.6.1.4.1.19746.1.6.2.1.1.5
+      type: gauge
+      help: diskTotalKBytes (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.2.1.1.5
+      indexes:
+      - labelname: diskPerfEnclosureID
+        type: gauge
+      - labelname: diskPerfIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskBusy
+      oid: 1.3.6.1.4.1.19746.1.6.2.1.1.6
+      type: gauge
+      help: diskBusy (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.2.1.1.6
+      indexes:
+      - labelname: diskPerfEnclosureID
+        type: gauge
+      - labelname: diskPerfIndex
+        type: gauge
+      lookups: []
+    - name: snmp_diskPerfState
+      oid: 1.3.6.1.4.1.19746.1.6.2.1.1.7
+      type: gauge
+      help: diskPerfState (DATA-DOMAIN-MIB) - 1.3.6.1.4.1.19746.1.6.2.1.1.7
+      indexes:
+      - labelname: diskPerfEnclosureID
+        type: gauge
+      - labelname: diskPerfIndex
+        type: gauge
+      enum_values:
+        1: ok
+        2: unknown
+        3: absent
+        4: failed
+        5: spare
+        6: available
+      lookups: []

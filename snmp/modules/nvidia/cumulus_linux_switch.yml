@@ -1,0 +1,666 @@
+# GENERATED from kentik/snmp-profiles — module cumulus_linux_switch
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cumulus_linux_switch:
+    walk:
+    - 1.3.6.1.4.1.40310.2.1.2
+    - 1.3.6.1.4.1.40310.2.2.2
+    - 1.3.6.1.4.1.40310.2.2.3
+    get:
+    - 1.3.6.1.4.1.2021.10.1.5.1
+    - 1.3.6.1.4.1.2021.4.5.0
+    - 1.3.6.1.4.1.2021.4.11.0
+    - 1.3.6.1.4.1.2021.4.14.0
+    - 1.3.6.1.4.1.2021.4.15.0
+    - 1.3.6.1.4.1.40310.1.1.1.0
+    - 1.3.6.1.4.1.40310.1.1.2.0
+    - 1.3.6.1.4.1.40310.1.1.3.0
+    - 1.3.6.1.4.1.40310.1.1.4.0
+    - 1.3.6.1.4.1.40310.1.1.5.0
+    - 1.3.6.1.4.1.40310.1.1.6.0
+    - 1.3.6.1.4.1.40310.1.1.9.0
+    - 1.3.6.1.4.1.40310.1.1.10.0
+    - 1.3.6.1.4.1.40310.1.1.11.0
+    - 1.3.6.1.4.1.40310.1.1.12.0
+    - 1.3.6.1.4.1.40310.1.1.13.0
+    - 1.3.6.1.4.1.40310.1.1.14.0
+    - 1.3.6.1.4.1.40310.1.1.15.0
+    - 1.3.6.1.4.1.40310.1.1.16.0
+    - 1.3.6.1.4.1.40310.1.1.17.0
+    - 1.3.6.1.4.1.40310.1.1.18.0
+    - 1.3.6.1.4.1.40310.1.1.19.0
+    - 1.3.6.1.4.1.40310.1.1.20.0
+    - 1.3.6.1.4.1.40310.1.1.21.0
+    - 1.3.6.1.4.1.40310.1.1.22.0
+    - 1.3.6.1.4.1.40310.1.1.23.0
+    - 1.3.6.1.4.1.40310.1.1.24.0
+    - 1.3.6.1.4.1.40310.1.1.25.0
+    - 1.3.6.1.4.1.40310.1.1.26.0
+    - 1.3.6.1.4.1.40310.1.2.1.0
+    - 1.3.6.1.4.1.40310.1.2.2.0
+    - 1.3.6.1.4.1.40310.3.1.1.0
+    - 1.3.6.1.4.1.40310.3.1.2.0
+    - 1.3.6.1.4.1.40310.3.1.3.0
+    - 1.3.6.1.4.1.40310.3.1.4.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_CPULoad
+      oid: 1.3.6.1.4.1.2021.10.1.5.1
+      type: gauge
+      help: laLoadInt (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.10.1.5.1 [Unix load average,
+        not utilization %]
+      lookups: []
+    - name: snmp_MemoryTotal
+      oid: 1.3.6.1.4.1.2021.4.5
+      type: gauge
+      help: memTotalReal (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.5.0
+      lookups: []
+    - name: snmp_MemoryFree
+      oid: 1.3.6.1.4.1.2021.4.11
+      type: gauge
+      help: memTotalFree (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.11.0
+      lookups: []
+    - name: snmp_memBuffer
+      oid: 1.3.6.1.4.1.2021.4.14
+      type: gauge
+      help: memBuffer (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.14.0
+      lookups: []
+    - name: snmp_memCached
+      oid: 1.3.6.1.4.1.2021.4.15
+      type: gauge
+      help: memCached (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.15.0
+      lookups: []
+    - name: snmp_l3HostTableCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.1
+      type: gauge
+      help: l3HostTableCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.1.0
+      lookups: []
+    - name: snmp_l3HostTableMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.2
+      type: gauge
+      help: l3HostTableMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.2.0
+      lookups: []
+    - name: snmp_l3RoutingTableCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.3
+      type: gauge
+      help: l3RoutingTableCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.3.0
+      lookups: []
+    - name: snmp_l3RoutingTableMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.4
+      type: gauge
+      help: l3RoutingTableMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.4.0
+      lookups: []
+    - name: snmp_l3NextHopTableCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.5
+      type: gauge
+      help: l3NextHopTableCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.5.0
+      lookups: []
+    - name: snmp_l3NextHopTableMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.6
+      type: gauge
+      help: l3NextHopTableMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.6.0
+      lookups: []
+    - name: snmp_l3EcmpNextHopTableCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.9
+      type: gauge
+      help: l3EcmpNextHopTableCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.9.0
+      lookups: []
+    - name: snmp_l3EcmpNextHopTableMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.10
+      type: gauge
+      help: l3EcmpNextHopTableMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.10.0
+      lookups: []
+    - name: snmp_ingressAclCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.11
+      type: gauge
+      help: ingressAclCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.11.0
+      lookups: []
+    - name: snmp_ingressAclMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.12
+      type: gauge
+      help: ingressAclMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.12.0
+      lookups: []
+    - name: snmp_ingressAclCurrentCounters
+      oid: 1.3.6.1.4.1.40310.1.1.13
+      type: gauge
+      help: ingressAclCurrentCounters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.13.0
+      lookups: []
+    - name: snmp_ingressAclMaxCounters
+      oid: 1.3.6.1.4.1.40310.1.1.14
+      type: gauge
+      help: ingressAclMaxCounters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.14.0
+      lookups: []
+    - name: snmp_ingressAclCurrentMeters
+      oid: 1.3.6.1.4.1.40310.1.1.15
+      type: gauge
+      help: ingressAclCurrentMeters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.15.0
+      lookups: []
+    - name: snmp_ingressAclMaxMeters
+      oid: 1.3.6.1.4.1.40310.1.1.16
+      type: gauge
+      help: ingressAclMaxMeters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.16.0
+      lookups: []
+    - name: snmp_ingressAclCurrentSlices
+      oid: 1.3.6.1.4.1.40310.1.1.17
+      type: gauge
+      help: ingressAclCurrentSlices (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.17.0
+      lookups: []
+    - name: snmp_ingressAclMaxSlices
+      oid: 1.3.6.1.4.1.40310.1.1.18
+      type: gauge
+      help: ingressAclMaxSlices (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.18.0
+      lookups: []
+    - name: snmp_egressAclCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.1.19
+      type: gauge
+      help: egressAclCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.19.0
+      lookups: []
+    - name: snmp_egressAclMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.1.20
+      type: gauge
+      help: egressAclMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.20.0
+      lookups: []
+    - name: snmp_egressAclCurrentCounters
+      oid: 1.3.6.1.4.1.40310.1.1.21
+      type: gauge
+      help: egressAclCurrentCounters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.21.0
+      lookups: []
+    - name: snmp_egressAclMaxCounters
+      oid: 1.3.6.1.4.1.40310.1.1.22
+      type: gauge
+      help: egressAclMaxCounters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.22.0
+      lookups: []
+    - name: snmp_egressAclCurrentMeters
+      oid: 1.3.6.1.4.1.40310.1.1.23
+      type: gauge
+      help: egressAclCurrentMeters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.23.0
+      lookups: []
+    - name: snmp_egressAclMaxMeters
+      oid: 1.3.6.1.4.1.40310.1.1.24
+      type: gauge
+      help: egressAclMaxMeters (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.24.0
+      lookups: []
+    - name: snmp_egressAclCurrentSlices
+      oid: 1.3.6.1.4.1.40310.1.1.25
+      type: gauge
+      help: egressAclCurrentSlices (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.25.0
+      lookups: []
+    - name: snmp_egressAclMaxSlices
+      oid: 1.3.6.1.4.1.40310.1.1.26
+      type: gauge
+      help: egressAclMaxSlices (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.1.26.0
+      lookups: []
+    - name: snmp_l2MacTableCurrentEntries
+      oid: 1.3.6.1.4.1.40310.1.2.1
+      type: gauge
+      help: l2MacTableCurrentEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.2.1.0
+      lookups: []
+    - name: snmp_l2MacTableMaxEntries
+      oid: 1.3.6.1.4.1.40310.1.2.2
+      type: gauge
+      help: l2MacTableMaxEntries (CUMULUS-RESOURCE-QUERY-MIB) - 1.3.6.1.4.1.40310.1.2.2.0
+      lookups: []
+    - name: snmp_clL3v4InDiscards
+      oid: 1.3.6.1.4.1.40310.2.1.2.1.2
+      type: counter
+      help: clL3v4InDiscards (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.1.2.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clPortName
+        oid: 1.3.6.1.4.1.40310.2.1.2.1.1
+        type: DisplayString
+    - name: snmp_clBufferOverflowDiscards
+      oid: 1.3.6.1.4.1.40310.2.1.2.1.3
+      type: counter
+      help: clBufferOverflowDiscards (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.1.2.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clPortName
+        oid: 1.3.6.1.4.1.40310.2.1.2.1.1
+        type: DisplayString
+    - name: snmp_clL3AclDiscards
+      oid: 1.3.6.1.4.1.40310.2.1.2.1.4
+      type: counter
+      help: clL3AclDiscards (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.1.2.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clPortName
+        oid: 1.3.6.1.4.1.40310.2.1.2.1.1
+        type: DisplayString
+    - name: snmp_clEgressQOverflowDiscards
+      oid: 1.3.6.1.4.1.40310.2.1.2.1.6
+      type: counter
+      help: clEgressQOverflowDiscards (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.1.2.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clPortName
+        oid: 1.3.6.1.4.1.40310.2.1.2.1.1
+        type: DisplayString
+    - name: snmp_clEgressNonQDiscards
+      oid: 1.3.6.1.4.1.40310.2.1.2.1.7
+      type: counter
+      help: clEgressNonQDiscards (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.1.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clPortName
+        oid: 1.3.6.1.4.1.40310.2.1.2.1.1
+        type: DisplayString
+    - name: snmp_clIntInOctets
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.2
+      type: counter
+      help: clIntInOctets (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntInUcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.3
+      type: counter
+      help: clIntInUcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntInBcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.4
+      type: counter
+      help: clIntInBcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntInMcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.5
+      type: counter
+      help: clIntInMcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntOutOctets
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.6
+      type: counter
+      help: clIntOutOctets (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntOutUcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.7
+      type: counter
+      help: clIntOutUcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntOutBcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.8
+      type: counter
+      help: clIntOutBcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntOutMcastPkts
+      oid: 1.3.6.1.4.1.40310.2.2.2.1.9
+      type: counter
+      help: clIntOutMcastPkts (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.2.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPortName
+        oid: 1.3.6.1.4.1.40310.2.2.2.1.1
+        type: DisplayString
+    - name: snmp_clIntInPausePkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.2
+      type: counter
+      help: clIntInPausePkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPausePkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.3
+      type: counter
+      help: clIntOutPausePkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.3
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc0Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.4
+      type: counter
+      help: clIntInPfc0Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc0Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.5
+      type: counter
+      help: clIntOutPfc0Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.5
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc1Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.6
+      type: counter
+      help: clIntInPfc1Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc1Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.7
+      type: counter
+      help: clIntOutPfc1Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc2Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.8
+      type: counter
+      help: clIntInPfc2Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc2Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.9
+      type: counter
+      help: clIntOutPfc2Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc3Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.10
+      type: counter
+      help: clIntInPfc3Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc3Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.11
+      type: counter
+      help: clIntOutPfc3Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc4Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.12
+      type: counter
+      help: clIntInPfc4Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.12
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc4Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.13
+      type: counter
+      help: clIntOutPfc4Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc5Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.14
+      type: counter
+      help: clIntInPfc5Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc5Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.15
+      type: counter
+      help: clIntOutPfc5Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.15
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc6Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.16
+      type: counter
+      help: clIntInPfc6Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.16
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc6Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.17
+      type: counter
+      help: clIntOutPfc6Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.17
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntInPfc7Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.18
+      type: counter
+      help: clIntInPfc7Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.18
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_clIntOutPfc7Pkt
+      oid: 1.3.6.1.4.1.40310.2.2.3.1.19
+      type: counter
+      help: clIntOutPfc7Pkt (CUMULUS-COUNTERS-MIB) - 1.3.6.1.4.1.40310.2.2.3.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: clIntPfcPortName
+        oid: 1.3.6.1.4.1.40310.2.2.3.1.1
+        type: DisplayString
+    - name: snmp_poeTotalSystemPower
+      oid: 1.3.6.1.4.1.40310.3.1.1
+      type: gauge
+      help: poeTotalSystemPower (CUMULUS-POE-MIB) - 1.3.6.1.4.1.40310.3.1.1.0
+      lookups: []
+    - name: snmp_poeTotalUsedPower
+      oid: 1.3.6.1.4.1.40310.3.1.2
+      type: gauge
+      help: poeTotalUsedPower (CUMULUS-POE-MIB) - 1.3.6.1.4.1.40310.3.1.2.0
+      lookups: []
+    - name: snmp_poeTotalAvailablePower
+      oid: 1.3.6.1.4.1.40310.3.1.3
+      type: gauge
+      help: poeTotalAvailablePower (CUMULUS-POE-MIB) - 1.3.6.1.4.1.40310.3.1.3.0
+      lookups: []
+    - name: snmp_poeLastUpdateTime
+      oid: 1.3.6.1.4.1.40310.3.1.4
+      type: gauge
+      help: poeLastUpdateTime (CUMULUS-POE-MIB) - 1.3.6.1.4.1.40310.3.1.4.0
+      lookups: []

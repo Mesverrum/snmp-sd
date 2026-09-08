@@ -1,0 +1,65 @@
+# SNMP credential overlay — copy this shape; do not commit real secrets.
+#
+# Library modules stay in /etc/alloy/snmp-network.yml (image). This file is
+# auths: only. discovery.snmp and prometheus.exporter.snmp both read it.
+#
+# How to load (pick one):
+#   1) File (preferred with many named blocks):
+#        auths_file = "/etc/alloy/auths.yml"
+#      Kubernetes: mount a Secret. systemd: bind-mount the file mode 0600.
+#   2) One env blob (same YAML, comments optional):
+#        SNMP_AUTHS=<this document>
+#        auths = env("SNMP_AUTHS")
+#      Empty SNMP_AUTHS falls back to auths already in the image library.
+#
+# Fleet River names blocks only: group { auths = ["hq_v2"] }.
+# Do not paste communities into the Fleet GUI.
+#
+# Adding a site: duplicate a named block below, then add a discovery group
+# that lists that name. Do not invent one env var per community in River.
+
+auths:
+  # SNMPv2c — common LAN / lab
+  public_v2:
+    version: 2
+    community: public
+
+  # SNMPv1 — older printers / PDUs
+  printers_v1:
+    version: 1
+    community: public
+
+  # SNMPv3 authPriv — production default (SHA-256 + AES)
+  dc_v3:
+    version: 3
+    security_level: authPriv
+    username: netops
+    password: auth-secret
+    priv_password: priv-secret
+    auth_protocol: SHA256
+    priv_protocol: AES
+
+  # SNMPv3 authNoPriv — devices that cannot do privacy
+  edge_v3:
+    version: 3
+    security_level: authNoPriv
+    username: monitor
+    password: only-auth
+    auth_protocol: SHA256
+
+  # SNMPv3 noAuthNoPriv — username only (rare)
+  lab_v3_open:
+    version: 3
+    security_level: noAuthNoPriv
+    username: guest
+
+  # Same USM user, different SNMP context / VRF
+  dc_v3_mgmt:
+    version: 3
+    security_level: authPriv
+    username: netops
+    password: auth-secret
+    priv_password: priv-secret
+    auth_protocol: SHA256
+    priv_protocol: AES
+    context_name: mgmt

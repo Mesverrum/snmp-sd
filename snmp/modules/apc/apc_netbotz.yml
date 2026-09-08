@@ -1,0 +1,622 @@
+# GENERATED from kentik/snmp-profiles — module apc_netbotz
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  apc_netbotz:
+    walk:
+    - 1.3.6.1.4.1.5528.100.2.1
+    - 1.3.6.1.4.1.5528.100.3.1
+    - 1.3.6.1.4.1.5528.100.3.10
+    - 1.3.6.1.4.1.5528.100.4.1.1
+    - 1.3.6.1.4.1.5528.100.4.1.2
+    - 1.3.6.1.4.1.5528.100.4.1.3
+    - 1.3.6.1.4.1.5528.100.4.1.10
+    - 1.3.6.1.4.1.5528.100.4.2.2
+    - 1.3.6.1.4.1.5528.100.4.2.10
+    - 1.3.6.1.4.1.5528.100.5.1
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_enclosureStatus
+      oid: 1.3.6.1.4.1.5528.100.2.1.1.2
+      type: gauge
+      help: enclosureStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.2.1.1.2
+      indexes:
+      - labelname: enclosureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclosureIndex
+        labelname: enclosureIndex
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.7
+        type: gauge
+      - labels:
+        - enclosureIndex
+        labelname: enclosureId
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.1
+        type: DisplayString
+      - labels:
+        - enclosureIndex
+        labelname: enclosureLabel
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.4
+        type: DisplayString
+      enum_values:
+        0: disconnected
+        1: error
+        2: normal
+    - name: snmp_enclosureErrorStatus
+      oid: 1.3.6.1.4.1.5528.100.2.1.1.3
+      type: gauge
+      help: enclosureErrorStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.2.1.1.3
+      indexes:
+      - labelname: enclosureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclosureIndex
+        labelname: enclosureIndex
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.7
+        type: gauge
+      - labels:
+        - enclosureIndex
+        labelname: enclosureId
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.1
+        type: DisplayString
+      - labels:
+        - enclosureIndex
+        labelname: enclosureLabel
+        oid: 1.3.6.1.4.1.5528.100.2.1.1.4
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_dinPortStatus
+      oid: 1.3.6.1.4.1.5528.100.3.1.1.2
+      type: gauge
+      help: dinPortStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.3.1.1.2
+      indexes:
+      - labelname: dinPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dinPortIndex
+        labelname: dinPortIndex
+        oid: 1.3.6.1.4.1.5528.100.3.1.1.9
+        type: gauge
+      - labels:
+        - dinPortIndex
+        labelname: dinPortId
+        oid: 1.3.6.1.4.1.5528.100.3.1.1.1
+        type: DisplayString
+      enum_values:
+        0: disconnected
+        1: error
+        2: normal
+    - name: snmp_otherPortStatus
+      oid: 1.3.6.1.4.1.5528.100.3.10.1.2
+      type: gauge
+      help: otherPortStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.3.10.1.2
+      indexes:
+      - labelname: otherPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - otherPortIndex
+        labelname: otherPortIndex
+        oid: 1.3.6.1.4.1.5528.100.3.10.1.5
+        type: gauge
+      - labels:
+        - otherPortIndex
+        labelname: otherPortId
+        oid: 1.3.6.1.4.1.5528.100.3.10.1.1
+        type: DisplayString
+      - labels:
+        - otherPortIndex
+        labelname: otherPortLabel
+        oid: 1.3.6.1.4.1.5528.100.3.10.1.3
+        type: DisplayString
+      - labels:
+        - otherPortIndex
+        labelname: otherPortEncId
+        oid: 1.3.6.1.4.1.5528.100.3.10.1.4
+        type: DisplayString
+      enum_values:
+        0: disconnected
+        1: error
+        2: normal
+    - name: snmp_tempSensorErrorStatus
+      oid: 1.3.6.1.4.1.5528.100.4.1.1.1.3
+      type: gauge
+      help: tempSensorErrorStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.1.1.3
+      indexes:
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.10
+        type: gauge
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.1
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.5
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_tempSensorValueInt
+      oid: 1.3.6.1.4.1.5528.100.4.1.1.1.8
+      type: gauge
+      help: tempSensorValueInt (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.1.1.8
+      indexes:
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.10
+        type: gauge
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.1
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.5
+        type: DisplayString
+    - name: snmp_tempSensorValueIntF
+      oid: 1.3.6.1.4.1.5528.100.4.1.1.1.9
+      type: gauge
+      help: tempSensorValueIntF (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.1.1.9
+      indexes:
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.10
+        type: gauge
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.1
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.1.1.5
+        type: DisplayString
+    - name: snmp_humiSensorErrorStatus
+      oid: 1.3.6.1.4.1.5528.100.4.1.2.1.3
+      type: gauge
+      help: humiSensorErrorStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.2.1.3
+      indexes:
+      - labelname: humiSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.9
+        type: gauge
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.1
+        type: DisplayString
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.4
+        type: DisplayString
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.5
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_humiSensorValueInt
+      oid: 1.3.6.1.4.1.5528.100.4.1.2.1.8
+      type: gauge
+      help: humiSensorValueInt (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.2.1.8
+      indexes:
+      - labelname: humiSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.9
+        type: gauge
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.1
+        type: DisplayString
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.4
+        type: DisplayString
+      - labels:
+        - humiSensorIndex
+        labelname: humiSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.2.1.5
+        type: DisplayString
+    - name: snmp_dewPointSensorValueInt
+      oid: 1.3.6.1.4.1.5528.100.4.1.3.1.8
+      type: gauge
+      help: dewPointSensorValueInt (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.3.1.8
+      indexes:
+      - labelname: dewPointSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.10
+        type: gauge
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.1
+        type: DisplayString
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.4
+        type: DisplayString
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.5
+        type: DisplayString
+    - name: snmp_dewPointSensorValueIntF
+      oid: 1.3.6.1.4.1.5528.100.4.1.3.1.9
+      type: gauge
+      help: dewPointSensorValueIntF (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.3.1.9
+      indexes:
+      - labelname: dewPointSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.10
+        type: gauge
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.1
+        type: DisplayString
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.4
+        type: DisplayString
+      - labels:
+        - dewPointSensorIndex
+        labelname: dewPointSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.3.1.5
+        type: DisplayString
+    - name: snmp_otherNumericSensorErrorStatus
+      oid: 1.3.6.1.4.1.5528.100.4.1.10.1.3
+      type: gauge
+      help: otherNumericSensorErrorStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.10.1.3
+      indexes:
+      - labelname: otherNumericSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.12
+        type: gauge
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.1
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.4
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.5
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorUnits
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.9
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_otherNumericSensorValueInt
+      oid: 1.3.6.1.4.1.5528.100.4.1.10.1.8
+      type: gauge
+      help: otherNumericSensorValueInt (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.1.10.1.8
+      indexes:
+      - labelname: otherNumericSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.12
+        type: gauge
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.1
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.4
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.5
+        type: DisplayString
+      - labels:
+        - otherNumericSensorIndex
+        labelname: otherNumericSensorUnits
+        oid: 1.3.6.1.4.1.5528.100.4.1.10.1.9
+        type: DisplayString
+    - name: snmp_doorSwitchSensorValue
+      oid: 1.3.6.1.4.1.5528.100.4.2.2.1.2
+      type: gauge
+      help: doorSwitchSensorValue (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.2.2.1.2
+      indexes:
+      - labelname: doorSwitchSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - doorSwitchSensorIndex
+        labelname: doorSwitchSensorIndex
+        oid: 1.3.6.1.4.1.5528.100.4.2.2.1.8
+        type: gauge
+      - labels:
+        - doorSwitchSensorIndex
+        labelname: doorSwitchSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.2.2.1.1
+        type: DisplayString
+      - labels:
+        - doorSwitchSensorIndex
+        labelname: doorSwitchSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.2.2.1.4
+        type: DisplayString
+      - labels:
+        - doorSwitchSensorIndex
+        labelname: doorSwitchSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.2.2.1.5
+        type: DisplayString
+      - labels:
+        - doorSwitchSensorIndex
+        labelname: doorSwitchSensorValueStr
+        oid: 1.3.6.1.4.1.5528.100.4.2.2.1.7
+        type: DisplayString
+      enum_values:
+        -1: None
+        0: open
+        1: closed
+    - name: snmp_otherStateSensorErrorStatus
+      oid: 1.3.6.1.4.1.5528.100.4.2.10.1.3
+      type: gauge
+      help: otherStateSensorErrorStatus (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.4.2.10.1.3
+      indexes:
+      - labelname: otherStateSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - otherStateSensorIndex
+        labelname: otherStateSensorLabel
+        oid: 1.3.6.1.4.1.5528.100.4.2.10.1.4
+        type: DisplayString
+      - labels:
+        - otherStateSensorIndex
+        labelname: otherStateSensorEncId
+        oid: 1.3.6.1.4.1.5528.100.4.2.10.1.5
+        type: DisplayString
+      - labels:
+        - otherStateSensorIndex
+        labelname: otherStateSensorValueStr
+        oid: 1.3.6.1.4.1.5528.100.4.2.10.1.7
+        type: DisplayString
+      - labels:
+        - otherStateSensorIndex
+        labelname: otherStateSensorId
+        oid: 1.3.6.1.4.1.5528.100.4.2.10.1.1
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_errorCondSeverity
+      oid: 1.3.6.1.4.1.5528.100.5.1.1.2
+      type: gauge
+      help: errorCondSeverity (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.5.1.1.2
+      indexes:
+      - labelname: errorCondIndex
+        type: gauge
+      lookups:
+      - labels:
+        - errorCondIndex
+        labelname: errorCondIndex
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.12
+        type: gauge
+      - labels:
+        - errorCondIndex
+        labelname: errorCondId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.1
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondTypeId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.3
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondStartTimeStr
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.5
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondResolvedTimeStr
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.8
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondEncId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.9
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondSensorId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.11
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: info
+        2: warning
+        3: error
+        4: critical
+        5: failure
+    - name: snmp_errorCondResolved
+      oid: 1.3.6.1.4.1.5528.100.5.1.1.6
+      type: gauge
+      help: errorCondResolved (NETBOTZV2-MIB) - 1.3.6.1.4.1.5528.100.5.1.1.6
+      indexes:
+      - labelname: errorCondIndex
+        type: gauge
+      lookups:
+      - labels:
+        - errorCondIndex
+        labelname: errorCondIndex
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.12
+        type: gauge
+      - labels:
+        - errorCondIndex
+        labelname: errorCondId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.1
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondTypeId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.3
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondStartTimeStr
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.5
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondResolvedTimeStr
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.8
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondEncId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.9
+        type: DisplayString
+      - labels:
+        - errorCondIndex
+        labelname: errorCondSensorId
+        oid: 1.3.6.1.4.1.5528.100.5.1.1.11
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+        2: None
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

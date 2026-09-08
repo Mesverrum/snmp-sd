@@ -1,0 +1,266 @@
+# GENERATED from kentik/snmp-profiles — module meraki_cloud_controller
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  meraki_cloud_controller:
+    walk:
+    - 1.3.6.1.4.1.29671.1.1.4
+    - 1.3.6.1.4.1.29671.1.1.5
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_devStatus
+      oid: 1.3.6.1.4.1.29671.1.1.4.1.3
+      type: gauge
+      help: devStatus (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.4.1.3
+      indexes:
+      - labelname: devMac
+        type: PhysAddress48
+      lookups:
+      - labels:
+        - devMac
+        labelname: device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.1
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.2
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_public_ip
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.7
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_serial
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.8
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_model
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.9
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_network_name
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.11
+        type: DisplayString
+      enum_values:
+        0: offline
+        1: online
+    - name: snmp_devClientCount
+      oid: 1.3.6.1.4.1.29671.1.1.4.1.5
+      type: gauge
+      help: devClientCount (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.4.1.5
+      indexes:
+      - labelname: devMac
+        type: PhysAddress48
+      lookups:
+      - labels:
+        - devMac
+        labelname: device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.1
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.2
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_public_ip
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.7
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_serial
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.8
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_model
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.9
+        type: DisplayString
+      - labels:
+        - devMac
+        labelname: device_network_name
+        oid: 1.3.6.1.4.1.29671.1.1.4.1.11
+        type: DisplayString
+    - name: snmp_devInterfaceSentPkts
+      oid: 1.3.6.1.4.1.29671.1.1.5.1.4
+      type: counter
+      help: devInterfaceSentPkts (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.5.1.4
+      indexes:
+      - labelname: devInterfaceDevMac
+        type: PhysAddress48
+      - labelname: devInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.1
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.3
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_description
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.10
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: devInterfacePortDescription
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.11
+        type: DisplayString
+    - name: snmp_devInterfaceRecvPkts
+      oid: 1.3.6.1.4.1.29671.1.1.5.1.5
+      type: counter
+      help: devInterfaceRecvPkts (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.5.1.5
+      indexes:
+      - labelname: devInterfaceDevMac
+        type: PhysAddress48
+      - labelname: devInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.1
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.3
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_description
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.10
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: devInterfacePortDescription
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.11
+        type: DisplayString
+    - name: snmp_devInterfaceSentBytes
+      oid: 1.3.6.1.4.1.29671.1.1.5.1.6
+      type: counter
+      help: devInterfaceSentBytes (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.5.1.6
+      indexes:
+      - labelname: devInterfaceDevMac
+        type: PhysAddress48
+      - labelname: devInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.1
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.3
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_description
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.10
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: devInterfacePortDescription
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.11
+        type: DisplayString
+    - name: snmp_devInterfaceRecvBytes
+      oid: 1.3.6.1.4.1.29671.1.1.5.1.7
+      type: counter
+      help: devInterfaceRecvBytes (MERAKI-CLOUD-CONTROLLER-MIB) - 1.3.6.1.4.1.29671.1.1.5.1.7
+      indexes:
+      - labelname: devInterfaceDevMac
+        type: PhysAddress48
+      - labelname: devInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_device_mac
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.1
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.3
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: interface_description
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.10
+        type: DisplayString
+      - labels:
+        - devInterfaceDevMac
+        - devInterfaceIndex
+        labelname: devInterfacePortDescription
+        oid: 1.3.6.1.4.1.29671.1.1.5.1.11
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

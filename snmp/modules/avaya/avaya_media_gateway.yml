@@ -1,0 +1,343 @@
+# GENERATED from kentik/snmp-profiles — module avaya_media_gateway
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  avaya_media_gateway:
+    walk:
+    - 1.3.6.1.4.1.6889.2.1.99.5.1
+    - 1.3.6.1.4.1.6889.2.9.1.4.5
+    - 1.3.6.1.4.1.6889.2.9.1.4.6
+    get:
+    - 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.5.10
+    - 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.10
+    - 1.3.6.1.4.1.6889.2.7.1.2.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.1.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.2.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.3.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.4.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.5.0
+    - 1.3.6.1.4.1.6889.2.9.1.2.2.7.0
+    - 1.3.6.1.4.1.6889.2.9.1.3.1.0
+    - 1.3.6.1.4.1.6889.2.9.1.3.2.0
+    - 1.3.6.1.4.1.6889.2.9.1.3.3.0
+    - 1.3.6.1.4.1.6889.2.9.1.3.4.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.6889.2.9.1.1.2.0
+    - 1.3.6.1.4.1.6889.2.9.1.1.4.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: cmgModelNumber
+        oid: 1.3.6.1.4.1.6889.2.9.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.6889.2.9.1.1.4
+        type: DisplayString
+    - name: snmp_CPU
+      oid: 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.5.10
+      type: gauge
+      help: genCpuAverageUtilization (UTILIZATION-MANAGEMENT-MIB) - 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.5.10
+      lookups: []
+    - name: snmp_genMemUtilizationPercentUsed
+      oid: 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.10
+      type: gauge
+      help: genMemUtilizationPercentUsed (UTILIZATION-MANAGEMENT-MIB) - 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.10
+      lookups: []
+    - name: snmp_avEntPhyChFruOperStat
+      oid: 1.3.6.1.4.1.6889.2.1.99.5.1.1.1
+      type: gauge
+      help: avEntPhyChFruOperStat (AVAYA-ENTITY-MIB) - 1.3.6.1.4.1.6889.2.1.99.5.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      enum_values:
+        1: ok
+        2: fault
+        3: notPresent
+        255: unknown
+      lookups: []
+    - name: snmp_avEntPhyChFruFault
+      oid: 1.3.6.1.4.1.6889.2.1.99.5.1.1.2
+      type: gauge
+      help: avEntPhyChFruFault (AVAYA-ENTITY-MIB) - 1.3.6.1.4.1.6889.2.1.99.5.1.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      enum_values:
+        1: none
+        2: malfunction
+        3: acFault
+        4: malfunctionAndAcFault
+        5: singleFanFault
+        6: multipleFanFault
+        7: badExpansionCable
+        255: unknown
+      lookups: []
+    - name: snmp_avRtpEnable
+      oid: 1.3.6.1.4.1.6889.2.7.1.2
+      type: gauge
+      help: avRtpEnable (AVAYA-RTP-MIB) - 1.3.6.1.4.1.6889.2.7.1.2.0
+      enum_values:
+        1: 'on'
+        2: 'off'
+      lookups: []
+    - name: snmp_cmgQosControl
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.1
+      type: gauge
+      help: cmgQosControl (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.1.0
+      enum_values:
+        1: local
+        2: remote
+      lookups: []
+    - name: snmp_cmgRemoteSigDscp
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.2
+      type: gauge
+      help: cmgRemoteSigDscp (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.2.0
+      lookups: []
+    - name: snmp_cmgRemoteSig802Priority
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.3
+      type: gauge
+      help: cmgRemoteSig802Priority (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.3.0
+      lookups: []
+    - name: snmp_cmgLocalSigDscp
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.4
+      type: gauge
+      help: cmgLocalSigDscp (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.4.0
+      lookups: []
+    - name: snmp_cmgLocalSig802Priority
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.5
+      type: gauge
+      help: cmgLocalSig802Priority (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.5.0
+      lookups: []
+    - name: snmp_cmgCurrent802Vlan
+      oid: 1.3.6.1.4.1.6889.2.9.1.2.2.7
+      type: gauge
+      help: cmgCurrent802Vlan (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.2.2.7.0
+      lookups: []
+    - name: snmp_cmgRegistrationState
+      oid: 1.3.6.1.4.1.6889.2.9.1.3.1
+      type: gauge
+      help: cmgRegistrationState (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.3.1.0
+      enum_values:
+        1: registered
+        2: notRegistered
+      lookups: []
+    - name: snmp_cmgActiveControllerAddress
+      oid: 1.3.6.1.4.1.6889.2.9.1.3.2
+      type: gauge
+      help: cmgActiveControllerAddress (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.3.2.0
+      lookups: []
+    - name: snmp_cmgH248LinkStatus
+      oid: 1.3.6.1.4.1.6889.2.9.1.3.3
+      type: gauge
+      help: cmgH248LinkStatus (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.3.3.0
+      enum_values:
+        1: up
+        2: down
+      lookups: []
+    - name: snmp_cmgH248LinkErrorCode
+      oid: 1.3.6.1.4.1.6889.2.9.1.3.4
+      type: gauge
+      help: cmgH248LinkErrorCode (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.3.4.0
+      lookups: []
+    - name: snmp_cmgVoipTotalChannels
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.6
+      type: gauge
+      help: cmgVoipTotalChannels (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.6
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+    - name: snmp_cmgVoipChannelsInUse
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.7
+      type: gauge
+      help: cmgVoipChannelsInUse (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.7
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+    - name: snmp_cmgVoipAverageOccupancy
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.8
+      type: gauge
+      help: cmgVoipAverageOccupancy (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.8
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+    - name: snmp_cmgVoipHyperactivity
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.9
+      type: gauge
+      help: cmgVoipHyperactivity (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.9
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: hyperactive
+        255: unknown
+    - name: snmp_cmgVoipAdminState
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.10
+      type: gauge
+      help: cmgVoipAdminState (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.10
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+      enum_values:
+        1: busy_out
+        2: release
+        3: camp_on
+        255: unknown
+    - name: snmp_cmgVoipDspStatus
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.12
+      type: gauge
+      help: cmgVoipDspStatus (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.5.1.12
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      lookups:
+      - labels:
+        - cmgVoipSlot
+        labelname: cmgVoipCurrentIpAddress
+        oid: 1.3.6.1.4.1.6889.2.9.1.4.5.1.4
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: inUse
+        3: fault
+    - name: snmp_cmgVoipDSPCoreTotalChannels
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.6.1.2
+      type: gauge
+      help: cmgVoipDSPCoreTotalChannels (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.6.1.2
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      - labelname: cmgDSPCoreCoreId
+        type: gauge
+      lookups: []
+    - name: snmp_cmgVoipDSPCoreChannelsInUse
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.6.1.3
+      type: gauge
+      help: cmgVoipDSPCoreChannelsInUse (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.6.1.3
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      - labelname: cmgDSPCoreCoreId
+        type: gauge
+      lookups: []
+    - name: snmp_cmgVoipDSPCoreAdminState
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.6.1.4
+      type: gauge
+      help: cmgVoipDSPCoreAdminState (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.6.1.4
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      - labelname: cmgDSPCoreCoreId
+        type: gauge
+      enum_values:
+        1: busy_out
+        2: release
+        3: camp_on
+        255: unknown
+      lookups: []
+    - name: snmp_cmgVoipDSPCoreStatus
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.6.1.5
+      type: gauge
+      help: cmgVoipDSPCoreStatus (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.6.1.5
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      - labelname: cmgDSPCoreCoreId
+        type: gauge
+      enum_values:
+        1: idle
+        2: inUse
+        3: fault
+      lookups: []
+    - name: snmp_cmgVoipDSPCoreDemandTestResult
+      oid: 1.3.6.1.4.1.6889.2.9.1.4.6.1.7
+      type: gauge
+      help: cmgVoipDSPCoreDemandTestResult (G700-MG-MIB) - 1.3.6.1.4.1.6889.2.9.1.4.6.1.7
+      indexes:
+      - labelname: cmgVoipSlot
+        type: gauge
+      - labelname: cmgDSPCoreCoreId
+        type: gauge
+      enum_values:
+        1: errorCode1
+        2: errorCode2
+        3: errorCode3
+        4: errorCode4
+        5: errorCode5
+        6: errorCode6
+        7: notResponding
+        255: pass
+      lookups: []

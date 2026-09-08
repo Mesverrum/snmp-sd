@@ -1,0 +1,1925 @@
+# GENERATED from kentik/snmp-profiles — module cisco_call_manager
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_call_manager:
+    walk:
+    - 1.3.6.1.4.1.9.9.156.1.8.1
+    - 1.3.6.1.4.1.9.9.156.1.1.7
+    - 1.3.6.1.4.1.9.9.156.1.3.1
+    - 1.3.6.1.4.1.9.9.156.1.4.1
+    - 1.3.6.1.4.1.9.9.156.1.11.1
+    - 1.3.6.1.4.1.9.9.156.1.6.1
+    - 1.3.6.1.4.1.9.9.156.1.2.5
+    - 1.3.6.1.4.1.9.9.156.1.2.1
+    - 1.3.6.1.4.1.9.9.156.1.1.8
+    - 1.3.6.1.4.1.9.9.156.1.14.1
+    get:
+    - 1.3.6.1.4.1.9.9.156.1.5.3
+    - 1.3.6.1.4.1.9.9.156.1.5.1
+    - 1.3.6.1.4.1.9.9.156.1.5.4
+    - 1.3.6.1.4.1.9.9.156.1.5.2
+    - 1.3.6.1.4.1.9.9.156.1.5.16
+    - 1.3.6.1.4.1.9.9.156.1.5.10
+    - 1.3.6.1.4.1.9.9.156.1.5.13
+    - 1.3.6.1.4.1.9.9.156.1.5.7
+    - 1.3.6.1.4.1.9.9.156.1.5.19
+    - 1.3.6.1.4.1.9.9.156.1.5.31
+    - 1.3.6.1.4.1.9.9.156.1.5.14
+    - 1.3.6.1.4.1.9.9.156.1.5.8
+    - 1.3.6.1.4.1.9.9.156.1.5.11
+    - 1.3.6.1.4.1.9.9.156.1.5.5
+    - 1.3.6.1.4.1.9.9.156.1.5.17
+    - 1.3.6.1.4.1.9.9.156.1.5.15
+    - 1.3.6.1.4.1.9.9.156.1.5.9
+    - 1.3.6.1.4.1.9.9.156.1.5.12
+    - 1.3.6.1.4.1.9.9.156.1.5.6
+    - 1.3.6.1.4.1.9.9.156.1.5.18
+    - 1.3.6.1.4.1.9.9.156.1.10.1
+    - 1.3.6.1.4.1.9.9.156.1.10.2
+    - 1.3.6.1.4.1.9.9.156.1.10.5
+    - 1.3.6.1.4.1.9.9.156.1.10.27
+    - 1.3.6.1.4.1.9.9.156.1.10.28
+    - 1.3.6.1.4.1.9.9.156.1.10.9
+    - 1.3.6.1.4.1.9.9.156.1.10.10
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    - name: snmp_ccmActiveGateways
+      oid: 1.3.6.1.4.1.9.9.156.1.5.3
+      type: counter
+      help: ccmActiveGateways (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.3
+      lookups: []
+    - name: snmp_ccmActivePhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.1
+      type: counter
+      help: ccmActivePhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.1
+      lookups: []
+    - name: snmp_ccmInActiveGateways
+      oid: 1.3.6.1.4.1.9.9.156.1.5.4
+      type: counter
+      help: ccmInActiveGateways (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.4
+      lookups: []
+    - name: snmp_ccmInActivePhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.2
+      type: counter
+      help: ccmInActivePhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.2
+      lookups: []
+    - name: snmp_ccmRejectedCTIDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.16
+      type: counter
+      help: ccmRejectedCTIDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.16
+      lookups: []
+    - name: snmp_ccmRejectedGateways
+      oid: 1.3.6.1.4.1.9.9.156.1.5.10
+      type: counter
+      help: ccmRejectedGateways (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.10
+      lookups: []
+    - name: snmp_ccmRejectedMediaDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.13
+      type: counter
+      help: ccmRejectedMediaDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.13
+      lookups: []
+    - name: snmp_ccmRejectedPhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.7
+      type: counter
+      help: ccmRejectedPhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.7
+      lookups: []
+    - name: snmp_ccmRejectedVoiceMailDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.19
+      type: counter
+      help: ccmRejectedVoiceMailDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.19
+      lookups: []
+    - name: snmp_ccmPartiallyRegisteredPhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.31
+      type: counter
+      help: ccmPartiallyRegisteredPhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.31
+      lookups: []
+    - name: snmp_ccmRegisteredCTIDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.14
+      type: counter
+      help: ccmRegisteredCTIDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.14
+      lookups: []
+    - name: snmp_ccmRegisteredGateways
+      oid: 1.3.6.1.4.1.9.9.156.1.5.8
+      type: counter
+      help: ccmRegisteredGateways (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.8
+      lookups: []
+    - name: snmp_ccmRegisteredMediaDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.11
+      type: counter
+      help: ccmRegisteredMediaDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.11
+      lookups: []
+    - name: snmp_ccmRegisteredPhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.5
+      type: counter
+      help: ccmRegisteredPhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.5
+      lookups: []
+    - name: snmp_ccmRegisteredVoiceMailDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.17
+      type: counter
+      help: ccmRegisteredVoiceMailDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.17
+      lookups: []
+    - name: snmp_ccmUnregisteredCTIDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.15
+      type: counter
+      help: ccmUnregisteredCTIDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.15
+      lookups: []
+    - name: snmp_ccmUnregisteredGateways
+      oid: 1.3.6.1.4.1.9.9.156.1.5.9
+      type: counter
+      help: ccmUnregisteredGateways (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.9
+      lookups: []
+    - name: snmp_ccmUnregisteredMediaDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.12
+      type: counter
+      help: ccmUnregisteredMediaDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.12
+      lookups: []
+    - name: snmp_ccmUnregisteredPhones
+      oid: 1.3.6.1.4.1.9.9.156.1.5.6
+      type: counter
+      help: ccmUnregisteredPhones (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.6
+      lookups: []
+    - name: snmp_ccmUnregisteredVoiceMailDevices
+      oid: 1.3.6.1.4.1.9.9.156.1.5.18
+      type: counter
+      help: ccmUnregisteredVoiceMailDevices (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.5.18
+      lookups: []
+    - name: snmp_ccmAlarmSeverity
+      oid: 1.3.6.1.4.1.9.9.156.1.10.1
+      type: gauge
+      help: ccmAlarmSeverity (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.1
+      enum_values:
+        1: emergency
+        2: alert
+        3: critical
+        4: error
+        5: warning
+        6: notice
+        7: informational
+      lookups: []
+    - name: snmp_ccmFailCauseCode
+      oid: 1.3.6.1.4.1.9.9.156.1.10.2
+      type: gauge
+      help: ccmFailCauseCode (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.2
+      enum_values:
+        1: unknown
+        2: heartBeatStopped
+        3: routerThreadDied
+        4: timerThreadDied
+        5: criticalThreadDied
+        6: deviceMgrInitFailed
+        7: digitAnalysisInitFailed
+        8: callControlInitFailed
+        9: linkMgrInitFailed
+        10: dbMgrInitFailed
+        11: msgTranslatorInitFailed
+        12: suppServicesInitFailed
+      lookups: []
+    - name: snmp_ccmGatewayFailCauseCode
+      oid: 1.3.6.1.4.1.9.9.156.1.10.5
+      type: gauge
+      help: ccmGatewayFailCauseCode (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.5
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+      lookups: []
+    - name: snmp_ccmTLSConnectionFailReasonCode
+      oid: 1.3.6.1.4.1.9.9.156.1.10.27
+      type: gauge
+      help: ccmTLSConnectionFailReasonCode (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.27
+      enum_values:
+        1: unknown
+        2: authenticationerror
+        3: invalidx509nameincertificate
+        4: invalidtlscipher
+      lookups: []
+    - name: snmp_ccmGatewayRegFailCauseCode
+      oid: 1.3.6.1.4.1.9.9.156.1.10.28
+      type: gauge
+      help: ccmGatewayRegFailCauseCode (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.28
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+      lookups: []
+    - name: snmp_ccmGatewayPhysIfIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.10.9
+      type: gauge
+      help: ccmGatewayPhysIfIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.9
+      lookups: []
+    - name: snmp_ccmGatewayPhysIfL2Status
+      oid: 1.3.6.1.4.1.9.9.156.1.10.10
+      type: gauge
+      help: ccmGatewayPhysIfL2Status (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.10.10
+      enum_values:
+        1: unknown
+        2: up
+        3: down
+      lookups: []
+    - name: snmp_ccmCTIDeviceStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.5
+      type: gauge
+      help: ccmCTIDeviceStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.5
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+      enum_values:
+        5: partiallyregistered
+        2: registered
+        4: rejected
+        1: unknown
+        3: unregistered
+    - name: snmp_ccmCTIDevicePoolIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.6
+      type: gauge
+      help: ccmCTIDevicePoolIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.6
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+    - name: snmp_ccmCTIDeviceStatusReason
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.10
+      type: gauge
+      help: ccmCTIDeviceStatusReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.10
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+    - name: snmp_ccmCTIDeviceProductTypeIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.13
+      type: gauge
+      help: ccmCTIDeviceProductTypeIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.13
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+    - name: snmp_ccmCTIDeviceUnregReason
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.16
+      type: gauge
+      help: ccmCTIDeviceUnregReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.16
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+      enum_values:
+        17: callManagerApplyConfig
+        22: callManagerForcedRestart
+        9: callManagerReset
+        15: callManagerRestart
+        14: configurationMismatch
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        18: deviceNoResponse
+        29: deviceSwitch
+        10: deviceUnregistered
+        16: duplicateRegistration
+        19: emLoginLogout
+        20: emccLoginLogout
+        21: energywisePowerSavePlus
+        28: fallbackInitiated
+        7: initializationError
+        26: invalidCapabilities
+        13: keepAliveTimeout
+        11: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        25: registrationSequenceError
+        12: sccpDeviceThrottling
+        23: sourceIPAddrChanged
+        24: sourcePortChanged
+        1: unknown
+    - name: snmp_ccmCTIDeviceRegFailReason
+      oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.17
+      type: gauge
+      help: ccmCTIDeviceRegFailReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.8.1.1.17
+      indexes:
+      - labelname: ccmCTIDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.1
+        type: gauge
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceName
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceType
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.4
+        type: DisplayString
+      - labels:
+        - ccmCTIDeviceIndex
+        labelname: ccmCTIDeviceInetAddress
+        oid: 1.3.6.1.4.1.9.9.156.1.8.1.1.8
+        type: DisplayString
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+    - name: snmp_ccmDevicePoolRegionIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.3
+      type: gauge
+      help: ccmDevicePoolRegionIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.7.1.3
+      indexes:
+      - labelname: ccmDevicePoolIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.1
+        type: gauge
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolName
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.2
+        type: DisplayString
+    - name: snmp_ccmDevicePoolTimeZoneIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.4
+      type: gauge
+      help: ccmDevicePoolTimeZoneIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.7.1.4
+      indexes:
+      - labelname: ccmDevicePoolIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.1
+        type: gauge
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolName
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.2
+        type: DisplayString
+    - name: snmp_ccmDevicePoolGroupIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.5
+      type: gauge
+      help: ccmDevicePoolGroupIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.7.1.5
+      indexes:
+      - labelname: ccmDevicePoolIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.1
+        type: gauge
+      - labels:
+        - ccmDevicePoolIndex
+        labelname: ccmDevicePoolName
+        oid: 1.3.6.1.4.1.9.9.156.1.1.7.1.2
+        type: DisplayString
+    - name: snmp_ccmGatewayType
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.3
+      type: EnumAsInfo
+      help: ccmGatewayType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.3
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        1: unknown
+        2: other
+        3: ciscoAnalogAccess
+        4: ciscoDigitalAccessPRI
+        5: ciscoDigitalAccessT1
+        6: ciscoDigitalAccessPRIPlus
+        7: ciscoDigitalAccessWSX6608E1
+        8: ciscoDigitalAccessWSX6608T1
+        9: ciscoAnalogAccessWSX6624
+        10: ciscoMGCPStation
+        11: ciscoDigitalAccessE1Plus
+        12: ciscoDigitalAccessT1Plus
+        13: ciscoDigitalAccessWSX6608PRI
+        14: ciscoAnalogAccessWSX6612
+        15: ciscoMGCPTrunk
+        16: ciscoVG200
+        17: cisco26XX
+        18: cisco362X
+        19: cisco364X
+        20: cisco366X
+        21: ciscoCat4224VoiceGatewaySwitch
+        22: ciscoCat4000AccessGatewayModule
+        23: ciscoIAD2400
+        24: ciscoVGCEndPoint
+        25: ciscoVG224VG248Gateway
+        26: ciscoVGCBox
+        27: ciscoATA186
+        28: ciscoICS77XXMRP2XX
+        29: ciscoICS77XXASI81
+        30: ciscoICS77XXASI160
+        31: ciscoSlotVGCPort
+        32: ciscoCat6000AVVIDServModule
+        33: ciscoWSX6600
+        34: ciscoWSSVCCMMMS
+        35: cisco3745
+        36: cisco3725
+        37: ciscoICS77XXMRP3XX
+        38: ciscoICS77XXMRP38FXS
+        39: ciscoICS77XXMRP316FXS
+        40: ciscoICS77XXMRP38FXOM1
+        41: cisco269X
+        42: cisco1760
+        43: cisco1751
+        44: ciscoMGCPBRIPort
+    - name: snmp_ccmGatewayStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.5
+      type: gauge
+      help: ccmGatewayStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.5
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        5: partiallyregistered
+        2: registered
+        4: rejected
+        1: unknown
+        3: unregistered
+    - name: snmp_ccmGatewayProductId
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.9
+      type: EnumAsInfo
+      help: ccmGatewayProductId (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.9
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        30011: gwyCisco269X
+        44: gwyCisco26XX
+        45: gwyCisco362X
+        46: gwyCisco364X
+        47: gwyCisco366X
+        30020: gwyCisco1751
+        30019: gwyCisco1760
+        20002: gwyCisco3725
+        20000: gwyCisco3745
+        13: gwyCiscoAS2
+        14: gwyCiscoAS4
+        15: gwyCiscoAS8
+        10: gwyCiscoAT2
+        11: gwyCiscoAT4
+        12: gwyCiscoAT8
+        69: gwyCiscoATA186
+        2: gwyCiscoCat6KE1
+        4: gwyCiscoCat6KFXO
+        3: gwyCiscoCat6KFXS
+        1: gwyCiscoCat6KT1
+        59: gwyCiscoCat4000AccessGwyModule
+        58: gwyCiscoCat4224VoiceGwySwitch
+        80: gwyCiscoCat6000AVVIDServModule
+        9: gwyCiscoDT24
+        7: gwyCiscoDT24Plus
+        8: gwyCiscoDT30Plus
+        62: gwyCiscoIAD2400
+        71: gwyCiscoICS77XXASI81
+        72: gwyCiscoICS77XXASI160
+        70: gwyCiscoICS77XXMRP2XX
+        30007: gwyCiscoICS77XXMRP38FXOM1
+        30005: gwyCiscoICS77XXMRP38FXS
+        30006: gwyCiscoICS77XXMRP316FXS
+        30004: gwyCiscoICS77XXMRP3XX
+        90: gwyCiscoMGCPBRIPort
+        55: gwyCiscoMGCPE1Port
+        18: gwyCiscoMGCPFXOPort
+        19: gwyCiscoMGCPFXSPort
+        52: gwyCiscoMGCPT1Port
+        67: gwyCiscoSlotVGCPort
+        43: gwyCiscoVG200
+        66: gwyCiscoVG224AndV248
+        68: gwyCiscoVGCBox
+        65: gwyCiscoVGCEndPoint
+        10001: gwyCiscoWSSVCCMMMS
+        81: gwyCiscoWSX6600
+        49: h323AnonymousGatewy
+        75: h323H225GKControlledTrunk
+        76: h323ICTGKControlled
+        77: h323ICTNonGKControlled
+        16: h323Phone
+        17: h323Trunk
+        -2: other
+        95: sipTrunk
+        -1: unknown
+        27: voiceMailUOnePort
+    - name: snmp_ccmGatewayDChannelStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.13
+      type: gauge
+      help: ccmGatewayDChannelStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.13
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        1: active
+        2: inActive
+        3: unknown
+        4: notApplicable
+    - name: snmp_ccmGatewayRegFailReason
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.17
+      type: gauge
+      help: ccmGatewayRegFailReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.17
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+    - name: snmp_ccmGatewayUnregReason
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.16
+      type: gauge
+      help: ccmGatewayUnregReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.16
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        17: callManagerApplyConfig
+        22: callManagerForcedRestart
+        9: callManagerReset
+        15: callManagerRestart
+        14: configurationMismatch
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        18: deviceNoResponse
+        29: deviceSwitch
+        10: deviceUnregistered
+        16: duplicateRegistration
+        19: emLoginLogout
+        20: emccLoginLogout
+        21: energywisePowerSavePlus
+        28: fallbackInitiated
+        7: initializationError
+        26: invalidCapabilities
+        13: keepAliveTimeout
+        11: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        25: registrationSequenceError
+        12: sccpDeviceThrottling
+        23: sourceIPAddrChanged
+        24: sourcePortChanged
+        1: unknown
+    - name: snmp_ccmGatewayStatusReason
+      oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.10
+      type: gauge
+      help: ccmGatewayStatusReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.3.1.1.10
+      indexes:
+      - labelname: ccmGatewayIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDChannelNumber
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.14
+        type: DisplayString
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.6
+        type: gauge
+      - labels:
+        - ccmGatewayIndex
+        labelname: ccmGatewayProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.3.1.1.15
+        type: gauge
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+    - name: snmp_ccmGatewayTrunkType
+      oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.2
+      type: EnumAsInfo
+      help: ccmGatewayTrunkType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.4.1.1.2
+      indexes:
+      - labelname: ccmGatewayTrunkIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmGatewayTrunkIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmGatewayTrunkName
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmTrunkGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.4
+        type: gauge
+      enum_values:
+        1: unknown
+        2: other
+        3: trunkGroundStart
+        4: trunkLoopStart
+        5: trunkDID
+        6: trunkPOTS
+        7: trunkEM1
+        8: trunkEM2
+        9: trunkEM3
+        10: trunkEM4
+        11: trunkEM5
+        12: analog
+        13: pri
+        14: bri
+    - name: snmp_ccmGatewayTrunkStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.5
+      type: gauge
+      help: ccmGatewayTrunkStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.4.1.1.5
+      indexes:
+      - labelname: ccmGatewayTrunkIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmGatewayTrunkIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.1
+        type: gauge
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmGatewayTrunkName
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.3
+        type: DisplayString
+      - labels:
+        - ccmGatewayTrunkIndex
+        labelname: ccmTrunkGatewayIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.4.1.1.4
+        type: gauge
+      enum_values:
+        1: unknown
+        2: up
+        3: busy
+        4: down
+    - name: snmp_ccmH323DevProductId
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.3
+      type: EnumAsInfo
+      help: ccmH323DevProductId (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.3
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+      enum_values:
+        30011: gwyCisco269X
+        44: gwyCisco26XX
+        45: gwyCisco362X
+        46: gwyCisco364X
+        47: gwyCisco366X
+        30020: gwyCisco1751
+        30019: gwyCisco1760
+        20002: gwyCisco3725
+        20000: gwyCisco3745
+        13: gwyCiscoAS2
+        14: gwyCiscoAS4
+        15: gwyCiscoAS8
+        10: gwyCiscoAT2
+        11: gwyCiscoAT4
+        12: gwyCiscoAT8
+        69: gwyCiscoATA186
+        80: gwyCiscoCat6000AVVIDServModule
+        2: gwyCiscoCat6KE1
+        4: gwyCiscoCat6KFXO
+        3: gwyCiscoCat6KFXS
+        1: gwyCiscoCat6KT1
+        59: gwyCiscoCat4000AccessGwyModule
+        58: gwyCiscoCat4224VoiceGwySwitch
+        9: gwyCiscoDT24
+        7: gwyCiscoDT24Plus
+        8: gwyCiscoDT30Plus
+        62: gwyCiscoIAD2400
+        71: gwyCiscoICS77XXASI81
+        72: gwyCiscoICS77XXASI160
+        70: gwyCiscoICS77XXMRP2XX
+        30007: gwyCiscoICS77XXMRP38FXOM1
+        30005: gwyCiscoICS77XXMRP38FXS
+        30006: gwyCiscoICS77XXMRP316FXS
+        30004: gwyCiscoICS77XXMRP3XX
+        90: gwyCiscoMGCPBRIPort
+        55: gwyCiscoMGCPE1Port
+        18: gwyCiscoMGCPFXOPort
+        19: gwyCiscoMGCPFXSPort
+        52: gwyCiscoMGCPT1Port
+        67: gwyCiscoSlotVGCPort
+        43: gwyCiscoVG200
+        66: gwyCiscoVG224AndV248
+        68: gwyCiscoVGCBox
+        65: gwyCiscoVGCEndPoint
+        10001: gwyCiscoWSSVCCMMMS
+        81: gwyCiscoWSX6600
+        49: h323AnonymousGatewy
+        75: h323H225GKControlledTrunk
+        76: h323ICTGKControlled
+        77: h323ICTNonGKControlled
+        16: h323Phone
+        17: h323Trunk
+        -2: other
+        95: sipTrunk
+        -1: unknown
+        27: voiceMailUOnePort
+    - name: snmp_ccmH323DevProductTypeIndex
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.31
+      type: gauge
+      help: ccmH323DevProductTypeIndex (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.31
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+    - name: snmp_ccmH323DevRegFailReason
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.33
+      type: gauge
+      help: ccmH323DevRegFailReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.33
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+    - name: snmp_ccmH323DevStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.21
+      type: gauge
+      help: ccmH323DevStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.21
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+      enum_values:
+        0: notApplicable
+        1: unknown
+        2: registered
+        3: unregistered
+        4: rejected
+    - name: snmp_ccmH323DevStatusReason
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.22
+      type: gauge
+      help: ccmH323DevStatusReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.22
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+    - name: snmp_ccmH323DevUnregReason
+      oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.32
+      type: gauge
+      help: ccmH323DevUnregReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.11.1.1.32
+      indexes:
+      - labelname: ccmH323DevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmH323DevIndex
+        labelname: ccmH323DevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.11.1.1.11
+        type: gauge
+      enum_values:
+        17: callManagerApplyConfig
+        22: callManagerForcedRestart
+        9: callManagerReset
+        15: callManagerRestart
+        14: configurationMismatch
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        18: deviceNoResponse
+        29: deviceSwitch
+        10: deviceUnregistered
+        16: duplicateRegistration
+        19: emLoginLogout
+        20: emccLoginLogout
+        21: energywisePowerSavePlus
+        28: fallbackInitiated
+        7: initializationError
+        26: invalidCapabilities
+        13: keepAliveTimeout
+        11: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        25: registrationSequenceError
+        12: sccpDeviceThrottling
+        23: sourceIPAddrChanged
+        24: sourcePortChanged
+        1: unknown
+    - name: snmp_ccmMediaDeviceStatusReason
+      oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.9
+      type: gauge
+      help: ccmMediaDeviceStatusReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.6.1.1.9
+      indexes:
+      - labelname: ccmMediaDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.1
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.12
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.6
+        type: gauge
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+    - name: snmp_ccmMediaDeviceUnregReason
+      oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.15
+      type: gauge
+      help: ccmMediaDeviceUnregReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.6.1.1.15
+      indexes:
+      - labelname: ccmMediaDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.1
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.12
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.6
+        type: gauge
+      enum_values:
+        17: callManagerApplyConfig
+        22: callManagerForcedRestart
+        9: callManagerReset
+        15: callManagerRestart
+        14: configurationMismatch
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        18: deviceNoResponse
+        29: deviceSwitch
+        10: deviceUnregistered
+        16: duplicateRegistration
+        19: emLoginLogout
+        20: emccLoginLogout
+        21: energywisePowerSavePlus
+        28: fallbackInitiated
+        7: initializationError
+        26: invalidCapabilities
+        13: keepAliveTimeout
+        11: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        25: registrationSequenceError
+        12: sccpDeviceThrottling
+        23: sourceIPAddrChanged
+        24: sourcePortChanged
+        1: unknown
+    - name: snmp_ccmMediaDeviceType
+      oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.3
+      type: EnumAsInfo
+      help: ccmMediaDeviceType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.6.1.1.3
+      indexes:
+      - labelname: ccmMediaDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.1
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.12
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.6
+        type: gauge
+      enum_values:
+        1: unknown
+        2: ciscoMediaTerminPointWSX6608
+        3: ciscoConfBridgeWSX6608
+        4: ciscoSwMediaTerminationPoint
+        5: ciscoSwConfBridge
+        6: ciscoMusicOnHold
+        7: ciscoToneAnnouncementPlayer
+        8: ciscoConfBridgeWSSVCCMM
+        9: ciscoMediaServerWSSVCCMMMS
+        10: ciscoMTPWSSVCCMM
+        11: ciscoIOSSWMTPHDV2
+        12: ciscoIOSConfBridgeHDV2
+        13: ciscoIOSMTPHDV2
+        14: ciscoVCBIPVC35XX
+    - name: snmp_ccmMediaDeviceRegFailReason
+      oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.16
+      type: gauge
+      help: ccmMediaDeviceRegFailReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.6.1.1.16
+      indexes:
+      - labelname: ccmMediaDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.1
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.12
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.6
+        type: gauge
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+    - name: snmp_ccmMediaDeviceStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.5
+      type: gauge
+      help: ccmMediaDeviceStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.6.1.1.5
+      indexes:
+      - labelname: ccmMediaDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.1
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.12
+        type: gauge
+      - labels:
+        - ccmMediaDeviceIndex
+        labelname: ccmMediaDeviceDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.6.1.1.6
+        type: gauge
+      enum_values:
+        5: partiallyregistered
+        2: registered
+        4: rejected
+        1: unknown
+        3: unregistered
+    - name: snmp_ccmPhoneExtnStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.2.5.1.6
+      type: gauge
+      help: ccmPhoneExtnStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.5.1.6
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      - labelname: ccmPhoneExtnIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        - ccmPhoneExtnIndex
+        labelname: ccmPhoneExtnIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.5.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        - ccmPhoneExtnIndex
+        labelname: ccmPhoneExtn
+        oid: 1.3.6.1.4.1.9.9.156.1.2.5.1.2
+        type: DisplayString
+      enum_values:
+        2: registered
+        4: rejected
+        1: unknown
+        3: unregistered
+    - name: snmp_ccmPhoneUnregReason
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.26
+      type: gauge
+      help: ccmPhoneUnregReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.26
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        17: callManagerApplyConfig
+        22: callManagerForcedRestart
+        9: callManagerReset
+        15: callManagerRestart
+        14: configurationMismatch
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        18: deviceNoResponse
+        29: deviceSwitch
+        10: deviceUnregistered
+        16: duplicateRegistration
+        19: emLoginLogout
+        20: emccLoginLogout
+        21: energywisePowerSavePlus
+        28: fallbackInitiated
+        7: initializationError
+        26: invalidCapabilities
+        13: keepAliveTimeout
+        11: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        25: registrationSequenceError
+        12: sccpDeviceThrottling
+        23: sourceIPAddrChanged
+        24: sourcePortChanged
+        1: unknown
+    - name: snmp_ccmPhoneProtocol
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.19
+      type: EnumAsInfo
+      help: ccmPhoneProtocol (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.19
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        2: sccp
+        3: sip
+        1: unknown
+    - name: snmp_ccmPhoneType
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.3
+      type: EnumAsInfo
+      help: ccmPhoneType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.3
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        1: unknown
+        2: other
+        3: cisco30SPplus
+        4: cisco12SPplus
+        5: cisco12SP
+        6: cisco12S
+        7: cisco30VIP
+        8: ciscoTeleCasterBid
+        9: ciscoTeleCasterMgr
+        10: ciscoTeleCasterBusiness
+        11: ciscoSoftPhone
+        12: ciscoConferencePhone
+        13: cisco7902
+        14: cisco7905
+        15: cisco7912
+        16: cisco7970
+    - name: snmp_ccmPhoneStatus
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.7
+      type: gauge
+      help: ccmPhoneStatus (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.7
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        5: partiallyregistered
+        2: registered
+        4: rejected
+        1: unknown
+        3: unregistered
+    - name: snmp_ccmPhoneRegFailReason
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.27
+      type: gauge
+      help: ccmPhoneRegFailReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.27
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        33: addressingModeMismatch
+        17: authenticatedDeviceAlreadyExists
+        10: authenticationError
+        31: autoRegisterDBConfigTimeout
+        29: autoRegisterDBError
+        9: callManagerReset
+        27: capabilityResponseTimeout
+        6: connectivityError
+        3: databaseConfigurationError
+        23: databaseTimeout
+        30: dbAccessError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        16: deviceNotActive
+        32: deviceTypeMismatch
+        13: directoryNumberMismatch
+        7: initializationError
+        26: invalidCapabilities
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegExceeded
+        2: noEntryInDatabase
+        0: noError
+        18: obsoleteProtocolVersion
+        15: protocolMismatch
+        25: registrationSequenceError
+        28: securityMismatch
+        1: unknown
+    - name: snmp_ccmPhoneStatusReason
+      oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.16
+      type: gauge
+      help: ccmPhoneStatusReason (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.2.1.1.16
+      indexes:
+      - labelname: ccmPhoneIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.1
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneDevicePoolIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.13
+        type: gauge
+      - labels:
+        - ccmPhoneIndex
+        labelname: ccmPhoneProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.2.1.1.18
+        type: gauge
+      enum_values:
+        10: authenticationError
+        9: callManagerReset
+        6: connectivityError
+        3: databaseConfigurationError
+        8: deviceInitiatedReset
+        4: deviceNameUnresolveable
+        13: directoryNumberMismatch
+        7: initializationError
+        12: invalidTLSCipher
+        11: invalidX509NameInCertificate
+        14: malformedRegisterMsg
+        5: maxDevRegReached
+        2: noEntryInDatabase
+        0: noError
+        1: unknown
+    - name: snmp_ccmProductType
+      oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.2
+      type: gauge
+      help: ccmProductType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.8.1.2
+      indexes:
+      - labelname: ccmProductTypeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmProductTypeIndex
+        labelname: ccmProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.1
+        type: gauge
+    - name: snmp_ccmProductName
+      oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.3
+      type: gauge
+      help: ccmProductName (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.8.1.3
+      indexes:
+      - labelname: ccmProductTypeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmProductTypeIndex
+        labelname: ccmProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.1
+        type: gauge
+    - name: snmp_ccmProductCategory
+      oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.4
+      type: EnumAsInfo
+      help: ccmProductCategory (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.1.8.1.4
+      indexes:
+      - labelname: ccmProductTypeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmProductTypeIndex
+        labelname: ccmProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.1.8.1.1
+        type: gauge
+      enum_values:
+        -1: unknown
+        0: notApplicable
+        1: phone
+        2: gateway
+        3: h323Device
+        4: ctiDevice
+        5: voiceMailDevice
+        6: mediaResourceDevice
+        7: huntListDevice
+        8: sipDevice
+    - name: snmp_ccmSIPDevInetAddress
+      oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.6
+      type: gauge
+      help: ccmSIPDevInetAddress (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.14.1.1.6
+      indexes:
+      - labelname: ccmSIPDevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.1
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevName
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.3
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.4
+        type: DisplayString
+    - name: snmp_ccmSIPInTransportProtocolType
+      oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.7
+      type: EnumAsInfo
+      help: ccmSIPInTransportProtocolType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.14.1.1.7
+      indexes:
+      - labelname: ccmSIPDevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.1
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevName
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.3
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.4
+        type: DisplayString
+      enum_values:
+        2: tcp
+        4: tcpAndUdp
+        5: tls
+        3: udp
+        1: unknown
+    - name: snmp_ccmSIPOutTransportProtocolType
+      oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.9
+      type: EnumAsInfo
+      help: ccmSIPOutTransportProtocolType (CISCO-CCM-MIB) - 1.3.6.1.4.1.9.9.156.1.14.1.1.9
+      indexes:
+      - labelname: ccmSIPDevIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.1
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevName
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.2
+        type: DisplayString
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevProductTypeIndex
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.3
+        type: gauge
+      - labels:
+        - ccmSIPDevIndex
+        labelname: ccmSIPDevDescription
+        oid: 1.3.6.1.4.1.9.9.156.1.14.1.1.4
+        type: DisplayString
+      enum_values:
+        2: tcp
+        4: tcpAndUdp
+        5: tls
+        3: udp
+        1: unknown

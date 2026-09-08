@@ -1,0 +1,209 @@
+# GENERATED from kentik/snmp-profiles — module eagle_i
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  eagle_i:
+    walk:
+    - 1.3.6.1.4.1.3711.24.1.1.1.2.2
+    - 1.3.6.1.4.1.3711.24.1.1.1.3.1
+    - 1.3.6.1.4.1.3711.24.1.1.2.2
+    - 1.3.6.1.4.1.3711.24.1.1.7.3.1
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: invHwRevision
+        oid: 1.3.6.1.4.1.3711.24.1.1.99.9
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: invFwRevision
+        oid: 1.3.6.1.4.1.3711.24.1.1.99.10
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.3711.24.1.1.99.11
+        type: DisplayString
+    - name: snmp_ipTHAValue
+      oid: 1.3.6.1.4.1.3711.24.1.1.1.2.2.1.7
+      type: gauge
+      help: ipTHAValue (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.1.2.2.1.7
+      indexes:
+      - labelname: ipTHAChan
+        type: gauge
+      lookups:
+      - labels:
+        - ipTHAChan
+        labelname: ipTHAName
+        oid: 1.3.6.1.4.1.3711.24.1.1.1.2.2.1.3
+        type: DisplayString
+      - labels:
+        - ipTHAChan
+        labelname: ipTHALocn
+        oid: 1.3.6.1.4.1.3711.24.1.1.1.2.2.1.4
+        type: DisplayString
+    - name: snmp_ipContCurrState
+      oid: 1.3.6.1.4.1.3711.24.1.1.1.3.1.1.7
+      type: gauge
+      help: ipContCurrState (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.1.3.1.1.7
+      indexes:
+      - labelname: ipContChan
+        type: gauge
+      lookups:
+      - labels:
+        - ipContChan
+        labelname: ipContName
+        oid: 1.3.6.1.4.1.3711.24.1.1.1.3.1.1.3
+        type: DisplayString
+      - labels:
+        - ipContChan
+        labelname: ipContLocn
+        oid: 1.3.6.1.4.1.3711.24.1.1.1.3.1.1.4
+        type: DisplayString
+      - labels:
+        - ipContChan
+        labelname: ipContNormState
+        oid: 1.3.6.1.4.1.3711.24.1.1.1.3.1.1.6
+        type: DisplayString
+      enum_values:
+        1: open
+        2: closed
+        3: armed
+        4: triggered
+    - name: snmp_opCurrState
+      oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.6
+      type: gauge
+      help: opCurrState (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.2.2.1.6
+      indexes:
+      - labelname: opChan
+        type: gauge
+      lookups:
+      - labels:
+        - opChan
+        labelname: opName
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.3
+        type: DisplayString
+      - labels:
+        - opChan
+        labelname: opLocn
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.4
+        type: DisplayString
+      - labels:
+        - opChan
+        labelname: opNormState
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.5
+        type: EnumAsInfo
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_opControlState
+      oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.12
+      type: gauge
+      help: opControlState (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.2.2.1.12
+      indexes:
+      - labelname: opChan
+        type: gauge
+      lookups:
+      - labels:
+        - opChan
+        labelname: opName
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.3
+        type: DisplayString
+      - labels:
+        - opChan
+        labelname: opLocn
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.4
+        type: DisplayString
+      - labels:
+        - opChan
+        labelname: opNormState
+        oid: 1.3.6.1.4.1.3711.24.1.1.2.2.1.5
+        type: EnumAsInfo
+      enum_values:
+        1: activate
+        2: deactivate
+        3: logic
+    - name: snmp_pduRMSVoltsValue
+      oid: 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.3
+      type: gauge
+      help: pduRMSVoltsValue (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.3
+      indexes:
+      - labelname: pduMonPduNumber
+        type: gauge
+      lookups:
+      - labels:
+        - pduMonPduNumber
+        labelname: pduName
+        oid: 1.3.6.1.4.1.3711.24.1.1.7.1.2.1.3
+        type: DisplayString
+    - name: snmp_pduRMSAmpsValue
+      oid: 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.4
+      type: gauge
+      help: pduRMSAmpsValue (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.4
+      indexes:
+      - labelname: pduMonPduNumber
+        type: gauge
+      lookups:
+      - labels:
+        - pduMonPduNumber
+        labelname: pduName
+        oid: 1.3.6.1.4.1.3711.24.1.1.7.1.2.1.3
+        type: DisplayString
+    - name: snmp_pduTotalEnergyValue
+      oid: 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.5
+      type: gauge
+      help: pduTotalEnergyValue (HAWK-I2-MIB) - 1.3.6.1.4.1.3711.24.1.1.7.3.1.1.5
+      indexes:
+      - labelname: pduMonPduNumber
+        type: gauge
+      lookups:
+      - labels:
+        - pduMonPduNumber
+        labelname: pduName
+        oid: 1.3.6.1.4.1.3711.24.1.1.7.1.2.1.3
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.3711.24.1.1.99.9.0
+    - 1.3.6.1.4.1.3711.24.1.1.99.10.0
+    - 1.3.6.1.4.1.3711.24.1.1.99.11.0

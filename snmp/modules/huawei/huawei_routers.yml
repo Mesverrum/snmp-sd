@@ -1,0 +1,823 @@
+# GENERATED from kentik/snmp-profiles — module huawei_routers
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  huawei_routers:
+    walk:
+    - 1.3.6.1.4.1.2011.5.25.177.1.1.2
+    - 1.3.6.1.4.1.2011.5.25.177.1.1.3
+    - 1.3.6.1.4.1.2011.5.25.177.1.1.4
+    - 1.3.6.1.4.1.2011.5.25.194.1.1
+    - 1.3.6.1.4.1.2011.5.25.194.1.4
+    - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4
+    - 1.3.6.1.4.1.2011.5.25.222.1.2.2.2
+    - 1.3.6.1.4.1.2011.5.25.226.2.3.2
+    - 1.3.6.1.4.1.2011.5.25.226.2.14.2
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: hwEntitySystemModel
+        oid: 1.3.6.1.4.1.2011.5.25.31.6.5
+        type: DisplayString
+    - name: snmp_hwBgpPeerState
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.5
+      type: gauge
+      help: hwBgpPeerState (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: negotiated_version
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.1
+        type: DisplayString
+      - labels:
+        - index
+        labelname: remote_as
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.2
+        type: gauge
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: connect
+        3: active
+        4: opensent
+        5: openconfirm
+        6: established
+    - name: snmp_hwBgpPeerFsmEstablishedCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.6
+      type: gauge
+      help: hwBgpPeerFsmEstablishedCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: negotiated_version
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.1
+        type: DisplayString
+      - labels:
+        - index
+        labelname: remote_as
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.2
+        type: gauge
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerFsmEstablishedTime
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.7
+      type: gauge
+      help: hwBgpPeerFsmEstablishedTime (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: negotiated_version
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.1
+        type: DisplayString
+      - labels:
+        - index
+        labelname: remote_as
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.2
+        type: gauge
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerUnAvaiReason
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.10
+      type: gauge
+      help: hwBgpPeerUnAvaiReason (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: negotiated_version
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.1
+        type: DisplayString
+      - labels:
+        - index
+        labelname: remote_as
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.2
+        type: gauge
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+      enum_values:
+        1: configurationLeadPeerDown
+        2: receiveNotification
+        3: receiveErrorPacket
+        4: holdTimerExpire
+        5: remotePeerNotReachable
+        6: directConnectInterfaceDown
+        7: routeLimit
+    - name: snmp_hwBgpPeerPrefixRcvCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.1
+      type: counter
+      help: hwBgpPeerPrefixRcvCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerPrefixActiveCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.2
+      type: counter
+      help: hwBgpPeerPrefixActiveCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerPrefixAdvCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.3
+      type: counter
+      help: hwBgpPeerPrefixAdvCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInTotalMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.1
+      type: counter
+      help: hwBgpPeerInTotalMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutTotalMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.2
+      type: counter
+      help: hwBgpPeerOutTotalMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInOpenMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.3
+      type: counter
+      help: hwBgpPeerInOpenMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInUpdateMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.4
+      type: counter
+      help: hwBgpPeerInUpdateMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInNotificationMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.5
+      type: counter
+      help: hwBgpPeerInNotificationMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInKeepAliveMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.6
+      type: counter
+      help: hwBgpPeerInKeepAliveMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerInRouteFreshMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.7
+      type: counter
+      help: hwBgpPeerInRouteFreshMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutOpenMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.8
+      type: counter
+      help: hwBgpPeerOutOpenMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutUpdateMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.9
+      type: counter
+      help: hwBgpPeerOutUpdateMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutNotificationMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.10
+      type: counter
+      help: hwBgpPeerOutNotificationMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutKeepAliveMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.11
+      type: counter
+      help: hwBgpPeerOutKeepAliveMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwBgpPeerOutRouteFreshMsgCounter
+      oid: 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.12
+      type: counter
+      help: hwBgpPeerOutRouteFreshMsgCounter (HUAWEI-BGP-VPN-MIB) - 1.3.6.1.4.1.2011.5.25.177.1.1.4.1.12
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: hwBgpPeerVrfName
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.1.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: neighbor_ip
+        oid: 1.3.6.1.4.1.2011.5.25.177.1.1.2.1.4
+        type: DisplayString
+    - name: snmp_hwDnsTtl
+      oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
+      type: gauge
+      help: hwDnsTtl (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
+      indexes:
+      - labelname: hwDnsDomainName
+        type: DisplayString
+      lookups:
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsDomainName
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.1
+        type: DisplayString
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsIpAddress
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.2
+        type: DisplayString
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsAlias
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.4
+        type: DisplayString
+    - name: snmp_hwServerStatus
+      oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
+      type: gauge
+      help: hwServerStatus (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
+      indexes:
+      - labelname: hwServerAddr
+        type: InetAddress
+      lookups:
+      - labels:
+        - hwServerAddr
+        labelname: hwServerAddr
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.1
+        type: DisplayString
+      enum_values:
+        1: static
+        2: dynamic
+    - name: snmp_hwFwNetEventInterface
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
+      type: gauge
+      help: hwFwNetEventInterface (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcVrfName
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
+      type: gauge
+      help: hwFwNetEventSrcVrfName (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcIpAddress
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
+      type: gauge
+      help: hwFwNetEventSrcIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDstIpAddress
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
+      type: gauge
+      help: hwFwNetEventDstIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcIpPort
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
+      type: gauge
+      help: hwFwNetEventSrcIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDstIpPort
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
+      type: gauge
+      help: hwFwNetEventDstIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDescription
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
+      type: gauge
+      help: hwFwNetEventDescription (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwConnectionStatCount
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.2.2.2.1.4
+      type: counter
+      help: hwFwConnectionStatCount (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.2.2.2.1.4
+      indexes:
+      - labelname: hwFwConnectionStatService
+        type: gauge
+      - labelname: hwFwConnectionStatType
+        type: gauge
+      lookups:
+      - labels:
+        - hwFwConnectionStatService
+        - hwFwConnectionStatType
+        labelname: hwFwConnectionStatDescription
+        oid: 1.3.6.1.4.1.2011.5.25.222.1.2.2.2.1.3
+        type: DisplayString
+    - name: snmp_hwNatAddrPoolRefTimes
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
+      type: gauge
+      help: hwNatAddrPoolRefTimes (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
+      indexes:
+      - labelname: hwNatAddrPoolIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolStartAddr
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.2
+        type: DisplayString
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolEndAddr
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.3
+        type: DisplayString
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolRefType
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.5
+        type: EnumAsInfo
+    - name: snmp_hwNatSessionSrcLocalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
+      type: gauge
+      help: hwNatSessionSrcLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstLocalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
+      type: gauge
+      help: hwNatSessionDstLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcLocalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
+      type: gauge
+      help: hwNatSessionSrcLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstLocalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
+      type: gauge
+      help: hwNatSessionDstLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionProtocol
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
+      type: EnumAsInfo
+      help: hwNatSessionProtocol (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      enum_values:
+        1: other
+        2: icmp
+        3: udp
+        4: tcp
+      lookups: []
+    - name: snmp_hwNatSessionSrcGlobalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
+      type: gauge
+      help: hwNatSessionSrcGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstGlobalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
+      type: gauge
+      help: hwNatSessionDstGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcGlobalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
+      type: gauge
+      help: hwNatSessionSrcGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstGlobalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
+      type: gauge
+      help: hwNatSessionDstGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcVPN
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
+      type: gauge
+      help: hwNatSessionSrcVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstVPN
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
+      type: gauge
+      help: hwNatSessionDstVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionStatus
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
+      type: gauge
+      help: hwNatSessionStatus (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      enum_values:
+        1: active
+        2: notInService
+        3: notReady
+        4: createAndGo
+        5: createAndWait
+        6: destroy
+      lookups: []
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.2011.5.25.31.6.5.0

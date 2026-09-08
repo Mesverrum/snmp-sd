@@ -1,0 +1,14 @@
+This directory contains SNMP device-family profiles derived from
+https://github.com/kentik/snmp-profiles (Apache License 2.0).
+
+Copyright the kentik/snmp-profiles contributors.
+
+License text: LICENSE in this directory (Apache-2.0). Recipients of these
+files also receive the Alloy repository LICENSE at the repo root.
+
+The conversion to snmp_exporter runtime modules (snmp-network.yml) is
+original work in this repository (extracted from Mesverrum/alloy) and is
+also licensed Apache-2.0.
+
+This is attribution of origin, not a Kentik trademark license or a
+ktranslate name-parity contract. Metric names are snmp_*, not kentik_snmp_*.

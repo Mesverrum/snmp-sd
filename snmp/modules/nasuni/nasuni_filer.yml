@@ -1,0 +1,1110 @@
+# GENERATED from kentik/snmp-profiles — module nasuni_filer
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  nasuni_filer:
+    walk:
+    - 1.3.6.1.4.1.42040.2.2
+    get:
+    - 1.3.6.1.4.1.42040.1.5.0
+    - 1.3.6.1.4.1.42040.1.6.0
+    - 1.3.6.1.4.1.42040.1.7.0
+    - 1.3.6.1.4.1.42040.1.8.0
+    - 1.3.6.1.4.1.42040.1.9.0
+    - 1.3.6.1.4.1.42040.1.10.0
+    - 1.3.6.1.4.1.42040.1.11.0
+    - 1.3.6.1.4.1.42040.1.12.0
+    - 1.3.6.1.4.1.42040.1.13.0
+    - 1.3.6.1.4.1.42040.1.14.0
+    - 1.3.6.1.4.1.42040.100.1.0
+    - 1.3.6.1.4.1.42040.100.2.0
+    - 1.3.6.1.4.1.42040.100.3.0
+    - 1.3.6.1.4.1.42040.103.1.0
+    - 1.3.6.1.4.1.42040.103.2.0
+    - 1.3.6.1.4.1.42040.103.3.0
+    - 1.3.6.1.4.1.42040.104.1.0
+    - 1.3.6.1.4.1.42040.105.1.0
+    - 1.3.6.1.4.1.42040.105.2.0
+    - 1.3.6.1.4.1.42040.109.1.0
+    - 1.3.6.1.4.1.42040.106.1.0
+    - 1.3.6.1.4.1.42040.106.2.0
+    - 1.3.6.1.4.1.42040.106.3.0
+    - 1.3.6.1.4.1.42040.108.1.0
+    - 1.3.6.1.4.1.42040.108.2.0
+    - 1.3.6.1.4.1.42040.108.3.0
+    - 1.3.6.1.4.1.42040.108.4.0
+    - 1.3.6.1.4.1.42040.108.5.0
+    - 1.3.6.1.4.1.42040.108.6.0
+    - 1.3.6.1.4.1.42040.108.7.0
+    - 1.3.6.1.4.1.42040.108.8.0
+    - 1.3.6.1.4.1.42040.108.9.0
+    - 1.3.6.1.4.1.42040.108.10.0
+    - 1.3.6.1.4.1.42040.3.1.0
+    - 1.3.6.1.4.1.42040.3.2.0
+    - 1.3.6.1.4.1.42040.3.3.0
+    - 1.3.6.1.4.1.42040.1.102.1.0
+    - 1.3.6.1.4.1.42040.1.102.2.0
+    - 1.3.6.1.4.1.42040.1.102.3.0
+    - 1.3.6.1.4.1.42040.1.102.4.0
+    - 1.3.6.1.4.1.42040.1.102.5.0
+    - 1.3.6.1.4.1.42040.1.102.6.0
+    - 1.3.6.1.4.1.42040.1.102.7.0
+    - 1.3.6.1.4.1.42040.1.102.8.0
+    - 1.3.6.1.4.1.42040.1.102.9.0
+    - 1.3.6.1.4.1.42040.2.1.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.42040.1.1.0
+    - 1.3.6.1.4.1.42040.1.2.0
+    - 1.3.6.1.4.1.42040.1.3.0
+    - 1.3.6.1.4.1.42040.1.101.1.0
+    - 1.3.6.1.4.1.42040.1.101.2.0
+    - 1.3.6.1.4.1.42040.1.101.4.0
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: filerIdentifier
+        oid: 1.3.6.1.4.1.42040.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: filerVersion
+        oid: 1.3.6.1.4.1.42040.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: serial
+        oid: 1.3.6.1.4.1.42040.1.3
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: filerPlatformName
+        oid: 1.3.6.1.4.1.42040.1.101.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: filerPlatformType
+        oid: 1.3.6.1.4.1.42040.1.101.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: filerBiosVersion
+        oid: 1.3.6.1.4.1.42040.1.101.4
+        type: DisplayString
+    - name: snmp_filerUpdateAvailable
+      oid: 1.3.6.1.4.1.42040.1.5
+      type: gauge
+      help: filerUpdateAvailable (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.5.0
+      lookups: []
+    - name: snmp_filerTotalUnprotectedData
+      oid: 1.3.6.1.4.1.42040.1.6
+      type: gauge
+      help: filerTotalUnprotectedData (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.6.0
+      lookups: []
+    - name: snmp_filerPushesCompleted
+      oid: 1.3.6.1.4.1.42040.1.7
+      type: gauge
+      help: filerPushesCompleted (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.7.0
+      lookups: []
+    - name: snmp_filerTotalPushed
+      oid: 1.3.6.1.4.1.42040.1.8
+      type: gauge
+      help: filerTotalPushed (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.8.0
+      lookups: []
+    - name: snmp_filerTotalRead
+      oid: 1.3.6.1.4.1.42040.1.9
+      type: gauge
+      help: filerTotalRead (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.9.0
+      lookups: []
+    - name: snmp_filerOpensForRead
+      oid: 1.3.6.1.4.1.42040.1.10
+      type: gauge
+      help: filerOpensForRead (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.10.0
+      lookups: []
+    - name: snmp_filerOpensForWrite
+      oid: 1.3.6.1.4.1.42040.1.11
+      type: gauge
+      help: filerOpensForWrite (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.11.0
+      lookups: []
+    - name: snmp_filerMergeConflicts
+      oid: 1.3.6.1.4.1.42040.1.12
+      type: gauge
+      help: filerMergeConflicts (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.12.0
+      lookups: []
+    - name: snmp_filerReadHits
+      oid: 1.3.6.1.4.1.42040.1.13
+      type: gauge
+      help: filerReadHits (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.13.0
+      lookups: []
+    - name: snmp_filerReadMisses
+      oid: 1.3.6.1.4.1.42040.1.14
+      type: gauge
+      help: filerReadMisses (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.14.0
+      lookups: []
+    - name: snmp_filerCacheTotal
+      oid: 1.3.6.1.4.1.42040.100.1
+      type: gauge
+      help: filerCacheTotal (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.100.1.0
+      lookups: []
+    - name: snmp_filerCacheUsed
+      oid: 1.3.6.1.4.1.42040.100.2
+      type: gauge
+      help: filerCacheUsed (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.100.2.0
+      lookups: []
+    - name: snmp_filerCacheFree
+      oid: 1.3.6.1.4.1.42040.100.3
+      type: gauge
+      help: filerCacheFree (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.100.3.0
+      lookups: []
+    - name: snmp_filerTotalShares
+      oid: 1.3.6.1.4.1.42040.103.1
+      type: gauge
+      help: filerTotalShares (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.103.1.0
+      lookups: []
+    - name: snmp_filerTotalShareLocks
+      oid: 1.3.6.1.4.1.42040.103.2
+      type: gauge
+      help: filerTotalShareLocks (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.103.2.0
+      lookups: []
+    - name: snmp_filerTotalShareClients
+      oid: 1.3.6.1.4.1.42040.103.3
+      type: gauge
+      help: filerTotalShareClients (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.103.3.0
+      lookups: []
+    - name: snmp_filerTotalExports
+      oid: 1.3.6.1.4.1.42040.104.1
+      type: gauge
+      help: filerTotalExports (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.104.1.0
+      lookups: []
+    - name: snmp_filerTotalIscsiTargets
+      oid: 1.3.6.1.4.1.42040.105.1
+      type: gauge
+      help: filerTotalIscsiTargets (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.105.1.0
+      lookups: []
+    - name: snmp_filerTotalIscsiClients
+      oid: 1.3.6.1.4.1.42040.105.2
+      type: gauge
+      help: filerTotalIscsiClients (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.105.2.0
+      lookups: []
+    - name: snmp_filerTotalFtpdirs
+      oid: 1.3.6.1.4.1.42040.109.1
+      type: gauge
+      help: filerTotalFtpdirs (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.109.1.0
+      lookups: []
+    - name: snmp_filerTotalMobileLicenses
+      oid: 1.3.6.1.4.1.42040.106.1
+      type: gauge
+      help: filerTotalMobileLicenses (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.106.1.0
+      lookups: []
+    - name: snmp_filerNumIOSLicenses
+      oid: 1.3.6.1.4.1.42040.106.2
+      type: gauge
+      help: filerNumIOSLicenses (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.106.2.0
+      lookups: []
+    - name: snmp_filerNumAndroidLicenses
+      oid: 1.3.6.1.4.1.42040.106.3
+      type: gauge
+      help: filerNumAndroidLicenses (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.106.3.0
+      lookups: []
+    - name: snmp_filerCloudOut
+      oid: 1.3.6.1.4.1.42040.108.1
+      type: gauge
+      help: filerCloudOut (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.1.0
+      lookups: []
+    - name: snmp_filerCloudIn
+      oid: 1.3.6.1.4.1.42040.108.2
+      type: gauge
+      help: filerCloudIn (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.2.0
+      lookups: []
+    - name: snmp_filerMobileOut
+      oid: 1.3.6.1.4.1.42040.108.3
+      type: gauge
+      help: filerMobileOut (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.3.0
+      lookups: []
+    - name: snmp_filerMobileIn
+      oid: 1.3.6.1.4.1.42040.108.4
+      type: gauge
+      help: filerMobileIn (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.4.0
+      lookups: []
+    - name: snmp_filerUIOut
+      oid: 1.3.6.1.4.1.42040.108.5
+      type: gauge
+      help: filerUIOut (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.5.0
+      lookups: []
+    - name: snmp_filerUIIn
+      oid: 1.3.6.1.4.1.42040.108.6
+      type: gauge
+      help: filerUIIn (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.6.0
+      lookups: []
+    - name: snmp_filerClientsOut
+      oid: 1.3.6.1.4.1.42040.108.7
+      type: gauge
+      help: filerClientsOut (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.7.0
+      lookups: []
+    - name: snmp_filerClientsIn
+      oid: 1.3.6.1.4.1.42040.108.8
+      type: gauge
+      help: filerClientsIn (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.8.0
+      lookups: []
+    - name: snmp_filerMigrationOut
+      oid: 1.3.6.1.4.1.42040.108.9
+      type: gauge
+      help: filerMigrationOut (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.9.0
+      lookups: []
+    - name: snmp_filerMigrationIn
+      oid: 1.3.6.1.4.1.42040.108.10
+      type: gauge
+      help: filerMigrationIn (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.108.10.0
+      lookups: []
+    - name: snmp_accountLicensedCapacity
+      oid: 1.3.6.1.4.1.42040.3.1
+      type: gauge
+      help: accountLicensedCapacity (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.3.1.0
+      lookups: []
+    - name: snmp_accountUsedCapacity
+      oid: 1.3.6.1.4.1.42040.3.2
+      type: gauge
+      help: accountUsedCapacity (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.3.2.0
+      lookups: []
+    - name: snmp_accountPercentUsedCapacity
+      oid: 1.3.6.1.4.1.42040.3.3
+      type: gauge
+      help: accountPercentUsedCapacity (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.3.3.0
+      lookups: []
+    - name: snmp_filerAmbientTemp
+      oid: 1.3.6.1.4.1.42040.1.102.1
+      type: gauge
+      help: filerAmbientTemp (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.1.0
+      lookups: []
+    - name: snmp_filerInletTemp
+      oid: 1.3.6.1.4.1.42040.1.102.2
+      type: gauge
+      help: filerInletTemp (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.2.0
+      lookups: []
+    - name: snmp_filerExhaustTemp
+      oid: 1.3.6.1.4.1.42040.1.102.3
+      type: gauge
+      help: filerExhaustTemp (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.3.0
+      lookups: []
+    - name: snmp_filerNumPowerSupplies
+      oid: 1.3.6.1.4.1.42040.1.102.4
+      type: gauge
+      help: filerNumPowerSupplies (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.4.0
+      lookups: []
+    - name: snmp_filerPowerSupplyErrors
+      oid: 1.3.6.1.4.1.42040.1.102.5
+      type: counter
+      help: filerPowerSupplyErrors (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.5.0
+      lookups: []
+    - name: snmp_filerNumRaidArrays
+      oid: 1.3.6.1.4.1.42040.1.102.6
+      type: gauge
+      help: filerNumRaidArrays (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.6.0
+      lookups: []
+    - name: snmp_filerRaidArrayErrors
+      oid: 1.3.6.1.4.1.42040.1.102.7
+      type: counter
+      help: filerRaidArrayErrors (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.7.0
+      lookups: []
+    - name: snmp_filerNumRaidDisks
+      oid: 1.3.6.1.4.1.42040.1.102.8
+      type: gauge
+      help: filerNumRaidDisks (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.8.0
+      lookups: []
+    - name: snmp_filerRaidDiskErrors
+      oid: 1.3.6.1.4.1.42040.1.102.9
+      type: counter
+      help: filerRaidDiskErrors (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.1.102.9.0
+      lookups: []
+    - name: snmp_volumeCount
+      oid: 1.3.6.1.4.1.42040.2.1
+      type: gauge
+      help: volumeCount (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.1.0
+      lookups: []
+    - name: snmp_volumeTableStatus
+      oid: 1.3.6.1.4.1.42040.2.2.1.5
+      type: gauge
+      help: volumeTableStatus (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableAccessibleData
+      oid: 1.3.6.1.4.1.42040.2.2.1.6
+      type: gauge
+      help: volumeTableAccessibleData (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableUnprotectedData
+      oid: 1.3.6.1.4.1.42040.2.2.1.7
+      type: gauge
+      help: volumeTableUnprotectedData (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableLastSnapshotDuration
+      oid: 1.3.6.1.4.1.42040.2.2.1.10
+      type: gauge
+      help: volumeTableLastSnapshotDuration (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableLastSnapshotVersion
+      oid: 1.3.6.1.4.1.42040.2.2.1.11
+      type: gauge
+      help: volumeTableLastSnapshotVersion (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableQuota
+      oid: 1.3.6.1.4.1.42040.2.2.1.19
+      type: gauge
+      help: volumeTableQuota (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.19
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableNumAVViolations
+      oid: 1.3.6.1.4.1.42040.2.2.1.20
+      type: gauge
+      help: volumeTableNumAVViolations (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.20
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableNumFileAlerts
+      oid: 1.3.6.1.4.1.42040.2.2.1.21
+      type: gauge
+      help: volumeTableNumFileAlerts (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.21
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableNumExports
+      oid: 1.3.6.1.4.1.42040.2.2.1.22
+      type: gauge
+      help: volumeTableNumExports (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.22
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableNumShares
+      oid: 1.3.6.1.4.1.42040.2.2.1.23
+      type: gauge
+      help: volumeTableNumShares (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.23
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
+    - name: snmp_volumeTableNumFtpdirs
+      oid: 1.3.6.1.4.1.42040.2.2.1.24
+      type: gauge
+      help: volumeTableNumFtpdirs (NASUNI-FILER-MIB) - 1.3.6.1.4.1.42040.2.2.1.24
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: volumeTableDescription
+        oid: 1.3.6.1.4.1.42040.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProvider
+        oid: 1.3.6.1.4.1.42040.2.2.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableProtocol
+        oid: 1.3.6.1.4.1.42040.2.2.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotStart
+        oid: 1.3.6.1.4.1.42040.2.2.1.8
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableLastSnapshotEnd
+        oid: 1.3.6.1.4.1.42040.2.2.1.9
+        type: DisplayString
+      - labels:
+        - index
+        labelname: volumeTableIsActive
+        oid: 1.3.6.1.4.1.42040.2.2.1.12
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsShared
+        oid: 1.3.6.1.4.1.42040.2.2.1.13
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsReadOnly
+        oid: 1.3.6.1.4.1.42040.2.2.1.14
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsPinned
+        oid: 1.3.6.1.4.1.42040.2.2.1.15
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableIsRemote
+        oid: 1.3.6.1.4.1.42040.2.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableAvEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: volumeTableRemoteAccessEnabled
+        oid: 1.3.6.1.4.1.42040.2.2.1.18
+        type: EnumAsInfo
