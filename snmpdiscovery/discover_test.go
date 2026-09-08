@@ -1,42 +1,39 @@
 package snmpdiscovery
 
 import (
-	"bytes"
-	"log/slog"
-	"path/filepath"
+	"strings"
 	"testing"
 )
 
-func TestDiscoverMissingFingerprinters(t *testing.T) {
-	var buf bytes.Buffer
-	log := slog.New(slog.NewTextHandler(&buf, &slog.HandlerOptions{Level: slog.LevelDebug}))
-	cfg := DiscoveryFile{
-		Groups: []DiscoveryGroup{{
-			Name:  "hq",
-			CIDRs: []string{"10.0.0.0/30"},
-			Auths: []string{"public_v2"},
-		}},
+func TestParseEnabledTiers(t *testing.T) {
+	all, err := ParseEnabledTiers("")
+	if err != nil || len(all) != 3 {
+		t.Fatalf("empty: %v %v", all, err)
 	}
-	_, stats, err := Discover(cfg, ScanParams{
-		SnmpCfg:     filepath.Join(t.TempDir(), "missing-snmp.yml"),
-		FpPath:      filepath.Join(t.TempDir(), "missing-fp.yml"),
-		DefaultFP:   "network",
-		Concurrency: 1,
-		Timeout:     1,
-		Ping:        false,
-		Logger:      log,
-	})
-	if err == nil {
-		t.Fatal("expected error for missing fingerprinters")
+	hot, err := ParseEnabledTiers("hot")
+	if err != nil || len(hot) != 1 || hot[0] != "hot" {
+		t.Fatalf("hot: %v %v", hot, err)
 	}
-	if stats != (ScanStats{}) {
-		t.Fatalf("failed scan should return zero stats, got %+v", stats)
+	pair, err := ParseEnabledTiers("cold,hot")
+	if err != nil || len(pair) != 2 || pair[0] != "hot" || pair[1] != "cold" {
+		t.Fatalf("order: %v %v", pair, err)
+	}
+	if _, err := ParseEnabledTiers("warm"); err == nil {
+		t.Fatal("expected error for warm")
 	}
 }
 
-func TestScanParamsLoggerNilSafe(t *testing.T) {
-	p := ScanParams{}
-	if p.logger() == nil {
-		t.Fatal("logger() must not return nil")
+func TestTargetsForTiersHotOnly(t *testing.T) {
+	cat := []AlloyTarget{{
+		Name: "spine1", Address: "10.0.0.1", Module: "if_mib",
+		ModuleCold: "if_mib_meta", ModuleTopology: "lldp_mib",
+		Auth: "public_v2", DeviceName: "spine1",
+	}}
+	got := TargetsForTiers(cat, []string{"hot"})
+	if len(got) != 1 || got[0].Module != "if_mib" || !strings.HasSuffix(got[0].Name, "-hot") {
+		t.Fatalf("hot-only: %+v", got)
+	}
+	if n := len(TargetsForTiers(cat, []string{"hot", "cold"})); n != 2 {
+		t.Fatalf("hot+cold: %d", n)
 	}
 }

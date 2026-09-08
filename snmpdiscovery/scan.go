@@ -40,6 +40,9 @@ type ScanParams struct {
 	// AuthsOverlay is optional snmp_exporter `auths:` YAML. Named keys
 	// replace the same names from SnmpCfg; modules stay on the library file.
 	AuthsOverlay []byte
+	// EnabledTiers selects which scrape catalogs to publish (hot / cold /
+	// topology). Empty means all three. Disabled tiers are written as [].
+	EnabledTiers []string
 }
 
 // ScanStats is filled by a successful RunScan (and zero on error).
@@ -206,14 +209,22 @@ func RunScan(cfg DiscoveryFile, p ScanParams) (ScanStats, error) {
 // *-cold.yml and *-topology.yml are written beside it (empty list when no modules).
 func publishCatalog(p ScanParams, published []AlloyTarget) error {
 	if p.OutAlloy != "" {
-		if err := WriteAlloyYAML(p.OutAlloy, TierTargets(published, "hot")); err != nil {
-			return err
+		tiers := p.EnabledTiers
+		if len(tiers) == 0 {
+			tiers = AllTiers
 		}
-		if err := WriteAlloyYAML(tierSiblingPath(p.OutAlloy, "-cold"), TierTargets(published, "cold")); err != nil {
-			return err
-		}
-		if err := WriteAlloyYAML(tierSiblingPath(p.OutAlloy, "-topology"), TierTargets(published, "topology")); err != nil {
-			return err
+		for _, tier := range AllTiers {
+			path := p.OutAlloy
+			if tier != "hot" {
+				path = tierSiblingPath(p.OutAlloy, "-"+tier)
+			}
+			var targets []AlloyTarget
+			if TierEnabled(tiers, tier) {
+				targets = TierTargets(published, tier)
+			}
+			if err := WriteAlloyYAML(path, targets); err != nil {
+				return err
+			}
 		}
 	}
 	if p.OutSD != "" {

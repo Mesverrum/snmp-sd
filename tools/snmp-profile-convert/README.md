@@ -27,7 +27,17 @@ Skips `_template/` and trap/syslog-named files. Converts `_general/` bases (`if_
 
 Parents that both fingerprint (`sysobjectid`) **and** have children (`huawei_all_devices`, `juniper_all_devices`) keep tables only; identity lives on a `{name}_identity` sidecar so a child scrape is not two `snmp_device_info` families. Device-level scalar lookups nested on table metrics are stripped (FRU serials on a chassis INDEX stay).
 
-Alloy / exporter: `config_file` = this concat + `config_merge_strategy = "replace"` (this library replaces stock embedded snmp.yml). `snmp-discovery --snmp-config` and `--fingerprinters` must be this same convert. A live Clos sweep (2026-09-08) dropped `nokia_srlinux_hot` from an older image fingerprinter file because that sidecar is not under `snmp/modules/` — published `module=` stayed `if_mib,nokia_srlinux`.
+Alloy / exporter: `config_file` = this concat + `config_merge_strategy = "replace"` (this library replaces stock embedded snmp.yml). `snmp-discovery --snmp-config` and `--fingerprinters` must be this same convert.
+
+Nokia is split across the three scrape tiers (no invented `nokia_srlinux_hot`):
+
+| Module | Tier | Contents |
+|---|---|---|
+| `nokia_srlinux` | hot | `snmp_device_info`, `snmp_Uptime`, CPU, memory |
+| `nokia_srlinux_sensors` | cold | chassis oper, temperature, fans, PSU |
+| `nokia_srlinux_bgp` | topology | TIMETRA-BGP peer tables |
+
+Re-split without a full vendor ingest: `python3 tools/snmp-profile-convert/split_nokia_tiers.py`.
 
 **Metric names:** every series is `snmp_<stem>`. Profile `tag` values (`CPU`, `MemoryUsed`, `MemoryFree`, `MemoryTotal`, `Temperature`) become the stem (`snmp_CPU`); other objects keep the MIB name (`snmp_ifHCInOctets`). Labels are not prefixed. Two symbols in one module that would share a vital stem and the same indexes: first wins; later keep the native stem (converter warns).
 

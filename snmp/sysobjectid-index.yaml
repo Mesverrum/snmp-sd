@@ -7392,11 +7392,12 @@ modules:
     module_chain_hot:
     - if_mib
     - nokia_srlinux
-    - nokia_srlinux_hot
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    - nokia_srlinux_sensors
+    module_chain_topology:
+    - nokia_srlinux_bgp
   nutanix:
     profile: nutanix.yml
     vendor: nutanix

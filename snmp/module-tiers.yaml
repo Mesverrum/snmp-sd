@@ -38,7 +38,6 @@ tiers:
   - barracuda_email_gateway
   - barracuda_waf
   - base
-  - bgp4_mib
   - bluecat_server
   - brocade_fc_switch
   - brother_net_printer
@@ -149,6 +148,7 @@ tiers:
   - netscaler
   - netscaler_sdx
   - netskope_appliance
+  - nokia_srlinux_sensors
   - nortel_ethernet_routing_switch
   - nutanix
   - omni_access_wlc
@@ -156,7 +156,6 @@ tiers:
   - opengear_console_manager
   - opengear_infrastructure_manager
   - opnsense_protectli
-  - ospf_mib
   - palo_alto
   - panduit_pdu
   - peplink
@@ -203,4 +202,7 @@ tiers:
   - zscaler_nss
   - zyxel_switch
   topology:
+  - bgp4_mib
   - lldp_mib
+  - nokia_srlinux_bgp
+  - ospf_mib

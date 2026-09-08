@@ -1,0 +1,198 @@
+# GENERATED from kentik/snmp-profiles — module nokia_srlinux_bgp
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  nokia_srlinux_bgp:
+    metrics:
+    - name: snmp_tBgpPeerNgConnState
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.59
+      type: gauge
+      help: tBgpPeerNgConnState (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.59
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_description
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: local_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.65
+        type: gauge
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+      enum_values:
+        1: idle
+        2: connect
+        3: active
+        4: opensent
+        5: openconfirm
+        6: established
+    - name: snmp_tBgpPeerNgOperStatus
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.42
+      type: gauge
+      help: tBgpPeerNgOperStatus (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.42
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_description
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: local_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.65
+        type: gauge
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+      enum_values:
+        1: unknown
+        2: inService
+        3: outOfService
+        4: transition
+    - name: snmp_tBgpPeerNgOperActivePrefixes
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.7
+      type: gauge
+      help: tBgpPeerNgOperActivePrefixes (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.7
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+    - name: snmp_tBgpPeerNgOperFlaps
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.10
+      type: counter
+      help: tBgpPeerNgOperFlaps (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.10
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+    - name: snmp_tBgpPeerNgOperReceivedPrefixes
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.5
+      type: counter
+      help: tBgpPeerNgOperReceivedPrefixes (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.5
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+    - name: snmp_tBgpPeerNgOperSentPrefixes
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.6
+      type: counter
+      help: tBgpPeerNgOperSentPrefixes (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.6
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+    - name: snmp_tBgpPeerNgOperEvpnActivePfxs
+      oid: 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.90
+      type: counter
+      help: tBgpPeerNgOperEvpnActivePfxs (TIMETRA-BGP-MIB) - 1.3.6.1.4.1.6527.3.1.2.14.4.8.1.90
+      indexes:
+      - labelname: tBgpPeerNgInstanceIndex
+        type: gauge
+      - labelname: tBgpPeerNgAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_group
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.4
+        type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: peer_as
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.66
+        type: gauge
+    walk:
+    - 1.3.6.1.4.1.6527.3.1.2.14.4.7
+    - 1.3.6.1.4.1.6527.3.1.2.14.4.8

@@ -15,6 +15,7 @@ from convert import (
     partition_module_chain,
     rewrite_exporter_types,
     split_if_mib_family,
+    split_nokia_srlinux_family,
     _ensure_if_mac_lookup,
 )
 
@@ -249,6 +250,49 @@ class IpAddrModule(unittest.TestCase):
         self.assertEqual(tiers["hot"], ["device_base", "if_mib"])
         self.assertEqual(tiers["cold"], ["if_mib_meta", "ip_addr"])
 
+    def test_split_nokia_srlinux_family(self):
+        parts = split_nokia_srlinux_family(
+            {
+                "walk": [
+                    "1.3.6.1.4.1.6527.3.1.2.2.1.8",
+                    "1.3.6.1.4.1.6527.3.1.2.14.4.7",
+                ],
+                "get": ["1.3.6.1.4.1.6527.3.1.2.1.1.1.0"],
+                "metrics": [
+                    {"name": "snmp_CPU", "oid": "1.3.6.1.4.1.6527.3.1.2.1.1.1"},
+                    {
+                        "name": "snmp_Temperature",
+                        "oid": "1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18",
+                    },
+                    {
+                        "name": "snmp_tBgpPeerNgConnState",
+                        "oid": "1.3.6.1.4.1.6527.3.1.2.14.4.7.1.59",
+                    },
+                ],
+            }
+        )
+        self.assertIn("nokia_srlinux", parts)
+        self.assertIn("nokia_srlinux_sensors", parts)
+        self.assertIn("nokia_srlinux_bgp", parts)
+        self.assertEqual(
+            [m["name"] for m in parts["nokia_srlinux"]["metrics"]], ["snmp_CPU"]
+        )
+        self.assertEqual(
+            [m["name"] for m in parts["nokia_srlinux_sensors"]["metrics"]],
+            ["snmp_Temperature"],
+        )
+        self.assertEqual(
+            [m["name"] for m in parts["nokia_srlinux_bgp"]["metrics"]],
+            ["snmp_tBgpPeerNgConnState"],
+        )
+        self.assertIn("1.3.6.1.4.1.6527.3.1.2.1.1.1.0", parts["nokia_srlinux"]["get"])
+        self.assertIn(
+            "1.3.6.1.4.1.6527.3.1.2.2.1.8", parts["nokia_srlinux_sensors"]["walk"]
+        )
+        self.assertIn(
+            "1.3.6.1.4.1.6527.3.1.2.14.4.7", parts["nokia_srlinux_bgp"]["walk"]
+        )
+
     def test_partition_does_not_invent_missing_nokia_hot_sidecar(self):
         known = {"if_mib", "if_mib_meta", "ip_addr", "nokia_srlinux"}
         tiers = partition_module_chain(["if_mib", "nokia_srlinux"], known)
@@ -256,10 +300,22 @@ class IpAddrModule(unittest.TestCase):
         self.assertIn("nokia_srlinux", tiers["hot"])
         self.assertIn("if_mib", tiers["hot"])
 
-    def test_partition_keeps_nokia_hot_sidecar_when_present(self):
-        known = {"if_mib", "if_mib_meta", "ip_addr", "nokia_srlinux", "nokia_srlinux_hot"}
+    def test_partition_nokia_three_tiers(self):
+        known = {
+            "if_mib",
+            "if_mib_meta",
+            "ip_addr",
+            "nokia_srlinux",
+            "nokia_srlinux_sensors",
+            "nokia_srlinux_bgp",
+        }
         tiers = partition_module_chain(["if_mib", "nokia_srlinux"], known)
-        self.assertEqual(tiers["hot"][:3], ["if_mib", "nokia_srlinux_hot", "nokia_srlinux"])
+        self.assertEqual(tiers["hot"], ["if_mib", "nokia_srlinux"])
+        self.assertIn("nokia_srlinux_sensors", tiers["cold"])
+        self.assertIn("if_mib_meta", tiers["cold"])
+        self.assertIn("ip_addr", tiers["cold"])
+        self.assertEqual(tiers["topology"], ["nokia_srlinux_bgp"])
+        self.assertNotIn("nokia_srlinux_hot", tiers["hot"])
 
     def test_partition_drops_ip_addr_when_module_absent(self):
         known = {"if_mib", "if_mib_meta", "nokia_srlinux"}

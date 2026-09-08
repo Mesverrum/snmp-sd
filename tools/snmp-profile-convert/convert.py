@@ -63,8 +63,18 @@ SKIP_PROFILE_FILES = frozenset({"system-mib.yml", "system_mib.yml"})
 #   hot      — alerting / troubleshooting that fits ~60s (octets, oper, CPU)
 #   cold     — names/descr + packets + errors + discards (not a 60s page)
 #   topology — optional experiments (LLDP/CDP); not BGP/OSPF
-TOPOLOGY_MODULES = frozenset({"lldp_mib"})
-TOPOLOGY_NAME_RE = re.compile(r"(lldp|cdp)", re.I)
+TOPOLOGY_MODULES = frozenset({"lldp_mib", "bgp4_mib", "ospf_mib"})
+TOPOLOGY_NAME_RE = re.compile(r"(lldp|cdp|bgp|ospf|isis)", re.I)
+NOKIA_HOT_METRIC_NAMES = frozenset(
+    {
+        "snmp_Uptime",
+        "snmp_device_info",
+        "snmp_CPU",
+        "snmp_MemoryUsed",
+        "snmp_MemoryFree",
+        "snmp_MemoryTotal",
+    }
+)
 HOT_IF_MODULES = frozenset({"if_mib", "if32_mib"})
 # Cheap SNMPv2-MIB GETs (uptime + identity). Not IF-MIB alias/descr tables.
 HOT_SYSTEM_MODULES = frozenset({"device_base"})
@@ -613,6 +623,8 @@ def skip_identity_inject(name: str) -> bool:
     if n in {"device_base", "system_mib", "ip_addr"}:
         return True
     if n.endswith("_meta") or n.endswith("_hot") or n.endswith("_identity"):
+        return True
+    if n.endswith("_sensors") or n.endswith("_bgp"):
         return True
     if TOPOLOGY_NAME_RE.search(n):
         return True
@@ -1336,14 +1348,10 @@ def classify_module(name: str) -> str:
 def apply_vendor_tier_splits(
     tiers: dict[str, list[str]], known: set[str] | None = None
 ) -> dict[str, list[str]]:
-    """Split mixed vendor packs: CPU/chassis on hot; do not scrape BGP tables.
+    """Nokia pack: vitals on hot, chassis sensors on cold, BGP on topology.
 
-    BGP neighbor drop/flap is a trap/syslog event. Polling session state at
-    60s or 5m is too slow to alert on.
-
-    Never invent module names. ``nokia_srlinux_hot`` is only added when that
-    sidecar exists in the converted library — otherwise ``nokia_srlinux`` stays
-    on hot by itself. Fingerprinters must be a subset of snmp.yml modules.
+    Never invent ``nokia_srlinux_hot``. Identity + CPU/mem stay on
+    ``nokia_srlinux``. Sensors / BGP are real sidecar files when present.
     """
     hot = list(tiers.get("hot") or [])
     cold = list(tiers.get("cold") or [])
@@ -1356,17 +1364,92 @@ def apply_vendor_tier_splits(
         if mod and exists(mod) and mod not in bucket:
             bucket.append(mod)
 
-    if "nokia_srlinux" in hot or "nokia_srlinux" in cold:
+    nokia_present = any(
+        m.startswith("nokia_srlinux") for m in (*hot, *cold, *topo)
+    )
+    if nokia_present:
+        hot = [m for m in hot if m not in {"nokia_srlinux_sensors", "nokia_srlinux_bgp"}]
         cold = [m for m in cold if m not in {"nokia_srlinux", "nokia_srlinux_bgp"}]
-        hot = [m for m in hot if m != "nokia_srlinux_bgp"]
-        topo = [m for m in topo if m != "nokia_srlinux_bgp"]
-        if exists("nokia_srlinux_hot"):
-            hot = [m for m in hot if m != "nokia_srlinux"]
-            add(hot, "nokia_srlinux_hot")
-            add(hot, "nokia_srlinux")
-        else:
-            add(hot, "nokia_srlinux")
+        if not exists("nokia_srlinux_hot"):
+            hot = [m for m in hot if m != "nokia_srlinux_hot"]
+        add(hot, "nokia_srlinux")
+        add(cold, "nokia_srlinux_sensors")
+        add(topo, "nokia_srlinux_bgp")
     return {"hot": hot, "cold": cold, "topology": topo}
+
+
+def nokia_metric_tier(metric: dict[str, Any]) -> str:
+    """Classify one Nokia metric: hot vitals, topology neighbors, else sensors."""
+    name = str(metric.get("name") or "")
+    oid = str(metric.get("oid") or "").strip().lstrip(".")
+    if name in NOKIA_HOT_METRIC_NAMES:
+        return "hot"
+    if "bgp" in name.lower() or ".14.4." in oid:
+        return "topology"
+    return "cold"
+
+
+def _oids_from_metrics(metrics: list[dict[str, Any]]) -> list[str]:
+    out: list[str] = []
+    for metric in metrics:
+        oid = str(metric.get("oid") or "").strip().lstrip(".")
+        if oid:
+            out.append(oid)
+        for lk in metric.get("lookups") or []:
+            if not isinstance(lk, dict):
+                continue
+            loid = str(lk.get("oid") or "").strip().lstrip(".")
+            if loid:
+                out.append(loid)
+    return out
+
+
+def _filter_walk_get(
+    metrics: list[dict[str, Any]],
+    walks: list[str],
+    gets: list[str],
+) -> tuple[list[str], list[str]]:
+    oids = _oids_from_metrics(metrics)
+
+    def used(prefix: str) -> bool:
+        p = prefix.strip().lstrip(".")
+        if p.endswith(".0"):
+            p = p[:-2]
+        return any(o == p or o.startswith(p + ".") or p.startswith(o) for o in oids)
+
+    return [w for w in walks if used(str(w))], [g for g in gets if used(str(g))]
+
+
+def split_nokia_srlinux_family(module: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    """Split the Nokia pack: vitals / chassis sensors / BGP."""
+    walks = list(module.get("walk") or [])
+    gets = list(module.get("get") or [])
+    buckets: dict[str, list[dict[str, Any]]] = {
+        "hot": [],
+        "cold": [],
+        "topology": [],
+    }
+    for metric in module.get("metrics") or []:
+        if isinstance(metric, dict):
+            buckets[nokia_metric_tier(metric)].append(dict(metric))
+
+    names = {
+        "hot": "nokia_srlinux",
+        "cold": "nokia_srlinux_sensors",
+        "topology": "nokia_srlinux_bgp",
+    }
+    out: dict[str, dict[str, Any]] = {}
+    for tier, metrics in buckets.items():
+        if not metrics and tier != "hot":
+            continue
+        walk, get = _filter_walk_get(metrics, walks, gets)
+        part: dict[str, Any] = {"metrics": metrics}
+        if walk:
+            part["walk"] = walk
+        if get:
+            part["get"] = get
+        out[names[tier]] = part
+    return out or {"nokia_srlinux": {"metrics": []}}
 
 
 def _keep_known(mods: list[str], known: set[str] | None) -> list[str]:
@@ -1606,10 +1689,9 @@ def build_fingerprinters(index: dict[str, Any]) -> dict[str, Any]:
     """Fingerprinters emit tiered module chains from kentik extends.
 
     Example: nokia_srlinux extends system-mib + if-mib
-      → hot: [if_mib, nokia_srlinux] (+ nokia_srlinux_hot only if that sidecar exists)
-      → cold: [if_mib_meta, ip_addr]
-      → topology: [lldp_mib] when present (optional experiment)
-      BGP tables are not scraped; neighbor events are traps/syslog.
+      → hot: [if_mib, nokia_srlinux] (identity + CPU/mem)
+      → cold: [if_mib_meta, ip_addr, nokia_srlinux_sensors]
+      → topology: [nokia_srlinux_bgp] (+ lldp_mib when present)
       Unknown sysObjectID: device_base + if_mib (hot), if_mib_meta + ip_addr (cold).
     """
     modules_meta = index.get("modules") or {}
@@ -1975,6 +2057,28 @@ def main() -> int:
                         "extends": [],
                         "identity_lookups": [],
                         "notes": "cold IF-MIB enrichment (staggered scrape)",
+                    }
+                n_metrics = len(part_mod.get("metrics") or [])
+                print(f"converted {vendor}/{path.name} -> {part_name} ({n_metrics} metrics) [tier]")
+        elif name == "nokia_srlinux":
+            parts = split_nokia_srlinux_family(module)
+            notes = {
+                "nokia_srlinux": "hot vitals (identity + CPU/mem)",
+                "nokia_srlinux_sensors": "cold chassis sensors",
+                "nokia_srlinux_bgp": "topology BGP neighbor tables",
+            }
+            for part_name, part_mod in parts.items():
+                modules[part_name] = part_mod
+                if part_name == name:
+                    index["modules"][part_name] = idx
+                else:
+                    index["modules"][part_name] = {
+                        "profile": f"{part_name.replace('_', '-')}.yml",
+                        "vendor": vendor,
+                        "sysobjectids": [],
+                        "extends": [],
+                        "identity_lookups": [],
+                        "notes": notes.get(part_name, "Nokia tier sidecar"),
                     }
                 n_metrics = len(part_mod.get("metrics") or [])
                 print(f"converted {vendor}/{path.name} -> {part_name} ({n_metrics} metrics) [tier]")

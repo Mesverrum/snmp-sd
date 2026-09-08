@@ -48,7 +48,12 @@ func run(argv []string) error {
 	misses := fs.Int("misses", 3, "misses before drop")
 	statePath := fs.String("state", "", "state path")
 	allowDupSys := fs.Bool("allow-duplicate-sysname", false, "do not collapse same sysName on multiple IPs")
+	tiersFlag := fs.String("tiers", "hot,cold", "scrape tiers to publish: hot, cold, topology, or all")
 	if err := fs.Parse(argv); err != nil {
+		return err
+	}
+	enabledTiers, err := snmpdiscovery.ParseEnabledTiers(*tiersFlag)
+	if err != nil {
 		return err
 	}
 
@@ -74,6 +79,7 @@ func run(argv []string) error {
 		Misses:                *misses,
 		StatePath:             state,
 		AllowDuplicateSysName: *allowDupSys,
+		EnabledTiers:          enabledTiers,
 	}
 
 	if entries, err := snmpdiscovery.ReadCatalogState(state); err == nil && len(entries) > 0 {

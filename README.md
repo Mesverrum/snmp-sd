@@ -56,6 +56,8 @@ A laptop or host namespace that cannot UDP/161 the CIDR writes an empty catalog.
 
 `--interval 0` is one-shot unless `--listen` is set. Production cadence is hours (`--interval 24h`).
 
+Each scrape tier is optional. `--tiers` defaults to `hot,cold` (topology off). `--tiers=hot` is the minimum useful walk (octets / oper / CPU / mem). `--tiers=all` publishes hot + cold + topology. Disabled tiers are written as `[]` so leftover scrapes go idle. Discovery still probes `sysObjectID` either way.
+
 ## One catalog
 
 `--snmp-config` and `--fingerprinters` must come from the **same convert**. Fingerprinter `module=` names that are missing from `modules:` in `snmp.yml` are dropped (`WARN dropping fingerprinter modules missing from snmp.yml`). That is fail-closed, not a failed scan.
@@ -88,7 +90,7 @@ Hosts that ping but do not answer the identity GET increment `probe_errors` and 
 | leaf-br1 | 172.20.20.2 | `if_mib,nokia_srlinux` |
 | leaf-br2 | 172.20.20.7 | `if_mib,nokia_srlinux` |
 
-Scan log from that run: `found=5` in ~1s, `ping_up=11`, `probe_errors=6` (non-SNMP ICMP hits), `dropped=0`. `nokia_srlinux_hot` on an older image fingerprinter file was WARNed and dropped; published `module=` stayed `if_mib,nokia_srlinux`.
+Scan log from that run: `found=5` in ~1s, `ping_up=11`, `probe_errors=6` (non-SNMP ICMP hits), `dropped=0`. Current Nokia chain is hot `if_mib,nokia_srlinux`, cold `if_mib_meta,ip_addr,nokia_srlinux_sensors`, topology `nokia_srlinux_bgp`.
 
 ## Library
 
