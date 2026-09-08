@@ -1,0 +1,8 @@
+# Layer the snmp-sd library onto an existing network-dev image.
+# Keeps the compiled Alloy binary (discovery.snmp / netflow / traps).
+FROM srl-local/alloy:network-dev
+COPY snmp/snmp-network.yml /etc/alloy/snmp-network.yml
+COPY snmp/fingerprinters.yml /etc/alloy/fingerprinters.yml
+COPY snmp/sysobjectid-index.yaml /etc/alloy/sysobjectid-index.yaml
+COPY snmp/module-tiers.yaml /etc/alloy/module-tiers.yaml
+COPY snmp/modules /etc/alloy/modules
