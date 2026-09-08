@@ -1,5 +1,9 @@
 # Discoverer config — CIDR-scoped named auths. Community stays in snmp.yml.
 #
+# Validated Clos /24 sweep (AWS colocated, 2026-09-08): examples/colocated-clos.yml
+# Run the binary on a namespace that can UDP/161 the CIDR (docker --network clab).
+# --snmp-config must include every auth name below (public_v2).
+#
 # mode: both (default) = CIDR sweep + LLDP/CDP crawl
 #       sweep          = ping then SNMP every host in cidrs (max /22)
 #       crawl          = SNMP seeds/catalog, walk xDP, probe neighbors in cidrs

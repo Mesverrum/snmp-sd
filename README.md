@@ -25,18 +25,46 @@ go test ./...
 go build -o snmp-discovery ./cmd/snmp-discovery
 ```
 
+Static Linux binary (ContainerLab / EC2):
+
 ```bash
-./snmp-discovery \
-  --config examples/discovery.yml \
-  --snmp-config snmp/snmp-network.yml \
-  --fingerprinters snmp/fingerprinters.yml \
-  --out-alloy snmp-targets.yml \
-  --out-file-sd snmp-file-sd.json \
-  --listen :9780 \
-  --interval 24h
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o snmp-discovery ./cmd/snmp-discovery
 ```
 
-`--interval 0` is one-shot unless `--listen` is set.
+`Dockerfile.linux` wraps that binary in `scratch` (`ENTRYPOINT /snmp-discovery`).
+
+## Run it on the same network as the devices
+
+The process must be able to ICMP (optional) and SNMP GET `sysObjectID` on the CIDR. A laptop that cannot reach ContainerLab mgmt will write an empty catalog.
+
+On a host that has the `clab` bridge, attach the binary to that network. Scratch image (`docker build -f Dockerfile.linux -t snmp-sd:linux .` after the static build above):
+
+```bash
+docker run --rm --network clab --user 0:0 --cap-add NET_RAW \
+  -v "$PWD:/work" snmp-sd:linux \
+  --config /work/examples/colocated-clos.yml \
+  --snmp-config /work/snmp/snmp-network.yml \
+  --fingerprinters /work/snmp/fingerprinters.yml \
+  --out-alloy /work/snmp-targets.yml \
+  --out-file-sd /work/snmp-file-sd.json \
+  --ping --timeout 2s --retries 1 --concurrency 16
+```
+
+A laptop or host namespace that cannot UDP/161 the CIDR writes an empty catalog. Do not treat that as a fingerprinter failure.
+
+`--ping` (default true) needs `CAP_NET_RAW` or host `ping_group_range` in a container. `--ping=false` SNMP-probes every hole in the CIDR (fine for a `/24`, noisy for a `/22`).
+
+`--interval 0` is one-shot unless `--listen` is set. Production cadence is hours (`--interval 24h`).
+
+## One catalog
+
+`--snmp-config` and `--fingerprinters` must come from the **same convert**. Fingerprinter `module=` names that are missing from `modules:` in `snmp.yml` are dropped (`WARN dropping fingerprinter modules missing from snmp.yml`). That is fail-closed, not a failed scan.
+
+Do not mix this repo’s `fingerprinters.yml` with an older image `snmp-network.yml` (or the reverse). Convert must not invent sidecars such as `nokia_srlinux_hot` unless that file exists under `snmp/modules/`.
+
+`--snmp-config` must define every auth **name** listed on the group (`public_v2` for the lab). If your concat has no top-level `auths:`, prepend `snmp/auths.example.yml` (copy to a gitignored `auths.yml` and edit). Community / v3 secrets never go in the group file or on SD labels.
+
+`snmp_group` on each target is the **group `name`**, not a site inferred from the hostname.
 
 ## Outputs
 
@@ -46,7 +74,21 @@ go build -o snmp-discovery ./cmd/snmp-discovery
 | `--out-alloy` / `GET /sd` | Alloy `discovery.http` → `prometheus.exporter.snmp` |
 | `GET /healthz` | Liveness |
 
-Copy `snmp/auths.example.yml` to a local `auths.yml` (gitignored). Named auths in the group file must exist in `--snmp-config` or that overlay.
+Hosts that ping but do not answer the identity GET increment `probe_errors` and stay out of the catalog (lab clients, printers without `public`).
+
+## Validated: colocated Clos
+
+2026-09-08, AWS colocated ContainerLab, `examples/colocated-clos.yml` (`172.20.20.0/24` sweep). Five SR Linux nodes, `sysObjectID=1.3.6.1.4.1.6527.1.20.26`:
+
+| `device_name` | address | `module` |
+|---|---|---|
+| spine1 | 172.20.20.3 | `if_mib,nokia_srlinux` |
+| leaf1 | 172.20.20.4 | `if_mib,nokia_srlinux` |
+| leaf2 | 172.20.20.5 | `if_mib,nokia_srlinux` |
+| leaf-br1 | 172.20.20.2 | `if_mib,nokia_srlinux` |
+| leaf-br2 | 172.20.20.7 | `if_mib,nokia_srlinux` |
+
+Scan log from that run: `found=5` in ~1s, `ping_up=11`, `probe_errors=6` (non-SNMP ICMP hits), `dropped=0`. `nokia_srlinux_hot` on an older image fingerprinter file was WARNed and dropped; published `module=` stayed `if_mib,nokia_srlinux`.
 
 ## Library
 

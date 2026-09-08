@@ -1,0 +1,3 @@
+FROM scratch
+COPY snmp-discovery-linux /snmp-discovery
+ENTRYPOINT ["/snmp-discovery"]

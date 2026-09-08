@@ -1,0 +1,22 @@
+# Validated 2026-09-08 against the AWS colocated 3-site Clos
+# (spine1, leaf1, leaf2, leaf-br1, leaf-br2 on ContainerLab `clab`).
+#
+# One /24 sweep. snmp_group on each target is this group name (`lab`).
+# Split sites by adding more groups (hq / branch1 / branch2) if you want
+# that label on SD — the walker does not care.
+#
+# Run on a namespace that can UDP/161 the CIDR (docker --network clab).
+# --snmp-config must include auths.public_v2 and the same convert as
+# --fingerprinters (unknown module= names are dropped with a WARN).
+
+groups:
+  - name: lab
+    cidrs:
+      - 172.20.20.0/24
+    auths:
+      - public_v2
+    fingerprinter: network
+    mode: sweep
+    ping: true
+    port: 161
+overrides: []
