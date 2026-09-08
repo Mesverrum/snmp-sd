@@ -2,9 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   bluecat_server:
-    walk:
-    - 1.3.6.1.4.1.13315.3.1.1.2.2.2
-    - 1.3.6.1.4.1.13315.3.1.1.2.2.3
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -51,57 +48,6 @@ modules:
         - snmp_scalar_index
         labelname: bcnSysIdPlatform
         oid: 1.3.6.1.4.1.13315.3.2.2.1.5
-        type: DisplayString
-    - name: snmp_bcnDhcpv4SubnetFreeAddresses
-      oid: 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.4
-      type: gauge
-      help: bcnDhcpv4SubnetFreeAddresses (BCN-DHCPV4-MIB) - 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.4
-      indexes:
-      - labelname: bcnDhcpv4SubnetIP
-        type: gauge
-      lookups:
-      - labels:
-        - bcnDhcpv4SubnetIP
-        labelname: bcnDhcpv4SubnetMask
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.2
-        type: DisplayString
-      - labels:
-        - bcnDhcpv4SubnetIP
-        labelname: bcnDhcpv4SubnetSize
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.3
-        type: DisplayString
-      - labels:
-        - bcnDhcpv4SubnetIP
-        labelname: bcnDhcpv4SubnetLowThreshold
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.5
-        type: gauge
-      - labels:
-        - bcnDhcpv4SubnetIP
-        labelname: bcnDhcpv4SubnetHighThreshold
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.2.1.6
-        type: gauge
-    - name: snmp_bcnDhcpv4PoolFreeAddresses
-      oid: 1.3.6.1.4.1.13315.3.1.1.2.2.3.1.5
-      type: gauge
-      help: bcnDhcpv4PoolFreeAddresses (BCN-DHCPV4-MIB) - 1.3.6.1.4.1.13315.3.1.1.2.2.3.1.5
-      indexes:
-      - labelname: bcnDhcpv4PoolStartIP
-        type: gauge
-      lookups:
-      - labels:
-        - bcnDhcpv4PoolStartIP
-        labelname: bcnDhcpv4PoolEndIP
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.3.1.2
-        type: DisplayString
-      - labels:
-        - bcnDhcpv4PoolStartIP
-        labelname: bcnDhcpv4PoolSubnetIP
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.3.1.3
-        type: DisplayString
-      - labels:
-        - bcnDhcpv4PoolStartIP
-        labelname: bcnDhcpv4PoolSize
-        oid: 1.3.6.1.4.1.13315.3.1.1.2.2.3.1.4
         type: DisplayString
     get:
     - 1.3.6.1.2.1.1.1.0

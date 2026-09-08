@@ -1,0 +1,150 @@
+# GENERATED from kentik/snmp-profiles — module apc_pdu_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  apc_pdu_ext:
+    metrics:
+    - name: snmp_rPDULoadStatusLoad
+      oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.2
+      type: gauge
+      help: rPDULoadStatusLoad (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.2.3.1.1.2
+      indexes:
+      - labelname: rPDULoadStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDULoadStatusIndex
+        labelname: load_index
+        oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.1
+        type: gauge
+    - name: snmp_rPDULoadStatusLoadState
+      oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.3
+      type: gauge
+      help: rPDULoadStatusLoadState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.2.3.1.1.3
+      indexes:
+      - labelname: rPDULoadStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDULoadStatusIndex
+        labelname: load_index
+        oid: 1.3.6.1.4.1.318.1.1.12.2.3.1.1.1
+        type: gauge
+      enum_values:
+        1: phaseLoadNormal
+        2: phaseLoadLow
+        3: phaseLoadNearOverload
+        4: phaseLoadOverload
+    - name: snmp_rPDUOutletStatusOutletState
+      oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.4
+      type: gauge
+      help: rPDUOutletStatusOutletState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.3.5.1.1.4
+      indexes:
+      - labelname: rPDUOutletStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_index
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.1
+        type: gauge
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_name
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.2
+        type: DisplayString
+      enum_values:
+        1: outletStatusOn
+        0: outletStatusOff
+    - name: snmp_rPDUOutletStatusLoad
+      oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.7
+      type: gauge
+      help: rPDUOutletStatusLoad (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.3.5.1.1.7
+      indexes:
+      - labelname: rPDUOutletStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_index
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.1
+        type: gauge
+      - labels:
+        - rPDUOutletStatusIndex
+        labelname: outlet_name
+        oid: 1.3.6.1.4.1.318.1.1.12.3.5.1.1.2
+        type: DisplayString
+    - name: snmp_rPDUStatusBankState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.3
+      type: gauge
+      help: rPDUStatusBankState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.2.1.3
+      indexes:
+      - labelname: rPDUStatusBankIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusBankIndex
+        labelname: bank_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusBankIndex
+        labelname: bank_number
+        oid: 1.3.6.1.4.1.318.1.1.12.5.2.1.2
+        type: DisplayString
+      enum_values:
+        1: bankLoadNormal
+        2: bankLoadLow
+        3: bankLoadNearOverload
+        4: bankLoadOverload
+    - name: snmp_rPDUStatusPhaseState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.3
+      type: gauge
+      help: rPDUStatusPhaseState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.4.1.3
+      indexes:
+      - labelname: rPDUStatusPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusPhaseIndex
+        labelname: phase_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusPhaseIndex
+        labelname: phase_number
+        oid: 1.3.6.1.4.1.318.1.1.12.5.4.1.2
+        type: DisplayString
+      enum_values:
+        1: phaseLoadNormal
+        2: phaseLoadLow
+        3: phaseLoadNearOverload
+        4: phaseLoadOverload
+    - name: snmp_rPDUStatusOutletState
+      oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.3
+      type: gauge
+      help: rPDUStatusOutletState (PowerNet-MIB_PDU) - 1.3.6.1.4.1.318.1.1.12.5.6.1.3
+      indexes:
+      - labelname: rPDUStatusOutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - rPDUStatusOutletIndex
+        labelname: outlet_status_index
+        oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.1
+        type: gauge
+      - labels:
+        - rPDUStatusOutletIndex
+        labelname: outlet_status_name
+        oid: 1.3.6.1.4.1.318.1.1.12.5.6.1.2
+        type: DisplayString
+      enum_values:
+        1: outletLoadNormal
+        2: outletLoadLow
+        3: outletLoadNearOverload
+        4: outletLoadOverload
+    walk:
+    - 1.3.6.1.4.1.318.1.1.12.2.3.1
+    - 1.3.6.1.4.1.318.1.1.12.3.5.1
+    - 1.3.6.1.4.1.318.1.1.12.5.2
+    - 1.3.6.1.4.1.318.1.1.12.5.4
+    - 1.3.6.1.4.1.318.1.1.12.5.6

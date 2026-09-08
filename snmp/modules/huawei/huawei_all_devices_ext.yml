@@ -1,0 +1,169 @@
+# GENERATED from kentik/snmp-profiles — module huawei_all_devices_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  huawei_all_devices_ext:
+    metrics:
+    - name: snmp_hwEntityAdminStatus
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.1
+      type: gauge
+      help: hwEntityAdminStatus (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: hwEntityBoardName
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.43
+        type: DisplayString
+      enum_values:
+        1: notSupported
+        2: locked
+        3: shuttingDown
+        4: unlocked
+        11: up
+        12: down
+        13: loopback
+    - name: snmp_hwEntityOperStatus
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.2
+      type: gauge
+      help: hwEntityOperStatus (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: hwEntityBoardName
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.43
+        type: DisplayString
+      enum_values:
+        1: notSupported
+        2: disabled
+        3: offline
+        11: up
+        12: down
+        13: connect
+        15: protocolUp
+        16: linkUp
+        17: linkDown
+    - name: snmp_hwEntityStandbyStatus
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.3
+      type: gauge
+      help: hwEntityStandbyStatus (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: hwEntityBoardName
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.43
+        type: DisplayString
+      enum_values:
+        1: notSupported
+        2: hotStandby
+        3: coldStandby
+        4: providingService
+    - name: snmp_hwEntityVoltage
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.13
+      type: gauge
+      help: hwEntityVoltage (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.13
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: hwEntityBoardName
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.43
+        type: DisplayString
+    - name: snmp_hwEntityFaultLight
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.42
+      type: EnumAsInfo
+      help: hwEntityFaultLight (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.42
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: hwEntityBoardName
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.1.1.43
+        type: DisplayString
+      enum_values:
+        1: notSupported
+        2: normal
+        3: underRepair
+    - name: snmp_hwSystemPowerTotalPower
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.2
+      type: gauge
+      help: hwSystemPowerTotalPower (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.2
+      indexes:
+      - labelname: hwSystemPowerDeviceID
+        type: gauge
+      lookups:
+      - labels:
+        - hwSystemPowerDeviceID
+        labelname: hwSystemPowerDeviceID
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.1
+        type: DisplayString
+    - name: snmp_hwSystemPowerUsedPower
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.3
+      type: gauge
+      help: hwSystemPowerUsedPower (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.3
+      indexes:
+      - labelname: hwSystemPowerDeviceID
+        type: gauge
+      lookups:
+      - labels:
+        - hwSystemPowerDeviceID
+        labelname: hwSystemPowerDeviceID
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.1
+        type: DisplayString
+    - name: snmp_hwSystemPowerRemainPower
+      oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.4
+      type: gauge
+      help: hwSystemPowerRemainPower (HUAWEI-ENTITY-EXTENT-MIB) - 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.4
+      indexes:
+      - labelname: hwSystemPowerDeviceID
+        type: gauge
+      lookups:
+      - labels:
+        - hwSystemPowerDeviceID
+        labelname: hwSystemPowerDeviceID
+        oid: 1.3.6.1.4.1.2011.5.25.31.1.1.14.1.1
+        type: DisplayString
+    - name: snmp_hwAvgDuty1min
+      oid: 1.3.6.1.4.1.2011.6.3.4.1.3
+      type: gauge
+      help: hwAvgDuty1min (HUAWEI-DEVICE-MIB) - 1.3.6.1.4.1.2011.6.3.4.1.3
+      indexes:
+      - labelname: hwFrameIndex
+        type: gauge
+      - labelname: hwSlotIndex
+        type: gauge
+      - labelname: hwCpuDevIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwMemoryDevSize
+      oid: 1.3.6.1.4.1.2011.6.3.5.1.1.2
+      type: counter
+      help: hwMemoryDevSize (HUAWEI-DEVICE-MIB) - 1.3.6.1.4.1.2011.6.3.5.1.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_hwMemoryDevFree
+      oid: 1.3.6.1.4.1.2011.6.3.5.1.1.3
+      type: counter
+      help: hwMemoryDevFree (HUAWEI-DEVICE-MIB) - 1.3.6.1.4.1.2011.6.3.5.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.2011.5.25.31.1.1.1
+    - 1.3.6.1.4.1.2011.5.25.31.1.1.14
+    - 1.3.6.1.4.1.2011.6.3.4
+    - 1.3.6.1.4.1.2011.6.3.5

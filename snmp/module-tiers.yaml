@@ -1,19 +1,11 @@
 # GENERATED module → scrape tier (hot | cold | topology).
-description: "Scrape tiers for Alloy staggered polling. hot\u224860s alerting/troubleshooting;\
-  \ cold\u2248metadata + walks that miss 60s; topology=optional LLDP/CDP experiments."
+description: "Scrape tiers for Alloy staggered polling. hot\u224860s octets/oper/CPU/mem;\
+  \ cold\u2248if_mib_meta + sensors + leftover walks; topology=optional LLDP/CDP/BGP/OSPF/ISIS."
 tiers:
   hot:
-  - device_base
-  - huawei_all_devices_identity
-  - if32_mib
-  - if_mib
-  - juniper_all_devices_identity
-  - nokia_srlinux
-  cold:
   - 3com
   - 3com_huawei
   - 6wind_vsr
-  - Ruckus_Contoller_SNMP
   - a10_thunder
   - acs
   - alcatel_lucent_ent
@@ -72,6 +64,7 @@ tiers:
   - dell_os10
   - dell_powerconnect
   - dell_poweredge
+  - device_base
   - dialogic_media_gateway
   - diameter
   - disk_station
@@ -82,7 +75,6 @@ tiers:
   - edgeconnect
   - elemental_device
   - emc_data_domain
-  - entity_sensor_mib
   - esx
   - exagrid
   - extreme_switching
@@ -105,20 +97,20 @@ tiers:
   - hpe_synergy
   - huawei_access_controllers
   - huawei_all_devices
+  - huawei_all_devices_identity
   - huawei_routers
   - huawei_switches
   - ibm_datapower_gateway
   - ibm_lenovo_server
   - ibm_wga
-  - if32_mib_meta
-  - if_mib_meta
+  - if32_mib
+  - if_mib
   - infinera
   - infoblox_ipam
-  - ip_addr
-  - ip_mib
   - ipower_mib
   - isilon
   - juniper_all_devices
+  - juniper_all_devices_identity
   - juniper_ex_switches
   - juniper_mx_router
   - juniper_qfx_switches
@@ -148,7 +140,7 @@ tiers:
   - netscaler
   - netscaler_sdx
   - netskope_appliance
-  - nokia_srlinux_sensors
+  - nokia_srlinux
   - nortel_ethernet_routing_switch
   - nutanix
   - omni_access_wlc
@@ -177,19 +169,16 @@ tiers:
   - servertech_pdu4
   - sonicwall
   - sonicwall_sma
-  - tcp_mib
   - tp_link
   - tripplite_pdu
   - tripplite_ups
   - truenas
   - ucd_mib
-  - udp_mib
   - unifi_access_point
   - unifi_security_gateway
   - unifi_switch
   - univerge
   - ups
-  - ups_mib
   - velocloud_edge
   - vertiv_pdu
   - vertiv_ups
@@ -201,8 +190,228 @@ tiers:
   - zebra_printer
   - zscaler_nss
   - zyxel_switch
+  cold:
+  - 3com_huawei_ext
+  - 3com_huawei_sensors
+  - Ruckus_Contoller_SNMP
+  - a10_thunder_ext
+  - a10_thunder_sensors
+  - acs_ext
+  - acs_sensors
+  - alcatel_lucent_ent_ext
+  - alcatel_lucent_ent_sensors
+  - alcatel_lucent_ind_ext
+  - alcatel_lucent_ind_sensors
+  - apc_ats_ext
+  - apc_ats_sensors
+  - apc_netbotz_ext
+  - apc_netbotz_sensors
+  - apc_pdu_ext
+  - apc_pdu_sensors
+  - apc_ups_ext
+  - apc_ups_sensors
+  - arista_switch_ext
+  - aruba_clearpass_ext
+  - aruba_cx_switch_sensors
+  - aruba_switch_ext
+  - aruba_wireless_controller_ext
+  - avaya_cajun_switch_ext
+  - avaya_media_gateway_ext
+  - barracuda_cloudgen_ext
+  - barracuda_cloudgen_sensors
+  - barracuda_email_gateway_ext
+  - barracuda_waf_ext
+  - bluecat_server_ext
+  - brocade_fc_switch_ext
+  - brother_net_printer_ext
+  - cambium_mib_ext
+  - checkpoint_firewall_ext
+  - checkpoint_firewall_sensors
+  - cisco_access_point_ext
+  - cisco_all_devices_ext
+  - cisco_all_devices_sensors
+  - cisco_apic_server_ext
+  - cisco_apic_server_sensors
+  - cisco_asa_ext
+  - cisco_asr_ext
+  - cisco_call_manager_ext
+  - cisco_catalyst_ext
+  - cisco_csr_ext
+  - cisco_firepower_ext
+  - cisco_firepower_sensors
+  - cisco_ironport_email_ext
+  - cisco_ironport_email_sensors
+  - cisco_load_balancer_ext
+  - cisco_ucs_ext
+  - cisco_ucs_sensors
+  - cisco_voice_ext
+  - cisco_wan_optimizer_ext
+  - cisco_wlc_ext
+  - cisco_wlc_sensors
+  - cradlepoint_ext
+  - cumulus_linux_switch_ext
+  - cyberpower_pdu_ext
+  - cyberpower_pdu_sensors
+  - cyberpower_ups_ext
+  - cyberpower_ups_sensors
+  - dctrack_ext
+  - dell_idrac_ext
+  - dell_idrac_sensors
+  - dell_os10_ext
+  - dell_os10_sensors
+  - dell_powerconnect_ext
+  - dell_powerconnect_sensors
+  - dell_poweredge_ext
+  - dell_poweredge_sensors
+  - diameter_ext
+  - disk_station_ext
+  - disk_station_sensors
+  - dlink_dgs_switch_ext
+  - dlink_dgs_switch_sensors
+  - dominion_ext
+  - dominion_sensors
+  - eagle_i_ext
+  - eaton_epdu_ext
+  - eaton_epdu_sensors
+  - edgeconnect_ext
+  - elemental_device_ext
+  - emc_data_domain_ext
+  - entity_sensor_mib
+  - esx_ext
+  - exagrid_ext
+  - extreme_switching_ext
+  - extreme_switching_sensors
+  - f5_ext
+  - fireeye_ext
+  - fireeye_sensors
+  - fortinet_appliance_ext
+  - fortinet_fortiap_ext
+  - fortinet_fortigate_ext
+  - fortinet_fortiswitch_ext
+  - host_resources_mib_ext
+  - hp_h3c_switch_ext
+  - hp_ilo_ext
+  - hp_ilo_sensors
+  - hpe_bladesystem_enclosure_ext
+  - hpe_bladesystem_enclosure_sensors
+  - hpe_cambium_ext
+  - hpe_cambium_sensors
+  - hpe_msa_ext
+  - hpe_nimble_ext
+  - hpe_synergy_ext
+  - huawei_all_devices_ext
+  - huawei_all_devices_sensors
+  - huawei_routers_ext
+  - huawei_switches_ext
+  - ibm_datapower_gateway_ext
+  - ibm_datapower_gateway_sensors
+  - ibm_lenovo_server_ext
+  - if32_mib_meta
+  - if_mib_meta
+  - infinera_ext
+  - infinera_sensors
+  - infoblox_ipam_ext
+  - ip_addr
+  - ip_mib
+  - ipower_mib_ext
+  - ipower_mib_sensors
+  - isilon_ext
+  - juniper_all_devices_ext
+  - juniper_all_devices_sensors
+  - juniper_ex_switches_ext
+  - juniper_mx_router_ext
+  - juniper_qfx_switches_ext
+  - juniper_srx_firewalls_ext
+  - kyocera_printer_ext
+  - lenovo_rackswitch_ext
+  - lenovo_rackswitch_sensors
+  - liebert_ac_ext
+  - liebert_ac_sensors
+  - luna_hsm_ext
+  - mcafee_web_gateway_ext
+  - meraki_cloud_controller_ext
+  - mikrotik_router_ext
+  - mikrotik_router_sensors
+  - mikrotik_switch_ext
+  - mikrotik_switch_sensors
+  - mimosa_device_ext
+  - mimosa_device_sensors
+  - minuteman_pdu_ext
+  - mycloud_ex2_ext
+  - mycloud_ex2_sensors
+  - nasuni_filer_ext
+  - nasuni_filer_sensors
+  - netapp_cluster_ext
+  - netapp_cluster_sensors
+  - netapp_hci_ext
+  - netapp_hci_sensors
+  - netoptics_switch_ext
+  - netoptics_switch_sensors
+  - netscaler_ext
+  - netscaler_sdx_ext
+  - nokia_srlinux_ext
+  - nokia_srlinux_sensors
+  - nortel_ethernet_routing_switch_ext
+  - nutanix_ext
+  - omni_access_wlc_ext
+  - opengear_console_manager_ext
+  - opengear_infrastructure_manager_ext
+  - opengear_infrastructure_manager_sensors
+  - palo_alto_ext
+  - panduit_pdu_ext
+  - peplink_ext
+  - peplink_sensors
+  - power_iq_ext
+  - pulse_secure_ext
+  - pulse_secure_sensors
+  - raritan_pdu_ext
+  - raritan_pdu_sensors
+  - readynas_ext
+  - readynas_sensors
+  - riverbed_interceptor_ext
+  - riverbed_steelhead_ext
+  - roomalert_32s_ext
+  - roomalert_32s_sensors
+  - roomalert_3e_ext
+  - roomalert_3s_ext
+  - ruckus_unleashed_ext
+  - sensor_gateway_base_unit_ext
+  - servertech_pdu3_ext
+  - servertech_pdu3_sensors
+  - servertech_pdu4_ext
+  - sonicwall_ext
+  - sonicwall_sma_ext
+  - tcp_mib
+  - tripplite_pdu_ext
+  - tripplite_pdu_sensors
+  - tripplite_ups_ext
+  - tripplite_ups_sensors
+  - truenas_ext
+  - ucd_mib_ext
+  - udp_mib
+  - unifi_access_point_ext
+  - univerge_ext
+  - ups_mib
+  - velocloud_edge_ext
+  - vertiv_pdu_ext
+  - vertiv_ups_ext
+  - vertiv_ups_sensors
+  - vmware_nsx_ext
+  - watchdog_ext
+  - watchdog_sensors
+  - workcentre_ext
+  - xgs_firewall_ext
+  - zebra_printer_ext
+  - zscaler_nss_ext
   topology:
+  - arista_switch_bgp
+  - barracuda_cloudgen_topo
   - bgp4_mib
+  - cisco_nexus_bgp
+  - dell_os10_bgp
+  - huawei_all_devices_topo
+  - huawei_routers_bgp
   - lldp_mib
   - nokia_srlinux_bgp
   - ospf_mib
+  - vmware_nsx_bgp

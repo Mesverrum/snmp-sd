@@ -1,0 +1,554 @@
+# GENERATED from kentik/snmp-profiles — module eaton_epdu_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  eaton_epdu_ext:
+    metrics:
+    - name: snmp_communicationStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.1.2.1.30
+      type: gauge
+      help: communicationStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.1.2.1.30.0
+      enum_values:
+        0: good
+        1: communicationLost
+      lookups: []
+    - name: snmp_internalStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.1.2.1.31
+      type: gauge
+      help: internalStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.1.2.1.31.0
+      enum_values:
+        0: good
+        1: internalFailure
+      lookups: []
+    - name: snmp_strappingStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.1.2.1.32
+      type: gauge
+      help: strappingStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.1.2.1.32.0
+      enum_values:
+        0: good
+        1: communicationLost
+      lookups: []
+    - name: snmp_inputFrequency
+      oid: 1.3.6.1.4.1.534.6.6.7.3.1.1.3
+      type: gauge
+      help: inputFrequency (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputFeedDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.1.1.10
+        type: DisplayString
+    - name: snmp_inputFrequencyStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.3.1.1.4
+      type: gauge
+      help: inputFrequencyStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.1.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputFeedDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.1.1.10
+        type: DisplayString
+      enum_values:
+        0: good
+        1: outOfRange
+    - name: snmp_inputVoltage
+      oid: 1.3.6.1.4.1.534.6.6.7.3.2.1.3
+      type: gauge
+      help: inputVoltage (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.2.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+    - name: snmp_inputVoltageThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.3.2.1.4
+      type: gauge
+      help: inputVoltageThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.2.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_inputCurrent
+      oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.4
+      type: gauge
+      help: inputCurrent (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+    - name: snmp_inputCurrentThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.3.2.1.5
+      type: gauge
+      help: inputCurrentThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.2.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_inputCurrentPercentLoad
+      oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.11
+      type: gauge
+      help: inputCurrentPercentLoad (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.3.1.11
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+    - name: snmp_inputVA
+      oid: 1.3.6.1.4.1.534.6.6.7.3.4.1.3
+      type: gauge
+      help: inputVA (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+    - name: snmp_inputWatts
+      oid: 1.3.6.1.4.1.534.6.6.7.3.4.1.4
+      type: gauge
+      help: inputWatts (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.3.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: inputDescription
+        oid: 1.3.6.1.4.1.534.6.6.7.3.3.1.12
+        type: DisplayString
+    - name: snmp_groupBreakerStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.5
+      type: gauge
+      help: groupBreakerStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.1.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: notApplicable
+        1: breakerOn
+        2: breakerOff
+    - name: snmp_groupVoltage
+      oid: 1.3.6.1.4.1.534.6.6.7.5.3.1.3
+      type: gauge
+      help: groupVoltage (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+    - name: snmp_groupVoltageThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.5.3.1.4
+      type: gauge
+      help: groupVoltageThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_groupCurrent
+      oid: 1.3.6.1.4.1.534.6.6.7.5.4.1.3
+      type: gauge
+      help: groupCurrent (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+    - name: snmp_groupCurrentThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.5.4.1.4
+      type: gauge
+      help: groupCurrentThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_groupCurrentPercentLoad
+      oid: 1.3.6.1.4.1.534.6.6.7.5.4.1.10
+      type: gauge
+      help: groupCurrentPercentLoad (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.4.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+    - name: snmp_groupVA
+      oid: 1.3.6.1.4.1.534.6.6.7.5.5.1.2
+      type: gauge
+      help: groupVA (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.5.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+    - name: snmp_groupWatts
+      oid: 1.3.6.1.4.1.534.6.6.7.5.5.1.3
+      type: gauge
+      help: groupWatts (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.5.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+    - name: snmp_groupControlStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.5.6.1.2
+      type: gauge
+      help: groupControlStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.5.6.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: groupName
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: groupType
+        oid: 1.3.6.1.4.1.534.6.6.7.5.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: 'off'
+        1: 'on'
+        2: rebooting
+        3: mixed
+    - name: snmp_outletVoltage
+      oid: 1.3.6.1.4.1.534.6.6.7.6.3.1.2
+      type: gauge
+      help: outletVoltage (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.3.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+    - name: snmp_outletVoltageThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.6.3.1.3
+      type: gauge
+      help: outletVoltageThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_outletCurrent
+      oid: 1.3.6.1.4.1.534.6.6.7.6.4.1.3
+      type: gauge
+      help: outletCurrent (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+    - name: snmp_outletCurrentThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.6.4.1.4
+      type: gauge
+      help: outletCurrentThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_outletCurrentPercentLoad
+      oid: 1.3.6.1.4.1.534.6.6.7.6.4.1.10
+      type: gauge
+      help: outletCurrentPercentLoad (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.4.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+    - name: snmp_outletVA
+      oid: 1.3.6.1.4.1.534.6.6.7.6.5.1.2
+      type: gauge
+      help: outletVA (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.5.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+    - name: snmp_outletWatts
+      oid: 1.3.6.1.4.1.534.6.6.7.6.5.1.3
+      type: gauge
+      help: outletWatts (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.6.5.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: outletName
+        oid: 1.3.6.1.4.1.534.6.6.7.6.1.1.3
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_temperatureProbeStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.3
+      type: gauge
+      help: temperatureProbeStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.7.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: temperatureName
+        oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.2
+        type: DisplayString
+      enum_values:
+        -1: bad
+        0: disconnected
+        1: connected
+    - name: snmp_temperatureValue
+      oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.4
+      type: gauge
+      help: temperatureValue (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.7.1.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: temperatureName
+        oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.2
+        type: DisplayString
+    - name: snmp_temperatureThStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.5
+      type: gauge
+      help: temperatureThStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.7.1.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: temperatureName
+        oid: 1.3.6.1.4.1.534.6.6.7.7.1.1.2
+        type: DisplayString
+      enum_values:
+        0: good
+        1: lowWarning
+        2: lowCritical
+        3: highWarning
+        4: highCritical
+    - name: snmp_contactProbeStatus
+      oid: 1.3.6.1.4.1.534.6.6.7.7.3.1.3
+      type: gauge
+      help: contactProbeStatus (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.7.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: contactName
+        oid: 1.3.6.1.4.1.534.6.6.7.7.3.1.2
+        type: DisplayString
+      enum_values:
+        -1: bad
+        0: disconnected
+        1: connected
+    - name: snmp_contactState
+      oid: 1.3.6.1.4.1.534.6.6.7.7.3.1.4
+      type: gauge
+      help: contactState (EATON-EPDU-MIB) - 1.3.6.1.4.1.534.6.6.7.7.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: contactName
+        oid: 1.3.6.1.4.1.534.6.6.7.7.3.1.2
+        type: DisplayString
+      enum_values:
+        -1: contactBad
+        0: contactOpen
+        1: contactClosed
+    walk:
+    - 1.3.6.1.4.1.534.6.6.7.3.1
+    - 1.3.6.1.4.1.534.6.6.7.3.2
+    - 1.3.6.1.4.1.534.6.6.7.3.3
+    - 1.3.6.1.4.1.534.6.6.7.3.4
+    - 1.3.6.1.4.1.534.6.6.7.5.1
+    - 1.3.6.1.4.1.534.6.6.7.5.3
+    - 1.3.6.1.4.1.534.6.6.7.5.5
+    - 1.3.6.1.4.1.534.6.6.7.5.6
+    - 1.3.6.1.4.1.534.6.6.7.6.3
+    - 1.3.6.1.4.1.534.6.6.7.6.4
+    - 1.3.6.1.4.1.534.6.6.7.6.5
+    - 1.3.6.1.4.1.534.6.6.7.7.1
+    - 1.3.6.1.4.1.534.6.6.7.7.3
+    get:
+    - 1.3.6.1.4.1.534.6.6.7.1.2.1.30.0
+    - 1.3.6.1.4.1.534.6.6.7.1.2.1.31.0
+    - 1.3.6.1.4.1.534.6.6.7.1.2.1.32.0

@@ -2,22 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   lenovo_rackswitch:
-    walk:
-    - 1.3.6.1.4.1.19046.2.3.11.1.1
-    - 1.3.6.1.4.1.19046.2.3.11.1.2
-    - 1.3.6.1.4.1.19046.2.3.11.1.3
-    get:
-    - 1.3.6.1.4.1.19046.2.7.24.1.2.2.9.0
-    - 1.3.6.1.4.1.19046.2.7.24.1.2.12.1.0
-    - 1.3.6.1.4.1.19046.2.7.24.1.2.12.2.0
-    - 1.3.6.1.4.1.19046.2.7.24.1.3.1.15.0
-    - 1.3.6.1.4.1.19046.2.3.11.1.4.1.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -70,152 +54,13 @@ modules:
       type: counter
       help: memoryFreeStats (LENOVO-TOR-MIBS) - 1.3.6.1.4.1.19046.2.7.24.1.2.12.2.0
       lookups: []
-    - name: snmp_hwGlobalHealthStatus
-      oid: 1.3.6.1.4.1.19046.2.7.24.1.3.1.15
-      type: gauge
-      help: hwGlobalHealthStatus (LENOVO-TOR-MIBS) - 1.3.6.1.4.1.19046.2.7.24.1.3.1.15.0
-      enum_values:
-        1: ok
-        2: noncritical
-        3: critical
-      lookups: []
-    - name: snmp_lenovoEnvMibPowerSupplyState
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.1.1.5
-      type: gauge
-      help: lenovoEnvMibPowerSupplyState (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.1.1.5
-      indexes:
-      - labelname: lenovoEnvMibPowerSupplyIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibPowerSupplyIndex
-        labelname: psu_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.1.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibPowerSupplyIndex
-        labelname: psu_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.1.1.3
-        type: DisplayString
-      enum_values:
-        0: 'off'
-        1: 'on'
-        2: absent
-        3: outputFault
-    - name: snmp_lenovoEnvMibFanState
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.5
-      type: gauge
-      help: lenovoEnvMibFanState (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.2.1.5
-      indexes:
-      - labelname: lenovoEnvMibFanIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.3
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_module
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.7
-        type: DisplayString
-      enum_values:
-        0: ok
-        1: absent
-        2: fault
-    - name: snmp_lenovoEnvMibFanSpeedRPM
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.8
-      type: gauge
-      help: lenovoEnvMibFanSpeedRPM (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.2.1.8
-      indexes:
-      - labelname: lenovoEnvMibFanIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.3
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_module
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.7
-        type: DisplayString
-    - name: snmp_lenovoEnvMibFanSpeedPercent
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.9
-      type: gauge
-      help: lenovoEnvMibFanSpeedPercent (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.2.1.9
-      indexes:
-      - labelname: lenovoEnvMibFanIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.3
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibFanIndex
-        labelname: fan_module
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.2.1.7
-        type: DisplayString
-    - name: snmp_lenovoEnvMibTempSensorState
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.5
-      type: gauge
-      help: lenovoEnvMibTempSensorState (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.3.1.5
-      indexes:
-      - labelname: lenovoEnvMibTempSensorIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibTempSensorIndex
-        labelname: sensor_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibTempSensorIndex
-        labelname: sensor_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.3
-        type: DisplayString
-      enum_values:
-        0: ok
-        1: fault
-    - name: snmp_Temperature
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.6
-      type: gauge
-      help: lenovoEnvMibTempSensorTemperature (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.3.1.6
-      indexes:
-      - labelname: lenovoEnvMibTempSensorIndex
-        type: gauge
-      lookups:
-      - labels:
-        - lenovoEnvMibTempSensorIndex
-        labelname: sensor_name
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.4
-        type: DisplayString
-      - labels:
-        - lenovoEnvMibTempSensorIndex
-        labelname: sensor_desc
-        oid: 1.3.6.1.4.1.19046.2.3.11.1.3.1.3
-        type: DisplayString
-    - name: snmp_lenovoEnvMibTempSensorWarning
-      oid: 1.3.6.1.4.1.19046.2.3.11.1.4.1
-      type: gauge
-      help: lenovoEnvMibTempSensorWarning (LENOVO-ENV-MIB) - 1.3.6.1.4.1.19046.2.3.11.1.4.1.0
-      lookups: []
+    get:
+    - 1.3.6.1.4.1.19046.2.7.24.1.2.2.9.0
+    - 1.3.6.1.4.1.19046.2.7.24.1.2.12.1.0
+    - 1.3.6.1.4.1.19046.2.7.24.1.2.12.2.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

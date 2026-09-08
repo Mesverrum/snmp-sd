@@ -2,27 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   sonicwall:
-    walk:
-    - 1.3.6.1.4.1.8741.1.3.2.1.1
-    get:
-    - 1.3.6.1.4.1.8741.1.3.1.3.0
-    - 1.3.6.1.4.1.8741.1.3.1.4.0
-    - 1.3.6.1.4.1.8741.1.3.1.1.0
-    - 1.3.6.1.4.1.8741.1.3.1.2.0
-    - 1.3.6.1.4.1.8741.1.3.1.5.0
-    - 1.3.6.1.4.1.8741.1.3.5.1.0
-    - 1.3.6.1.4.1.8741.1.3.5.2.0
-    - 1.3.6.1.4.1.8741.1.3.5.3.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.8741.2.1.1.1.0
-    - 1.3.6.1.4.1.8741.2.1.1.2.0
-    - 1.3.6.1.4.1.8741.2.1.1.3.0
-    - 1.3.6.1.4.1.8741.2.1.1.4.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -101,269 +80,6 @@ modules:
       help: sonicCurrentConnCacheEntries (SONICWALL-FIREWALL-IP-STATISTICS-MIB) -
         1.3.6.1.4.1.8741.1.3.1.2.0
       lookups: []
-    - name: snmp_sonicNatTranslationCount
-      oid: 1.3.6.1.4.1.8741.1.3.1.5
-      type: gauge
-      help: sonicNatTranslationCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.1.5.0
-      lookups: []
-    - name: snmp_sonicSAStatEncryptPktCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.8
-      type: counter
-      help: sonicSAStatEncryptPktCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.8
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
-    - name: snmp_sonicSAStatEncryptByteCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.9
-      type: counter
-      help: sonicSAStatEncryptByteCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.9
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
-    - name: snmp_sonicSAStatDecryptPktCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.10
-      type: counter
-      help: sonicSAStatDecryptPktCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.10
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
-    - name: snmp_sonicSAStatDecryptByteCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.11
-      type: counter
-      help: sonicSAStatDecryptByteCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.11
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
-    - name: snmp_sonicSAStatInFragPktCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.12
-      type: counter
-      help: sonicSAStatInFragPktCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.12
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
-    - name: snmp_sonicSAStatOutFragPktCount
-      oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.13
-      type: counter
-      help: sonicSAStatOutFragPktCount (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.2.1.1.1.13
-      indexes:
-      - labelname: sonicIpsecSaIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatPeerGateway
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.2
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.3
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatSrcAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.4
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrBegin
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.5
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatDstAddrEnd
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.6
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatCreateTime
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.7
-        type: DisplayString
-      - labels:
-        - sonicIpsecSaIndex
-        labelname: sonicSAStatUserName
-        oid: 1.3.6.1.4.1.8741.1.3.2.1.1.1.14
-        type: DisplayString
     - name: snmp_sonicDpiSslConnCountCur
       oid: 1.3.6.1.4.1.8741.1.3.5.1
       type: gauge
@@ -380,3 +96,21 @@ modules:
       type: gauge
       help: sonicDpiSslConnCountMax (SONICWALL-FIREWALL-IP-STATISTICS-MIB) - 1.3.6.1.4.1.8741.1.3.5.3.0
       lookups: []
+    get:
+    - 1.3.6.1.4.1.8741.1.3.1.3.0
+    - 1.3.6.1.4.1.8741.1.3.1.4.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.8741.2.1.1.1.0
+    - 1.3.6.1.4.1.8741.2.1.1.2.0
+    - 1.3.6.1.4.1.8741.2.1.1.3.0
+    - 1.3.6.1.4.1.8741.2.1.1.4.0
+    - 1.3.6.1.4.1.8741.1.3.1.1.0
+    - 1.3.6.1.4.1.8741.1.3.1.2.0
+    - 1.3.6.1.4.1.8741.1.3.5.1.0
+    - 1.3.6.1.4.1.8741.1.3.5.2.0
+    - 1.3.6.1.4.1.8741.1.3.5.3.0

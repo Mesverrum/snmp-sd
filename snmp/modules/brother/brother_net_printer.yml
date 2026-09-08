@@ -2,21 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   brother_net_printer:
-    walk:
-    - 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.51.2
-    get:
-    - 1.3.6.1.4.1.2435.2.3.9.1.1.2.9.0
-    - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.1.0
-    - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.2.0
-    - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.3.0
-    - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.4.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.1.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -59,36 +44,11 @@ modules:
         labelname: serial
         oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.1
         type: DisplayString
-    - name: snmp_brJamPlace
-      oid: 1.3.6.1.4.1.2435.2.3.9.1.1.2.9
-      type: gauge
-      help: brJamPlace (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.1.1.2.9.0
-      lookups: []
-    - name: snmp_brToner1Low
-      oid: 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.1
-      type: gauge
-      help: brToner1Low (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.1.0
-      lookups: []
-    - name: snmp_brToner2Low
-      oid: 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.2
-      type: gauge
-      help: brToner2Low (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.2.0
-      lookups: []
-    - name: snmp_brToner3Low
-      oid: 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.3
-      type: gauge
-      help: brToner3Low (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.3.0
-      lookups: []
-    - name: snmp_brToner4Low
-      oid: 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.4
-      type: gauge
-      help: brToner4Low (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.4.0
-      lookups: []
-    - name: snmp_brErrorHistoryDescription
-      oid: 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.51.2.1.2
-      type: gauge
-      help: brErrorHistoryDescription (BROTHER-MIB) - 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.51.2.1.2
-      indexes:
-      - labelname: brErrorHistoryIndex
-        type: gauge
-      lookups: []
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.2435.2.3.9.4.2.1.5.5.1.0

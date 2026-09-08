@@ -1,0 +1,138 @@
+# GENERATED from kentik/snmp-profiles — module barracuda_email_gateway_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  barracuda_email_gateway_ext:
+    metrics:
+    - name: snmp_inQueueSize
+      oid: 1.3.6.1.4.1.20632.2.2
+      type: gauge
+      help: inQueueSize (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.2
+      lookups: []
+    - name: snmp_outQueueSize
+      oid: 1.3.6.1.4.1.20632.2.3
+      type: gauge
+      help: outQueueSize (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.3
+      lookups: []
+    - name: snmp_deferredQueueSize
+      oid: 1.3.6.1.4.1.20632.2.4
+      type: gauge
+      help: deferredQueueSize (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.4
+      lookups: []
+    - name: snmp_avgEmailLatency
+      oid: 1.3.6.1.4.1.20632.2.5
+      type: gauge
+      help: avgEmailLatency (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.5
+      lookups: []
+    - name: snmp_notifyQueueSize
+      oid: 1.3.6.1.4.1.20632.2.8
+      type: gauge
+      help: notifyQueueSize (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.8
+      lookups: []
+    - name: snmp_lastMessageDelivery
+      oid: 1.3.6.1.4.1.20632.2.11
+      type: gauge
+      help: lastMessageDelivery (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.11
+      lookups: []
+    - name: snmp_uniqueRecipients
+      oid: 1.3.6.1.4.1.20632.2.12
+      type: gauge
+      help: uniqueRecipients (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.12
+      lookups: []
+    - name: snmp_totalInboundBlocked
+      oid: 1.3.6.1.4.1.20632.2.20
+      type: gauge
+      help: totalInboundBlocked (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.20
+      lookups: []
+    - name: snmp_totalInboundVirusBlocked
+      oid: 1.3.6.1.4.1.20632.2.23
+      type: gauge
+      help: totalInboundVirusBlocked (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.23
+      lookups: []
+    - name: snmp_totalInboundRateControlled
+      oid: 1.3.6.1.4.1.20632.2.26
+      type: gauge
+      help: totalInboundRateControlled (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.26
+      lookups: []
+    - name: snmp_totalInboundQuarantined
+      oid: 1.3.6.1.4.1.20632.2.29
+      type: gauge
+      help: totalInboundQuarantined (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.29
+      lookups: []
+    - name: snmp_totalInboundTagged
+      oid: 1.3.6.1.4.1.20632.2.32
+      type: gauge
+      help: totalInboundTagged (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.32
+      lookups: []
+    - name: snmp_totalAllowed
+      oid: 1.3.6.1.4.1.20632.2.35
+      type: gauge
+      help: totalAllowed (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.35
+      lookups: []
+    - name: snmp_totalOutboundPolicyBlocked
+      oid: 1.3.6.1.4.1.20632.2.38
+      type: gauge
+      help: totalOutboundPolicyBlocked (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.38
+      lookups: []
+    - name: snmp_totalOutboundSpamBlocked
+      oid: 1.3.6.1.4.1.20632.2.41
+      type: gauge
+      help: totalOutboundSpamBlocked (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.41
+      lookups: []
+    - name: snmp_totalOutboundVirusBlocked
+      oid: 1.3.6.1.4.1.20632.2.44
+      type: gauge
+      help: totalOutboundVirusBlocked (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.44
+      lookups: []
+    - name: snmp_totalOutboundRateControlled
+      oid: 1.3.6.1.4.1.20632.2.47
+      type: gauge
+      help: totalOutboundRateControlled (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.47
+      lookups: []
+    - name: snmp_totalOutboundQuarantined
+      oid: 1.3.6.1.4.1.20632.2.50
+      type: gauge
+      help: totalOutboundQuarantined (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.50
+      lookups: []
+    - name: snmp_totalEncrypted
+      oid: 1.3.6.1.4.1.20632.2.53
+      type: gauge
+      help: totalEncrypted (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.53
+      lookups: []
+    - name: snmp_totalRedirected
+      oid: 1.3.6.1.4.1.20632.2.56
+      type: gauge
+      help: totalRedirected (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.56
+      lookups: []
+    - name: snmp_totalSent
+      oid: 1.3.6.1.4.1.20632.2.59
+      type: gauge
+      help: totalSent (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.59
+      lookups: []
+    - name: snmp_domainCount
+      oid: 1.3.6.1.4.1.20632.2.62
+      type: gauge
+      help: domainCount (BARRACUDA-SPAM-MIB) - 1.3.6.1.4.1.20632.2.62
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.20632.2.2
+    - 1.3.6.1.4.1.20632.2.3
+    - 1.3.6.1.4.1.20632.2.4
+    - 1.3.6.1.4.1.20632.2.5
+    - 1.3.6.1.4.1.20632.2.8
+    - 1.3.6.1.4.1.20632.2.11
+    - 1.3.6.1.4.1.20632.2.12
+    - 1.3.6.1.4.1.20632.2.20
+    - 1.3.6.1.4.1.20632.2.23
+    - 1.3.6.1.4.1.20632.2.26
+    - 1.3.6.1.4.1.20632.2.29
+    - 1.3.6.1.4.1.20632.2.32
+    - 1.3.6.1.4.1.20632.2.35
+    - 1.3.6.1.4.1.20632.2.38
+    - 1.3.6.1.4.1.20632.2.41
+    - 1.3.6.1.4.1.20632.2.44
+    - 1.3.6.1.4.1.20632.2.47
+    - 1.3.6.1.4.1.20632.2.50
+    - 1.3.6.1.4.1.20632.2.53
+    - 1.3.6.1.4.1.20632.2.56
+    - 1.3.6.1.4.1.20632.2.59
+    - 1.3.6.1.4.1.20632.2.62

@@ -2,30 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   peplink:
-    walk:
-    - 1.3.6.1.4.1.23695.200.1.1.1.4.1
-    - 1.3.6.1.4.1.23695.200.1.1.1.4.2
-    - 1.3.6.1.4.1.23695.200.1.1.1.4.3
-    - 1.3.6.1.4.1.23695.1.1.2.2
-    - 1.3.6.1.4.1.23695.1.1.3
-    get:
-    - 1.3.6.1.4.1.23695.200.1.1.1.3.1
-    - 1.3.6.1.4.1.23695.200.1.1.1.3.2
-    - 1.3.6.1.4.1.23695.200.1.1.1.3.3
-    - 1.3.6.1.4.1.23695.200.1.1.1.4.4.1
-    - 1.3.6.1.4.1.23695.200.1.1.1.4.4.2
-    - 1.3.6.1.4.1.23695.1.1.1.6.1
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.23695.200.1.1.1.1.1
-    - 1.3.6.1.4.1.23695.200.1.1.1.1.2
-    - 1.3.6.1.4.1.23695.200.1.1.1.1.3
-    - 1.3.6.1.4.1.23695.1.1.1.1
-    - 1.3.6.1.4.1.23695.1.1.1.2
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -93,153 +69,16 @@ modules:
       type: gauge
       help: deviceTotalMemory (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.3.2
       lookups: []
-    - name: snmp_deviceMemoryUsage
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.3.3
-      type: gauge
-      help: deviceMemoryUsage (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.3.3
-      lookups: []
-    - name: snmp_deviceTemperatureCelsius
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.4.1
-      type: gauge
-      help: deviceTemperatureCelsius (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.4.1
-      lookups: []
-    - name: snmp_deviceTemperatureFahrenheit
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.4.2
-      type: gauge
-      help: deviceTemperatureFahrenheit (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.4.2
-      lookups: []
-    - name: snmp_devicePSUStatus
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.1.1.2
-      type: gauge
-      help: devicePSUStatus (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.1.1.2
-      indexes:
-      - labelname: devicePSUId
-        type: gauge
-      enum_values:
-        0: error
-        1: 'on'
-      lookups: []
-    - name: snmp_devicePSUPercentage
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.1.1.5
-      type: gauge
-      help: devicePSUPercentage (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.1.1.5
-      indexes:
-      - labelname: devicePSUId
-        type: gauge
-      lookups: []
-    - name: snmp_deviceFanStatus
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.2.1.2
-      type: gauge
-      help: deviceFanStatus (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.2.1.2
-      indexes:
-      - labelname: deviceFanId
-        type: gauge
-      enum_values:
-        0: error
-        1: 'on'
-      lookups: []
-    - name: snmp_deviceFanSpeed
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.2.1.3
-      type: gauge
-      help: deviceFanSpeed (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.2.1.3
-      indexes:
-      - labelname: deviceFanId
-        type: gauge
-      lookups: []
-    - name: snmp_devicePowerSourceStatus
-      oid: 1.3.6.1.4.1.23695.200.1.1.1.4.3.1.3
-      type: gauge
-      help: devicePowerSourceStatus (PEPLINK-DEVICE) - 1.3.6.1.4.1.23695.200.1.1.1.4.3.1.3
-      indexes:
-      - labelname: devicePowerSourceId
-        type: gauge
-      lookups:
-      - labels:
-        - devicePowerSourceId
-        labelname: devicePowerSourceName
-        oid: 1.3.6.1.4.1.23695.200.1.1.1.4.3.1.2
-        type: DisplayString
-      enum_values:
-        0: noCableDetected
-        1: connected
-    - name: snmp_balLanStatus
-      oid: 1.3.6.1.4.1.23695.1.1.1.6.1
-      type: gauge
-      help: balLanStatus (PEPLINK-BALANCE-MIB) - 1.3.6.1.4.1.23695.1.1.1.6.1
-      lookups: []
-    - name: snmp_linkStatus
-      oid: 1.3.6.1.4.1.23695.1.1.2.2.1.3
-      type: gauge
-      help: linkStatus () - 1.3.6.1.4.1.23695.1.1.2.2.1.3
-      indexes:
-      - labelname: linkConnNum
-        type: gauge
-      lookups:
-      - labels:
-        - linkConnNum
-        labelname: linkName
-        oid: 1.3.6.1.4.1.23695.1.1.2.2.1.2
-        type: DisplayString
-    - name: snmp_linkThroughputIn
-      oid: 1.3.6.1.4.1.23695.1.1.2.2.1.4
-      type: counter
-      help: linkThroughputIn () - 1.3.6.1.4.1.23695.1.1.2.2.1.4
-      indexes:
-      - labelname: linkConnNum
-        type: gauge
-      lookups:
-      - labels:
-        - linkConnNum
-        labelname: linkName
-        oid: 1.3.6.1.4.1.23695.1.1.2.2.1.2
-        type: DisplayString
-    - name: snmp_linkThroughputOut
-      oid: 1.3.6.1.4.1.23695.1.1.2.2.1.5
-      type: counter
-      help: linkThroughputOut () - 1.3.6.1.4.1.23695.1.1.2.2.1.5
-      indexes:
-      - labelname: linkConnNum
-        type: gauge
-      lookups:
-      - labels:
-        - linkConnNum
-        labelname: linkName
-        oid: 1.3.6.1.4.1.23695.1.1.2.2.1.2
-        type: DisplayString
-    - name: snmp_linkDataTransferred
-      oid: 1.3.6.1.4.1.23695.1.1.2.2.1.6
-      type: counter
-      help: linkDataTransferred () - 1.3.6.1.4.1.23695.1.1.2.2.1.6
-      indexes:
-      - labelname: linkConnNum
-        type: gauge
-      lookups:
-      - labels:
-        - linkConnNum
-        labelname: linkName
-        oid: 1.3.6.1.4.1.23695.1.1.2.2.1.2
-        type: DisplayString
-    - name: snmp_wanUsageThroughputIn
-      oid: 1.3.6.1.4.1.23695.1.1.3.1.2
-      type: counter
-      help: wanUsageThroughputIn (PEPLINK-BALANCE-MIB) - 1.3.6.1.4.1.23695.1.1.3.1.2
-      indexes:
-      - labelname: wanUsageIndex
-        type: gauge
-      lookups: []
-    - name: snmp_wanUsageThroughputOut
-      oid: 1.3.6.1.4.1.23695.1.1.3.1.3
-      type: counter
-      help: wanUsageThroughputOut (PEPLINK-BALANCE-MIB) - 1.3.6.1.4.1.23695.1.1.3.1.3
-      indexes:
-      - labelname: wanUsageIndex
-        type: gauge
-      lookups: []
-    - name: snmp_wanUsageDataTransferred
-      oid: 1.3.6.1.4.1.23695.1.1.3.1.4
-      type: counter
-      help: wanUsageDataTransferred (PEPLINK-BALANCE-MIB) - 1.3.6.1.4.1.23695.1.1.3.1.4
-      indexes:
-      - labelname: wanUsageIndex
-        type: gauge
-      lookups: []
+    get:
+    - 1.3.6.1.4.1.23695.200.1.1.1.3.1
+    - 1.3.6.1.4.1.23695.200.1.1.1.3.2
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.23695.200.1.1.1.1.1
+    - 1.3.6.1.4.1.23695.200.1.1.1.1.2
+    - 1.3.6.1.4.1.23695.200.1.1.1.1.3
+    - 1.3.6.1.4.1.23695.1.1.1.1

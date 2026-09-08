@@ -1,0 +1,1450 @@
+# GENERATED from kentik/snmp-profiles — module netscaler_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  netscaler_ext:
+    metrics:
+    - name: snmp_sysHighAvailabilityMode
+      oid: 1.3.6.1.4.1.5951.4.1.1.6
+      type: gauge
+      help: sysHighAvailabilityMode (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.6.0
+      enum_values:
+        0: standalone
+        1: primary
+        2: secondary
+        3: unknown
+      lookups: []
+    - name: snmp_haPeerState
+      oid: 1.3.6.1.4.1.5951.4.1.1.23.3
+      type: gauge
+      help: haPeerState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.23.3.0
+      enum_values:
+        0: standalone
+        1: primary
+        2: secondary
+        3: unknown
+      lookups: []
+    - name: snmp_haTotStateTransitions
+      oid: 1.3.6.1.4.1.5951.4.1.1.23.4
+      type: counter
+      help: haTotStateTransitions (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.23.4.0
+      lookups: []
+    - name: snmp_haTimeofLastStateTransition
+      oid: 1.3.6.1.4.1.5951.4.1.1.23.5
+      type: gauge
+      help: haTimeofLastStateTransition (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.23.5.0
+      lookups: []
+    - name: snmp_haCurStatus
+      oid: 1.3.6.1.4.1.5951.4.1.1.23.23
+      type: gauge
+      help: haCurStatus (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.23.23.0
+      enum_values:
+        0: 'off'
+        1: 'on'
+      lookups: []
+    - name: snmp_haCurState
+      oid: 1.3.6.1.4.1.5951.4.1.1.23.24
+      type: gauge
+      help: haCurState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.23.24.0
+      enum_values:
+        0: unknown
+        1: init
+        2: down
+        3: up
+        4: partialFail
+        5: monitorFail
+        6: monitorOk
+        7: completeFail
+        8: dumb
+        9: disabled
+        10: partialFailSsl
+        11: routemonitorFail
+      lookups: []
+    - name: snmp_svcCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.1
+      type: gauge
+      help: svcCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.1.0
+      lookups: []
+    - name: snmp_serverCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.2
+      type: gauge
+      help: serverCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.2.0
+      lookups: []
+    - name: snmp_svcgroupCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.3
+      type: gauge
+      help: svcgroupCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.3.0
+      lookups: []
+    - name: snmp_svcgroupmemCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.4
+      type: gauge
+      help: svcgroupmemCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.4.0
+      lookups: []
+    - name: snmp_syssvcCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.5
+      type: gauge
+      help: syssvcCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.5.0
+      lookups: []
+    - name: snmp_sysupsvcCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.6
+      type: gauge
+      help: sysupsvcCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.6.0
+      lookups: []
+    - name: snmp_sysupvcitmCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.6.7
+      type: gauge
+      help: sysupvcitmCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.6.7.0
+      lookups: []
+    - name: snmp_curConfigVservers
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.1
+      type: gauge
+      help: curConfigVservers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.1.0
+      lookups: []
+    - name: snmp_vsvrBindCount
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.2
+      type: gauge
+      help: vsvrBindCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.2.0
+      lookups: []
+    - name: snmp_vsvrSvcGroupBindCount
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.3
+      type: gauge
+      help: vsvrSvcGroupBindCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.3.0
+      lookups: []
+    - name: snmp_curConfigLbVservers
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.4
+      type: gauge
+      help: curConfigLbVservers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.4.0
+      lookups: []
+    - name: snmp_curConfigGslbVservers
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.5
+      type: gauge
+      help: curConfigGslbVservers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.5.0
+      lookups: []
+    - name: snmp_totSpilloverCount
+      oid: 1.3.6.1.4.1.5951.4.1.3.5.6
+      type: counter
+      help: totSpilloverCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.5.6.0
+      lookups: []
+    - name: snmp_tcpCurClientEstablished
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.12
+      type: gauge
+      help: tcpCurClientEstablished (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.12.0
+      lookups: []
+    - name: snmp_tcpErrAnyPortFail
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.69
+      type: counter
+      help: tcpErrAnyPortFail (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.69.0
+      lookups: []
+    - name: snmp_tcpErrIpPortFail
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.70
+      type: counter
+      help: tcpErrIpPortFail (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.70.0
+      lookups: []
+    - name: snmp_tcpErrRetransmit
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.59
+      type: counter
+      help: tcpErrRetransmit (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.59.0
+      lookups: []
+    - name: snmp_tcpTotRxPkts
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.61
+      type: counter
+      help: tcpTotRxPkts (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.61.0
+      lookups: []
+    - name: snmp_tcpTotTxPkts
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.63
+      type: counter
+      help: tcpTotTxPkts (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.63.0
+      lookups: []
+    - name: snmp_httpTotGets
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.45
+      type: counter
+      help: httpTotGets (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.45.0
+      lookups: []
+    - name: snmp_httpTotPosts
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.46
+      type: counter
+      help: httpTotPosts (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.46.0
+      lookups: []
+    - name: snmp_httpTotOthers
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.47
+      type: counter
+      help: httpTotOthers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.47.0
+      lookups: []
+    - name: snmp_httpTotRxRequestBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.48
+      type: counter
+      help: httpTotRxRequestBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.48.0
+      lookups: []
+    - name: snmp_httpTotRxResponseBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.49
+      type: counter
+      help: httpTotRxResponseBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.49.0
+      lookups: []
+    - name: snmp_httpTotTxRequestBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.50
+      type: counter
+      help: httpTotTxRequestBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.50.0
+      lookups: []
+    - name: snmp_httpTotTxResponseBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.51
+      type: counter
+      help: httpTotTxResponseBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.51.0
+      lookups: []
+    - name: snmp_httpTot10Requests
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.52
+      type: counter
+      help: httpTot10Requests (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.52.0
+      lookups: []
+    - name: snmp_httpTotResponses
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.53
+      type: counter
+      help: httpTotResponses (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.53.0
+      lookups: []
+    - name: snmp_httpTot10Responses
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.54
+      type: counter
+      help: httpTot10Responses (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.54.0
+      lookups: []
+    - name: snmp_httpErrIncompleteRequests
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.57
+      type: counter
+      help: httpErrIncompleteRequests (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.57.0
+      lookups: []
+    - name: snmp_httpErrIncompleteResponses
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.58
+      type: counter
+      help: httpErrIncompleteResponses (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.58.0
+      lookups: []
+    - name: snmp_httpErrIncompleteHeaders
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.60
+      type: counter
+      help: httpErrIncompleteHeaders (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.60.0
+      lookups: []
+    - name: snmp_httpErrServerBusy
+      oid: 1.3.6.1.4.1.5951.4.1.1.48.61
+      type: counter
+      help: httpErrServerBusy (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.48.61.0
+      lookups: []
+    - name: snmp_svcTotalClients
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.48
+      type: counter
+      help: svcTotalClients (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.48.0
+      lookups: []
+    - name: snmp_svcTotalServers
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.49
+      type: counter
+      help: svcTotalServers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.49.0
+      lookups: []
+    - name: snmp_vsvrState
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.5
+      type: gauge
+      help: vsvrState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.5
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.1
+        type: DisplayString
+      - labels:
+        - vsvrName
+        labelname: vsvrIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.2
+        type: DisplayString
+      - labels:
+        - vsvrName
+        labelname: vsvrPort
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.3
+        type: DisplayString
+      - labels:
+        - vsvrName
+        labelname: vsvrType
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        1: down
+        2: unknown
+        3: busy
+        4: outOfService
+        5: transitionToOutOfService
+        7: up
+        8: transitionToOutOfServiceDown
+    - name: snmp_sysHealthDiskSize
+      oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.2
+      type: gauge
+      help: sysHealthDiskSize (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.41.8.1.2
+      indexes:
+      - labelname: sysHealthDiskName
+        type: gauge
+      lookups:
+      - labels:
+        - sysHealthDiskName
+        labelname: sysHealthDiskName
+        oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.1
+        type: DisplayString
+    - name: snmp_sysHealthDiskAvail
+      oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.3
+      type: gauge
+      help: sysHealthDiskAvail (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.41.8.1.3
+      indexes:
+      - labelname: sysHealthDiskName
+        type: gauge
+      lookups:
+      - labels:
+        - sysHealthDiskName
+        labelname: sysHealthDiskName
+        oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.1
+        type: DisplayString
+    - name: snmp_sysHealthDiskUsed
+      oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.4
+      type: gauge
+      help: sysHealthDiskUsed (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.41.8.1.4
+      indexes:
+      - labelname: sysHealthDiskName
+        type: gauge
+      lookups:
+      - labels:
+        - sysHealthDiskName
+        labelname: sysHealthDiskName
+        oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.1
+        type: DisplayString
+    - name: snmp_sysHealthDiskPerusage
+      oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.5
+      type: gauge
+      help: sysHealthDiskPerusage (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.41.8.1.5
+      indexes:
+      - labelname: sysHealthDiskName
+        type: gauge
+      lookups:
+      - labels:
+        - sysHealthDiskName
+        labelname: sysHealthDiskName
+        oid: 1.3.6.1.4.1.5951.4.1.1.41.8.1.1
+        type: DisplayString
+    - name: snmp_ifTotRxBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.3
+      type: counter
+      help: ifTotRxBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.3
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifRxAvgBandwidthUsage
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.4
+      type: gauge
+      help: ifRxAvgBandwidthUsage (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.4
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifTotTxBytes
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.7
+      type: counter
+      help: ifTotTxBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.7
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifTxAvgBandwidthUsage
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.8
+      type: gauge
+      help: ifTxAvgBandwidthUsage (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.8
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifThroughput
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.48
+      type: gauge
+      help: ifThroughput (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.48
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifTotRxMbits
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.19
+      type: counter
+      help: ifTotRxMbits (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.19
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_ifTotTxMbits
+      oid: 1.3.6.1.4.1.5951.4.1.1.54.1.20
+      type: counter
+      help: ifTotTxMbits (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.54.1.20
+      indexes:
+      - labelname: ifName
+        type: gauge
+      lookups:
+      - labels:
+        - ifName
+        labelname: if_interface_name
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.1
+        type: DisplayString
+      - labels:
+        - ifName
+        labelname: if_Media
+        oid: 1.3.6.1.4.1.5951.4.1.1.54.1.2
+        type: DisplayString
+    - name: snmp_vsvrServiceHits
+      oid: 1.3.6.1.4.1.5951.4.1.3.2.1.5
+      type: counter
+      help: vsvrServiceHits (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.2.1.5
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      - labelname: vsvrServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vsvrServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vsvrServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vserverFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.10
+        type: DisplayString
+    - name: snmp_servicePersistentHits
+      oid: 1.3.6.1.4.1.5951.4.1.3.2.1.6
+      type: counter
+      help: servicePersistentHits (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.2.1.6
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      - labelname: vsvrServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vsvrServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vsvrServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - vsvrName
+        - vsvrServiceName
+        labelname: vserverFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.2.1.10
+        type: DisplayString
+    - name: snmp_tcpCurClientConn
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.2
+      type: gauge
+      help: tcpCurClientConn (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.2.0
+      lookups: []
+    - name: snmp_tcpCurServerConnEstablished
+      oid: 1.3.6.1.4.1.5951.4.1.1.46.10
+      type: gauge
+      help: tcpCurServerConnEstablished (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.46.10.0
+      lookups: []
+    - name: snmp_sslTotSessions
+      oid: 1.3.6.1.4.1.5951.4.1.1.47.204
+      type: counter
+      help: sslTotSessions (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.47.204.0
+      lookups: []
+    - name: snmp_lbvsvrLBMethod
+      oid: 1.3.6.1.4.1.5951.4.1.3.6.1.1
+      type: gauge
+      help: lbvsvrLBMethod (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.6.1.1
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      enum_values:
+        1: weightedRoundRobin
+        2: leastConnections
+        3: leastResponse
+        4: asynchronousMAC
+        5: urlHashed
+        6: domainHashed
+        7: destinationIPHashed
+        8: sourceIPHashed
+        9: leastBandwidth
+        10: leastPackets
+        11: customLoad
+        12: token
+        13: staticProximity
+        14: rdp
+        15: leastreq
+        16: rtt
+        17: sourceIPDestinationIPHashed
+        18: sourceIPSourcePort
+        19: lrtm
+        20: callIDHashed
+      lookups: []
+    - name: snmp_lbvsvrPersistanceType
+      oid: 1.3.6.1.4.1.5951.4.1.3.6.1.2
+      type: EnumAsInfo
+      help: lbvsvrPersistanceType (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.6.1.2
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      enum_values:
+        0: none
+        1: sourceIp
+        2: cookieInsert
+        3: cookieDelete
+        4: cookieRead
+        5: cookieHash
+        6: sessionId
+        7: server
+        8: rule
+        9: urlPassive
+        10: customServerID
+        11: groupSourceID
+        12: groupCookieInsert
+        13: groupRule
+        14: destinationIP
+        15: spillOver
+        16: sourceIPdestinationIP
+        17: callerID
+        18: gslbBackup
+        19: rtspSessionID
+        20: diameter
+        21: fixSession
+      lookups: []
+    - name: snmp_lbvsvrPersistenceTimeOut
+      oid: 1.3.6.1.4.1.5951.4.1.3.6.1.3
+      type: gauge
+      help: lbvsvrPersistenceTimeOut (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.6.1.3
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups: []
+    - name: snmp_lbvsvrActiveConn
+      oid: 1.3.6.1.4.1.5951.4.1.3.6.1.4
+      type: gauge
+      help: lbvsvrActiveConn (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.6.1.4
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups: []
+    - name: snmp_lbvsvrAvgSvrTTFB
+      oid: 1.3.6.1.4.1.5951.4.1.3.6.1.5
+      type: gauge
+      help: lbvsvrAvgSvrTTFB (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.6.1.5
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups: []
+    - name: snmp_svcgrpSvcGroupState
+      oid: 1.3.6.1.4.1.5951.4.1.2.11.1.3
+      type: gauge
+      help: svcgrpSvcGroupState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.11.1.3
+      indexes:
+      - labelname: svcgrpSvcGroupName
+        type: gauge
+      lookups:
+      - labels:
+        - svcgrpSvcGroupName
+        labelname: svcgrpSvcGroupName
+        oid: 1.3.6.1.4.1.5951.4.1.2.11.1.1
+        type: DisplayString
+      - labels:
+        - svcgrpSvcGroupName
+        labelname: svcgrpSvcGroupType
+        oid: 1.3.6.1.4.1.5951.4.1.2.11.1.2
+        type: EnumAsInfo
+      - labels:
+        - svcgrpSvcGroupName
+        labelname: svcgrpSvcGroupFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.11.1.4
+        type: DisplayString
+      - labels:
+        - svcgrpSvcGroupName
+        labelname: svcgrpTdId
+        oid: 1.3.6.1.4.1.5951.4.1.2.11.1.5
+        type: DisplayString
+      enum_values:
+        0: disabled
+        1: enabled
+    - name: snmp_sslDaysToExpire
+      oid: 1.3.6.1.4.1.5951.4.1.1.56.1.1.5
+      type: gauge
+      help: sslDaysToExpire (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.1.56.1.1.5
+      indexes:
+      - labelname: sslCertKeyName
+        type: gauge
+      lookups:
+      - labels:
+        - sslCertKeyName
+        labelname: sslCertKeyName
+        oid: 1.3.6.1.4.1.5951.4.1.1.56.1.1.1
+        type: DisplayString
+    - name: snmp_vsvrTotalRequests
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.30
+      type: counter
+      help: vsvrTotalRequests (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.30
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalRequestBytes
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.31
+      type: counter
+      help: vsvrTotalRequestBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.31
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalResponses
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.32
+      type: counter
+      help: vsvrTotalResponses (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.32
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalResponseBytes
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.33
+      type: counter
+      help: vsvrTotalResponseBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.33
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrCurServicesDown
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.37
+      type: gauge
+      help: vsvrCurServicesDown (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.37
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrCurServicesUp
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.41
+      type: gauge
+      help: vsvrCurServicesUp (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.41
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrRequestRate
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.43
+      type: gauge
+      help: vsvrRequestRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.43
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrRxBytesRate
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.44
+      type: gauge
+      help: vsvrRxBytesRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.44
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTxBytesRate
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.45
+      type: gauge
+      help: vsvrTxBytesRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.45
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrSynfloodRate
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.46
+      type: gauge
+      help: vsvrSynfloodRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.46
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotSpillOvers
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.54
+      type: counter
+      help: vsvrTotSpillOvers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.54
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalClients
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.56
+      type: counter
+      help: vsvrTotalClients (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.56
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalServicesBound
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.61
+      type: gauge
+      help: vsvrTotalServicesBound (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.61
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrHealth
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.62
+      type: gauge
+      help: vsvrHealth (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.62
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrTotalServers
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.65
+      type: counter
+      help: vsvrTotalServers (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.65
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_vsvrActiveActiveState
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.66
+      type: gauge
+      help: vsvrActiveActiveState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.66
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: active
+        2: backup
+    - name: snmp_vsvrSoThreshold
+      oid: 1.3.6.1.4.1.5951.4.1.3.1.1.70
+      type: gauge
+      help: vsvrSoThreshold (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.3.1.1.70
+      indexes:
+      - labelname: vsvrName
+        type: gauge
+      lookups:
+      - labels:
+        - vsvrName
+        labelname: vsvrFullName
+        oid: 1.3.6.1.4.1.5951.4.1.3.1.1.59
+        type: DisplayString
+    - name: snmp_svcAvgTransactionTime
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.7
+      type: gauge
+      help: svcAvgTransactionTime (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.7
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcEstablishedCon
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.8
+      type: gauge
+      help: svcEstablishedCon (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.8
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcActiveConn
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.9
+      type: gauge
+      help: svcActiveConn (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.9
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcSurgeCount
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.10
+      type: gauge
+      help: svcSurgeCount (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.10
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalRequests
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.30
+      type: counter
+      help: svcTotalRequests (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.30
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalRequestBytes
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.31
+      type: counter
+      help: svcTotalRequestBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.31
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalResponses
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.32
+      type: counter
+      help: svcTotalResponses (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.32
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalResponseBytes
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.33
+      type: counter
+      help: svcTotalResponseBytes (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.33
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalPktsRecvd
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.34
+      type: counter
+      help: svcTotalPktsRecvd (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.34
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTotalPktsSent
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.35
+      type: counter
+      help: svcTotalPktsSent (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.35
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcAvgSvrTTFB
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.38
+      type: gauge
+      help: svcAvgSvrTTFB (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.38
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcRequestRate
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.42
+      type: gauge
+      help: svcRequestRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.42
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcRxBytesRate
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.43
+      type: gauge
+      help: svcRxBytesRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.43
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcTxBytesRate
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.44
+      type: gauge
+      help: svcTxBytesRate (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.44
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_svcActiveTransactions
+      oid: 1.3.6.1.4.1.5951.4.1.2.1.1.53
+      type: gauge
+      help: svcActiveTransactions (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.1.1.53
+      indexes:
+      - labelname: svcServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - svcServiceName
+        labelname: svcServiceName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcPort
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - svcServiceName
+        labelname: svcServiceType
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - svcServiceName
+        labelname: svcServiceFullName
+        oid: 1.3.6.1.4.1.5951.4.1.2.1.1.54
+        type: DisplayString
+    - name: snmp_serverState
+      oid: 1.3.6.1.4.1.5951.4.1.2.2.1.3
+      type: gauge
+      help: serverState (NS-ROOT-MIB) - 1.3.6.1.4.1.5951.4.1.2.2.1.3
+      indexes:
+      - labelname: serverName
+        type: gauge
+      lookups:
+      - labels:
+        - serverName
+        labelname: serverName
+        oid: 1.3.6.1.4.1.5951.4.1.2.2.1.1
+        type: DisplayString
+      - labels:
+        - serverName
+        labelname: serverIpAddress
+        oid: 1.3.6.1.4.1.5951.4.1.2.2.1.2
+        type: DisplayString
+      enum_values:
+        1: down
+        2: unknown
+        3: busy
+        4: outOfService
+        5: transitionToOutOfService
+        7: up
+        8: transitionToOutOfServiceDown
+    walk:
+    - 1.3.6.1.4.1.5951.4.1.3.1
+    - 1.3.6.1.4.1.5951.4.1.2.1
+    - 1.3.6.1.4.1.5951.4.1.1.41.8
+    - 1.3.6.1.4.1.5951.4.1.1.54
+    - 1.3.6.1.4.1.5951.4.1.3.2
+    - 1.3.6.1.4.1.5951.4.1.3.6
+    - 1.3.6.1.4.1.5951.4.1.2.11
+    - 1.3.6.1.4.1.5951.4.1.1.56.1
+    - 1.3.6.1.4.1.5951.4.1.2.2
+    get:
+    - 1.3.6.1.4.1.5951.4.1.2.1.1.48.0
+    - 1.3.6.1.4.1.5951.4.1.2.1.1.49.0
+    - 1.3.6.1.4.1.5951.4.1.1.6.0
+    - 1.3.6.1.4.1.5951.4.1.1.23.3.0
+    - 1.3.6.1.4.1.5951.4.1.1.23.4.0
+    - 1.3.6.1.4.1.5951.4.1.1.23.5.0
+    - 1.3.6.1.4.1.5951.4.1.1.23.23.0
+    - 1.3.6.1.4.1.5951.4.1.1.23.24.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.1.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.2.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.3.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.4.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.5.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.6.0
+    - 1.3.6.1.4.1.5951.4.1.2.6.7.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.1.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.2.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.3.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.4.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.5.0
+    - 1.3.6.1.4.1.5951.4.1.3.5.6.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.12.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.69.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.70.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.59.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.61.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.63.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.45.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.46.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.47.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.48.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.49.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.50.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.51.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.52.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.53.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.54.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.57.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.58.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.60.0
+    - 1.3.6.1.4.1.5951.4.1.1.48.61.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.2.0
+    - 1.3.6.1.4.1.5951.4.1.1.46.10.0
+    - 1.3.6.1.4.1.5951.4.1.1.47.204.0

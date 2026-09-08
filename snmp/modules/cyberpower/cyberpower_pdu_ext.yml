@@ -1,0 +1,398 @@
+# GENERATED from kentik/snmp-profiles — module cyberpower_pdu_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cyberpower_pdu_ext:
+    metrics:
+    - name: snmp_ePDULoadStatusLoad
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.2
+      type: gauge
+      help: ePDULoadStatusLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDULoadStatusLoadState
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.3
+      type: gauge
+      help: ePDULoadStatusLoadState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: loadNormal
+        2: loadLow
+        3: loadNearOverload
+        4: loadOverload
+      lookups: []
+    - name: snmp_ePDULoadStatusVoltage
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.6
+      type: gauge
+      help: ePDULoadStatusVoltage (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDULoadStatusActivePower
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.7
+      type: gauge
+      help: ePDULoadStatusActivePower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDULoadStatusApparentPower
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.8
+      type: gauge
+      help: ePDULoadStatusApparentPower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDULoadStatusPowerFactor
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.9
+      type: gauge
+      help: ePDULoadStatusPowerFactor (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.3.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDULoadBankConfigAlarm
+      oid: 1.3.6.1.4.1.3808.1.1.3.2.4.1.1.5
+      type: gauge
+      help: ePDULoadBankConfigAlarm (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.2.4.1.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: noLoadAlarm
+        2: underCurrentAlarm
+        3: nearOverCurrentAlarm
+        4: overCurrentAlarm
+      lookups: []
+    - name: snmp_ePDUOutletStatusOutletState
+      oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.4
+      type: gauge
+      help: ePDUOutletStatusOutletState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDUOutletStatusOutletName
+        oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.2
+        type: DisplayString
+      enum_values:
+        1: outletStatusOn
+        2: outletStatusOff
+    - name: snmp_ePDUOutletStatusLoad
+      oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.7
+      type: gauge
+      help: ePDUOutletStatusLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDUOutletStatusOutletName
+        oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.2
+        type: DisplayString
+    - name: snmp_ePDUOutletStatusActivePower
+      oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.8
+      type: gauge
+      help: ePDUOutletStatusActivePower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDUOutletStatusOutletName
+        oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.2
+        type: DisplayString
+    - name: snmp_ePDUOutletStatusAlarm
+      oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.9
+      type: gauge
+      help: ePDUOutletStatusAlarm (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDUOutletStatusOutletName
+        oid: 1.3.6.1.4.1.3808.1.1.3.3.5.1.1.2
+        type: DisplayString
+      enum_values:
+        1: noLoadAlarm
+        2: underCurrentAlarm
+        3: nearOverCurrentAlarm
+        4: overCurrentAlarm
+    - name: snmp_ePDUStatusBankState
+      oid: 1.3.6.1.4.1.3808.1.1.3.5.2.1.3
+      type: gauge
+      help: ePDUStatusBankState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.5.2.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: bankLoadNormal
+        2: bankLoadLow
+        3: bankLoadNearOverload
+        4: bankLoadOverload
+      lookups: []
+    - name: snmp_ePDUStatusPhaseState
+      oid: 1.3.6.1.4.1.3808.1.1.3.5.4.1.3
+      type: gauge
+      help: ePDUStatusPhaseState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.5.4.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: phaseLoadNormal
+        2: phaseLoadLow
+        3: phaseLoadNearOverload
+        4: phaseLoadOverload
+      lookups: []
+    - name: snmp_ePDUStatusOutletState
+      oid: 1.3.6.1.4.1.3808.1.1.3.5.6.1.3
+      type: gauge
+      help: ePDUStatusOutletState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.5.6.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: outletLoadNormal
+        2: outletLoadLow
+        3: outletLoadNearOverload
+        4: outletLoadOverload
+      lookups: []
+    - name: snmp_ePDUStatusInputVoltage
+      oid: 1.3.6.1.4.1.3808.1.1.3.5.7
+      type: gauge
+      help: ePDUStatusInputVoltage (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.5.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDUStatusInputFrequency
+      oid: 1.3.6.1.4.1.3808.1.1.3.5.8
+      type: gauge
+      help: ePDUStatusInputFrequency (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.3.5.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2DeviceStatusLoadState
+      oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.4
+      type: gauge
+      help: ePDU2DeviceStatusLoadState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.3.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusRoleType
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.17
+        type: EnumAsInfo
+      enum_values:
+        1: noLoadAlarm
+        2: underCurrentAlarm
+        3: nearOverCurrentAlarm
+        4: overCurrentAlarm
+    - name: snmp_ePDU2DeviceStatusLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.5
+      type: gauge
+      help: ePDU2DeviceStatusLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.3.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusRoleType
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.17
+        type: EnumAsInfo
+    - name: snmp_ePDU2DeviceStatusPeakLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.6
+      type: gauge
+      help: ePDU2DeviceStatusPeakLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.3.4.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusRoleType
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.17
+        type: EnumAsInfo
+    - name: snmp_ePDU2DeviceStatusApparentPower
+      oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.15
+      type: gauge
+      help: ePDU2DeviceStatusApparentPower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.3.4.1.15
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusRoleType
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.17
+        type: EnumAsInfo
+    - name: snmp_ePDU2DeviceStatusPowerFactor
+      oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.16
+      type: gauge
+      help: ePDU2DeviceStatusPowerFactor (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.3.4.1.16
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: ePDU2DeviceStatusRoleType
+        oid: 1.3.6.1.4.1.3808.1.1.6.3.4.1.17
+        type: EnumAsInfo
+    - name: snmp_ePDU2PhaseStatusLoadState
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.4
+      type: gauge
+      help: ePDU2PhaseStatusLoadState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: lowLoad
+        2: normal
+        3: nearOverload
+        4: overload
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.5
+      type: gauge
+      help: ePDU2PhaseStatusLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusVoltage
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.6
+      type: gauge
+      help: ePDU2PhaseStatusVoltage (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusPower
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.7
+      type: gauge
+      help: ePDU2PhaseStatusPower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusApparentPower
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.8
+      type: gauge
+      help: ePDU2PhaseStatusApparentPower (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.8
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusPowerFactor
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.9
+      type: gauge
+      help: ePDU2PhaseStatusPowerFactor (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2PhaseStatusPeakLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.4.4.1.10
+      type: gauge
+      help: ePDU2PhaseStatusPeakLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.4.4.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2BankStatusLoadState
+      oid: 1.3.6.1.4.1.3808.1.1.6.5.4.1.4
+      type: gauge
+      help: ePDU2BankStatusLoadState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.5.4.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: lowLoad
+        2: normal
+        3: nearOverload
+        4: overload
+      lookups: []
+    - name: snmp_ePDU2BankStatusLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.5.4.1.5
+      type: gauge
+      help: ePDU2BankStatusLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.5.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2BankStatusPeakLoad
+      oid: 1.3.6.1.4.1.3808.1.1.6.5.4.1.6
+      type: gauge
+      help: ePDU2BankStatusPeakLoad (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.5.4.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_ePDU2OutletSwitchedStatusState
+      oid: 1.3.6.1.4.1.3808.1.1.6.6.1.4.1.5
+      type: gauge
+      help: ePDU2OutletSwitchedStatusState (CPS-MIB) - 1.3.6.1.4.1.3808.1.1.6.6.1.4.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: ePDU2OutletSwitchedStatusName
+        oid: 1.3.6.1.4.1.3808.1.1.6.6.1.4.1.4
+        type: DisplayString
+      enum_values:
+        1: outletStatusOn
+        2: outletStatusOff
+    walk:
+    - 1.3.6.1.4.1.3808.1.1.6.3.4
+    - 1.3.6.1.4.1.3808.1.1.3.2.3.1
+    - 1.3.6.1.4.1.3808.1.1.3.2.4.1
+    - 1.3.6.1.4.1.3808.1.1.3.3.5.1
+    - 1.3.6.1.4.1.3808.1.1.3.5.2
+    - 1.3.6.1.4.1.3808.1.1.3.5.4
+    - 1.3.6.1.4.1.3808.1.1.3.5.6
+    - 1.3.6.1.4.1.3808.1.1.6.4.4
+    - 1.3.6.1.4.1.3808.1.1.6.5.4
+    - 1.3.6.1.4.1.3808.1.1.6.6.1.4

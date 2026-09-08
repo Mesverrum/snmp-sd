@@ -1,0 +1,202 @@
+# GENERATED from kentik/snmp-profiles — module mikrotik_router_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  mikrotik_router_ext:
+    metrics:
+    - name: snmp_mtxrHlVoltage
+      oid: 1.3.6.1.4.1.14988.1.1.3.8
+      type: gauge
+      help: mtxrHlVoltage (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.3.8
+      lookups: []
+    - name: snmp_mtxrOpticalRxPower
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.10
+      type: gauge
+      help: mtxrOpticalRxPower (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.10
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxFault
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.4
+      type: gauge
+      help: mtxrOpticalTxFault (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.4
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+      enum_values:
+        0: 'false'
+        1: 'true'
+    - name: snmp_mtxrOpticalRxLoss
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.3
+      type: gauge
+      help: mtxrOpticalRxLoss (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.3
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+      enum_values:
+        0: 'false'
+        1: 'true'
+    - name: snmp_mtxrOpticalSupplyVoltage
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.7
+      type: gauge
+      help: mtxrOpticalSupplyVoltage (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.7
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxBiasCurrent
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.8
+      type: gauge
+      help: mtxrOpticalTxBiasCurrent (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.8
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalWavelength
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.5
+      type: gauge
+      help: mtxrOpticalWavelength (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.5
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalIndex
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.1
+      type: gauge
+      help: mtxrOpticalIndex (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.1
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxPower
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.9
+      type: gauge
+      help: mtxrOpticalTxPower (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.9
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrPOEPower
+      oid: 1.3.6.1.4.1.14988.1.1.15.1.1.6
+      type: gauge
+      help: mtxrPOEPower (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.15.1.1.6
+      indexes:
+      - labelname: mtxrPOEInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOECurrent
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.5
+        type: DisplayString
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOEName
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrPOEVoltage
+      oid: 1.3.6.1.4.1.14988.1.1.15.1.1.4
+      type: gauge
+      help: mtxrPOEVoltage (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.15.1.1.4
+      indexes:
+      - labelname: mtxrPOEInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOECurrent
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.5
+        type: DisplayString
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOEName
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrPOEInterfaceIndex
+      oid: 1.3.6.1.4.1.14988.1.1.15.1.1.1
+      type: gauge
+      help: mtxrPOEInterfaceIndex (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.15.1.1.1
+      indexes:
+      - labelname: mtxrPOEInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOECurrent
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.5
+        type: DisplayString
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOEName
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrPOEStatus
+      oid: 1.3.6.1.4.1.14988.1.1.15.1.1.3
+      type: gauge
+      help: mtxrPOEStatus (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.15.1.1.3
+      indexes:
+      - labelname: mtxrPOEInterfaceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOECurrent
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.5
+        type: DisplayString
+      - labels:
+        - mtxrPOEInterfaceIndex
+        labelname: mtxrPOEName
+        oid: 1.3.6.1.4.1.14988.1.1.15.1.1.2
+        type: DisplayString
+      enum_values:
+        1: disabled
+        2: waitingForLoad
+        3: poweredOn
+        4: overload
+    walk:
+    - 1.3.6.1.4.1.14988.1.1.19.1
+    - 1.3.6.1.4.1.14988.1.1.15.1
+    get:
+    - 1.3.6.1.4.1.14988.1.1.3.8

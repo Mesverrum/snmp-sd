@@ -1,0 +1,429 @@
+# GENERATED from kentik/snmp-profiles — module cisco_ironport_email_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_ironport_email_ext:
+    metrics:
+    - name: snmp_oldestMessageAge
+      oid: 1.3.6.1.4.1.15497.1.1.1.14
+      type: gauge
+      help: oldestMessageAge (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.14.0
+      lookups: []
+    - name: snmp_perCentDiskIOUtilization
+      oid: 1.3.6.1.4.1.15497.1.1.1.3
+      type: gauge
+      help: perCentDiskIOUtilization (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.3.0
+      lookups: []
+    - name: snmp_perCentQueueUtilization
+      oid: 1.3.6.1.4.1.15497.1.1.1.4
+      type: gauge
+      help: perCentQueueUtilization (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.4.0
+      lookups: []
+    - name: snmp_queueAvailabilityStatus
+      oid: 1.3.6.1.4.1.15497.1.1.1.5
+      type: gauge
+      help: queueAvailabilityStatus (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.5.0
+      enum_values:
+        1: queueSpaceAvailable
+        2: queueSpaceShortage
+        3: queueFull
+      lookups: []
+    - name: snmp_resourceConservationReason
+      oid: 1.3.6.1.4.1.15497.1.1.1.6
+      type: gauge
+      help: resourceConservationReason (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.6.0
+      enum_values:
+        1: noResourceConservation
+        2: memoryShortage
+        3: queueSpaceShortage
+        4: queueFull
+      lookups: []
+    - name: snmp_degreesCelsius
+      oid: 1.3.6.1.4.1.15497.1.1.1.9.1.2
+      type: gauge
+      help: degreesCelsius (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.9.1.2
+      indexes:
+      - labelname: temperatureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - temperatureIndex
+        labelname: temperatureName
+        oid: 1.3.6.1.4.1.15497.1.1.1.9.1.3
+        type: DisplayString
+    - name: snmp_fanRPMs
+      oid: 1.3.6.1.4.1.15497.1.1.1.10.1.2
+      type: gauge
+      help: fanRPMs (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.10.1.2
+      indexes:
+      - labelname: fanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fanIndex
+        labelname: fanName
+        oid: 1.3.6.1.4.1.15497.1.1.1.10.1.3
+        type: DisplayString
+    - name: snmp_workQueueMessages
+      oid: 1.3.6.1.4.1.15497.1.1.1.11
+      type: gauge
+      help: workQueueMessages (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.11.0
+      lookups: []
+    - name: snmp_keyIsPerpetual
+      oid: 1.3.6.1.4.1.15497.1.1.1.12.1.3
+      type: gauge
+      help: keyIsPerpetual (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.12.1.3
+      indexes:
+      - labelname: keyExpirationIndex
+        type: gauge
+      lookups:
+      - labels:
+        - keyExpirationIndex
+        labelname: keyDescription
+        oid: 1.3.6.1.4.1.15497.1.1.1.12.1.2
+        type: DisplayString
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_keySecondsUntilExpire
+      oid: 1.3.6.1.4.1.15497.1.1.1.12.1.4
+      type: gauge
+      help: keySecondsUntilExpire (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.12.1.4
+      indexes:
+      - labelname: keyExpirationIndex
+        type: gauge
+      lookups:
+      - labels:
+        - keyExpirationIndex
+        labelname: keyDescription
+        oid: 1.3.6.1.4.1.15497.1.1.1.12.1.2
+        type: DisplayString
+    - name: snmp_updates
+      oid: 1.3.6.1.4.1.15497.1.1.1.13.1.3
+      type: counter
+      help: updates (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.13.1.3
+      indexes:
+      - labelname: updateIndex
+        type: gauge
+      lookups:
+      - labels:
+        - updateIndex
+        labelname: updateServiceName
+        oid: 1.3.6.1.4.1.15497.1.1.1.13.1.2
+        type: DisplayString
+    - name: snmp_updateFailures
+      oid: 1.3.6.1.4.1.15497.1.1.1.13.1.4
+      type: counter
+      help: updateFailures (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.13.1.4
+      indexes:
+      - labelname: updateIndex
+        type: gauge
+      lookups:
+      - labels:
+        - updateIndex
+        labelname: updateServiceName
+        oid: 1.3.6.1.4.1.15497.1.1.1.13.1.2
+        type: DisplayString
+    - name: snmp_outstandingDNSRequests
+      oid: 1.3.6.1.4.1.15497.1.1.1.15
+      type: gauge
+      help: outstandingDNSRequests (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.15.0
+      lookups: []
+    - name: snmp_pendingDNSRequests
+      oid: 1.3.6.1.4.1.15497.1.1.1.16
+      type: gauge
+      help: pendingDNSRequests (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.16.0
+      lookups: []
+    - name: snmp_raidEvents
+      oid: 1.3.6.1.4.1.15497.1.1.1.17
+      type: counter
+      help: raidEvents (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.17.0
+      lookups: []
+    - name: snmp_raidStatus
+      oid: 1.3.6.1.4.1.15497.1.1.1.18.1.2
+      type: gauge
+      help: raidStatus (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.18.1.2
+      indexes:
+      - labelname: raidIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidIndex
+        labelname: raidID
+        oid: 1.3.6.1.4.1.15497.1.1.1.18.1.3
+        type: DisplayString
+      enum_values:
+        1: driveHealthy
+        2: driveFailure
+        3: driveRebuild
+    - name: snmp_raidLastError
+      oid: 1.3.6.1.4.1.15497.1.1.1.18.1.4
+      type: gauge
+      help: raidLastError (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.18.1.4
+      indexes:
+      - labelname: raidIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidIndex
+        labelname: raidID
+        oid: 1.3.6.1.4.1.15497.1.1.1.18.1.3
+        type: DisplayString
+    - name: snmp_openFilesOrSockets
+      oid: 1.3.6.1.4.1.15497.1.1.1.19
+      type: gauge
+      help: openFilesOrSockets (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.19.0
+      lookups: []
+    - name: snmp_mailTransferThreads
+      oid: 1.3.6.1.4.1.15497.1.1.1.20
+      type: gauge
+      help: mailTransferThreads (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.20.0
+      lookups: []
+    - name: snmp_fipsMode
+      oid: 1.3.6.1.4.1.15497.1.1.1.23
+      type: gauge
+      help: fipsMode (ASYNCOS-MAIL-MIB) - 1.3.6.1.4.1.15497.1.1.1.23.0
+      enum_values:
+        1: enabled
+        2: disabled
+      lookups: []
+    - name: snmp_cacheClientRequests
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.2
+      type: counter
+      help: cacheClientRequests (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.2.0
+      lookups: []
+    - name: snmp_cacheClientErrors
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.4
+      type: counter
+      help: cacheClientErrors (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.4.0
+      lookups: []
+    - name: snmp_cacheClientIdleConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.7
+      type: counter
+      help: cacheClientIdleConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.7.0
+      lookups: []
+    - name: snmp_cacheClientTotalConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.8
+      type: gauge
+      help: cacheClientTotalConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.8.0
+      lookups: []
+    - name: snmp_cacheClientMaxConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.9
+      type: counter
+      help: cacheClientMaxConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.9.0
+      lookups: []
+    - name: snmp_cacheClientAccepts
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.10
+      type: counter
+      help: cacheClientAccepts (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.10.0
+      lookups: []
+    - name: snmp_cacheClientReqDenials
+      oid: 1.3.6.1.4.1.15497.1.2.3.2.17
+      type: counter
+      help: cacheClientReqDenials (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.2.17.0
+      lookups: []
+    - name: snmp_cacheServerRequests
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.2
+      type: counter
+      help: cacheServerRequests (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.2.0
+      lookups: []
+    - name: snmp_cacheServerSockets
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.3
+      type: counter
+      help: cacheServerSockets (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.3.0
+      lookups: []
+    - name: snmp_cacheServerErrors
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.4
+      type: counter
+      help: cacheServerErrors (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.4.0
+      lookups: []
+    - name: snmp_cacheServerIdleConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.7
+      type: counter
+      help: cacheServerIdleConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.7.0
+      lookups: []
+    - name: snmp_cacheServerTotalConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.8
+      type: counter
+      help: cacheServerTotalConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.8.0
+      lookups: []
+    - name: snmp_cacheServerCloseIdleConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.9
+      type: counter
+      help: cacheServerCloseIdleConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.9.0
+      lookups: []
+    - name: snmp_cacheServerLimitIdleConns
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.10
+      type: counter
+      help: cacheServerLimitIdleConns (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.10.0
+      lookups: []
+    - name: snmp_cacheServerConnsThresh
+      oid: 1.3.6.1.4.1.15497.1.2.3.3.11
+      type: counter
+      help: cacheServerConnsThresh (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.3.11.0
+      lookups: []
+    - name: snmp_cacheTotalHttpReqs
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.1
+      type: gauge
+      help: cacheTotalHttpReqs (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.1.0
+      lookups: []
+    - name: snmp_cacheMeanRespTime
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.2
+      type: gauge
+      help: cacheMeanRespTime (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.2.0
+      lookups: []
+    - name: snmp_cacheMeanMissRespTime
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.3
+      type: gauge
+      help: cacheMeanMissRespTime (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.3.0
+      lookups: []
+    - name: snmp_cacheMeanHitRespTime
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.4
+      type: gauge
+      help: cacheMeanHitRespTime (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.4.0
+      lookups: []
+    - name: snmp_cacheMeanHitRatio
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.5
+      type: gauge
+      help: cacheMeanHitRatio (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.5.0
+      lookups: []
+    - name: snmp_cacheMeanByteHitRatio
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.6
+      type: gauge
+      help: cacheMeanByteHitRatio (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.6.0
+      lookups: []
+    - name: snmp_cacheTotalBandwidthSaving
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.7
+      type: gauge
+      help: cacheTotalBandwidthSaving (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.7.0
+      lookups: []
+    - name: snmp_cacheDuration
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.8
+      type: gauge
+      help: cacheDuration (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.8.0
+      lookups: []
+    - name: snmp_cacheCltReplyErrPct
+      oid: 1.3.6.1.4.1.15497.1.2.3.6.9
+      type: gauge
+      help: cacheCltReplyErrPct (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.6.9.0
+      lookups: []
+    - name: snmp_cacheThruputNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.1.1
+      type: gauge
+      help: cacheThruputNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.1.1.0
+      lookups: []
+    - name: snmp_cacheBwidthSavingNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.2.1
+      type: gauge
+      help: cacheBwidthSavingNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.2.1.0
+      lookups: []
+    - name: snmp_cacheBwidthSpentNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.3.1
+      type: gauge
+      help: cacheBwidthSpentNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.3.1.0
+      lookups: []
+    - name: snmp_cacheBwidthTotalNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.4.1
+      type: gauge
+      help: cacheBwidthTotalNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.4.1.0
+      lookups: []
+    - name: snmp_cacheHitsNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.5.1
+      type: gauge
+      help: cacheHitsNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.5.1.0
+      lookups: []
+    - name: snmp_cacheMissesNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.6.1
+      type: gauge
+      help: cacheMissesNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.6.1.0
+      lookups: []
+    - name: snmp_cacheHitRespTimeNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.7.1
+      type: gauge
+      help: cacheHitRespTimeNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.7.1.0
+      lookups: []
+    - name: snmp_cacheMissRespTimeNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.8.1
+      type: gauge
+      help: cacheMissRespTimeNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.8.1.0
+      lookups: []
+    - name: snmp_cacheTotalRespTimeNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.9.1
+      type: gauge
+      help: cacheTotalRespTimeNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.9.1.0
+      lookups: []
+    - name: snmp_cacheErrsNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.10.1
+      type: gauge
+      help: cacheErrsNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.10.1.0
+      lookups: []
+    - name: snmp_cacheDeniedNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.11.1
+      type: gauge
+      help: cacheDeniedNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.11.1.0
+      lookups: []
+    - name: snmp_cacheErrRespTimeNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.12.1
+      type: gauge
+      help: cacheErrRespTimeNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.12.1.0
+      lookups: []
+    - name: snmp_cacheDeniedRespTimeNow
+      oid: 1.3.6.1.4.1.15497.1.2.3.7.13.1
+      type: gauge
+      help: cacheDeniedRespTimeNow (ASYNCOSWEBSECURITYAPPLIANCE-MIB) - 1.3.6.1.4.1.15497.1.2.3.7.13.1.0
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.15497.1.1.1.10
+    - 1.3.6.1.4.1.15497.1.1.1.12
+    - 1.3.6.1.4.1.15497.1.1.1.13
+    - 1.3.6.1.4.1.15497.1.1.1.18
+    - 1.3.6.1.4.1.15497.1.1.1.9
+    get:
+    - 1.3.6.1.4.1.15497.1.1.1.14.0
+    - 1.3.6.1.4.1.15497.1.1.1.11.0
+    - 1.3.6.1.4.1.15497.1.1.1.15.0
+    - 1.3.6.1.4.1.15497.1.1.1.16.0
+    - 1.3.6.1.4.1.15497.1.1.1.17.0
+    - 1.3.6.1.4.1.15497.1.1.1.19.0
+    - 1.3.6.1.4.1.15497.1.1.1.20.0
+    - 1.3.6.1.4.1.15497.1.1.1.23.0
+    - 1.3.6.1.4.1.15497.1.1.1.3.0
+    - 1.3.6.1.4.1.15497.1.1.1.4.0
+    - 1.3.6.1.4.1.15497.1.1.1.5.0
+    - 1.3.6.1.4.1.15497.1.1.1.6.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.2.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.4.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.7.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.8.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.9.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.10.0
+    - 1.3.6.1.4.1.15497.1.2.3.2.17.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.2.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.3.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.4.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.7.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.8.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.9.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.10.0
+    - 1.3.6.1.4.1.15497.1.2.3.3.11.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.2.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.3.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.4.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.5.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.6.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.7.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.8.0
+    - 1.3.6.1.4.1.15497.1.2.3.6.9.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.1.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.2.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.3.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.4.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.5.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.6.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.7.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.8.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.9.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.10.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.11.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.12.1.0
+    - 1.3.6.1.4.1.15497.1.2.3.7.13.1.0

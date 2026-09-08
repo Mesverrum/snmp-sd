@@ -1,0 +1,47 @@
+# GENERATED from kentik/snmp-profiles — module barracuda_cloudgen_topo
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  barracuda_cloudgen_topo:
+    metrics:
+    - name: snmp_bgpNeighborState
+      oid: 1.3.6.1.4.1.10704.1.7.1.2
+      type: gauge
+      help: bgpNeighborState (PHION-MIB) - 1.3.6.1.4.1.10704.1.7.1.2
+      indexes:
+      - labelname: bgpNeighborAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - bgpNeighborAddress
+        labelname: bgpNeighborAddress
+        oid: 1.3.6.1.4.1.10704.1.7.1.1
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: connect
+        3: active
+        4: opensent
+        5: openconfirm
+        6: established
+    - name: snmp_ospfNeighborStatus
+      oid: 1.3.6.1.4.1.10704.1.8.1.4
+      type: gauge
+      help: ospfNeighborStatus (PHION-MIB) - 1.3.6.1.4.1.10704.1.8.1.4
+      indexes:
+      - labelname: ospfNeighborId
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNeighborId
+        labelname: ospfNeighborAddress
+        oid: 1.3.6.1.4.1.10704.1.8.1.2
+        type: DisplayString
+      - labels:
+        - ospfNeighborId
+        labelname: ospfNeighborInterface
+        oid: 1.3.6.1.4.1.10704.1.8.1.3
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.10704.1.0
+    - 1.3.6.1.4.1.10704.1.7
+    - 1.3.6.1.4.1.10704.1.8

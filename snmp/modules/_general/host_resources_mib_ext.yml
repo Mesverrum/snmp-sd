@@ -1,0 +1,24 @@
+# GENERATED from kentik/snmp-profiles — module host_resources_mib_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  host_resources_mib_ext:
+    metrics:
+    - name: snmp_hrSystemNumUsers
+      oid: 1.3.6.1.2.1.25.1.5
+      type: gauge
+      help: hrSystemNumUsers (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.5.0
+      lookups: []
+    - name: snmp_hrSystemProcesses
+      oid: 1.3.6.1.2.1.25.1.6
+      type: gauge
+      help: hrSystemProcesses (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.6.0
+      lookups: []
+    - name: snmp_hrSystemMaxProcesses
+      oid: 1.3.6.1.2.1.25.1.7
+      type: gauge
+      help: hrSystemMaxProcesses (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.7.0
+      lookups: []
+    get:
+    - 1.3.6.1.2.1.25.1.5.0
+    - 1.3.6.1.2.1.25.1.6.0
+    - 1.3.6.1.2.1.25.1.7.0

@@ -1,0 +1,1051 @@
+# GENERATED from kentik/snmp-profiles — module cisco_all_devices_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_all_devices_ext:
+    metrics:
+    - name: snmp_cieIfResetCount
+      oid: 1.3.6.1.4.1.9.9.276.1.1.2.1.1
+      type: counter
+      help: cieIfResetCount (CISCO-IF-EXTENSION-MIB) - 1.3.6.1.4.1.9.9.276.1.1.2.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_cswStackPortOperStatus
+      oid: 1.3.6.1.4.1.9.9.500.1.2.2.1.1
+      type: gauge
+      help: cswStackPortOperStatus (CISCO-STACKWISE-MIB) - 1.3.6.1.4.1.9.9.500.1.2.2.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Index
+        oid: 1.3.6.1.2.1.2.2.1.1
+        type: gauge
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: forcedDown
+    - name: snmp_cswSwitchState
+      oid: 1.3.6.1.4.1.9.9.500.1.2.1.1.6
+      type: gauge
+      help: cswSwitchState (CISCO-STACKWISE-MIB) - 1.3.6.1.4.1.9.9.500.1.2.1.1.6
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: mac_address
+        oid: 1.3.6.1.4.1.9.9.500.1.2.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      enum_values:
+        1: waiting
+        2: progressing
+        3: added
+        4: ready
+        5: sdmMismatch
+        6: verMismatch
+        7: featureMismatch
+        8: newMasterInit
+        9: provisioned
+        10: invalid
+        11: removed
+    - name: snmp_cvsChassisUpTime
+      oid: 1.3.6.1.4.1.9.9.388.1.2.2.1.3
+      type: gauge
+      help: cvsChassisUpTime (CISCO-VIRTUAL-SWITCH-MIB) - 1.3.6.1.4.1.9.9.388.1.2.2.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: chassis_switch_id
+        oid: 1.3.6.1.4.1.9.9.388.1.2.2.1.1
+        type: DisplayString
+    - name: snmp_cefcTotalAvailableCurrent
+      oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.3
+      type: gauge
+      help: cefcTotalAvailableCurrent (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.1.1.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: redundancy_admin_mode
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: power_units
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcTotalDrawnCurrent
+      oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.4
+      type: gauge
+      help: cefcTotalDrawnCurrent (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.1.1.1.4
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: redundancy_admin_mode
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: power_units
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcPowerRedundancyOperMode
+      oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.5
+      type: gauge
+      help: cefcPowerRedundancyOperMode (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.1.1.1.5
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: redundancy_admin_mode
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: power_units
+        oid: 1.3.6.1.4.1.9.9.117.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: notsupported
+        2: redundant
+        3: combined
+        4: nonRedundant
+        5: psRedundant
+        6: inPwrSrcRedundant
+        7: psRedundantSingleInput
+    - name: snmp_cefcFRUCurrent
+      oid: 1.3.6.1.4.1.9.9.117.1.1.2.1.3
+      type: gauge
+      help: cefcFRUCurrent (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.1.2.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: fru_power_admin_status
+        oid: 1.3.6.1.4.1.9.9.117.1.1.2.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcFRUPowerOperStatus
+      oid: 1.3.6.1.4.1.9.9.117.1.1.2.1.2
+      type: gauge
+      help: cefcFRUPowerOperStatus (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.1.2.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: fru_power_admin_status
+        oid: 1.3.6.1.4.1.9.9.117.1.1.2.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: offEnvOther
+        2: 'on'
+        3: offAdmin
+        4: offDenied
+        5: offEnvPower
+        6: offEnvTemp
+        7: offEnvFan
+        8: failed
+        9: onButFanFail
+        10: offCooling
+        11: offConnectorRating
+        12: onButInlinePowerFail
+    - name: snmp_cefcModuleAdminStatus
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.1
+      type: gauge
+      help: cefcModuleAdminStatus (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: enabled
+        2: disabled
+        3: reset
+        4: outOfServiceAdmin
+        0: unsupported
+    - name: snmp_cefcModuleOperStatus
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.2
+      type: gauge
+      help: cefcModuleOperStatus (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: ok
+        3: disabled
+        4: okButDiagFailed
+        5: boot
+        6: selfTest
+        7: failed
+        8: missing
+        9: mismatchWithParent
+        10: mismatchConfig
+        11: diagFailed
+        12: dormant
+        13: outOfServiceAdmin
+        14: outOfServiceEnvTemp
+        15: poweredDown
+        16: poweredUp
+        17: powerDenied
+        18: powerCycled
+        19: okButPowerOverWarning
+        20: okButPowerOverCritical
+        21: syncInProgress
+        22: upgrading
+        23: okButAuthFailed
+        24: mdr
+        25: fwMismatchFound
+        26: fwDownloadSuccess
+        27: fwDownloadFailure
+    - name: snmp_cefcModuleResetReason
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.3
+      type: gauge
+      help: cefcModuleResetReason (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: unsupported
+        1: unknown
+        2: powerUp
+        3: parityError
+        4: clearConfigReset
+        5: manualReset
+        6: watchDogTimeoutReset
+        7: resourceOverflowReset
+        8: missingTaskReset
+        9: lowVoltageReset
+        10: controllerReset
+        11: systemReset
+        12: switchoverReset
+        13: upgradeReset
+        14: downgradeReset
+        15: cacheErrorReset
+        16: deviceDriverReset
+        17: softwareExceptionReset
+        18: restoreConfigReset
+        19: abortRevReset
+        20: burnBootReset
+        21: standbyCdHealthierReset
+        22: nonNativeConfigClearReset
+        23: memoryProtectionErrorReset
+    - name: snmp_cefcModuleResetReasonDescription
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.6
+      type: gauge
+      help: cefcModuleResetReasonDescription (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.6
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcModuleStateChangeReasonDescr
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.7
+      type: gauge
+      help: cefcModuleStateChangeReasonDescr (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.7
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcModuleUpTime
+      oid: 1.3.6.1.4.1.9.9.117.1.2.1.1.8
+      type: gauge
+      help: cefcModuleUpTime (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.2.1.1.8
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cpeExtMainPseUsedPower
+      oid: 1.3.6.1.4.1.9.9.402.1.3.1.4
+      type: gauge
+      help: cpeExtMainPseUsedPower (CISCO-POWER-ETHERNET-EXT-MIB) - 1.3.6.1.4.1.9.9.402.1.3.1.4
+      indexes:
+      - labelname: pethMainPseGroupIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cpeExtMainPseRemainingPower
+      oid: 1.3.6.1.4.1.9.9.402.1.3.1.5
+      type: gauge
+      help: cpeExtMainPseRemainingPower (CISCO-POWER-ETHERNET-EXT-MIB) - 1.3.6.1.4.1.9.9.402.1.3.1.5
+      indexes:
+      - labelname: pethMainPseGroupIndex
+        type: gauge
+      lookups: []
+    - name: snmp_rttMonLatestRttOperCompletionTime
+      oid: 1.3.6.1.4.1.9.9.42.1.2.10.1.1
+      type: gauge
+      help: rttMonLatestRttOperCompletionTime (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.10.1.1
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+    - name: snmp_rttMonCtrlAdminStatus
+      oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.9
+      type: gauge
+      help: rttMonCtrlAdminStatus (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+      enum_values:
+        1: active
+        2: notInService
+        3: notReady
+        4: createAndGo
+        5: createAndWait
+        6: destroy
+    - name: snmp_rttMonCtrlOperTimeoutOccurred
+      oid: 1.3.6.1.4.1.9.9.42.1.2.9.1.6
+      type: gauge
+      help: rttMonCtrlOperTimeoutOccurred (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.9.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_rttMonCtrlOperOverThresholdOccurred
+      oid: 1.3.6.1.4.1.9.9.42.1.2.9.1.7
+      type: gauge
+      help: rttMonCtrlOperOverThresholdOccurred (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.9.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_rttMonCtrlOperState
+      oid: 1.3.6.1.4.1.9.9.42.1.2.9.1.10
+      type: gauge
+      help: rttMonCtrlOperState (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.9.1.10
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+      enum_values:
+        1: reset
+        2: orderlyStop
+        3: immediateStop
+        4: pending
+        5: inactive
+        6: active
+        7: restart
+    - name: snmp_rttMonLatestRttOperSense
+      oid: 1.3.6.1.4.1.9.9.42.1.2.10.1.2
+      type: gauge
+      help: rttMonLatestRttOperSense (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.2.10.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: rtt_operation_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_long_tag
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_operation_type
+        oid: 1.3.6.1.4.1.9.9.42.1.2.1.1.4
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: rtt_echo_target_ip
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_target_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_address
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.6
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_source_port
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_name_server
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.12
+        type: DisplayString
+      - labels:
+        - index
+        labelname: rtt_echo_url
+        oid: 1.3.6.1.4.1.9.9.42.1.2.2.1.15
+        type: DisplayString
+      enum_values:
+        0: other
+        1: ok
+        2: disconnected
+        3: overThreshold
+        4: timeout
+        5: busy
+        6: notConnected
+        7: dropped
+        8: sequenceError
+        9: verifyError
+        10: applicationSpecific
+        11: dnsServerTimeout
+        12: tcpConnectTimeout
+        13: httpTransactionTimeout
+        14: dnsQueryError
+        15: httpError
+        16: error
+        17: mplsLspEchoTxError
+        18: mplsLspUnreachable
+        19: mplsLspMalformedReq
+        20: mplsLspReachButNotFEC
+        21: enableOk
+        22: enableNoConnect
+        23: enableVersionFail
+        24: enableInternalError
+        25: enableAbort
+        26: enableFail
+        27: enableAuthFail
+        28: enableFormatError
+        29: enablePortInUse
+        30: statsRetrieveOk
+        31: statsRetrieveNoConnect
+        32: statsRetrieveVersionFail
+        33: statsRetrieveInternalError
+        34: statsRetrieveAbort
+        35: statsRetrieveFail
+        36: statsRetrieveAuthFail
+        37: statsRetrieveFormatError
+        38: statsRetrievePortInUse
+    - name: snmp_rttMonLatestJitterOperPacketLossSD
+      oid: 1.3.6.1.4.1.9.9.42.1.5.2.1.26
+      type: gauge
+      help: rttMonLatestJitterOperPacketLossSD (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.5.2.1.26
+      indexes:
+      - labelname: rttMonCtrlAdminIndex
+        type: gauge
+      lookups: []
+    - name: snmp_rttMonLatestJitterOperPacketLossDS
+      oid: 1.3.6.1.4.1.9.9.42.1.5.2.1.27
+      type: gauge
+      help: rttMonLatestJitterOperPacketLossDS (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.5.2.1.27
+      indexes:
+      - labelname: rttMonCtrlAdminIndex
+        type: gauge
+      lookups: []
+    - name: snmp_rttMonLatestJitterOperAvgJitter
+      oid: 1.3.6.1.4.1.9.9.42.1.5.2.1.46
+      type: gauge
+      help: rttMonLatestJitterOperAvgJitter (CISCO-RTTMON-MIB) - 1.3.6.1.4.1.9.9.42.1.5.2.1.46
+      indexes:
+      - labelname: rttMonCtrlAdminIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cHsrpGrpStandbyState
+      oid: 1.3.6.1.4.1.9.9.106.1.2.1.1.15
+      type: gauge
+      help: cHsrpGrpStandbyState (CISCO-HSRP-MIB) - 1.3.6.1.4.1.9.9.106.1.2.1.1.15
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cHsrpGrpVirtualIpAddr
+        oid: 1.3.6.1.4.1.9.9.106.1.2.1.1.11
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cHsrpGrpActiveRouter
+        oid: 1.3.6.1.4.1.9.9.106.1.2.1.1.13
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cHsrpGrpStandbyRouter
+        oid: 1.3.6.1.4.1.9.9.106.1.2.1.1.14
+        type: DisplayString
+      enum_values:
+        1: initial
+        2: learn
+        3: listen
+        4: speak
+        5: standby
+        6: active
+    - name: snmp_cntpPeersRootDelay
+      oid: 1.3.6.1.4.1.9.9.168.1.2.1.1.13
+      type: gauge
+      help: cntpPeersRootDelay (CISCO-NTP-MIB) - 1.3.6.1.4.1.9.9.168.1.2.1.1.13
+      indexes:
+      - labelname: cntpPeersAssocId
+        type: gauge
+      lookups:
+      - labels:
+        - cntpPeersAssocId
+        labelname: cntpPeersPeerAddress
+        oid: 1.3.6.1.4.1.9.9.168.1.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cntpPeersAssocId
+        labelname: cntpPeersStratum
+        oid: 1.3.6.1.4.1.9.9.168.1.2.1.1.9
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.9.9.276.1.1.2
+    - 1.3.6.1.4.1.9.9.500.1.2.2
+    - 1.3.6.1.4.1.9.9.500.1.2.1
+    - 1.3.6.1.4.1.9.9.388.1.2.2
+    - 1.3.6.1.4.1.9.9.117.1.1.1
+    - 1.3.6.1.4.1.9.9.117.1.1.2
+    - 1.3.6.1.4.1.9.9.117.1.2.1
+    - 1.3.6.1.4.1.9.9.402.1.3
+    - 1.3.6.1.4.1.9.9.42.1.2.10
+    - 1.3.6.1.4.1.9.9.42.1.5.2
+    - 1.3.6.1.4.1.9.9.106.1.2.1
+    - 1.3.6.1.4.1.9.9.168.1.2.1

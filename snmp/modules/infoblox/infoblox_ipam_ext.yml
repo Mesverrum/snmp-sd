@@ -1,0 +1,184 @@
+# GENERATED from kentik/snmp-profiles — module infoblox_ipam_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  infoblox_ipam_ext:
+    metrics:
+    - name: snmp_ibDhcpDeferredQueueSize
+      oid: 1.3.6.1.4.1.7779.3.1.1.4.1.4
+      type: gauge
+      help: ibDhcpDeferredQueueSize (IB-DHCPONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.4.1.4.0
+      lookups: []
+    - name: snmp_ibBindZoneSuccess
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.2
+      type: counter
+      help: ibBindZoneSuccess (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.2
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibBindZoneReferral
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.3
+      type: counter
+      help: ibBindZoneReferral (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.3
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibBindZoneNxRRset
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.4
+      type: counter
+      help: ibBindZoneNxRRset (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.4
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibBindZoneNxDomain
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.5
+      type: counter
+      help: ibBindZoneNxDomain (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.5
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibBindZoneRecursion
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.6
+      type: counter
+      help: ibBindZoneRecursion (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.6
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibBindZoneFailure
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.7
+      type: counter
+      help: ibBindZoneFailure (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.7
+      indexes:
+      - labelname: ibBindZoneName
+        type: gauge
+      lookups:
+      - labels:
+        - ibBindZoneName
+        labelname: ibBindZoneName
+        oid: 1.3.6.1.4.1.7779.3.1.1.3.1.1.1.1
+        type: DisplayString
+    - name: snmp_ibDDNSUpdateSuccess
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.3.1
+      type: counter
+      help: ibDDNSUpdateSuccess (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.3.1.0
+      lookups: []
+    - name: snmp_ibDDNSUpdateFailure
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.3.2
+      type: counter
+      help: ibDDNSUpdateFailure (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.3.2.0
+      lookups: []
+    - name: snmp_ibDDNSUpdateReject
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.3.3
+      type: counter
+      help: ibDDNSUpdateReject (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.3.3.0
+      lookups: []
+    - name: snmp_ibDDNSUpdatePrerequisiteReject
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.3.4
+      type: counter
+      help: ibDDNSUpdatePrerequisiteReject (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.3.4.0
+      lookups: []
+    - name: snmp_ibDnsQueryRate
+      oid: 1.3.6.1.4.1.7779.3.1.1.3.1.6
+      type: counter
+      help: ibDnsQueryRate (IB-DNSONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.3.1.6.0
+      lookups: []
+    - name: snmp_ibNodeQueueFromMaster
+      oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.3
+      type: gauge
+      help: ibNodeQueueFromMaster (IB-PLATFORMONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.3
+      indexes:
+      - labelname: ibNodeIPAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - ibNodeIPAddress
+        labelname: ibNodeIPAddress
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.1
+        type: DisplayString
+      - labels:
+        - ibNodeIPAddress
+        labelname: ibNodeReplicationStatus
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.2
+        type: DisplayString
+    - name: snmp_ibNodeQueueToMaster
+      oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.5
+      type: gauge
+      help: ibNodeQueueToMaster (IB-PLATFORMONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.5
+      indexes:
+      - labelname: ibNodeIPAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - ibNodeIPAddress
+        labelname: ibNodeIPAddress
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.1
+        type: DisplayString
+      - labels:
+        - ibNodeIPAddress
+        labelname: ibNodeReplicationStatus
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.2.1.2
+        type: DisplayString
+    - name: snmp_ibServiceStatus
+      oid: 1.3.6.1.4.1.7779.3.1.1.2.1.9.1.2
+      type: gauge
+      help: ibServiceStatus (IB-PLATFORMONE-MIB) - 1.3.6.1.4.1.7779.3.1.1.2.1.9.1.2
+      indexes:
+      - labelname: ibServiceName
+        type: gauge
+      lookups:
+      - labels:
+        - ibServiceName
+        labelname: ibServiceName
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.9.1.1
+        type: EnumAsInfo
+      - labels:
+        - ibServiceName
+        labelname: ibServiceDescription
+        oid: 1.3.6.1.4.1.7779.3.1.1.2.1.9.1.3
+        type: DisplayString
+      enum_values:
+        1: working
+        2: warning
+        3: failed
+        4: inactive
+        5: unknown
+    walk:
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.1
+    - 1.3.6.1.4.1.7779.3.1.1.2.1.2
+    - 1.3.6.1.4.1.7779.3.1.1.2.1.9
+    get:
+    - 1.3.6.1.4.1.7779.3.1.1.4.1.4.0
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.3.1.0
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.3.2.0
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.3.3.0
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.3.4.0
+    - 1.3.6.1.4.1.7779.3.1.1.3.1.6.0

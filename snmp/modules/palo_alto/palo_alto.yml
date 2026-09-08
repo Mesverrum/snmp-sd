@@ -2,46 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   palo_alto:
-    walk:
-    - 1.3.6.1.4.1.25461.2.1.2.3.9
-    - 1.3.6.1.4.1.25461.2.1.2.3.10
-    - 1.3.6.1.4.1.25461.2.1.2.3.11
-    get:
-    - 1.3.6.1.4.1.25461.2.1.2.3.1.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.2.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.3.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.4.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.5.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.6.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.7.0
-    - 1.3.6.1.4.1.25461.2.1.2.3.8.0
-    - 1.3.6.1.4.1.25461.2.1.2.5.1.1.0
-    - 1.3.6.1.4.1.25461.2.1.2.5.1.2.0
-    - 1.3.6.1.4.1.25461.2.1.2.5.1.3.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.11.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.12.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.13.0
-    - 1.3.6.1.4.1.25461.2.1.2.4.1.0
-    - 1.3.6.1.4.1.25461.2.1.2.4.2.0
-    - 1.3.6.1.4.1.25461.2.1.2.5.1.0
-    - 1.3.6.1.4.1.25461.2.3.30.1.1
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.1.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.2.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.3.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.6.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.7.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.8.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.9.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.10.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.15.0
-    - 1.3.6.1.4.1.25461.2.1.2.1.16.0
-    - 1.3.6.1.4.1.25461.2.1.2.2.1.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -174,65 +134,10 @@ modules:
       type: gauge
       help: panSessionSslProxyUtilization (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.8.0
       lookups: []
-    - name: snmp_panGPGWUtilizationPct
-      oid: 1.3.6.1.4.1.25461.2.1.2.5.1.1
-      type: gauge
-      help: panGPGWUtilizationPct (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.1.0
-      lookups: []
-    - name: snmp_panGPGWUtilizationMaxTunnels
-      oid: 1.3.6.1.4.1.25461.2.1.2.5.1.2
-      type: gauge
-      help: panGPGWUtilizationMaxTunnels (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.2.0
-      lookups: []
     - name: snmp_panGPGWUtilizationActiveTunnels
       oid: 1.3.6.1.4.1.25461.2.1.2.5.1.3
       type: gauge
       help: panGPGWUtilizationActiveTunnels (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.3.0
-      lookups: []
-    - name: snmp_panSysHAState
-      oid: 1.3.6.1.4.1.25461.2.1.2.1.11
-      type: gauge
-      help: panSysHAState (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.1.11.0
-      lookups: []
-    - name: snmp_panSysHAPeerState
-      oid: 1.3.6.1.4.1.25461.2.1.2.1.12
-      type: gauge
-      help: panSysHAPeerState (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.1.12.0
-      lookups: []
-    - name: snmp_panSysHAMode
-      oid: 1.3.6.1.4.1.25461.2.1.2.1.13
-      type: gauge
-      help: panSysHAMode (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.1.13.0
-      lookups: []
-    - name: snmp_panMgmtPanoramaConnected
-      oid: 1.3.6.1.4.1.25461.2.1.2.4.1
-      type: gauge
-      help: panMgmtPanoramaConnected (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.4.1.0
-      lookups: []
-    - name: snmp_panMgmtPanorama2Connected
-      oid: 1.3.6.1.4.1.25461.2.1.2.4.2
-      type: gauge
-      help: panMgmtPanorama2Connected (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.4.2.0
-      lookups: []
-    - name: snmp_panGPGatewayUtilization
-      oid: 1.3.6.1.4.1.25461.2.1.2.5.1
-      type: gauge
-      help: panGPGatewayUtilization (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.0
-      lookups: []
-    - name: snmp_panGPGWUtilizationPct
-      oid: 1.3.6.1.4.1.25461.2.1.2.5.1.1
-      type: gauge
-      help: panGPGWUtilizationPct (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.1.0
-      lookups: []
-    - name: snmp_panGPGWUtilizationActiveTunnels
-      oid: 1.3.6.1.4.1.25461.2.1.2.5.1.3
-      type: gauge
-      help: panGPGWUtilizationActiveTunnels (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.5.1.3.0
-      lookups: []
-    - name: snmp_panLcLogRate
-      oid: 1.3.6.1.4.1.25461.2.3.30.1.1
-      type: gauge
-      help: panLcLogRate (PAN-LC-MIB) - 1.3.6.1.4.1.25461.2.3.30.1.1
       lookups: []
     - name: snmp_panVsysSessionUtilizationPct
       oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.3
@@ -288,159 +193,38 @@ modules:
         labelname: vsys_name
         oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.2
         type: DisplayString
-    - name: snmp_panVsysActiveTcpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.6
-      type: gauge
-      help: panVsysActiveTcpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.9.1.6
-      indexes:
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panVsysId
-        labelname: vsys_id
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.1
-        type: DisplayString
-      - labels:
-        - panVsysId
-        labelname: vsys_name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.2
-        type: DisplayString
-    - name: snmp_panVsysActiveUdpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.7
-      type: gauge
-      help: panVsysActiveUdpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.9.1.7
-      indexes:
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panVsysId
-        labelname: vsys_id
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.1
-        type: DisplayString
-      - labels:
-        - panVsysId
-        labelname: vsys_name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.2
-        type: DisplayString
-    - name: snmp_panVsysActiveOtherIpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.8
-      type: gauge
-      help: panVsysActiveOtherIpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.9.1.8
-      indexes:
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panVsysId
-        labelname: vsys_id
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.1
-        type: DisplayString
-      - labels:
-        - panVsysId
-        labelname: vsys_name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.9.1.2
-        type: DisplayString
-    - name: snmp_panZoneActiveTcpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.2
-      type: gauge
-      help: panZoneActiveTcpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.10.1.2
-      indexes:
-      - labelname: panZoneName
-        type: DisplayString
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panZoneName
-        - panVsysId
-        labelname: Zone_Name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.1
-        type: DisplayString
-    - name: snmp_panZoneActiveUdpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.3
-      type: gauge
-      help: panZoneActiveUdpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.10.1.3
-      indexes:
-      - labelname: panZoneName
-        type: DisplayString
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panZoneName
-        - panVsysId
-        labelname: Zone_Name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.1
-        type: DisplayString
-    - name: snmp_panZoneActiveOtherIpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.4
-      type: gauge
-      help: panZoneActiveOtherIpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.10.1.4
-      indexes:
-      - labelname: panZoneName
-        type: DisplayString
-      - labelname: panVsysId
-        type: gauge
-      lookups:
-      - labels:
-        - panZoneName
-        - panVsysId
-        labelname: Zone_Name
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.10.1.1
-        type: DisplayString
-    - name: snmp_panIfActiveTcpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.3
-      type: gauge
-      help: panIfActiveTcpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.11.1.3
-      indexes:
-      - labelname: panIfIndex
-        type: gauge
-      lookups:
-      - labels:
-        - panIfIndex
-        labelname: If_Index
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.1
-        type: gauge
-      - labels:
-        - panIfIndex
-        labelname: If_Descr
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.2
-        type: DisplayString
-    - name: snmp_panIfActiveUdpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.4
-      type: gauge
-      help: panIfActiveUdpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.11.1.4
-      indexes:
-      - labelname: panIfIndex
-        type: gauge
-      lookups:
-      - labels:
-        - panIfIndex
-        labelname: If_Index
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.1
-        type: gauge
-      - labels:
-        - panIfIndex
-        labelname: If_Descr
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.2
-        type: DisplayString
-    - name: snmp_panIfActiveOtherIpCps
-      oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.5
-      type: gauge
-      help: panIfActiveOtherIpCps (PAN-COMMON-MIB) - 1.3.6.1.4.1.25461.2.1.2.3.11.1.5
-      indexes:
-      - labelname: panIfIndex
-        type: gauge
-      lookups:
-      - labels:
-        - panIfIndex
-        labelname: If_Index
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.1
-        type: gauge
-      - labels:
-        - panIfIndex
-        labelname: If_Descr
-        oid: 1.3.6.1.4.1.25461.2.1.2.3.11.1.2
-        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.25461.2.1.2.3.9
+    - 1.3.6.1.4.1.25461.2.1.2.3.10
+    - 1.3.6.1.4.1.25461.2.1.2.3.11
+    get:
+    - 1.3.6.1.4.1.25461.2.1.2.1.11.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.12.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.13.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.1.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.2.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.3.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.6.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.7.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.8.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.9.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.10.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.15.0
+    - 1.3.6.1.4.1.25461.2.1.2.1.16.0
+    - 1.3.6.1.4.1.25461.2.1.2.2.1.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.1.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.2.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.3.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.4.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.5.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.6.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.7.0
+    - 1.3.6.1.4.1.25461.2.1.2.3.8.0
+    - 1.3.6.1.4.1.25461.2.1.2.5.1.3.0
+    - 1.3.6.1.4.1.25461.2.1.2.5.1.0

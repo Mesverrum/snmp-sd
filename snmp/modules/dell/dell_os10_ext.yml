@@ -1,0 +1,38 @@
+# GENERATED from kentik/snmp-profiles — module dell_os10_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  dell_os10_ext:
+    metrics:
+    - name: snmp_os10CardStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
+      type: gauge
+      help: os10CardStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
+      indexes:
+      - labelname: os10ChassisIndex
+        type: gauge
+      - labelname: os10CardIndex
+        type: gauge
+      lookups:
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
+        type: DisplayString
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardServiceTag
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+    walk:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4

@@ -1,0 +1,90 @@
+# GENERATED from kentik/snmp-profiles — module dell_os10_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  dell_os10_sensors:
+    metrics:
+    - name: snmp_os10ChassisTemp
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
+      type: gauge
+      help: os10ChassisTemp (HOST-RESOURCES-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
+      lookups: []
+    - name: snmp_os10CardTemp
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
+      type: gauge
+      help: os10CardTemp (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
+      indexes:
+      - labelname: os10ChassisIndex
+        type: gauge
+      - labelname: os10CardIndex
+        type: gauge
+      lookups:
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
+        type: DisplayString
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardServiceTag
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
+        type: DisplayString
+    - name: snmp_os10PowerSupplyOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
+      type: gauge
+      help: os10PowerSupplyOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
+      indexes:
+      - labelname: os10PowerSupplyIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    - name: snmp_os10FanTrayOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
+      type: gauge
+      help: os10FanTrayOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
+      indexes:
+      - labelname: os10FanTrayIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    - name: snmp_os10FanOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
+      type: gauge
+      help: os10FanOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
+      indexes:
+      - labelname: os10FanIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3
+    get:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11

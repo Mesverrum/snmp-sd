@@ -1,0 +1,30 @@
+# GENERATED from kentik/snmp-profiles — module riverbed_steelhead_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  riverbed_steelhead_ext:
+    metrics:
+    - name: snmp_passthroughConnections
+      oid: 1.3.6.1.4.1.17163.1.1.5.2.2
+      type: gauge
+      help: passthroughConnections (STEELHEAD-MIB) - 1.3.6.1.4.1.17163.1.1.5.2.2.0
+      lookups: []
+    - name: snmp_halfOpenedConnections
+      oid: 1.3.6.1.4.1.17163.1.1.5.2.3
+      type: gauge
+      help: halfOpenedConnections (STEELHEAD-MIB) - 1.3.6.1.4.1.17163.1.1.5.2.3.0
+      lookups: []
+    - name: snmp_halfClosedConnections
+      oid: 1.3.6.1.4.1.17163.1.1.5.2.4
+      type: gauge
+      help: halfClosedConnections (STEELHEAD-MIB) - 1.3.6.1.4.1.17163.1.1.5.2.4.0
+      lookups: []
+    - name: snmp_totalConnections
+      oid: 1.3.6.1.4.1.17163.1.1.5.2.7
+      type: gauge
+      help: totalConnections (STEELHEAD-MIB) - 1.3.6.1.4.1.17163.1.1.5.2.7.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.17163.1.1.5.2.2.0
+    - 1.3.6.1.4.1.17163.1.1.5.2.3.0
+    - 1.3.6.1.4.1.17163.1.1.5.2.4.0
+    - 1.3.6.1.4.1.17163.1.1.5.2.7.0

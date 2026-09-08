@@ -1,0 +1,62 @@
+# GENERATED from kentik/snmp-profiles — module dlink_dgs_switch_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  dlink_dgs_switch_ext:
+    metrics:
+    - name: snmp_dEntityExtEnvPowerUsedPower
+      oid: 1.3.6.1.4.1.171.14.5.1.1.3.1.4
+      type: gauge
+      help: dEntityExtEnvPowerUsedPower (DLINKSW-ENTITY-EXT-MIB) - 1.3.6.1.4.1.171.14.5.1.1.3.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: dEntityExtEnvPowerDescr
+        oid: 1.3.6.1.4.1.171.14.5.1.1.3.1.3
+        type: DisplayString
+    - name: snmp_dEntityExtEnvPowerStatus
+      oid: 1.3.6.1.4.1.171.14.5.1.1.3.1.6
+      type: gauge
+      help: dEntityExtEnvPowerStatus (DLINKSW-ENTITY-EXT-MIB) - 1.3.6.1.4.1.171.14.5.1.1.3.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: dEntityExtEnvPowerDescr
+        oid: 1.3.6.1.4.1.171.14.5.1.1.3.1.3
+        type: DisplayString
+      enum_values:
+        1: inOperation
+        2: failed
+        3: empty
+    - name: snmp_dEntityExtEnvAirFlowStatus
+      oid: 1.3.6.1.4.1.171.14.5.1.1.4.1.2
+      type: gauge
+      help: dEntityExtEnvAirFlowStatus (DLINKSW-ENTITY-EXT-MIB) - 1.3.6.1.4.1.171.14.5.1.1.4.1.2
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: ok
+        2: abnormal
+      lookups: []
+    - name: snmp_dEntityExtUnitStatus
+      oid: 1.3.6.1.4.1.171.14.5.1.3.1.2
+      type: gauge
+      help: dEntityExtUnitStatus (DLINKSW-ENTITY-EXT-MIB) - 1.3.6.1.4.1.171.14.5.1.3.1.2
+      indexes:
+      - labelname: dEntityExtUnitIndex
+        type: gauge
+      enum_values:
+        1: ok
+        2: failed
+        3: empty
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.171.14.5.1.1.3
+    - 1.3.6.1.4.1.171.14.5.1.1.4
+    - 1.3.6.1.4.1.171.14.5.1.3

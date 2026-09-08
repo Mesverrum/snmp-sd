@@ -29,15 +29,17 @@ fingerprinters:
       - arista_switch
       modules_hot: &id001
       - if_mib
+      - arista_switch
       modules_cold: &id002
       - entity_sensor_mib
       - if_mib_meta
       - ip_addr
+      - arista_switch_ext
+      modules_topology: &id003
       - ospf_mib
       - bgp4_mib
-      - arista_switch
-      modules_topology: &id003
       - lldp_mib
+      - arista_switch_bgp
       comment: arista_switch 1.3.6.1.4.1.30065.1.3011.7280.3735.2.3648.48.1654.6.972
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.30065\.1\.3011\.7050\.3741\.3\.48\.1654\.12\.761$
@@ -1268,10 +1270,11 @@ fingerprinters:
       - omni_access_wlc
       modules_hot: &id181
       - if_mib
+      - omni_access_wlc
       modules_cold: &id182
       - if_mib_meta
       - ip_addr
-      - omni_access_wlc
+      - omni_access_wlc_ext
       modules_topology: &id183 []
       comment: omni_access_wlc 1.3.6.1.4.1.6486.800.1.1.2.2.2.1.1.21
     - label: sysObjectID
@@ -1516,12 +1519,16 @@ fingerprinters:
       - dell_os10
       modules_hot: &id004
       - if32_mib
+      - host_resources_mib
+      - dell_os10
       modules_cold: &id005
       - if32_mib_meta
       - ip_addr
-      - host_resources_mib
-      - dell_os10
-      modules_topology: &id006 []
+      - host_resources_mib_ext
+      - dell_os10_sensors
+      - dell_os10_ext
+      modules_topology: &id006
+      - dell_os10_bgp
       comment: dell_os10 1.3.6.1.4.1.674.11000.5000.100.2.1.20
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.674\.11000\.5000\.100\.2\.1\.21$
@@ -1873,11 +1880,13 @@ fingerprinters:
       - sonicwall_sma
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - sonicwall_sma
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - sonicwall_sma
+      - host_resources_mib_ext
+      - sonicwall_sma_ext
       modules_topology: []
       comment: sonicwall_sma 1.3.6.1.4.1.8072.3.2.10.sonicwall-sma
     - label: sysObjectID
@@ -1887,12 +1896,14 @@ fingerprinters:
       - if_mib
       - elemental_device
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
+      - if_mib
+      - elemental_device
+      modules_cold:
       - if_mib_meta
       - ip_addr
-      - elemental_device
+      - host_resources_mib_ext
+      - elemental_device_ext
       modules_topology: []
       comment: elemental_device 1.3.6.1.4.1.8072.3.2.10.aws-elemental
     - label: sysObjectID
@@ -1902,10 +1913,11 @@ fingerprinters:
       - workcentre
       modules_hot: &id187
       - if_mib
+      - workcentre
       modules_cold: &id188
       - if_mib_meta
       - ip_addr
-      - workcentre
+      - workcentre_ext
       modules_topology: &id189 []
       comment: workcentre 1.3.6.1.4.1.253.8.62.1.19.4.36.1.1
     - label: sysObjectID
@@ -1994,11 +2006,13 @@ fingerprinters:
       - barracuda_waf
       modules_hot:
       - if_mib
+      - ucd_mib
+      - barracuda_waf
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - barracuda_waf
+      - ucd_mib_ext
+      - barracuda_waf_ext
       modules_topology: []
       comment: barracuda_waf 1.3.6.1.4.1.8072.3.2.10.barracudawaf
     - label: sysObjectID
@@ -2009,13 +2023,16 @@ fingerprinters:
       - ucd_mib
       - diameter
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - diameter
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - diameter_ext
       modules_topology: []
       comment: diameter 1.3.6.1.4.1.8072.3.2.10.broadforward
     - label: sysObjectID
@@ -2090,10 +2107,11 @@ fingerprinters:
       - aruba_switch
       modules_hot: &id007
       - if_mib
+      - aruba_switch
       modules_cold: &id008
       - if_mib_meta
       - ip_addr
-      - aruba_switch
+      - aruba_switch_ext
       modules_topology: &id009 []
       comment: aruba_switch 1.3.6.1.4.1.11.2.3.7.11.181.272
     - label: sysObjectID
@@ -2131,11 +2149,13 @@ fingerprinters:
       - barracuda_email_gateway
       modules_hot:
       - if_mib
+      - ucd_mib
+      - barracuda_email_gateway
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - barracuda_email_gateway
+      - ucd_mib_ext
+      - barracuda_email_gateway_ext
       modules_topology: []
       comment: barracuda_email_gateway 1.3.6.1.4.1.8072.3.2.10.barracuda
     - label: sysObjectID
@@ -2310,14 +2330,17 @@ fingerprinters:
       - cisco_asr
       modules_hot: &id100
       - if_mib
-      modules_cold: &id101
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_asr
-      modules_topology: &id102 []
+      modules_cold: &id101
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_asr_ext
+      modules_topology: &id102
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_asr 1.3.6.1.4.1.9.6.1.23.3.13.0.4
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.8072\.3\.2\.10\.ibm\-wga$
@@ -2327,13 +2350,15 @@ fingerprinters:
       - ucd_mib
       - ibm_wga
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - ibm_wga
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
       modules_topology: []
       comment: ibm_wga 1.3.6.1.4.1.8072.3.2.10.ibm-wga
     - label: sysObjectID
@@ -2344,11 +2369,12 @@ fingerprinters:
       - netskope_appliance
       modules_hot:
       - if_mib
+      - ucd_mib
+      - netskope_appliance
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - netskope_appliance
+      - ucd_mib_ext
       modules_topology: []
       comment: netskope_appliance 1.3.6.1.4.1.8072.3.2.10.netskope
     - label: sysObjectID
@@ -2358,10 +2384,11 @@ fingerprinters:
       - unifi_access_point
       modules_hot: &id172
       - if_mib
+      - unifi_access_point
       modules_cold: &id173
       - if_mib_meta
       - ip_addr
-      - unifi_access_point
+      - unifi_access_point_ext
       modules_topology: &id174 []
       comment: unifi_access_point 1.3.6.1.4.1.8072.3.2.10.ubiquiti
     - label: sysObjectID
@@ -2452,10 +2479,10 @@ fingerprinters:
       - opnsense_protectli
       modules_hot:
       - if_mib
+      - opnsense_protectli
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - opnsense_protectli
       modules_topology: []
       comment: opnsense_protectli 1.3.6.1.4.1.8072.3.2.8.opnsense
     - label: sysObjectID
@@ -2465,12 +2492,14 @@ fingerprinters:
       - if_mib
       - dctrack
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
+      - if_mib
+      - dctrack
+      modules_cold:
       - if_mib_meta
       - ip_addr
-      - dctrack
+      - host_resources_mib_ext
+      - dctrack_ext
       modules_topology: []
       comment: dctrack 1.3.6.1.4.1.8072.3.2.10.dctrack
     - label: sysObjectID
@@ -2480,12 +2509,14 @@ fingerprinters:
       - if_mib
       - power_iq
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
+      - if_mib
+      - power_iq
+      modules_cold:
       - if_mib_meta
       - ip_addr
-      - power_iq
+      - host_resources_mib_ext
+      - power_iq_ext
       modules_topology: []
       comment: power_iq 1.3.6.1.4.1.8072.3.2.10.poweriq
     - label: sysObjectID
@@ -2495,10 +2526,11 @@ fingerprinters:
       - aruba_cx_switch
       modules_hot: &id010
       - if_mib
+      - aruba_cx_switch
       modules_cold: &id011
       - if_mib_meta
       - ip_addr
-      - aruba_cx_switch
+      - aruba_cx_switch_sensors
       modules_topology: &id012 []
       comment: aruba_cx_switch 1.3.6.1.4.1.47196.4.1.1.1.101
     - label: sysObjectID
@@ -2554,11 +2586,12 @@ fingerprinters:
       - dell_avamar
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - dell_avamar
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - dell_avamar
+      - host_resources_mib_ext
       modules_topology: []
       comment: dell_avamar 1.3.6.1.4.1.8072.3.2.10.avamar
     - label: sysObjectID
@@ -2569,11 +2602,11 @@ fingerprinters:
       - mellanox_switchx
       modules_hot: &id013
       - if_mib
+      - mellanox_switchx
       modules_cold: &id014
       - if_mib_meta
       - ip_addr
       - entity_sensor_mib
-      - mellanox_switchx
       modules_topology: &id015 []
       comment: mellanox_switchx 1.3.6.1.4.1.33049.1.1.1.370013
     - label: sysObjectID
@@ -2594,13 +2627,15 @@ fingerprinters:
       - ucd_mib
       - cloudgenix
       modules_hot: &id016
-      - if_mib
-      modules_cold: &id017
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - cloudgenix
+      modules_cold: &id017
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
       modules_topology: &id018 []
       comment: cloudgenix 1.3.6.1.4.1.50114.11.1.10.1000
     - label: sysObjectID
@@ -2665,11 +2700,13 @@ fingerprinters:
       - vmware_nsx
       modules_hot: &id019
       - if_mib
+      - vmware_nsx
       modules_cold: &id020
       - if_mib_meta
       - ip_addr
-      - vmware_nsx
-      modules_topology: &id021 []
+      - vmware_nsx_ext
+      modules_topology: &id021
+      - vmware_nsx_bgp
       comment: vmware_nsx 1.3.6.1.4.1.6876.120.1.0.33.0
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.6876\.120\.1\.0\.15\.0$
@@ -2925,15 +2962,15 @@ fingerprinters:
       - 6wind_vsr
       modules_hot:
       - if_mib
+      - 6wind_vsr
       modules_cold:
       - if_mib_meta
       - ip_addr
       - ip_mib
       - tcp_mib
       - udp_mib
+      modules_topology:
       - bgp4_mib
-      - 6wind_vsr
-      modules_topology: []
       comment: 6wind_vsr 1.3.6.1.4.1.8072.3.2.10.6wind
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.47196\.4\.1\.1\.1\.50$
@@ -2963,14 +3000,17 @@ fingerprinters:
       - cisco_nexus
       modules_hot: &id037
       - if_mib
-      modules_cold: &id038
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_nexus
-      modules_topology: &id039 []
+      modules_cold: &id038
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      modules_topology: &id039
+      - bgp4_mib
+      - ospf_mib
+      - cisco_nexus_bgp
       comment: cisco_nexus 1.3.6.1.4.1.9.12.3.1.9.85.8
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.3375\.2\.1\.3\.4\.111$
@@ -2979,10 +3019,11 @@ fingerprinters:
       - f5
       modules_hot: &id022
       - if_mib
+      - f5
       modules_cold: &id023
       - if_mib_meta
       - ip_addr
-      - f5
+      - f5_ext
       modules_topology: &id024 []
       comment: f5 1.3.6.1.4.1.3375.2.1.3.4.111
     - label: sysObjectID
@@ -3001,10 +3042,11 @@ fingerprinters:
       - fortinet_fortiap
       modules_hot: &id025
       - if_mib
+      - fortinet_fortiap
       modules_cold: &id026
       - if_mib_meta
       - ip_addr
-      - fortinet_fortiap
+      - fortinet_fortiap_ext
       modules_topology: &id027 []
       comment: fortinet_fortiap 1.3.6.1.4.1.12356.120.10.22121
     - label: sysObjectID
@@ -3054,15 +3096,19 @@ fingerprinters:
       - juniper_ex_switches
       modules_hot: &id028
       - if_mib
-      modules_cold: &id029
-      - if_mib_meta
-      - ip_addr
-      - bgp4_mib
-      - ospf_mib
       - host_resources_mib
       - juniper_all_devices
       - juniper_ex_switches
-      modules_topology: &id030 []
+      modules_cold: &id029
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - juniper_all_devices_sensors
+      - juniper_all_devices_ext
+      - juniper_ex_switches_ext
+      modules_topology: &id030
+      - bgp4_mib
+      - ospf_mib
       comment: juniper_ex_switches 1.3.6.1.4.1.2636.1.1.1.2.109
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.2636\.1\.1\.1\.2\.131$
@@ -3153,15 +3199,19 @@ fingerprinters:
       - juniper_mx_router
       modules_hot: &id031
       - if_mib
-      modules_cold: &id032
-      - if_mib_meta
-      - ip_addr
-      - bgp4_mib
-      - ospf_mib
       - host_resources_mib
       - juniper_all_devices
       - juniper_mx_router
-      modules_topology: &id033 []
+      modules_cold: &id032
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - juniper_all_devices_sensors
+      - juniper_all_devices_ext
+      - juniper_mx_router_ext
+      modules_topology: &id033
+      - bgp4_mib
+      - ospf_mib
       comment: juniper_mx_router 1.3.6.1.4.1.2636.1.1.1.2.139
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.2636\.1\.1\.1\.2\.144$
@@ -3239,15 +3289,19 @@ fingerprinters:
       - juniper_srx_firewalls
       modules_hot: &id034
       - if_mib
-      modules_cold: &id035
-      - if_mib_meta
-      - ip_addr
-      - bgp4_mib
-      - ospf_mib
       - host_resources_mib
       - juniper_all_devices
       - juniper_srx_firewalls
-      modules_topology: &id036 []
+      modules_cold: &id035
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - juniper_all_devices_sensors
+      - juniper_all_devices_ext
+      - juniper_srx_firewalls_ext
+      modules_topology: &id036
+      - bgp4_mib
+      - ospf_mib
       comment: juniper_srx_firewalls 1.3.6.1.4.1.2636.1.1.1.2.133
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.2636\.1\.1\.1\.2\.134$
@@ -3867,13 +3921,14 @@ fingerprinters:
       - avaya_media_gateway
       modules_hot: &id049
       - if_mib
+      - avaya_media_gateway
       modules_cold: &id050
       - if_mib_meta
       - ip_addr
-      - ospf_mib
       - entity_sensor_mib
-      - avaya_media_gateway
-      modules_topology: &id051 []
+      - avaya_media_gateway_ext
+      modules_topology: &id051
+      - ospf_mib
       comment: avaya_media_gateway 1.3.6.1.4.1.6889.1.45.103.41
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.6\.1\.32\.4410\.1$
@@ -3882,10 +3937,11 @@ fingerprinters:
       - cisco_access_point
       modules_hot: &id052
       - if_mib
+      - cisco_access_point
       modules_cold: &id053
       - if_mib_meta
       - ip_addr
-      - cisco_access_point
+      - cisco_access_point_ext
       modules_topology: &id054 []
       comment: cisco_access_point 1.3.6.1.4.1.9.6.1.32.4410.1
     - label: sysObjectID
@@ -3895,10 +3951,12 @@ fingerprinters:
       - cisco_firepower
       modules_hot: &id160
       - if_mib
+      - cisco_firepower
       modules_cold: &id161
       - if_mib_meta
       - ip_addr
-      - cisco_firepower
+      - cisco_firepower_sensors
+      - cisco_firepower_ext
       modules_topology: &id162 []
       comment: cisco_firepower 1.3.6.1.4.1.9.12.3.1.3.1788
     - label: sysObjectID
@@ -5048,10 +5106,12 @@ fingerprinters:
       - cisco_ucs
       modules_hot: &id040
       - if_mib
+      - cisco_ucs
       modules_cold: &id041
       - if_mib_meta
       - ip_addr
-      - cisco_ucs
+      - cisco_ucs_sensors
+      - cisco_ucs_ext
       modules_topology: &id042 []
       comment: cisco_ucs 1.3.6.1.4.1.9.12.3.1.3.1062
     - label: sysObjectID
@@ -5088,10 +5148,11 @@ fingerprinters:
       - fortinet_appliance
       modules_hot: &id043
       - if_mib
+      - fortinet_appliance
       modules_cold: &id044
       - if_mib_meta
       - ip_addr
-      - fortinet_appliance
+      - fortinet_appliance_ext
       modules_topology: &id045 []
       comment: fortinet_appliance 1.3.6.1.4.1.12356.103.1.10003
     - label: sysObjectID
@@ -5355,13 +5416,14 @@ fingerprinters:
       - fortinet_fortigate
       modules_hot: &id046
       - if_mib
+      - fortinet_fortigate
       modules_cold: &id047
       - if_mib_meta
       - ip_addr
+      - fortinet_fortigate_ext
+      modules_topology: &id048
       - bgp4_mib
       - ospf_mib
-      - fortinet_fortigate
-      modules_topology: &id048 []
       comment: fortinet_fortigate 1.3.6.1.4.1.12356.101.1.10000
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.12356\.101\.1\.10001$
@@ -5918,15 +5980,19 @@ fingerprinters:
       - juniper_qfx_switches
       modules_hot: &id184
       - if_mib
-      modules_cold: &id185
-      - if_mib_meta
-      - ip_addr
-      - bgp4_mib
-      - ospf_mib
       - host_resources_mib
       - juniper_all_devices
       - juniper_qfx_switches
-      modules_topology: &id186 []
+      modules_cold: &id185
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - juniper_all_devices_sensors
+      - juniper_all_devices_ext
+      - juniper_qfx_switches_ext
+      modules_topology: &id186
+      - bgp4_mib
+      - ospf_mib
       comment: juniper_qfx_switches 1.3.6.1.4.1.2636.1.1.1.2.82
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.2636\.1\.1\.1\.2\.26$
@@ -7353,14 +7419,17 @@ fingerprinters:
       - cisco_catalyst
       modules_hot: &id061
       - if_mib
-      modules_cold: &id062
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_catalyst
-      modules_topology: &id063 []
+      modules_cold: &id062
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_catalyst_ext
+      modules_topology: &id063
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_catalyst 1.3.6.1.4.1.9.12.3.1.3.843
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.12\.3\.1\.3\.375$
@@ -8287,10 +8356,11 @@ fingerprinters:
       - fortinet_fortiswitch
       modules_hot: &id055
       - if_mib
+      - fortinet_fortiswitch
       modules_cold: &id056
       - if_mib_meta
       - ip_addr
-      - fortinet_fortiswitch
+      - fortinet_fortiswitch_ext
       modules_topology: &id057 []
       comment: fortinet_fortiswitch 1.3.6.1.4.1.12356.106.1.1084
     - label: sysObjectID
@@ -8373,11 +8443,14 @@ fingerprinters:
       - netapp_hci
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - netapp_hci
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - netapp_hci
+      - host_resources_mib_ext
+      - netapp_hci_sensors
+      - netapp_hci_ext
       modules_topology: []
       comment: netapp_hci 1.3.6.1.4.1.8072.3.2.10.hci
     - label: sysObjectID
@@ -8720,10 +8793,11 @@ fingerprinters:
       - brocade_fc_switch
       modules_hot: &id058
       - if_mib
+      - brocade_fc_switch
       modules_cold: &id059
       - if_mib_meta
       - ip_addr
-      - brocade_fc_switch
+      - brocade_fc_switch_ext
       modules_topology: &id060 []
       comment: brocade_fc_switch 1.3.6.1.4.1.1588.2.1.1.109
     - label: sysObjectID
@@ -8793,10 +8867,10 @@ fingerprinters:
       - cisco_sb
       modules_hot: &id214
       - if_mib
+      - cisco_sb
       modules_cold: &id215
       - if_mib_meta
       - ip_addr
-      - cisco_sb
       modules_topology: &id216 []
       comment: cisco_sb 1.3.6.1.4.1.9.6.1.88.26.1
     - label: sysObjectID
@@ -8806,10 +8880,12 @@ fingerprinters:
       - dlink_dgs_switch
       modules_hot: &id199
       - if_mib
+      - dlink_dgs_switch
       modules_cold: &id200
       - if_mib_meta
       - ip_addr
-      - dlink_dgs_switch
+      - dlink_dgs_switch_sensors
+      - dlink_dgs_switch_ext
       modules_topology: &id201 []
       comment: dlink_dgs_switch 1.3.6.1.4.1.171.10.137.1.1
     - label: sysObjectID
@@ -9282,12 +9358,17 @@ fingerprinters:
       - huawei_routers
       modules_hot: &id067
       - if_mib
+      - huawei_all_devices
+      - huawei_routers
       modules_cold: &id068
       - if_mib_meta
       - ip_addr
-      - huawei_all_devices
-      - huawei_routers
-      modules_topology: &id069 []
+      - huawei_all_devices_sensors
+      - huawei_all_devices_ext
+      - huawei_routers_ext
+      modules_topology: &id069
+      - huawei_all_devices_topo
+      - huawei_routers_bgp
       comment: huawei_routers 1.3.6.1.4.1.2011.2.360.1.9
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.25053\.3\.1\.5\.15$
@@ -9296,10 +9377,11 @@ fingerprinters:
       - ruckus_unleashed
       modules_hot: &id070
       - if_mib
+      - ruckus_unleashed
       modules_cold: &id071
       - if_mib_meta
       - ip_addr
-      - ruckus_unleashed
+      - ruckus_unleashed_ext
       modules_topology: &id072 []
       comment: ruckus_unleashed 1.3.6.1.4.1.25053.3.1.5.15
     - label: sysObjectID
@@ -9310,11 +9392,12 @@ fingerprinters:
       - ruckus_wap
       modules_hot: &id190
       - if_mib
+      - ucd_mib
+      - ruckus_wap
       modules_cold: &id191
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - ruckus_wap
+      - ucd_mib_ext
       modules_topology: &id192 []
       comment: ruckus_wap 1.3.6.1.4.1.25053.3.1.4.91
     - label: sysObjectID
@@ -9322,10 +9405,12 @@ fingerprinters:
       modules:
       - ups_mib
       - vertiv_ups
-      modules_hot: &id112 []
+      modules_hot: &id112
+      - vertiv_ups
       modules_cold: &id113
       - ups_mib
-      - vertiv_ups
+      - vertiv_ups_sensors
+      - vertiv_ups_ext
       modules_topology: &id114 []
       comment: vertiv_ups 1.3.6.1.4.1.476.1.42.vertiv
     - label: sysObjectID
@@ -9425,10 +9510,10 @@ fingerprinters:
       - audiocodes_mediant_sbc
       modules_hot:
       - if_mib
+      - audiocodes_mediant_sbc
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - audiocodes_mediant_sbc
       modules_topology: []
       comment: audiocodes_mediant_sbc 1.3.6.1.4.1.5003.8.1.1.71
     - label: sysObjectID
@@ -9523,15 +9608,20 @@ fingerprinters:
       - cisco_wlc
       modules_hot: &id064
       - if_mib
-      modules_cold: &id065
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - host_resources_mib
       - cisco_wlc
-      modules_topology: &id066 []
+      modules_cold: &id065
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - host_resources_mib_ext
+      - cisco_wlc_sensors
+      - cisco_wlc_ext
+      modules_topology: &id066
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_wlc 1.3.6.1.4.1.14179.1.1.4.3
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.14179\.1\.1\.4\.4$
@@ -9656,10 +9746,12 @@ fingerprinters:
       - netoptics_switch
       modules_hot: &id085
       - if_mib
+      - netoptics_switch
       modules_cold: &id086
       - if_mib_meta
       - ip_addr
-      - netoptics_switch
+      - netoptics_switch_sensors
+      - netoptics_switch_ext
       modules_topology: &id087 []
       comment: netoptics_switch 1.3.6.1.4.1.23022.100.1.13
     - label: sysObjectID
@@ -9669,10 +9761,10 @@ fingerprinters:
       - omron_cj_ethernet_ip
       modules_hot: &id208
       - if_mib
+      - omron_cj_ethernet_ip
       modules_cold: &id209
       - if_mib_meta
       - ip_addr
-      - omron_cj_ethernet_ip
       modules_topology: &id210 []
       comment: omron_cj_ethernet_ip 1.3.6.1.4.1.16838.1.1025.5
     - label: sysObjectID
@@ -9718,10 +9810,10 @@ fingerprinters:
       - aruba_access_point
       modules_hot: &id073
       - if_mib
+      - aruba_access_point
       modules_cold: &id074
       - if_mib_meta
       - ip_addr
-      - aruba_access_point
       modules_topology: &id075 []
       comment: aruba_access_point 1.3.6.1.4.1.14823.1.2.100
     - label: sysObjectID
@@ -9935,9 +10027,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.2435\.2\.3\.9\.1$
       modules:
       - brother_net_printer
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - brother_net_printer
+      modules_cold:
+      - brother_net_printer_ext
       modules_topology: []
       comment: brother_net_printer 1.3.6.1.4.1.2435.2.3.9.1
     - label: sysObjectID
@@ -9959,10 +10052,12 @@ fingerprinters:
       - dell_powerconnect
       modules_hot: &id076
       - if_mib
+      - dell_powerconnect
       modules_cold: &id077
       - if_mib_meta
       - ip_addr
-      - dell_powerconnect
+      - dell_powerconnect_sensors
+      - dell_powerconnect_ext
       modules_topology: &id078 []
       comment: dell_powerconnect 1.3.6.1.4.1.674.10895.3008
     - label: sysObjectID
@@ -10657,12 +10752,16 @@ fingerprinters:
       - huawei_switches
       modules_hot: &id079
       - if_mib
+      - huawei_all_devices
+      - huawei_switches
       modules_cold: &id080
       - if_mib_meta
       - ip_addr
-      - huawei_all_devices
-      - huawei_switches
-      modules_topology: &id081 []
+      - huawei_all_devices_sensors
+      - huawei_all_devices_ext
+      - huawei_switches_ext
+      modules_topology: &id081
+      - huawei_all_devices_topo
       comment: huawei_switches 1.3.6.1.4.1.2011.2.23.343
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.2011\.2\.23\.606$
@@ -10701,10 +10800,12 @@ fingerprinters:
       - lenovo_rackswitch
       modules_hot: &id109
       - if_mib
+      - lenovo_rackswitch
       modules_cold: &id110
       - if_mib_meta
       - ip_addr
-      - lenovo_rackswitch
+      - lenovo_rackswitch_sensors
+      - lenovo_rackswitch_ext
       modules_topology: &id111 []
       comment: lenovo_rackswitch 1.3.6.1.4.1.19046.1.18.23
     - label: sysObjectID
@@ -10714,10 +10815,11 @@ fingerprinters:
       - mcafee_web_gateway
       modules_hot:
       - if_mib
+      - mcafee_web_gateway
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - mcafee_web_gateway
+      - mcafee_web_gateway_ext
       modules_topology: []
       comment: mcafee_web_gateway 1.3.6.1.4.1.1230.2.7.1.1
     - label: sysObjectID
@@ -10727,10 +10829,10 @@ fingerprinters:
       - netgear_switch
       modules_hot: &id082
       - if_mib
+      - netgear_switch
       modules_cold: &id083
       - if_mib_meta
       - ip_addr
-      - netgear_switch
       modules_topology: &id084 []
       comment: netgear_switch 1.3.6.1.4.1.4526.100.1.28
     - label: sysObjectID
@@ -10759,20 +10861,22 @@ fingerprinters:
       - server_iron_switch
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - server_iron_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - server_iron_switch
+      - host_resources_mib_ext
       modules_topology: []
       comment: server_iron_switch 1.3.6.1.4.1.1991.1.3.3.2
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.21239\.42\.1\.53$
       modules:
       - vertiv_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - vertiv_pdu
+      modules_cold:
+      - vertiv_pdu_ext
       modules_topology: []
       comment: vertiv_pdu 1.3.6.1.4.1.21239.42.1.53
     - label: sysObjectID
@@ -10782,12 +10886,15 @@ fingerprinters:
       - if_mib
       - mycloud_ex2
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
+      - if_mib
+      - mycloud_ex2
+      modules_cold:
       - if_mib_meta
       - ip_addr
-      - mycloud_ex2
+      - host_resources_mib_ext
+      - mycloud_ex2_sensors
+      - mycloud_ex2_ext
       modules_topology: []
       comment: mycloud_ex2 1.3.6.1.4.1.5127.1.1.1.8
     - label: sysObjectID
@@ -10798,12 +10905,14 @@ fingerprinters:
       - a10_thunder
       modules_hot: &id088
       - if_mib
+      - a10_thunder
       modules_cold: &id089
       - if_mib_meta
       - ip_addr
+      - a10_thunder_sensors
+      - a10_thunder_ext
+      modules_topology: &id090
       - ospf_mib
-      - a10_thunder
-      modules_topology: &id090 []
       comment: a10_thunder 1.3.6.1.4.1.22610.1.3.20
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.22610\.1\.3\.21$
@@ -11726,10 +11835,10 @@ fingerprinters:
       - aruba_mobility_controller
       modules_hot: &id091
       - if_mib
+      - aruba_mobility_controller
       modules_cold: &id092
       - if_mib_meta
       - ip_addr
-      - aruba_mobility_controller
       modules_topology: &id093 []
       comment: aruba_mobility_controller 1.3.6.1.4.1.14823.1.1.50
     - label: sysObjectID
@@ -11766,10 +11875,11 @@ fingerprinters:
       - aruba_wireless_controller
       modules_hot: &id094
       - if_mib
+      - aruba_wireless_controller
       modules_cold: &id095
       - if_mib_meta
       - ip_addr
-      - aruba_wireless_controller
+      - aruba_wireless_controller_ext
       modules_topology: &id096 []
       comment: aruba_wireless_controller 1.3.6.1.4.1.14823.1.1.10
     - label: sysObjectID
@@ -12050,11 +12160,14 @@ fingerprinters:
       - acs
       modules_hot: &id097
       - if_mib
+      - ucd_mib
+      - acs
       modules_cold: &id098
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - acs
+      - ucd_mib_ext
+      - acs_sensors
+      - acs_ext
       modules_topology: &id099 []
       comment: acs 1.3.6.1.4.1.10418.26.1.1
     - label: sysObjectID
@@ -12235,14 +12348,17 @@ fingerprinters:
       - cisco_load_balancer
       modules_hot: &id103
       - if_mib
-      modules_cold: &id104
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_load_balancer
-      modules_topology: &id105 []
+      modules_cold: &id104
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_load_balancer_ext
+      modules_topology: &id105
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_load_balancer 1.3.6.1.4.1.9.9.368.4.2
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.9\.368\.4\.3$
@@ -12311,10 +12427,11 @@ fingerprinters:
       - emc_data_domain
       modules_hot: &id106
       - if_mib
+      - emc_data_domain
       modules_cold: &id107
       - if_mib_meta
       - ip_addr
-      - emc_data_domain
+      - emc_data_domain_ext
       modules_topology: &id108 []
       comment: emc_data_domain 1.3.6.1.4.1.19746.3.1.10
     - label: sysObjectID
@@ -12567,10 +12684,10 @@ fingerprinters:
       - huawei_access_controllers
       modules_hot:
       - if_mib
+      - huawei_access_controllers
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - huawei_access_controllers
       modules_topology: []
       comment: huawei_access_controllers 1.3.6.1.4.1.2011.2.240.6
     - label: sysObjectID
@@ -12729,6 +12846,7 @@ fingerprinters:
       - if_mib_meta
       - ip_addr
       - nokia_srlinux_sensors
+      - nokia_srlinux_ext
       modules_topology: &id204
       - nokia_srlinux_bgp
       comment: nokia_srlinux 1.3.6.1.4.1.6527.1.20.26
@@ -12739,10 +12857,12 @@ fingerprinters:
       - dominion
       modules_hot: &id226
       - if_mib
+      - dominion
       modules_cold: &id227
       - if_mib_meta
       - ip_addr
-      - dominion
+      - dominion_sensors
+      - dominion_ext
       modules_topology: &id228 []
       comment: dominion 1.3.6.1.4.1.13742.3.2.10
     - label: sysObjectID
@@ -12869,10 +12989,11 @@ fingerprinters:
       - aruba_clearpass
       modules_hot:
       - if_mib
+      - aruba_clearpass
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - aruba_clearpass
+      - aruba_clearpass_ext
       modules_topology: []
       comment: aruba_clearpass 1.3.6.1.4.1.14823.1.6.1
     - label: sysObjectID
@@ -12945,12 +13066,13 @@ fingerprinters:
       - if_mib
       - watchguard
       modules_hot: &id115
-      - if_mib
-      modules_cold: &id116
       - host_resources_mib
+      - if_mib
+      - watchguard
+      modules_cold: &id116
       - if_mib_meta
       - ip_addr
-      - watchguard
+      - host_resources_mib_ext
       modules_topology: &id117 []
       comment: watchguard 1.3.6.1.4.1.3097.1.5.87
     - label: sysObjectID
@@ -12989,11 +13111,13 @@ fingerprinters:
       - ucd_mib
       - tcp_mib
       - luna_hsm
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - ucd_mib
-      - tcp_mib
       - luna_hsm
+      modules_cold:
+      - tcp_mib
+      - ucd_mib_ext
+      - luna_hsm_ext
       modules_topology: []
       comment: luna_hsm 1.3.6.1.4.1.12383.3.1.1
     - label: sysObjectID
@@ -13166,11 +13290,14 @@ fingerprinters:
       - hpe_bladesystem_enclosure
       modules_hot:
       - if_mib
+      - ucd_mib
+      - hpe_bladesystem_enclosure
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - hpe_bladesystem_enclosure
+      - ucd_mib_ext
+      - hpe_bladesystem_enclosure_sensors
+      - hpe_bladesystem_enclosure_ext
       modules_topology: []
       comment: hpe_bladesystem_enclosure 1.3.6.1.4.1.11.5.7.1.2
     - label: sysObjectID
@@ -13181,11 +13308,12 @@ fingerprinters:
       - hpe_synergy
       modules_hot:
       - if_mib
+      - hpe_synergy
       modules_cold:
       - if_mib_meta
       - ip_addr
       - ip_mib
-      - hpe_synergy
+      - hpe_synergy_ext
       modules_topology: []
       comment: hpe_synergy 1.3.6.1.2.1.11.5.7.5.9
     - label: sysObjectID
@@ -13196,11 +13324,14 @@ fingerprinters:
       - nasuni_filer
       modules_hot:
       - if_mib
+      - ucd_mib
+      - nasuni_filer
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - nasuni_filer
+      - ucd_mib_ext
+      - nasuni_filer_sensors
+      - nasuni_filer_ext
       modules_topology: []
       comment: nasuni_filer 1.3.6.1.4.1.42040.1.1.0
     - label: sysObjectID
@@ -13211,20 +13342,23 @@ fingerprinters:
       - univerge
       modules_hot: &id217
       - if_mib
+      - univerge
       modules_cold: &id218
       - if_mib_meta
       - ip_addr
+      - univerge_ext
+      modules_topology: &id219
       - bgp4_mib
-      - univerge
-      modules_topology: &id219 []
       comment: univerge 1.3.6.1.4.1.119.1.84.18
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.318\.1\.3\.11$
       modules:
       - apc_ats
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - apc_ats
+      modules_cold:
+      - apc_ats_sensors
+      - apc_ats_ext
       modules_topology: []
       comment: apc_ats 1.3.6.1.4.1.318.1.3.11
     - label: sysObjectID
@@ -13232,19 +13366,22 @@ fingerprinters:
       modules:
       - ups_mib
       - apc_ups
-      modules_hot: &id133 []
+      modules_hot: &id133
+      - apc_ups
       modules_cold: &id134
       - ups_mib
-      - apc_ups
+      - apc_ups_sensors
+      - apc_ups_ext
       modules_topology: &id135 []
       comment: apc_ups 1.3.6.1.4.1.318.1.3.17
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.81\.17\.1\.17$
       modules:
       - avaya_cajun_switch
-      modules_hot: &id118 []
-      modules_cold: &id119
+      modules_hot: &id118
       - avaya_cajun_switch
+      modules_cold: &id119
+      - avaya_cajun_switch_ext
       modules_topology: &id120 []
       comment: avaya_cajun_switch 1.3.6.1.4.1.81.17.1.17
     - label: sysObjectID
@@ -13270,10 +13407,11 @@ fingerprinters:
       - nortel_ethernet_routing_switch
       modules_hot:
       - if_mib
+      - nortel_ethernet_routing_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - nortel_ethernet_routing_switch
+      - nortel_ethernet_routing_switch_ext
       modules_topology: []
       comment: nortel_ethernet_routing_switch 1.3.6.1.4.1.45.3.71.10
     - label: sysObjectID
@@ -13289,9 +13427,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.3808\.1\.1\.3$
       modules:
       - cyberpower_pdu
-      modules_hot: &id121 []
-      modules_cold: &id122
+      modules_hot: &id121
       - cyberpower_pdu
+      modules_cold: &id122
+      - cyberpower_pdu_sensors
+      - cyberpower_pdu_ext
       modules_topology: &id123 []
       comment: cyberpower_pdu 1.3.6.1.4.1.3808.1.1.3
     - label: sysObjectID
@@ -13307,10 +13447,12 @@ fingerprinters:
       modules:
       - ups_mib
       - cyberpower_ups
-      modules_hot: &id193 []
+      modules_hot: &id193
+      - cyberpower_ups
       modules_cold: &id194
       - ups_mib
-      - cyberpower_ups
+      - cyberpower_ups_sensors
+      - cyberpower_ups_ext
       modules_topology: &id195 []
       comment: cyberpower_ups 1.3.6.1.4.1.3808.1.1.1
     - label: sysObjectID
@@ -13320,10 +13462,10 @@ fingerprinters:
       - dialogic_media_gateway
       modules_hot:
       - if_mib
+      - dialogic_media_gateway
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - dialogic_media_gateway
       modules_topology: []
       comment: dialogic_media_gateway 1.3.6.1.4.1.3028.6.1.1
     - label: sysObjectID
@@ -13333,10 +13475,12 @@ fingerprinters:
       - hp_ilo
       modules_hot: &id124
       - if_mib
+      - hp_ilo
       modules_cold: &id125
       - if_mib_meta
       - ip_addr
-      - hp_ilo
+      - hp_ilo_sensors
+      - hp_ilo_ext
       modules_topology: &id126 []
       comment: hp_ilo 1.3.6.1.4.1.232.9.4.10
     - label: sysObjectID
@@ -13357,12 +13501,15 @@ fingerprinters:
       - infoblox_ipam
       modules_hot: &id127
       - if_mib
-      modules_cold: &id128
-      - if_mib_meta
-      - ip_addr
       - host_resources_mib
       - ucd_mib
       - infoblox_ipam
+      modules_cold: &id128
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - infoblox_ipam_ext
       modules_topology: &id129 []
       comment: infoblox_ipam 1.3.6.1.4.1.7779.1.1004
     - label: sysObjectID
@@ -13867,10 +14014,10 @@ fingerprinters:
       - meraki_device
       modules_hot: &id130
       - if_mib
+      - meraki_device
       modules_cold: &id131
       - if_mib_meta
       - ip_addr
-      - meraki_device
       modules_topology: &id132 []
       comment: meraki_device 1.3.6.1.4.1.29671.2.100
     - label: sysObjectID
@@ -14331,11 +14478,13 @@ fingerprinters:
       - cambium_mib
       modules_hot:
       - if_mib
+      - ucd_mib
+      - cambium_mib
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - cambium_mib
+      - ucd_mib_ext
+      - cambium_mib_ext
       modules_topology: []
       comment: cambium_mib 1.3.6.1.4.1.17713.60.1
     - label: sysObjectID
@@ -14354,10 +14503,11 @@ fingerprinters:
       - cradlepoint
       modules_hot: &id136
       - if_mib
+      - cradlepoint
       modules_cold: &id137
       - if_mib_meta
       - ip_addr
-      - cradlepoint
+      - cradlepoint_ext
       modules_topology: &id138 []
       comment: cradlepoint 1.3.6.1.4.1.20992.2.10
     - label: sysObjectID
@@ -14688,9 +14838,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.534\.6\.6\.7$
       modules:
       - eaton_epdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - eaton_epdu
+      modules_cold:
+      - eaton_epdu_sensors
+      - eaton_epdu_ext
       modules_topology: []
       comment: eaton_epdu 1.3.6.1.4.1.534.6.6.7
     - label: sysObjectID
@@ -14701,11 +14853,13 @@ fingerprinters:
       - extreme_switching
       modules_hot: &id148
       - if_mib
+      - extreme_switching
       modules_cold: &id149
       - if_mib_meta
       - ip_addr
       - entity_sensor_mib
-      - extreme_switching
+      - extreme_switching_sensors
+      - extreme_switching_ext
       modules_topology: &id150 []
       comment: extreme_switching 1.3.6.1.4.1.1916.2.343
     - label: sysObjectID
@@ -14715,10 +14869,10 @@ fingerprinters:
       - gigamon
       modules_hot: &id151
       - if_mib
+      - gigamon
       modules_cold: &id152
       - if_mib_meta
       - ip_addr
-      - gigamon
       modules_topology: &id153 []
       comment: gigamon 1.3.6.1.4.1.26866.3.15
     - label: sysObjectID
@@ -14964,13 +15118,15 @@ fingerprinters:
       - if_mib
       - opengear_console_manager
       modules_hot: &id139
+      - host_resources_mib
       - if_mib
+      - opengear_console_manager
       modules_cold: &id140
       - entity_sensor_mib
-      - host_resources_mib
       - if_mib_meta
       - ip_addr
-      - opengear_console_manager
+      - host_resources_mib_ext
+      - opengear_console_manager_ext
       modules_topology: &id141 []
       comment: opengear_console_manager 1.3.6.1.4.1.25049.1.10
     - label: sysObjectID
@@ -14991,10 +15147,12 @@ fingerprinters:
       - opengear_infrastructure_manager
       modules_hot: &id142
       - if_mib
+      - opengear_infrastructure_manager
       modules_cold: &id143
       - if_mib_meta
       - ip_addr
-      - opengear_infrastructure_manager
+      - opengear_infrastructure_manager_sensors
+      - opengear_infrastructure_manager_ext
       modules_topology: &id144 []
       comment: opengear_infrastructure_manager 1.3.6.1.4.1.25049.1.60
     - label: sysObjectID
@@ -15010,9 +15168,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.850\.1\.1\.1$
       modules:
       - tripplite_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - tripplite_pdu
+      modules_cold:
+      - tripplite_pdu_sensors
+      - tripplite_pdu_ext
       modules_topology: []
       comment: tripplite_pdu 1.3.6.1.4.1.850.1.1.1
     - label: sysObjectID
@@ -15022,10 +15182,10 @@ fingerprinters:
       - anue_packet_broker
       modules_hot:
       - if_mib
+      - anue_packet_broker
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - anue_packet_broker
       modules_topology: []
       comment: anue_packet_broker 1.3.6.1.4.1.32620.1.1
     - label: sysObjectID
@@ -15036,11 +15196,12 @@ fingerprinters:
       - aura_media_server
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - aura_media_server
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - aura_media_server
+      - host_resources_mib_ext
       modules_topology: []
       comment: aura_media_server 1.3.6.1.4.1.6889.1.58
     - label: sysObjectID
@@ -15051,13 +15212,16 @@ fingerprinters:
       - ucd_mib
       - bluecat_server
       modules_hot: &id145
-      - if_mib
-      modules_cold: &id146
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - bluecat_server
+      modules_cold: &id146
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - bluecat_server_ext
       modules_topology: &id147 []
       comment: bluecat_server 1.3.6.1.4.1.13315.2.1
     - label: sysObjectID
@@ -15122,10 +15286,12 @@ fingerprinters:
       - cisco_ironport_email
       modules_hot: &id205
       - if_mib
+      - cisco_ironport_email
       modules_cold: &id206
       - if_mib_meta
       - ip_addr
-      - cisco_ironport_email
+      - cisco_ironport_email_sensors
+      - cisco_ironport_email_ext
       modules_topology: &id207 []
       comment: cisco_ironport_email 1.3.6.1.4.1.15497.1.2
     - label: sysObjectID
@@ -15235,19 +15401,22 @@ fingerprinters:
       - hpe_nimble
       modules_hot:
       - if_mib
+      - hpe_nimble
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - hpe_nimble
+      - hpe_nimble_ext
       modules_topology: []
       comment: hpe_nimble 1.3.6.1.4.1.37447.3.1
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.14685\.1\.8$
       modules:
       - ibm_datapower_gateway
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - ibm_datapower_gateway
+      modules_cold:
+      - ibm_datapower_gateway_sensors
+      - ibm_datapower_gateway_ext
       modules_topology: []
       comment: ibm_datapower_gateway 1.3.6.1.4.1.14685.1.8
     - label: sysObjectID
@@ -15258,13 +15427,16 @@ fingerprinters:
       - ucd_mib
       - ibm_lenovo_server
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - ibm_lenovo_server
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - ibm_lenovo_server_ext
       modules_topology: []
       comment: ibm_lenovo_server 1.3.6.1.4.1.2.3.51.3
     - label: sysObjectID
@@ -15274,10 +15446,12 @@ fingerprinters:
       - infinera
       modules_hot:
       - if_mib
+      - infinera
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - infinera
+      - infinera_sensors
+      - infinera_ext
       modules_topology: []
       comment: infinera 1.3.6.1.4.1.42229.1.2
     - label: sysObjectID
@@ -15368,10 +15542,11 @@ fingerprinters:
       - riverbed_interceptor
       modules_hot:
       - if_mib
+      - riverbed_interceptor
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - riverbed_interceptor
+      - riverbed_interceptor_ext
       modules_topology: []
       comment: riverbed_interceptor 1.3.6.1.4.1.17163.1.3
     - label: sysObjectID
@@ -15381,10 +15556,11 @@ fingerprinters:
       - riverbed_steelhead
       modules_hot:
       - if_mib
+      - riverbed_steelhead
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - riverbed_steelhead
+      - riverbed_steelhead_ext
       modules_topology: []
       comment: riverbed_steelhead 1.3.6.1.4.1.17163.1.1
     - label: sysObjectID
@@ -15396,12 +15572,15 @@ fingerprinters:
       - truenas
       modules_hot:
       - if_mib
-      modules_cold:
-      - if_mib_meta
-      - ip_addr
       - ucd_mib
       - host_resources_mib
       - truenas
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - ucd_mib_ext
+      - host_resources_mib_ext
+      - truenas_ext
       modules_topology: []
       comment: truenas 1.3.6.1.4.1.50536.3.2
     - label: sysObjectID
@@ -15412,11 +15591,12 @@ fingerprinters:
       - unifi_security_gateway
       modules_hot:
       - if_mib
+      - ucd_mib
+      - unifi_security_gateway
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - unifi_security_gateway
+      - ucd_mib_ext
       modules_topology: []
       comment: unifi_security_gateway 1.3.6.1.4.1.41112.1.5
     - label: sysObjectID
@@ -15427,29 +15607,34 @@ fingerprinters:
       - velocloud_edge
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - velocloud_edge
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - velocloud_edge
+      - host_resources_mib_ext
+      - velocloud_edge_ext
       modules_topology: []
       comment: velocloud_edge 1.3.6.1.4.1.45346.1.1
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.21239\.5\.1$
       modules:
       - watchdog
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - watchdog
+      modules_cold:
+      - watchdog_sensors
+      - watchdog_ext
       modules_topology: []
       comment: watchdog 1.3.6.1.4.1.21239.5.1
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.10642\.1\.1$
       modules:
       - zebra_printer
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - zebra_printer
+      modules_cold:
+      - zebra_printer_ext
       modules_topology: []
       comment: zebra_printer 1.3.6.1.4.1.10642.1.1
     - label: sysObjectID
@@ -15690,9 +15875,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.2238$
       modules:
       - cisco_apic_server
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - cisco_apic_server
+      modules_cold:
+      - cisco_apic_server_sensors
+      - cisco_apic_server_ext
       modules_topology: []
       comment: cisco_apic_server 1.3.6.1.4.1.9.1.2238
     - label: sysObjectID
@@ -15705,14 +15892,17 @@ fingerprinters:
       - cisco_asa
       modules_hot: &id154
       - if_mib
-      modules_cold: &id155
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_asa
-      modules_topology: &id156 []
+      modules_cold: &id155
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_asa_ext
+      modules_topology: &id156
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_asa 1.3.6.1.4.1.9.1.1101
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.1194$
@@ -22396,16 +22586,20 @@ fingerprinters:
       - cisco_all_devices
       - cisco_call_manager
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
+      - if_mib
       - cisco_all_devices
       - cisco_call_manager
-      modules_topology: []
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_call_manager_ext
+      modules_topology:
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_call_manager 1.3.6.1.4.1.9.1.1348
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.1000$
@@ -24995,12 +25189,13 @@ fingerprinters:
       - cisco_csr
       modules_hot: &id157
       - if_mib
+      - cisco_csr
       modules_cold: &id158
-      - bgp4_mib
       - if_mib_meta
       - ip_addr
-      - cisco_csr
-      modules_topology: &id159 []
+      - cisco_csr_ext
+      modules_topology: &id159
+      - bgp4_mib
       comment: cisco_csr 1.3.6.1.4.1.9.1.1537
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.3004$
@@ -25344,13 +25539,15 @@ fingerprinters:
       - ucd_mib
       - cisco_ise
       modules_hot: &id163
-      - if_mib
-      modules_cold: &id164
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - cisco_ise
+      modules_cold: &id164
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
       modules_topology: &id165 []
       comment: cisco_ise 1.3.6.1.4.1.9.1.2785
     - label: sysObjectID
@@ -25558,15 +25755,19 @@ fingerprinters:
       - cisco_wan_optimizer
       modules_hot: &id166
       - if_mib
-      modules_cold: &id167
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - host_resources_mib
       - cisco_wan_optimizer
-      modules_topology: &id168 []
+      modules_cold: &id167
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - host_resources_mib_ext
+      - cisco_wan_optimizer_ext
+      modules_topology: &id168
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_wan_optimizer 1.3.6.1.4.1.9.1.1210
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.1301$
@@ -25954,9 +26155,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.476\.1\.42$
       modules:
       - liebert_ac
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - liebert_ac
+      modules_cold:
+      - liebert_ac_sensors
+      - liebert_ac_ext
       modules_topology: []
       comment: liebert_ac 1.3.6.1.4.1.476.1.42
     - label: sysObjectID
@@ -25967,11 +26170,13 @@ fingerprinters:
       - esx
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - esx
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - esx
+      - host_resources_mib_ext
+      - esx_ext
       modules_topology: []
       comment: esx 1.3.6.1.4.1.6876.4.1
     - label: sysObjectID
@@ -25981,10 +26186,10 @@ fingerprinters:
       - zyxel_switch
       modules_hot:
       - if_mib
+      - zyxel_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - zyxel_switch
       modules_topology: []
       comment: zyxel_switch 1.3.6.1.4.1.890.1.15
     - label: sysObjectID
@@ -31859,14 +32064,17 @@ fingerprinters:
       - cisco_voice
       modules_hot:
       - if_mib
-      modules_cold:
-      - bgp4_mib
-      - if_mib_meta
-      - ip_addr
-      - ospf_mib
       - cisco_all_devices
       - cisco_voice
-      modules_topology: []
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - cisco_all_devices_sensors
+      - cisco_all_devices_ext
+      - cisco_voice_ext
+      modules_topology:
+      - bgp4_mib
+      - ospf_mib
       comment: cisco_voice 1.3.6.1.4.1.9.1.693
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.9\.1\.776$
@@ -31992,10 +32200,11 @@ fingerprinters:
       - hpe_msa
       modules_hot:
       - if_mib
+      - hpe_msa
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - hpe_msa
+      - hpe_msa_ext
       modules_topology: []
       comment: hpe_msa 1.3.6.1.4.1.11.2.51
     - label: sysObjectID
@@ -32005,10 +32214,12 @@ fingerprinters:
       - netapp_cluster
       modules_hot: &id169
       - if_mib
+      - netapp_cluster
       modules_cold: &id170
       - if_mib_meta
       - ip_addr
-      - netapp_cluster
+      - netapp_cluster_sensors
+      - netapp_cluster_ext
       modules_topology: &id171 []
       comment: netapp_cluster 1.3.6.1.4.1.789.2.3
     - label: sysObjectID
@@ -32025,10 +32236,12 @@ fingerprinters:
       modules:
       - ups_mib
       - tripplite_ups
-      modules_hot: &id220 []
+      modules_hot: &id220
+      - tripplite_ups
       modules_cold: &id221
       - ups_mib
-      - tripplite_ups
+      - tripplite_ups_sensors
+      - tripplite_ups_ext
       modules_topology: &id222 []
       comment: tripplite_ups 1.3.6.1.4.1.850.1.4
     - label: sysObjectID
@@ -32038,10 +32251,12 @@ fingerprinters:
       - 3com_huawei
       modules_hot:
       - if_mib
+      - 3com_huawei
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - 3com_huawei
+      - 3com_huawei_sensors
+      - 3com_huawei_ext
       modules_topology: []
       comment: 3com_huawei 1.3.6.1.4.1.43.45*
     - label: sysObjectID
@@ -33167,10 +33382,12 @@ fingerprinters:
       - fireeye
       modules_hot:
       - if_mib
+      - fireeye
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - fireeye
+      - fireeye_sensors
+      - fireeye_ext
       modules_topology: []
       comment: fireeye 1.3.6.1.4.1.25597.1
     - label: sysObjectID
@@ -33180,28 +33397,32 @@ fingerprinters:
       - kyocera_printer
       modules_hot:
       - if32_mib
+      - kyocera_printer
       modules_cold:
       - if32_mib_meta
       - ip_addr
-      - kyocera_printer
+      - kyocera_printer_ext
       modules_topology: []
       comment: kyocera_printer 1.3.6.1.4.1.1347.41
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.13742\.6$
       modules:
       - raritan_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - raritan_pdu
+      modules_cold:
+      - raritan_pdu_sensors
+      - raritan_pdu_ext
       modules_topology: []
       comment: raritan_pdu 1.3.6.1.4.1.13742.6
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.3711\.24$
       modules:
       - eagle_i
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - eagle_i
+      modules_cold:
+      - eagle_i_ext
       modules_topology: []
       comment: eagle_i 1.3.6.1.4.1.3711.24
     - label: sysObjectID
@@ -33268,9 +33489,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.5951\.6$
       modules:
       - netscaler_sdx
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - netscaler_sdx
+      modules_cold:
+      - netscaler_sdx_ext
       modules_topology: []
       comment: netscaler_sdx 1.3.6.1.4.1.5951.6
     - label: sysObjectID
@@ -33280,10 +33502,11 @@ fingerprinters:
       - netscaler
       modules_hot:
       - if_mib
+      - netscaler
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - netscaler
+      - netscaler_ext
       modules_topology: []
       comment: netscaler 1.3.6.1.4.1.5951.1
     - label: sysObjectID
@@ -33293,28 +33516,32 @@ fingerprinters:
       - sonicwall
       modules_hot:
       - if_mib
+      - sonicwall
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - sonicwall
+      - sonicwall_ext
       modules_topology: []
       comment: sonicwall 1.3.6.1.4.1.8741.1
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.1718\.3$
       modules:
       - servertech_pdu3
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - servertech_pdu3
+      modules_cold:
+      - servertech_pdu3_sensors
+      - servertech_pdu3_ext
       modules_topology: []
       comment: servertech_pdu3 1.3.6.1.4.1.1718.3
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.1718\.4$
       modules:
       - servertech_pdu4
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - servertech_pdu4
+      modules_cold:
+      - servertech_pdu4_ext
       modules_topology: []
       comment: servertech_pdu4 1.3.6.1.4.1.1718.4
     - label: sysObjectID
@@ -33324,19 +33551,22 @@ fingerprinters:
       - xgs_firewall
       modules_hot:
       - if_mib
+      - xgs_firewall
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - xgs_firewall
+      - xgs_firewall_ext
       modules_topology: []
       comment: xgs_firewall 1.3.6.1.4.1.2604.5
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.20916$
       modules:
       - roomalert_32s
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - roomalert_32s
+      modules_cold:
+      - roomalert_32s_sensors
+      - roomalert_32s_ext
       modules_topology: []
       comment: roomalert_32s 1.3.6.1.4.1.20916
     - label: sysObjectID
@@ -33356,18 +33586,21 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.38218$
       modules:
       - ipower_mib
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - ipower_mib
+      modules_cold:
+      - ipower_mib_sensors
+      - ipower_mib_ext
       modules_topology: []
       comment: ipower_mib .1.3.6.1.4.1.38218
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.17420$
       modules:
       - minuteman_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - minuteman_pdu
+      modules_cold:
+      - minuteman_pdu_ext
       modules_topology: []
       comment: minuteman_pdu 1.3.6.1.4.1.17420
     - label: sysObjectID
@@ -33378,13 +33611,15 @@ fingerprinters:
       - if_mib
       - cumulus_linux_switch
       modules_hot:
+      - host_resources_mib
       - if_mib
+      - cumulus_linux_switch
       modules_cold:
       - entity_sensor_mib
-      - host_resources_mib
       - if_mib_meta
       - ip_addr
-      - cumulus_linux_switch
+      - host_resources_mib_ext
+      - cumulus_linux_switch_ext
       modules_topology: []
       comment: cumulus_linux_switch 1.3.6.1.4.1.40310
     - label: sysObjectID
@@ -33394,12 +33629,15 @@ fingerprinters:
       - if_mib
       - peplink
       modules_hot: &id223
-      - if_mib
-      modules_cold: &id224
       - host_resources_mib
+      - if_mib
+      - peplink
+      modules_cold: &id224
       - if_mib_meta
       - ip_addr
-      - peplink
+      - host_resources_mib_ext
+      - peplink_sensors
+      - peplink_ext
       modules_topology: &id225 []
       comment: peplink 1.3.6.1.4.1.23695
     - label: sysObjectID
@@ -33418,10 +33656,10 @@ fingerprinters:
       - unifi_switch
       modules_hot:
       - if_mib
+      - unifi_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - unifi_switch
       modules_topology: []
       comment: unifi_switch 1.3.6.1.4.1.4413
     - label: sysObjectID
@@ -33429,10 +33667,10 @@ fingerprinters:
       modules:
       - ups_mib
       - ups
-      modules_hot: []
+      modules_hot:
+      - ups
       modules_cold:
       - ups_mib
-      - ups
       modules_topology: []
       comment: ups 1.3.6.1.2.1.33
     - label: sysObjectID
@@ -33442,10 +33680,12 @@ fingerprinters:
       - alcatel_lucent_ent
       modules_hot: &id175
       - if_mib
+      - alcatel_lucent_ent
       modules_cold: &id176
       - if_mib_meta
       - ip_addr
-      - alcatel_lucent_ent
+      - alcatel_lucent_ent_sensors
+      - alcatel_lucent_ent_ext
       modules_topology: &id177 []
       comment: alcatel_lucent_ent 1.3.6.1.4.1.6486.801.1.1.2.1.10.*
     - label: sysObjectID
@@ -33473,10 +33713,12 @@ fingerprinters:
       - alcatel_lucent_ind
       modules_hot: &id178
       - if_mib
+      - alcatel_lucent_ind
       modules_cold: &id179
       - if_mib_meta
       - ip_addr
-      - alcatel_lucent_ind
+      - alcatel_lucent_ind_sensors
+      - alcatel_lucent_ind_ext
       modules_topology: &id180 []
       comment: alcatel_lucent_ind 1.3.6.1.4.1.6486.800.1.1.2.1.10.*
     - label: sysObjectID
@@ -34348,9 +34590,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.5528\.100\.20\.10(\.[0-9]+)+$
       modules:
       - apc_netbotz
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - apc_netbotz
+      modules_cold:
+      - apc_netbotz_sensors
+      - apc_netbotz_ext
       modules_topology: []
       comment: apc_netbotz 1.3.6.1.4.1.5528.100.20.10.*
     - label: sysObjectID
@@ -34398,10 +34642,10 @@ fingerprinters:
       - hp_icf_switch
       modules_hot:
       - if_mib
+      - hp_icf_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - hp_icf_switch
       modules_topology: []
       comment: hp_icf_switch 1.3.6.1.4.1.11.2.3.7.11.*
     - label: sysObjectID
@@ -34516,15 +34760,18 @@ fingerprinters:
       - juniper_all_devices_identity
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - juniper_all_devices
       - juniper_all_devices_identity
       modules_cold:
       - if_mib_meta
       - ip_addr
+      - host_resources_mib_ext
+      - juniper_all_devices_sensors
+      - juniper_all_devices_ext
+      modules_topology:
       - bgp4_mib
       - ospf_mib
-      - host_resources_mib
-      - juniper_all_devices
-      modules_topology: []
       comment: juniper_all_devices 1.3.6.1.4.1.2636.1.1.1.*
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.4526\.100\.12(\.[0-9]+)+$
@@ -34534,11 +34781,14 @@ fingerprinters:
       - readynas
       modules_hot: &id196
       - if_mib
+      - ucd_mib
+      - readynas
       modules_cold: &id197
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - readynas
+      - ucd_mib_ext
+      - readynas_sensors
+      - readynas_ext
       modules_topology: &id198 []
       comment: readynas 1.3.6.1.4.1.4526.100.12.*
     - label: sysObjectID
@@ -34574,9 +34824,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.318\.1\.3\.4(\.[0-9]+)+$
       modules:
       - apc_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - apc_pdu
+      modules_cold:
+      - apc_pdu_sensors
+      - apc_pdu_ext
       modules_topology: []
       comment: apc_pdu 1.3.6.1.4.1.318.1.3.4.*
     - label: sysObjectID
@@ -34593,9 +34845,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.20916\.1\.13(\.[0-9]+)+$
       modules:
       - roomalert_3s
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - roomalert_3s
+      modules_cold:
+      - roomalert_3s_ext
       modules_topology: []
       comment: roomalert_3s 1.3.6.1.4.1.20916.1.13.*
     - label: sysObjectID
@@ -34614,10 +34867,11 @@ fingerprinters:
       - hp_h3c_switch
       modules_hot:
       - if_mib
+      - hp_h3c_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - hp_h3c_switch
+      - hp_h3c_switch_ext
       modules_topology: []
       comment: hp_h3c_switch 1.3.6.1.4.1.25506.11.1.*
     - label: sysObjectID
@@ -34627,10 +34881,10 @@ fingerprinters:
       - netgear_access_point
       modules_hot:
       - if_mib
+      - netgear_access_point
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - netgear_access_point
       modules_topology: []
       comment: netgear_access_point 1.3.6.1.4.1.4526.100.7.*
     - label: sysObjectID
@@ -34647,9 +34901,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.20916\.1\.9(\.[0-9]+)+$
       modules:
       - roomalert_3e
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - roomalert_3e
+      modules_cold:
+      - roomalert_3e_ext
       modules_topology: []
       comment: roomalert_3e .1.3.6.1.4.1.20916.1.9.*
     - label: sysObjectID
@@ -34689,14 +34944,16 @@ fingerprinters:
       - palo_alto
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - palo_alto
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - ospf_mib
       - entity_sensor_mib
-      - palo_alto
-      modules_topology: []
+      - host_resources_mib_ext
+      - palo_alto_ext
+      modules_topology:
+      - ospf_mib
       comment: palo_alto 1.3.6.1.4.1.25461.2.3.*
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.23867\.1\.2(\.[0-9]+)+$
@@ -34705,10 +34962,11 @@ fingerprinters:
       - edgeconnect
       modules_hot:
       - if_mib
+      - edgeconnect
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - edgeconnect
+      - edgeconnect_ext
       modules_topology: []
       comment: edgeconnect 1.3.6.1.4.1.23867.1.2.*
     - label: sysObjectID
@@ -34725,9 +34983,11 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.674\.10892(\.[0-9]+)+$
       modules:
       - dell_idrac
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - dell_idrac
+      modules_cold:
+      - dell_idrac_sensors
+      - dell_idrac_ext
       modules_topology: []
       comment: dell_idrac 1.3.6.1.4.1.674.10892.*
     - label: sysObjectID
@@ -34746,10 +35006,10 @@ fingerprinters:
       - force10
       modules_hot:
       - if_mib
+      - force10
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - force10
       modules_topology: []
       comment: force10 1.3.6.1.4.1.6027.1.3.*
     - label: sysObjectID
@@ -34772,12 +35032,16 @@ fingerprinters:
       - pulse_secure
       modules_hot:
       - if_mib
-      modules_cold:
-      - if_mib_meta
-      - ip_addr
       - host_resources_mib
       - ucd_mib
       - pulse_secure
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - pulse_secure_sensors
+      - pulse_secure_ext
       modules_topology: []
       comment: pulse_secure 1.3.6.1.4.1.12532.256.*
     - label: sysObjectID
@@ -34802,9 +35066,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.19536\.10(\.[0-9]+)+$
       modules:
       - panduit_pdu
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - panduit_pdu
+      modules_cold:
+      - panduit_pdu_ext
       modules_topology: []
       comment: panduit_pdu 1.3.6.1.4.1.19536.10.*
     - label: sysObjectID
@@ -34814,10 +35079,10 @@ fingerprinters:
       - 3com
       modules_hot:
       - if_mib
+      - 3com
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - 3com
       modules_topology: []
       comment: 3com 1.3.6.1.4.1.43.1.8.*
     - label: sysObjectID
@@ -34828,12 +35093,16 @@ fingerprinters:
       - barracuda_cloudgen
       modules_hot:
       - if_mib
+      - ucd_mib
+      - barracuda_cloudgen
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - ucd_mib
-      - barracuda_cloudgen
-      modules_topology: []
+      - ucd_mib_ext
+      - barracuda_cloudgen_sensors
+      - barracuda_cloudgen_ext
+      modules_topology:
+      - barracuda_cloudgen_topo
       comment: barracuda_cloudgen 1.3.6.1.4.1.10704.1.*
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.15497\.1(\.[0-9]+)+$
@@ -34861,11 +35130,13 @@ fingerprinters:
       - exagrid
       modules_hot:
       - if_mib
+      - host_resources_mib
+      - exagrid
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - host_resources_mib
-      - exagrid
+      - host_resources_mib_ext
+      - exagrid_ext
       modules_topology: []
       comment: exagrid 1.3.6.1.4.1.14941.3.*
     - label: sysObjectID
@@ -34873,10 +35144,12 @@ fingerprinters:
       modules:
       - ups_mib
       - hpe_cambium
-      modules_hot: []
+      modules_hot:
+      - hpe_cambium
       modules_cold:
       - ups_mib
-      - hpe_cambium
+      - hpe_cambium_sensors
+      - hpe_cambium_ext
       modules_topology: []
       comment: hpe_cambium 1.3.6.1.4.1.232.165.*
     - label: sysObjectID
@@ -34895,10 +35168,12 @@ fingerprinters:
       - mikrotik_router
       modules_hot:
       - if_mib
+      - mikrotik_router
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - mikrotik_router
+      - mikrotik_router_sensors
+      - mikrotik_router_ext
       modules_topology: []
       comment: mikrotik_router 1.3.6.1.4.1.14988.1.*
     - label: sysObjectID
@@ -34908,10 +35183,12 @@ fingerprinters:
       - mikrotik_switch
       modules_hot:
       - if_mib
+      - mikrotik_switch
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - mikrotik_switch
+      - mikrotik_switch_sensors
+      - mikrotik_switch_ext
       modules_topology: []
       comment: mikrotik_switch 1.3.6.1.4.1.14988.2.*
     - label: sysObjectID
@@ -34951,10 +35228,10 @@ fingerprinters:
       - tp_link
       modules_hot: &id211
       - if_mib
+      - tp_link
       modules_cold: &id212
       - if_mib_meta
       - ip_addr
-      - tp_link
       modules_topology: &id213 []
       comment: tp_link 1.3.6.1.4.1.11863.1.*
     - label: sysObjectID
@@ -34973,10 +35250,12 @@ fingerprinters:
       - checkpoint_firewall
       modules_hot:
       - if_mib
+      - checkpoint_firewall
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - checkpoint_firewall
+      - checkpoint_firewall_sensors
+      - checkpoint_firewall_ext
       modules_topology: []
       comment: checkpoint_firewall 1.3.6.1.4.1.2620.1.*
     - label: sysObjectID
@@ -34996,12 +35275,15 @@ fingerprinters:
       - huawei_all_devices_identity
       modules_hot:
       - if_mib
+      - huawei_all_devices
       - huawei_all_devices_identity
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - huawei_all_devices
-      modules_topology: []
+      - huawei_all_devices_sensors
+      - huawei_all_devices_ext
+      modules_topology:
+      - huawei_all_devices_topo
       comment: huawei_all_devices 1.3.6.1.4.1.2011.2.*
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.119\.1(\.[0-9]+)+$
@@ -35039,18 +35321,20 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.17095(\.[0-9]+)+$
       modules:
       - sensor_gateway_base_unit
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - sensor_gateway_base_unit
+      modules_cold:
+      - sensor_gateway_base_unit_ext
       modules_topology: []
       comment: sensor_gateway_base_unit 1.3.6.1.4.1.17095.*
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.12124(\.[0-9]+)+$
       modules:
       - isilon
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - isilon
+      modules_cold:
+      - isilon_ext
       modules_topology: []
       comment: isilon 1.3.6.1.4.1.12124.*
     - label: sysObjectID
@@ -35060,10 +35344,11 @@ fingerprinters:
       - meraki_cloud_controller
       modules_hot:
       - if_mib
+      - meraki_cloud_controller
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - meraki_cloud_controller
+      - meraki_cloud_controller_ext
       modules_topology: []
       comment: meraki_cloud_controller 1.3.6.1.4.1.29671.*
     - label: sysObjectID
@@ -35073,10 +35358,12 @@ fingerprinters:
       - mimosa_device
       modules_hot:
       - if_mib
+      - mimosa_device
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - mimosa_device
+      - mimosa_device_sensors
+      - mimosa_device_ext
       modules_topology: []
       comment: mimosa_device 1.3.6.1.4.1.43356.*
     - label: sysObjectID
@@ -35087,13 +35374,16 @@ fingerprinters:
       - ucd_mib
       - nutanix
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - nutanix
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - nutanix_ext
       modules_topology: []
       comment: nutanix 1.3.6.1.4.1.41263.*
     - label: sysObjectID
@@ -35114,13 +35404,15 @@ fingerprinters:
       - ucd_mib
       - pf_sense
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - pf_sense
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
       modules_topology: []
       comment: pf_sense 1.3.6.1.4.1.12325.*
     - label: sysObjectID
@@ -35136,9 +35428,10 @@ fingerprinters:
       regex: ^\.?1\.3\.6\.1\.4\.1\.46262(\.[0-9]+)+$
       modules:
       - zscaler_nss
-      modules_hot: []
-      modules_cold:
+      modules_hot:
       - zscaler_nss
+      modules_cold:
+      - zscaler_nss_ext
       modules_topology: []
       comment: zscaler_nss 1.3.6.1.4.1.46262.*
     - label: sysObjectID
@@ -35150,14 +35443,18 @@ fingerprinters:
       - dell_poweredge
       - net_snmp
       modules_hot:
-      - if_mib
-      modules_cold:
       - host_resources_mib
-      - if_mib_meta
-      - ip_addr
+      - if_mib
       - ucd_mib
       - dell_poweredge
       - net_snmp
+      modules_cold:
+      - if_mib_meta
+      - ip_addr
+      - host_resources_mib_ext
+      - ucd_mib_ext
+      - dell_poweredge_sensors
+      - dell_poweredge_ext
       modules_topology: []
       comment: net_snmp 1.3.6.1.4.1.8072.*
     - label: sysObjectID
@@ -35167,10 +35464,10 @@ fingerprinters:
       - linksys
       modules_hot:
       - if_mib
+      - linksys
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - linksys
       modules_topology: []
       comment: linksys 1.3.6.1.4.1.3955.*
     - label: sysObjectID
@@ -35180,10 +35477,10 @@ fingerprinters:
       - netgear_generic
       modules_hot:
       - if_mib
+      - netgear_generic
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - netgear_generic
       modules_topology: []
       comment: netgear_generic 1.3.6.1.4.1.4526.*
     - label: sysObjectID
@@ -35193,10 +35490,12 @@ fingerprinters:
       - disk_station
       modules_hot:
       - if_mib
+      - disk_station
       modules_cold:
       - if_mib_meta
       - ip_addr
-      - disk_station
+      - disk_station_sensors
+      - disk_station_ext
       modules_topology: []
       comment: disk_station 1.3.6.1.4.1.6574.*
     - label: sysObjectID
@@ -35228,13 +35527,13 @@ fingerprinters:
       - base
       modules_hot:
       - if_mib
+      - base
       modules_cold:
       - if_mib_meta
       - ip_addr
       - ip_mib
       - tcp_mib
       - udp_mib
+      modules_topology:
       - ospf_mib
-      - base
-      modules_topology: []
       comment: base 1.3.6.1.4.*

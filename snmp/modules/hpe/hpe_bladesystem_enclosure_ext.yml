@@ -1,0 +1,745 @@
+# GENERATED from kentik/snmp-profiles — module hpe_bladesystem_enclosure_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hpe_bladesystem_enclosure_ext:
+    metrics:
+    - name: snmp_cpqRackCommonEnclosureFusePresent
+      oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.6
+      type: gauge
+      help: cpqRackCommonEnclosureFusePresent (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.4.1.6
+      indexes:
+      - labelname: cpqRackCommonEnclosureFuseRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFuseChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFuseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureFuseRack
+        - cpqRackCommonEnclosureFuseChassis
+        - cpqRackCommonEnclosureFuseIndex
+        labelname: cpqRackCommonEnclosureFuseEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFuseRack
+        - cpqRackCommonEnclosureFuseChassis
+        - cpqRackCommonEnclosureFuseIndex
+        labelname: cpqRackCommonEnclosureFuseLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.5
+        type: DisplayString
+      enum_values:
+        1: other
+        2: absent
+        3: present
+    - name: snmp_cpqRackCommonEnclosureFuseCondition
+      oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.7
+      type: gauge
+      help: cpqRackCommonEnclosureFuseCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.4.1.7
+      indexes:
+      - labelname: cpqRackCommonEnclosureFuseRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFuseChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFuseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureFuseRack
+        - cpqRackCommonEnclosureFuseChassis
+        - cpqRackCommonEnclosureFuseIndex
+        labelname: cpqRackCommonEnclosureFuseEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFuseRack
+        - cpqRackCommonEnclosureFuseChassis
+        - cpqRackCommonEnclosureFuseIndex
+        labelname: cpqRackCommonEnclosureFuseLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.4.1.5
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        4: failed
+    - name: snmp_cpqRackCommonEnclosureManagerCondition
+      oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.12
+      type: gauge
+      help: cpqRackCommonEnclosureManagerCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.6.1.12
+      indexes:
+      - labelname: cpqRackCommonEnclosureManagerRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureManagerChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureManagerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerRole
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.9
+        type: EnumAsInfo
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerPresent
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.10
+        type: EnumAsInfo
+      - labels:
+        - cpqRackCommonEnclosureManagerRack
+        - cpqRackCommonEnclosureManagerChassis
+        - cpqRackCommonEnclosureManagerIndex
+        labelname: cpqRackCommonEnclosureManagerRedundant
+        oid: 1.3.6.1.4.1.232.22.2.3.1.6.1.11
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqRackPowerEnclosureCondition
+      oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.9
+      type: gauge
+      help: cpqRackPowerEnclosureCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.3.1.1.9
+      indexes:
+      - labelname: cpqRackPowerEnclosureRack
+        type: gauge
+      - labelname: cpqRackPowerEnclosureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureMgmtBoardSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureRedundant
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureLoadBalanced
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.6
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureInputPwrType
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.7
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosurePwrFeedMax
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerEnclosureRack
+        - cpqRackPowerEnclosureIndex
+        labelname: cpqRackPowerEnclosureBladeAutopoweron
+        oid: 1.3.6.1.4.1.232.22.2.3.3.1.1.10
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+    - name: snmp_cpqRackServerBladeStatus
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.21
+      type: gauge
+      help: cpqRackServerBladeStatus (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.21
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqRackServerBladeFaultMajor
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.22
+      type: gauge
+      help: cpqRackServerBladeFaultMajor (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.22
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackServerBladeFaultMinor
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.23
+      type: gauge
+      help: cpqRackServerBladeFaultMinor (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.23
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackServerBladeFaultDiagnosticString
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.24
+      type: gauge
+      help: cpqRackServerBladeFaultDiagnosticString (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.24
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackServerBladePowered
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.25
+      type: gauge
+      help: cpqRackServerBladePowered (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.25
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: other
+        2: 'on'
+        3: 'off'
+        4: powerStagedOff
+        5: reboot
+    - name: snmp_cpqRackServerBladeUIDState
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.26
+      type: gauge
+      help: cpqRackServerBladeUIDState (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.26
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: other
+        2: none
+        3: ledOn
+        4: ledOff
+    - name: snmp_cpqRackServerBladePOSTStatus
+      oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.35
+      type: gauge
+      help: cpqRackServerBladePOSTStatus (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.1.1.1.35
+      indexes:
+      - labelname: cpqRackServerBladeRack
+        type: gauge
+      - labelname: cpqRackServerBladeChassis
+        type: gauge
+      - labelname: cpqRackServerBladeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeName
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePosition
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladePresent
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.12
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeHasFuses
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.13
+        type: EnumAsInfo
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.16
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeProductId
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.17
+        type: DisplayString
+      - labels:
+        - cpqRackServerBladeRack
+        - cpqRackServerBladeChassis
+        - cpqRackServerBladeIndex
+        labelname: cpqRackServerBladeUid
+        oid: 1.3.6.1.4.1.232.22.2.4.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: other
+        2: started
+        3: completed
+        4: failed
+    walk:
+    - 1.3.6.1.4.1.232.22.2.3.1.4
+    - 1.3.6.1.4.1.232.22.2.3.1.6
+    - 1.3.6.1.4.1.232.22.2.3.3.1
+    - 1.3.6.1.4.1.232.22.2.4.1.1

@@ -1,0 +1,46 @@
+# GENERATED from kentik/snmp-profiles — module esx_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  esx_ext:
+    metrics:
+    - name: snmp_vmwHbaStatus
+      oid: 1.3.6.1.4.1.6876.3.5.2.1.4
+      type: gauge
+      help: vmwHbaStatus (VMWARE-RESOURCES-MIB) - 1.3.6.1.4.1.6876.3.5.2.1.4
+      indexes:
+      - labelname: vmwHostBusAdapterIndex
+        type: gauge
+      lookups:
+      - labels:
+        - vmwHostBusAdapterIndex
+        labelname: vmwHbaDeviceName
+        oid: 1.3.6.1.4.1.6876.3.5.2.1.2
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: normal
+        3: marginal
+        4: critical
+        5: failed
+    - name: snmp_vmwHardwareStatus
+      oid: 1.3.6.1.4.1.6876.4.20.3.1.3
+      type: gauge
+      help: vmwHardwareStatus (VMWARE-ENV-MIB) - 1.3.6.1.4.1.6876.4.20.3.1.3
+      indexes:
+      - labelname: vmwEnvIndex
+        type: gauge
+      lookups:
+      - labels:
+        - vmwEnvIndex
+        labelname: vmwSubsystemType
+        oid: 1.3.6.1.4.1.6876.4.20.3.1.2
+        type: EnumAsInfo
+      enum_values:
+        1: unknown
+        2: normal
+        3: marginal
+        4: critical
+        5: failed
+    walk:
+    - 1.3.6.1.4.1.6876.3.5.2
+    - 1.3.6.1.4.1.6876.4.20.3

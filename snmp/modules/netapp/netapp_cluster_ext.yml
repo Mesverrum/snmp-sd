@@ -1,0 +1,3877 @@
+# GENERATED from kentik/snmp-profiles — module netapp_cluster_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  netapp_cluster_ext:
+    metrics:
+    - name: snmp_miscGlobalStatus
+      oid: 1.3.6.1.4.1.789.1.2.2.4
+      type: gauge
+      help: miscGlobalStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.2.4.0
+      enum_values:
+        1: other
+        2: unknown
+        3: ok
+        4: nonCritical
+        5: critical
+        6: nonRecoverable
+      lookups: []
+    - name: snmp_miscCacheAge
+      oid: 1.3.6.1.4.1.789.1.2.2.23
+      type: gauge
+      help: miscCacheAge (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.2.23.0
+      lookups: []
+    - name: snmp_miscGlobalStatusMessage
+      oid: 1.3.6.1.4.1.789.1.2.2.25
+      type: gauge
+      help: miscGlobalStatusMessage (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.2.25.0
+      lookups: []
+    - name: snmp_cfState
+      oid: 1.3.6.1.4.1.789.1.2.3.2
+      type: gauge
+      help: cfState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.3.2.0
+      enum_values:
+        1: dead
+        2: canTakeover
+        3: cannotTakeover
+        4: takeover
+      lookups: []
+    - name: snmp_cfPartnerStatus
+      oid: 1.3.6.1.4.1.789.1.2.3.4
+      type: gauge
+      help: cfPartnerStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.3.4.0
+      enum_values:
+        1: maybeDown
+        2: ok
+        3: dead
+      lookups: []
+    - name: snmp_cfPartnerName
+      oid: 1.3.6.1.4.1.789.1.2.3.6
+      type: gauge
+      help: cfPartnerName (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.3.6.0
+      lookups: []
+    - name: snmp_cfInterconnectStatus
+      oid: 1.3.6.1.4.1.789.1.2.3.8
+      type: gauge
+      help: cfInterconnectStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.3.8.0
+      enum_values:
+        1: notPresent
+        2: down
+        3: partialFailure
+        4: up
+      lookups: []
+    - name: snmp_cpFromTimerOps
+      oid: 1.3.6.1.4.1.789.1.2.6.2
+      type: counter
+      help: cpFromTimerOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.2.0
+      lookups: []
+    - name: snmp_cpFromSnapshotOps
+      oid: 1.3.6.1.4.1.789.1.2.6.3
+      type: counter
+      help: cpFromSnapshotOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.3.0
+      lookups: []
+    - name: snmp_cpFromLowWaterOps
+      oid: 1.3.6.1.4.1.789.1.2.6.4
+      type: counter
+      help: cpFromLowWaterOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.4.0
+      lookups: []
+    - name: snmp_cpFromHighWaterOps
+      oid: 1.3.6.1.4.1.789.1.2.6.5
+      type: counter
+      help: cpFromHighWaterOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.5.0
+      lookups: []
+    - name: snmp_cpFromLogFullOps
+      oid: 1.3.6.1.4.1.789.1.2.6.6
+      type: counter
+      help: cpFromLogFullOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.6.0
+      lookups: []
+    - name: snmp_cpFromCpOps
+      oid: 1.3.6.1.4.1.789.1.2.6.7
+      type: counter
+      help: cpFromCpOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.7.0
+      lookups: []
+    - name: snmp_cpTotalOps
+      oid: 1.3.6.1.4.1.789.1.2.6.8
+      type: counter
+      help: cpTotalOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.8.0
+      lookups: []
+    - name: snmp_cpFromFlushOps
+      oid: 1.3.6.1.4.1.789.1.2.6.9
+      type: counter
+      help: cpFromFlushOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.9.0
+      lookups: []
+    - name: snmp_cpFromSyncOps
+      oid: 1.3.6.1.4.1.789.1.2.6.10
+      type: counter
+      help: cpFromSyncOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.10.0
+      lookups: []
+    - name: snmp_cpFromCpDeferredOps
+      oid: 1.3.6.1.4.1.789.1.2.6.12
+      type: counter
+      help: cpFromCpDeferredOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.12.0
+      lookups: []
+    - name: snmp_cpFromLowDatavecsOps
+      oid: 1.3.6.1.4.1.789.1.2.6.13
+      type: counter
+      help: cpFromLowDatavecsOps (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.6.13.0
+      lookups: []
+    - name: snmp_autosupportStatus
+      oid: 1.3.6.1.4.1.789.1.2.7.1
+      type: gauge
+      help: autosupportStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.7.1.0
+      enum_values:
+        1: ok
+        2: smtpFailure
+        3: postFailure
+        4: smtp-postFailure
+        5: unknown
+      lookups: []
+    - name: snmp_autosupportStatusMessage
+      oid: 1.3.6.1.4.1.789.1.2.7.2
+      type: gauge
+      help: autosupportStatusMessage (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.7.2.0
+      lookups: []
+    - name: snmp_autosupportSuccessfulSends
+      oid: 1.3.6.1.4.1.789.1.2.7.3
+      type: counter
+      help: autosupportSuccessfulSends (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.7.3.0
+      lookups: []
+    - name: snmp_autosupportFailedSends
+      oid: 1.3.6.1.4.1.789.1.2.7.4
+      type: counter
+      help: autosupportFailedSends (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.7.4.0
+      lookups: []
+    - name: snmp_dfNumber
+      oid: 1.3.6.1.4.1.789.1.5.6
+      type: gauge
+      help: dfNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.6.0
+      lookups: []
+    - name: snmp_volNumber
+      oid: 1.3.6.1.4.1.789.1.5.9
+      type: gauge
+      help: volNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.9.0
+      lookups: []
+    - name: snmp_aggrNumber
+      oid: 1.3.6.1.4.1.789.1.5.12
+      type: gauge
+      help: aggrNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.12.0
+      lookups: []
+    - name: snmp_diskTotalCount
+      oid: 1.3.6.1.4.1.789.1.6.4.1
+      type: gauge
+      help: diskTotalCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.1.0
+      lookups: []
+    - name: snmp_diskActiveCount
+      oid: 1.3.6.1.4.1.789.1.6.4.2
+      type: gauge
+      help: diskActiveCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.2.0
+      lookups: []
+    - name: snmp_diskReconstructingCount
+      oid: 1.3.6.1.4.1.789.1.6.4.3
+      type: gauge
+      help: diskReconstructingCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.3.0
+      lookups: []
+    - name: snmp_diskReconstructingParityCount
+      oid: 1.3.6.1.4.1.789.1.6.4.4
+      type: gauge
+      help: diskReconstructingParityCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.4.0
+      lookups: []
+    - name: snmp_diskVerifyingParityCount
+      oid: 1.3.6.1.4.1.789.1.6.4.5
+      type: gauge
+      help: diskVerifyingParityCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.5.0
+      lookups: []
+    - name: snmp_diskScrubbingCount
+      oid: 1.3.6.1.4.1.789.1.6.4.6
+      type: gauge
+      help: diskScrubbingCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.6.0
+      lookups: []
+    - name: snmp_diskFailedCount
+      oid: 1.3.6.1.4.1.789.1.6.4.7
+      type: gauge
+      help: diskFailedCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.7.0
+      lookups: []
+    - name: snmp_diskSpareCount
+      oid: 1.3.6.1.4.1.789.1.6.4.8
+      type: gauge
+      help: diskSpareCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.8.0
+      lookups: []
+    - name: snmp_diskAddingSpareCount
+      oid: 1.3.6.1.4.1.789.1.6.4.9
+      type: gauge
+      help: diskAddingSpareCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.9.0
+      lookups: []
+    - name: snmp_diskFailedMessage
+      oid: 1.3.6.1.4.1.789.1.6.4.10
+      type: gauge
+      help: diskFailedMessage (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.10.0
+      lookups: []
+    - name: snmp_diskPrefailedCount
+      oid: 1.3.6.1.4.1.789.1.6.4.11
+      type: gauge
+      help: diskPrefailedCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.4.11.0
+      lookups: []
+    - name: snmp_raidVNumber
+      oid: 1.3.6.1.4.1.789.1.6.5
+      type: gauge
+      help: raidVNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.5.0
+      lookups: []
+    - name: snmp_spareNumber
+      oid: 1.3.6.1.4.1.789.1.6.6
+      type: gauge
+      help: spareNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.6.0
+      lookups: []
+    - name: snmp_otherDiskNumber
+      oid: 1.3.6.1.4.1.789.1.6.7
+      type: gauge
+      help: otherDiskNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.7.0
+      lookups: []
+    - name: snmp_raidPNumber
+      oid: 1.3.6.1.4.1.789.1.6.8
+      type: gauge
+      help: raidPNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.8.0
+      lookups: []
+    - name: snmp_outOfDateDiskCount
+      oid: 1.3.6.1.4.1.789.1.6.12
+      type: gauge
+      help: outOfDateDiskCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.12.0
+      lookups: []
+    - name: snmp_ncHttpActiveCliConns
+      oid: 1.3.6.1.4.1.789.1.8.3.6.36
+      type: gauge
+      help: ncHttpActiveCliConns (NETAPP-MIB) - 1.3.6.1.4.1.789.1.8.3.6.36.0
+      lookups: []
+    - name: snmp_enclNumber
+      oid: 1.3.6.1.4.1.789.1.21.1.1
+      type: gauge
+      help: enclNumber (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.1.0
+      lookups: []
+    - name: snmp_extcache64Hits
+      oid: 1.3.6.1.4.1.789.1.26.8
+      type: counter
+      help: extcache64Hits (NETAPP-MIB) - 1.3.6.1.4.1.789.1.26.8.0
+      lookups: []
+    - name: snmp_qvStateStat
+      oid: 1.3.6.1.4.1.789.1.4.4.1.3
+      type: gauge
+      help: qvStateStat (NETAPP-MIB) - 1.3.6.1.4.1.789.1.4.4.1.3
+      indexes:
+      - labelname: qvStateVolume
+        type: gauge
+      lookups:
+      - labels:
+        - qvStateVolume
+        labelname: qvStateName
+        oid: 1.3.6.1.4.1.789.1.4.4.1.2
+        type: DisplayString
+      - labels:
+        - qvStateVolume
+        labelname: qvStateVserver
+        oid: 1.3.6.1.4.1.789.1.4.4.1.5
+        type: DisplayString
+      enum_values:
+        1: quotaStateOff
+        2: quotaStateOn
+        3: quotaStateInit
+        4: quotaStateCorrupt
+    - name: snmp_qvStateInitPercent
+      oid: 1.3.6.1.4.1.789.1.4.4.1.4
+      type: gauge
+      help: qvStateInitPercent (NETAPP-MIB) - 1.3.6.1.4.1.789.1.4.4.1.4
+      indexes:
+      - labelname: qvStateVolume
+        type: gauge
+      lookups:
+      - labels:
+        - qvStateVolume
+        labelname: qvStateName
+        oid: 1.3.6.1.4.1.789.1.4.4.1.2
+        type: DisplayString
+      - labels:
+        - qvStateVolume
+        labelname: qvStateVserver
+        oid: 1.3.6.1.4.1.789.1.4.4.1.5
+        type: DisplayString
+    - name: snmp_dfPerCentKBytesCapacity
+      oid: 1.3.6.1.4.1.789.1.5.4.1.6
+      type: gauge
+      help: dfPerCentKBytesCapacity (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.6
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfInodesUsed
+      oid: 1.3.6.1.4.1.789.1.5.4.1.7
+      type: gauge
+      help: dfInodesUsed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.7
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfInodesFree
+      oid: 1.3.6.1.4.1.789.1.5.4.1.8
+      type: gauge
+      help: dfInodesFree (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.8
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfPerCentInodeCapacity
+      oid: 1.3.6.1.4.1.789.1.5.4.1.9
+      type: gauge
+      help: dfPerCentInodeCapacity (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.9
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfMaxFilesAvail
+      oid: 1.3.6.1.4.1.789.1.5.4.1.11
+      type: gauge
+      help: dfMaxFilesAvail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.11
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfMaxFilesUsed
+      oid: 1.3.6.1.4.1.789.1.5.4.1.12
+      type: gauge
+      help: dfMaxFilesUsed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.12
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfStatus
+      oid: 1.3.6.1.4.1.789.1.5.4.1.20
+      type: gauge
+      help: dfStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.20
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+      enum_values:
+        0: unsupported
+        1: unmounted
+        2: mounted
+        3: frozen
+        4: destroying
+        5: creating
+        6: mounting
+        7: unmounting
+        8: nofsinfo
+        9: replaying
+        10: replayed
+    - name: snmp_dfMirrorStatus
+      oid: 1.3.6.1.4.1.789.1.5.4.1.21
+      type: gauge
+      help: dfMirrorStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.21
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+      enum_values:
+        0: unsupported
+        1: invalid
+        2: uninitialized
+        3: needcpcheck
+        4: cpcheckwait
+        5: unmirrored
+        6: normal
+        7: degraded
+        8: resyncing
+        9: failed
+        10: limbo
+    - name: snmp_dfPlexCount
+      oid: 1.3.6.1.4.1.789.1.5.4.1.22
+      type: gauge
+      help: dfPlexCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.22
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfPerCentSaved
+      oid: 1.3.6.1.4.1.789.1.5.4.1.28
+      type: gauge
+      help: dfPerCentSaved (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.28
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_df64TotalKBytes
+      oid: 1.3.6.1.4.1.789.1.5.4.1.29
+      type: counter
+      help: df64TotalKBytes (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.29
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_df64UsedKBytes
+      oid: 1.3.6.1.4.1.789.1.5.4.1.30
+      type: counter
+      help: df64UsedKBytes (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.30
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_df64AvailKBytes
+      oid: 1.3.6.1.4.1.789.1.5.4.1.31
+      type: counter
+      help: df64AvailKBytes (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.31
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_dfStateOnline
+      oid: 1.3.6.1.4.1.789.1.5.4.1.35
+      type: gauge
+      help: dfStateOnline (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.35
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+    - name: snmp_df64TotalReservedKBytes
+      oid: 1.3.6.1.4.1.789.1.5.4.1.43
+      type: counter
+      help: df64TotalReservedKBytes (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.4.1.43
+      indexes:
+      - labelname: dfIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dfIndex
+        labelname: dfFileSys
+        oid: 1.3.6.1.4.1.789.1.5.4.1.2
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfMountedOn
+        oid: 1.3.6.1.4.1.789.1.5.4.1.10
+        type: DisplayString
+      - labels:
+        - dfIndex
+        labelname: dfType
+        oid: 1.3.6.1.4.1.789.1.5.4.1.23
+        type: EnumAsInfo
+      - labels:
+        - dfIndex
+        labelname: dfVserver
+        oid: 1.3.6.1.4.1.789.1.5.4.1.34
+        type: DisplayString
+    - name: snmp_volState
+      oid: 1.3.6.1.4.1.789.1.5.8.1.5
+      type: gauge
+      help: volState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.8.1.5
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.2
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volFSID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.3
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volOptions
+        oid: 1.3.6.1.4.1.789.1.5.8.1.7
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volUUID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.8
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volAggrName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.9
+        type: DisplayString
+    - name: snmp_volStatus
+      oid: 1.3.6.1.4.1.789.1.5.8.1.6
+      type: gauge
+      help: volStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.8.1.6
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.2
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volFSID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.3
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volOptions
+        oid: 1.3.6.1.4.1.789.1.5.8.1.7
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volUUID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.8
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volAggrName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.9
+        type: DisplayString
+    - name: snmp_volType
+      oid: 1.3.6.1.4.1.789.1.5.8.1.10
+      type: EnumAsInfo
+      help: volType (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.8.1.10
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.2
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volFSID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.3
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volOptions
+        oid: 1.3.6.1.4.1.789.1.5.8.1.7
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volUUID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.8
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volAggrName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.9
+        type: DisplayString
+      enum_values:
+        1: traditional
+        2: flexible
+        3: striped
+        4: asis
+        5: snaplock
+    - name: snmp_volClone
+      oid: 1.3.6.1.4.1.789.1.5.8.1.11
+      type: gauge
+      help: volClone (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.8.1.11
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.2
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volFSID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.3
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volOptions
+        oid: 1.3.6.1.4.1.789.1.5.8.1.7
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volUUID
+        oid: 1.3.6.1.4.1.789.1.5.8.1.8
+        type: DisplayString
+      - labels:
+        - volIndex
+        labelname: volAggrName
+        oid: 1.3.6.1.4.1.789.1.5.8.1.9
+        type: DisplayString
+      enum_values:
+        1: 'off'
+        2: 'on'
+    - name: snmp_qtreeStyle
+      oid: 1.3.6.1.4.1.789.1.5.10.1.6
+      type: gauge
+      help: qtreeStyle (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.10.1.6
+      indexes:
+      - labelname: qtreeVolume
+        type: gauge
+      - labelname: qtreeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolume
+        oid: 1.3.6.1.4.1.789.1.5.10.1.2
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolumeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.3
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeId
+        oid: 1.3.6.1.4.1.789.1.5.10.1.4
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.5
+        type: DisplayString
+      enum_values:
+        1: unix
+        2: ntfs
+        3: mixed
+    - name: snmp_qtreeStatus
+      oid: 1.3.6.1.4.1.789.1.5.10.1.7
+      type: gauge
+      help: qtreeStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.10.1.7
+      indexes:
+      - labelname: qtreeVolume
+        type: gauge
+      - labelname: qtreeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolume
+        oid: 1.3.6.1.4.1.789.1.5.10.1.2
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolumeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.3
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeId
+        oid: 1.3.6.1.4.1.789.1.5.10.1.4
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.5
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: snapmirrored
+        3: snapvaulted
+    - name: snmp_qtreeOplock
+      oid: 1.3.6.1.4.1.789.1.5.10.1.8
+      type: gauge
+      help: qtreeOplock (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.10.1.8
+      indexes:
+      - labelname: qtreeVolume
+        type: gauge
+      - labelname: qtreeIndex
+        type: gauge
+      lookups:
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolume
+        oid: 1.3.6.1.4.1.789.1.5.10.1.2
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeVolumeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.3
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeId
+        oid: 1.3.6.1.4.1.789.1.5.10.1.4
+        type: DisplayString
+      - labels:
+        - qtreeVolume
+        - qtreeIndex
+        labelname: qtreeName
+        oid: 1.3.6.1.4.1.789.1.5.10.1.5
+        type: DisplayString
+      enum_values:
+        1: enabled
+        2: disabled
+    - name: snmp_aggrState
+      oid: 1.3.6.1.4.1.789.1.5.11.1.5
+      type: gauge
+      help: aggrState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.11.1.5
+      indexes:
+      - labelname: aggrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - aggrIndex
+        labelname: aggrName
+        oid: 1.3.6.1.4.1.789.1.5.11.1.2
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrFSID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.3
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrOptions
+        oid: 1.3.6.1.4.1.789.1.5.11.1.7
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrUUID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.8
+        type: DisplayString
+    - name: snmp_aggrStatus
+      oid: 1.3.6.1.4.1.789.1.5.11.1.6
+      type: gauge
+      help: aggrStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.11.1.6
+      indexes:
+      - labelname: aggrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - aggrIndex
+        labelname: aggrName
+        oid: 1.3.6.1.4.1.789.1.5.11.1.2
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrFSID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.3
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrOptions
+        oid: 1.3.6.1.4.1.789.1.5.11.1.7
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrUUID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.8
+        type: DisplayString
+    - name: snmp_aggrType
+      oid: 1.3.6.1.4.1.789.1.5.11.1.10
+      type: EnumAsInfo
+      help: aggrType (NETAPP-MIB) - 1.3.6.1.4.1.789.1.5.11.1.10
+      indexes:
+      - labelname: aggrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - aggrIndex
+        labelname: aggrName
+        oid: 1.3.6.1.4.1.789.1.5.11.1.2
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrFSID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.3
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrOptions
+        oid: 1.3.6.1.4.1.789.1.5.11.1.7
+        type: DisplayString
+      - labels:
+        - aggrIndex
+        labelname: aggrUUID
+        oid: 1.3.6.1.4.1.789.1.5.11.1.8
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: traditional
+        2: aggregate
+        3: striped
+    - name: snmp_raidVStatus
+      oid: 1.3.6.1.4.1.789.1.6.2.1.3
+      type: gauge
+      help: raidVStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.2.1.3
+      indexes:
+      - labelname: raidVVol
+        type: gauge
+      - labelname: raidVGroup
+        type: gauge
+      - labelname: raidVIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.2
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVVol
+        oid: 1.3.6.1.4.1.789.1.6.2.1.12
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.13
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.14
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.15
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVShelf
+        oid: 1.3.6.1.4.1.789.1.6.2.1.19
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVBay
+        oid: 1.3.6.1.4.1.789.1.6.2.1.20
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlex
+        oid: 1.3.6.1.4.1.789.1.6.2.1.21
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.22
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.23
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.24
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.2.1.25
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.26
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.2.1.27
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.2.1.28
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.2.1.29
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.2.1.30
+        type: gauge
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskType
+        oid: 1.3.6.1.4.1.789.1.6.2.1.31
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.2.1.32
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.33
+        type: DisplayString
+      enum_values:
+        1: active
+        2: reconstructionInProgress
+        3: parityReconstructionInProgress
+        4: parityVerificationInProgress
+        5: scrubbingInProgress
+        6: failed
+        9: prefailed
+        10: offline
+    - name: snmp_raidVUsedMb
+      oid: 1.3.6.1.4.1.789.1.6.2.1.7
+      type: gauge
+      help: raidVUsedMb (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.2.1.7
+      indexes:
+      - labelname: raidVVol
+        type: gauge
+      - labelname: raidVGroup
+        type: gauge
+      - labelname: raidVIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.2
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVVol
+        oid: 1.3.6.1.4.1.789.1.6.2.1.12
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.13
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.14
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.15
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVShelf
+        oid: 1.3.6.1.4.1.789.1.6.2.1.19
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVBay
+        oid: 1.3.6.1.4.1.789.1.6.2.1.20
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlex
+        oid: 1.3.6.1.4.1.789.1.6.2.1.21
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.22
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.23
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.24
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.2.1.25
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.26
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.2.1.27
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.2.1.28
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.2.1.29
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.2.1.30
+        type: gauge
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskType
+        oid: 1.3.6.1.4.1.789.1.6.2.1.31
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.2.1.32
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.33
+        type: DisplayString
+    - name: snmp_raidVTotalMb
+      oid: 1.3.6.1.4.1.789.1.6.2.1.9
+      type: gauge
+      help: raidVTotalMb (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.2.1.9
+      indexes:
+      - labelname: raidVVol
+        type: gauge
+      - labelname: raidVGroup
+        type: gauge
+      - labelname: raidVIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.2
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVVol
+        oid: 1.3.6.1.4.1.789.1.6.2.1.12
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.13
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.14
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.15
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVShelf
+        oid: 1.3.6.1.4.1.789.1.6.2.1.19
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVBay
+        oid: 1.3.6.1.4.1.789.1.6.2.1.20
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlex
+        oid: 1.3.6.1.4.1.789.1.6.2.1.21
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.22
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.23
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.24
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.2.1.25
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.26
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.2.1.27
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.2.1.28
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.2.1.29
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.2.1.30
+        type: gauge
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskType
+        oid: 1.3.6.1.4.1.789.1.6.2.1.31
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.2.1.32
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.33
+        type: DisplayString
+    - name: snmp_raidVCompletionPerCent
+      oid: 1.3.6.1.4.1.789.1.6.2.1.11
+      type: gauge
+      help: raidVCompletionPerCent (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.2.1.11
+      indexes:
+      - labelname: raidVVol
+        type: gauge
+      - labelname: raidVGroup
+        type: gauge
+      - labelname: raidVIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.2
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVVol
+        oid: 1.3.6.1.4.1.789.1.6.2.1.12
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.13
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.14
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.15
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVShelf
+        oid: 1.3.6.1.4.1.789.1.6.2.1.19
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVBay
+        oid: 1.3.6.1.4.1.789.1.6.2.1.20
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlex
+        oid: 1.3.6.1.4.1.789.1.6.2.1.21
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexGroup
+        oid: 1.3.6.1.4.1.789.1.6.2.1.22
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.23
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVPlexName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.24
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.2.1.25
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.2.1.26
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.2.1.27
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.2.1.28
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.2.1.29
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.2.1.30
+        type: gauge
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskType
+        oid: 1.3.6.1.4.1.789.1.6.2.1.31
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.2.1.32
+        type: DisplayString
+      - labels:
+        - raidVVol
+        - raidVGroup
+        - raidVIndex
+        labelname: raidVDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.2.1.33
+        type: DisplayString
+    - name: snmp_spareStatus
+      oid: 1.3.6.1.4.1.789.1.6.3.1.3
+      type: gauge
+      help: spareStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.3.1.3
+      indexes:
+      - labelname: spareIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spareIndex
+        labelname: spareDiskName
+        oid: 1.3.6.1.4.1.789.1.6.3.1.2
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareShelf
+        oid: 1.3.6.1.4.1.789.1.6.3.1.12
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareBay
+        oid: 1.3.6.1.4.1.789.1.6.3.1.13
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: sparePool
+        oid: 1.3.6.1.4.1.789.1.6.3.1.14
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.3.1.15
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.3.1.16
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.3.1.17
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.3.1.18
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.3.1.19
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.3.1.20
+        type: gauge
+      - labels:
+        - spareIndex
+        labelname: spareDiskType
+        oid: 1.3.6.1.4.1.789.1.6.3.1.21
+        type: DisplayString
+      enum_values:
+        1: spare
+        2: addingspare
+        3: bypassed
+        4: unknown
+        10: offline
+    - name: snmp_spareTotalMb
+      oid: 1.3.6.1.4.1.789.1.6.3.1.7
+      type: gauge
+      help: spareTotalMb (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.3.1.7
+      indexes:
+      - labelname: spareIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spareIndex
+        labelname: spareDiskName
+        oid: 1.3.6.1.4.1.789.1.6.3.1.2
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareShelf
+        oid: 1.3.6.1.4.1.789.1.6.3.1.12
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareBay
+        oid: 1.3.6.1.4.1.789.1.6.3.1.13
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: sparePool
+        oid: 1.3.6.1.4.1.789.1.6.3.1.14
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.3.1.15
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.3.1.16
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.3.1.17
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.3.1.18
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.3.1.19
+        type: DisplayString
+      - labels:
+        - spareIndex
+        labelname: spareDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.3.1.20
+        type: gauge
+      - labels:
+        - spareIndex
+        labelname: spareDiskType
+        oid: 1.3.6.1.4.1.789.1.6.3.1.21
+        type: DisplayString
+    - name: snmp_raidPStatus
+      oid: 1.3.6.1.4.1.789.1.6.10.1.2
+      type: gauge
+      help: raidPStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.10.1.2
+      indexes:
+      - labelname: raidPVol
+        type: gauge
+      - labelname: raidPPlex
+        type: gauge
+      - labelname: raidPGroup
+        type: gauge
+      - labelname: raidPIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPVol
+        oid: 1.3.6.1.4.1.789.1.6.10.1.3
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlex
+        oid: 1.3.6.1.4.1.789.1.6.10.1.4
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroup
+        oid: 1.3.6.1.4.1.789.1.6.10.1.5
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.6
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.7
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.8
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.9
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.10
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPShelf
+        oid: 1.3.6.1.4.1.789.1.6.10.1.17
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPBay
+        oid: 1.3.6.1.4.1.789.1.6.10.1.18
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.10.1.19
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.25
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.10.1.26
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.10.1.27
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.10.1.28
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.10.1.29
+        type: gauge
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskType
+        oid: 1.3.6.1.4.1.789.1.6.10.1.30
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.10.1.31
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.32
+        type: DisplayString
+      enum_values:
+        1: active
+        2: reconstructionInProgress
+        3: parityReconstructionInProgress
+        4: parityVerificationInProgress
+        5: scrubbingInProgress
+        6: failed
+        9: prefailed
+        10: offline
+    - name: snmp_raidPUsedMb
+      oid: 1.3.6.1.4.1.789.1.6.10.1.20
+      type: gauge
+      help: raidPUsedMb (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.10.1.20
+      indexes:
+      - labelname: raidPVol
+        type: gauge
+      - labelname: raidPPlex
+        type: gauge
+      - labelname: raidPGroup
+        type: gauge
+      - labelname: raidPIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPVol
+        oid: 1.3.6.1.4.1.789.1.6.10.1.3
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlex
+        oid: 1.3.6.1.4.1.789.1.6.10.1.4
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroup
+        oid: 1.3.6.1.4.1.789.1.6.10.1.5
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.6
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.7
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.8
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.9
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.10
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPShelf
+        oid: 1.3.6.1.4.1.789.1.6.10.1.17
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPBay
+        oid: 1.3.6.1.4.1.789.1.6.10.1.18
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.10.1.19
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.25
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.10.1.26
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.10.1.27
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.10.1.28
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.10.1.29
+        type: gauge
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskType
+        oid: 1.3.6.1.4.1.789.1.6.10.1.30
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.10.1.31
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.32
+        type: DisplayString
+    - name: snmp_raidPTotalMb
+      oid: 1.3.6.1.4.1.789.1.6.10.1.22
+      type: gauge
+      help: raidPTotalMb (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.10.1.22
+      indexes:
+      - labelname: raidPVol
+        type: gauge
+      - labelname: raidPPlex
+        type: gauge
+      - labelname: raidPGroup
+        type: gauge
+      - labelname: raidPIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPVol
+        oid: 1.3.6.1.4.1.789.1.6.10.1.3
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlex
+        oid: 1.3.6.1.4.1.789.1.6.10.1.4
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroup
+        oid: 1.3.6.1.4.1.789.1.6.10.1.5
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.6
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.7
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.8
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.9
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.10
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPShelf
+        oid: 1.3.6.1.4.1.789.1.6.10.1.17
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPBay
+        oid: 1.3.6.1.4.1.789.1.6.10.1.18
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.10.1.19
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.25
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.10.1.26
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.10.1.27
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.10.1.28
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.10.1.29
+        type: gauge
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskType
+        oid: 1.3.6.1.4.1.789.1.6.10.1.30
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.10.1.31
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.32
+        type: DisplayString
+    - name: snmp_raidPCompletionPerCent
+      oid: 1.3.6.1.4.1.789.1.6.10.1.24
+      type: gauge
+      help: raidPCompletionPerCent (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.10.1.24
+      indexes:
+      - labelname: raidPVol
+        type: gauge
+      - labelname: raidPPlex
+        type: gauge
+      - labelname: raidPGroup
+        type: gauge
+      - labelname: raidPIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPVol
+        oid: 1.3.6.1.4.1.789.1.6.10.1.3
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlex
+        oid: 1.3.6.1.4.1.789.1.6.10.1.4
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroup
+        oid: 1.3.6.1.4.1.789.1.6.10.1.5
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.6
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPGroupNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.7
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.8
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPPlexName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.9
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.10
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPShelf
+        oid: 1.3.6.1.4.1.789.1.6.10.1.17
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPBay
+        oid: 1.3.6.1.4.1.789.1.6.10.1.18
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPSectorSize
+        oid: 1.3.6.1.4.1.789.1.6.10.1.19
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskSerialNumber
+        oid: 1.3.6.1.4.1.789.1.6.10.1.25
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskVendor
+        oid: 1.3.6.1.4.1.789.1.6.10.1.26
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskModel
+        oid: 1.3.6.1.4.1.789.1.6.10.1.27
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskFirmwareRevision
+        oid: 1.3.6.1.4.1.789.1.6.10.1.28
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskRPM
+        oid: 1.3.6.1.4.1.789.1.6.10.1.29
+        type: gauge
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskType
+        oid: 1.3.6.1.4.1.789.1.6.10.1.30
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskPool
+        oid: 1.3.6.1.4.1.789.1.6.10.1.31
+        type: DisplayString
+      - labels:
+        - raidPVol
+        - raidPPlex
+        - raidPGroup
+        - raidPIndex
+        labelname: raidPDiskCopyDestDiskName
+        oid: 1.3.6.1.4.1.789.1.6.10.1.32
+        type: DisplayString
+    - name: snmp_plexStatus
+      oid: 1.3.6.1.4.1.789.1.6.11.1.4
+      type: gauge
+      help: plexStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.11.1.4
+      indexes:
+      - labelname: plexIndex
+        type: gauge
+      lookups:
+      - labels:
+        - plexIndex
+        labelname: plexName
+        oid: 1.3.6.1.4.1.789.1.6.11.1.2
+        type: DisplayString
+      - labels:
+        - plexIndex
+        labelname: plexVolName
+        oid: 1.3.6.1.4.1.789.1.6.11.1.3
+        type: DisplayString
+      enum_values:
+        1: offline
+        2: resyncing
+        3: online
+    - name: snmp_plexPercentResyncing
+      oid: 1.3.6.1.4.1.789.1.6.11.1.5
+      type: gauge
+      help: plexPercentResyncing (NETAPP-MIB) - 1.3.6.1.4.1.789.1.6.11.1.5
+      indexes:
+      - labelname: plexIndex
+        type: gauge
+      lookups:
+      - labels:
+        - plexIndex
+        labelname: plexName
+        oid: 1.3.6.1.4.1.789.1.6.11.1.2
+        type: DisplayString
+      - labels:
+        - plexIndex
+        labelname: plexVolName
+        oid: 1.3.6.1.4.1.789.1.6.11.1.3
+        type: DisplayString
+    - name: snmp_svTotalFailures
+      oid: 1.3.6.1.4.1.789.1.19.11.1.9
+      type: counter
+      help: svTotalFailures (NETAPP-MIB) - 1.3.6.1.4.1.789.1.19.11.1.9
+      indexes:
+      - labelname: svIndex
+        type: gauge
+      lookups:
+      - labels:
+        - svIndex
+        labelname: svSrc
+        oid: 1.3.6.1.4.1.789.1.19.11.1.2
+        type: DisplayString
+      - labels:
+        - svIndex
+        labelname: svDst
+        oid: 1.3.6.1.4.1.789.1.19.11.1.3
+        type: DisplayString
+    - name: snmp_svState
+      oid: 1.3.6.1.4.1.789.1.19.11.1.5
+      type: gauge
+      help: svState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.19.11.1.5
+      indexes:
+      - labelname: svIndex
+        type: gauge
+      lookups:
+      - labels:
+        - svIndex
+        labelname: svSrc
+        oid: 1.3.6.1.4.1.789.1.19.11.1.2
+        type: DisplayString
+      - labels:
+        - svIndex
+        labelname: svDst
+        oid: 1.3.6.1.4.1.789.1.19.11.1.3
+        type: DisplayString
+      enum_values:
+        1: uninitialized
+        2: snapvaulted
+        3: brokenOff
+        4: quiesced
+        5: source
+        6: unknown
+        7: restoring
+    - name: snmp_snapmirrorStatus
+      oid: 1.3.6.1.4.1.789.1.9.20.1.4
+      type: gauge
+      help: snapmirrorStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.4
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: transferring
+        3: pending
+        4: aborting
+        5: migrating
+        6: quiescing
+        7: resyncing
+        8: waiting
+        9: syncing
+        10: inSync
+    - name: snmp_snapmirrorState
+      oid: 1.3.6.1.4.1.789.1.9.20.1.5
+      type: gauge
+      help: snapmirrorState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.5
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+      enum_values:
+        1: uninitialized
+        2: snapmirrored
+        3: brokenOff
+        4: quiesced
+        5: source
+        6: unknown
+    - name: snmp_snapmirrorLag
+      oid: 1.3.6.1.4.1.789.1.9.20.1.6
+      type: gauge
+      help: snapmirrorLag (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.6
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+    - name: snmp_snapmirrorTotalFailures
+      oid: 1.3.6.1.4.1.789.1.9.20.1.9
+      type: counter
+      help: snapmirrorTotalFailures (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.9
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+    - name: snmp_snapmirrorLastTransMBs
+      oid: 1.3.6.1.4.1.789.1.9.20.1.17
+      type: counter
+      help: snapmirrorLastTransMBs (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.17
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+    - name: snmp_snapmirrorLastTransTimeSeconds
+      oid: 1.3.6.1.4.1.789.1.9.20.1.18
+      type: counter
+      help: snapmirrorLastTransTimeSeconds (NETAPP-MIB) - 1.3.6.1.4.1.789.1.9.20.1.18
+      indexes:
+      - labelname: snapmirrorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorSrc
+        oid: 1.3.6.1.4.1.789.1.9.20.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorDst
+        oid: 1.3.6.1.4.1.789.1.9.20.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorMirrorTimestamp
+        oid: 1.3.6.1.4.1.789.1.9.20.1.14
+        type: DisplayString
+      - labels:
+        - snapmirrorIndex
+        labelname: snapmirrorLastTransType
+        oid: 1.3.6.1.4.1.789.1.9.20.1.16
+        type: DisplayString
+    - name: snmp_enclContactState
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.2
+      type: gauge
+      help: enclContactState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.2
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+      enum_values:
+        1: initializing
+        2: transitioning
+        3: active
+        4: inactive
+        5: reconfiguring
+        6: nonexistent
+    - name: snmp_enclPowerSuppliesFailed
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.15
+      type: gauge
+      help: enclPowerSuppliesFailed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.15
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclElectronicsFailed
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.33
+      type: gauge
+      help: enclElectronicsFailed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.33
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclVoltSensorsOverVoltFail
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.36
+      type: gauge
+      help: enclVoltSensorsOverVoltFail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.36
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclVoltSensorsOverVoltWarn
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.37
+      type: gauge
+      help: enclVoltSensorsOverVoltWarn (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.37
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclVoltSensorsUnderVoltFail
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.38
+      type: gauge
+      help: enclVoltSensorsUnderVoltFail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.38
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclVoltSensorsUnderVoltWarn
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.39
+      type: gauge
+      help: enclVoltSensorsUnderVoltWarn (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.39
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclVoltSensorsCurrentVolt
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.40
+      type: gauge
+      help: enclVoltSensorsCurrentVolt (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.40
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclCurSensorsOverCurFail
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.47
+      type: gauge
+      help: enclCurSensorsOverCurFail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.47
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclCurSensorsOverCurWarn
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.48
+      type: gauge
+      help: enclCurSensorsOverCurWarn (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.48
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclCurSensorsCurrentCur
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.49
+      type: gauge
+      help: enclCurSensorsCurrentCur (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.49
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_haState
+      oid: 1.3.6.1.4.1.789.1.21.2.1.4
+      type: gauge
+      help: haState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.2.1.4
+      indexes:
+      - labelname: haNodeName
+        type: DisplayString
+        implied: true
+      lookups:
+      - labels:
+        - haNodeName
+        labelname: haNodeName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.1
+        type: DisplayString
+      - labels:
+        - haNodeName
+        labelname: haPartnerName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.8
+        type: DisplayString
+      enum_values:
+        1: dead
+        2: canTakeover
+        3: cannotTakeover
+        4: takeover
+        5: partialGiveback
+    - name: snmp_haCannotTakeoverCause
+      oid: 1.3.6.1.4.1.789.1.21.2.1.5
+      type: gauge
+      help: haCannotTakeoverCause (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.2.1.5
+      indexes:
+      - labelname: haNodeName
+        type: DisplayString
+        implied: true
+      lookups:
+      - labels:
+        - haNodeName
+        labelname: haNodeName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.1
+        type: DisplayString
+      - labels:
+        - haNodeName
+        labelname: haPartnerName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.8
+        type: DisplayString
+      enum_values:
+        1: ok
+        2: unknownReason
+        3: disabledByOperator
+        4: interconnectOffline
+        5: disabledByPartner
+        6: takeoverFailed
+        7: mailboxIsInDegradedState
+        8: partnermailboxIsInUninitialisedState
+        9: mailboxVersionMismatch
+        10: nvramSizeMismatch
+        11: kernelVersionMismatch
+        12: partnerIsInBootingStage
+        13: diskshelfIsTooHot
+        14: partnerIsPerformingRevert
+        15: nodeIsPerformingRevert
+        16: sametimePartnerIsAlsoTryingToTakeUsOver
+        17: alreadyInTakenoverMode
+        18: nvramLogUnsynchronized
+        19: stateofBackupMailboxIsDoubtful
+    - name: snmp_haPartnerStatus
+      oid: 1.3.6.1.4.1.789.1.21.2.1.6
+      type: gauge
+      help: haPartnerStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.2.1.6
+      indexes:
+      - labelname: haNodeName
+        type: DisplayString
+        implied: true
+      lookups:
+      - labels:
+        - haNodeName
+        labelname: haNodeName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.1
+        type: DisplayString
+      - labels:
+        - haNodeName
+        labelname: haPartnerName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.8
+        type: DisplayString
+      enum_values:
+        1: maybeDown
+        2: ok
+        3: dead
+    - name: snmp_haInterconnectStatus
+      oid: 1.3.6.1.4.1.789.1.21.2.1.10
+      type: gauge
+      help: haInterconnectStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.2.1.10
+      indexes:
+      - labelname: haNodeName
+        type: DisplayString
+        implied: true
+      lookups:
+      - labels:
+        - haNodeName
+        labelname: haNodeName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.1
+        type: DisplayString
+      - labels:
+        - haNodeName
+        labelname: haPartnerName
+        oid: 1.3.6.1.4.1.789.1.21.2.1.8
+        type: DisplayString
+      enum_values:
+        1: notPresent
+        2: down
+        3: partialFailure
+        4: up
+    - name: snmp_if64InOctets
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.25
+      type: counter
+      help: if64InOctets (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.25
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_if64InDiscards
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.28
+      type: counter
+      help: if64InDiscards (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.28
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_if64InErrors
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.29
+      type: counter
+      help: if64InErrors (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.29
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_if64OutOctets
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.31
+      type: counter
+      help: if64OutOctets (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.31
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_if64OutDiscards
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.34
+      type: counter
+      help: if64OutDiscards (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.34
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_if64OutErrors
+      oid: 1.3.6.1.4.1.789.1.22.1.2.1.35
+      type: counter
+      help: if64OutErrors (NETAPP-MIB) - 1.3.6.1.4.1.789.1.22.1.2.1.35
+      indexes:
+      - labelname: netifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - netifIndex
+        labelname: netifDesc
+        oid: 1.3.6.1.4.1.789.1.22.1.2.1.2
+        type: DisplayString
+    - name: snmp_cDOTMiscGlobalStatus
+      oid: 1.3.6.1.4.1.789.1.2.2.36.1.2
+      type: gauge
+      help: cDOTMiscGlobalStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.2.2.36.1.2
+      indexes:
+      - labelname: IMPLIEDcDOTMiscNodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDcDOTMiscNodeName
+        labelname: cDOTNodeName
+        oid: 1.3.6.1.4.1.789.1.2.2.36.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDcDOTMiscNodeName
+        labelname: cDOTMiscGlobalStatusMessage
+        oid: 1.3.6.1.4.1.789.1.2.2.36.1.3
+        type: DisplayString
+      enum_values:
+        1: other
+        2: unknown
+        3: ok
+        4: nonCritical
+        5: critical
+        6: nonRecoverable
+    - name: snmp_nodeUptime
+      oid: 1.3.6.1.4.1.789.1.25.2.1.7
+      type: gauge
+      help: nodeUptime (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.7
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+    - name: snmp_nodeHealth
+      oid: 1.3.6.1.4.1.789.1.25.2.1.11
+      type: gauge
+      help: nodeHealth (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.11
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+    - name: snmp_nodeNvramBatteryStatus
+      oid: 1.3.6.1.4.1.789.1.25.2.1.17
+      type: gauge
+      help: nodeNvramBatteryStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.17
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+      enum_values:
+        1: ok
+        2: partiallyDischarged
+        3: fullyDischarged
+        4: notPresent
+        5: nearEndOfLife
+        6: atEndOfLife
+        7: unknown
+        8: overCharged
+        9: fullyCharged
+    - name: snmp_snapmirrorRelStatus
+      oid: 1.3.6.1.4.1.789.1.29.1.1.5
+      type: gauge
+      help: snapmirrorRelStatus (NETAPP-MIB) - 1.3.6.1.4.1.789.1.29.1.1.5
+      indexes:
+      - labelname: snapmirrorRelIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelSrcPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelDestPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelType
+        oid: 1.3.6.1.4.1.789.1.29.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: idle
+        1: transferring
+        2: restoring
+        3: checking
+        4: quiescing
+        5: quiesced
+        6: queued
+        7: preparing
+        8: waiting
+        9: finalizing
+        10: resyncing
+        11: aborting
+        12: breaking
+    - name: snmp_snapmirrorRelState
+      oid: 1.3.6.1.4.1.789.1.29.1.1.6
+      type: gauge
+      help: snapmirrorRelState (NETAPP-MIB) - 1.3.6.1.4.1.789.1.29.1.1.6
+      indexes:
+      - labelname: snapmirrorRelIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelSrcPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelDestPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelType
+        oid: 1.3.6.1.4.1.789.1.29.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: uninitialized
+        1: snapmirrored
+        2: brokenOff
+    - name: snmp_snapmirrorRelHealthy
+      oid: 1.3.6.1.4.1.789.1.29.1.1.16
+      type: gauge
+      help: snapmirrorRelHealthy (NETAPP-MIB) - 1.3.6.1.4.1.789.1.29.1.1.16
+      indexes:
+      - labelname: snapmirrorRelIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelSrcPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelDestPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelType
+        oid: 1.3.6.1.4.1.789.1.29.1.1.4
+        type: EnumAsInfo
+      enum_values:
+        0: fale
+        1: 'on'
+    - name: snmp_snapmirrorRelUnHealthyReason
+      oid: 1.3.6.1.4.1.789.1.29.1.1.17
+      type: gauge
+      help: snapmirrorRelUnHealthyReason (NETAPP-MIB) - 1.3.6.1.4.1.789.1.29.1.1.17
+      indexes:
+      - labelname: snapmirrorRelIndex
+        type: gauge
+      lookups:
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelSrcPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.2
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelDestPath
+        oid: 1.3.6.1.4.1.789.1.29.1.1.3
+        type: DisplayString
+      - labels:
+        - snapmirrorRelIndex
+        labelname: snapmirrorRelType
+        oid: 1.3.6.1.4.1.789.1.29.1.1.4
+        type: EnumAsInfo
+    walk:
+    - 1.3.6.1.4.1.789.1.25.2
+    - 1.3.6.1.4.1.789.1.21.1.2
+    - 1.3.6.1.4.1.789.1.4.4
+    - 1.3.6.1.4.1.789.1.5.4
+    - 1.3.6.1.4.1.789.1.5.8
+    - 1.3.6.1.4.1.789.1.5.10
+    - 1.3.6.1.4.1.789.1.5.11
+    - 1.3.6.1.4.1.789.1.6.2
+    - 1.3.6.1.4.1.789.1.6.3
+    - 1.3.6.1.4.1.789.1.6.10
+    - 1.3.6.1.4.1.789.1.6.11
+    - 1.3.6.1.4.1.789.1.19.11
+    - 1.3.6.1.4.1.789.1.9.20
+    - 1.3.6.1.4.1.789.1.21.2
+    - 1.3.6.1.4.1.789.1.22.1.2
+    - 1.3.6.1.4.1.789.1.2.2.36
+    - 1.3.6.1.4.1.789.1.29.1
+    get:
+    - 1.3.6.1.4.1.789.1.2.2.4.0
+    - 1.3.6.1.4.1.789.1.2.2.23.0
+    - 1.3.6.1.4.1.789.1.2.2.25.0
+    - 1.3.6.1.4.1.789.1.2.3.2.0
+    - 1.3.6.1.4.1.789.1.2.3.4.0
+    - 1.3.6.1.4.1.789.1.2.3.6.0
+    - 1.3.6.1.4.1.789.1.2.3.8.0
+    - 1.3.6.1.4.1.789.1.2.6.2.0
+    - 1.3.6.1.4.1.789.1.2.6.3.0
+    - 1.3.6.1.4.1.789.1.2.6.4.0
+    - 1.3.6.1.4.1.789.1.2.6.5.0
+    - 1.3.6.1.4.1.789.1.2.6.6.0
+    - 1.3.6.1.4.1.789.1.2.6.7.0
+    - 1.3.6.1.4.1.789.1.2.6.8.0
+    - 1.3.6.1.4.1.789.1.2.6.9.0
+    - 1.3.6.1.4.1.789.1.2.6.10.0
+    - 1.3.6.1.4.1.789.1.2.6.12.0
+    - 1.3.6.1.4.1.789.1.2.6.13.0
+    - 1.3.6.1.4.1.789.1.2.7.1.0
+    - 1.3.6.1.4.1.789.1.2.7.2.0
+    - 1.3.6.1.4.1.789.1.2.7.3.0
+    - 1.3.6.1.4.1.789.1.2.7.4.0
+    - 1.3.6.1.4.1.789.1.5.6.0
+    - 1.3.6.1.4.1.789.1.5.9.0
+    - 1.3.6.1.4.1.789.1.5.12.0
+    - 1.3.6.1.4.1.789.1.6.4.1.0
+    - 1.3.6.1.4.1.789.1.6.4.2.0
+    - 1.3.6.1.4.1.789.1.6.4.3.0
+    - 1.3.6.1.4.1.789.1.6.4.4.0
+    - 1.3.6.1.4.1.789.1.6.4.5.0
+    - 1.3.6.1.4.1.789.1.6.4.6.0
+    - 1.3.6.1.4.1.789.1.6.4.7.0
+    - 1.3.6.1.4.1.789.1.6.4.8.0
+    - 1.3.6.1.4.1.789.1.6.4.9.0
+    - 1.3.6.1.4.1.789.1.6.4.10.0
+    - 1.3.6.1.4.1.789.1.6.4.11.0
+    - 1.3.6.1.4.1.789.1.6.5.0
+    - 1.3.6.1.4.1.789.1.6.6.0
+    - 1.3.6.1.4.1.789.1.6.7.0
+    - 1.3.6.1.4.1.789.1.6.8.0
+    - 1.3.6.1.4.1.789.1.6.12.0
+    - 1.3.6.1.4.1.789.1.8.3.6.36.0
+    - 1.3.6.1.4.1.789.1.21.1.1.0
+    - 1.3.6.1.4.1.789.1.26.8.0

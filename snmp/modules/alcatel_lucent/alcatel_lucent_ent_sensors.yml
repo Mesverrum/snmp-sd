@@ -1,0 +1,218 @@
+# GENERATED from kentik/snmp-profiles — module alcatel_lucent_ent_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  alcatel_lucent_ent_sensors:
+    metrics:
+    - name: snmp_chasEntPhysLedStatusTemperature
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.10
+      type: gauge
+      help: chasEntPhysLedStatusTemperature (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.10
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntPhysLedStatusFan
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.11
+      type: gauge
+      help: chasEntPhysLedStatusFan (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.1.1.1.1.11
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: 'off'
+        2: greenOn
+        3: greenBlink
+        4: amberOn
+        5: amberBlink
+    - name: snmp_chasEntTempCurrent
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.1
+      type: gauge
+      help: chasEntTempCurrent (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_chasEntTempStatus
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.4
+      type: gauge
+      help: chasEntTempStatus (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.1.1.2.1.4
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: notPresent
+        3: underThreshold
+        4: overFirstThreshold
+        5: overDangerThreshold
+    - name: snmp_alaChasEntPhysFanStatus
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.2
+      type: gauge
+      help: alaChasEntPhysFanStatus (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      - labelname: alaChasEntPhysFanLocalIndex
+        type: gauge
+      enum_values:
+        0: noStatus
+        1: notRunning
+        2: running
+      lookups: []
+    - name: snmp_alaChasEntPhysFanSpeed
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.4
+      type: gauge
+      help: alaChasEntPhysFanSpeed (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11.1.4
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      - labelname: alaChasEntPhysFanLocalIndex
+        type: gauge
+      lookups: []
+    - name: snmp_alaChasBpsPowerSupplyOperStatus
+      oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.10
+      type: gauge
+      help: alaChasBpsPowerSupplyOperStatus (ALCATEL-ENT1-CHASSIS-MIB) - 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.10
+      indexes:
+      - labelname: alaChasBpsPowerSupplyShelfId
+        type: gauge
+      - labelname: alaChasBpsPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - alaChasBpsPowerSupplyShelfId
+        - alaChasBpsPowerSupplyIndex
+        labelname: alaChasBpsPowerSupplyName
+        oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.3
+        type: DisplayString
+      - labels:
+        - alaChasBpsPowerSupplyShelfId
+        - alaChasBpsPowerSupplyIndex
+        labelname: alaChasBpsPowerSupplyDescr
+        oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.4
+        type: DisplayString
+      - labels:
+        - alaChasBpsPowerSupplyShelfId
+        - alaChasBpsPowerSupplyIndex
+        labelname: alaChasBpsPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4.1.8
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: unknown
+    walk:
+    - 1.3.6.1.4.1.6486.801.1.1.1.1.1.1
+    - 1.3.6.1.4.1.6486.801.1.1.1.1.1.2
+    - 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.11
+    - 1.3.6.1.4.1.6486.801.1.1.1.3.1.1.14.4

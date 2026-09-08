@@ -1,0 +1,169 @@
+# GENERATED from kentik/snmp-profiles — module dell_os10_bgp
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  dell_os10_bgp:
+    metrics:
+    - name: snmp_os10bgp4V2PeerAdminStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.12
+      type: gauge
+      help: os10bgp4V2PeerAdminStatus () - 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.12
+      indexes:
+      - labelname: os10bgp4V2PeerInstance
+        type: gauge
+      - labelname: os10bgp4V2PeerRemoteAddr
+        type: InetAddress
+      lookups:
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAddrType
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.2
+        type: EnumAsInfo
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAddr
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.3
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAddrType
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.4
+        type: EnumAsInfo
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAddr
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.5
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalPort
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.6
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAs
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.7
+        type: gauge
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalIdentifier
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.8
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemotePort
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.9
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAs
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.10
+        type: gauge
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteIdentifier
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.14
+        type: DisplayString
+      enum_values:
+        1: halted
+        2: running
+    - name: snmp_os10bgp4V2PeerState
+      oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.13
+      type: gauge
+      help: os10bgp4V2PeerState () - 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.13
+      indexes:
+      - labelname: os10bgp4V2PeerInstance
+        type: gauge
+      - labelname: os10bgp4V2PeerRemoteAddr
+        type: InetAddress
+      lookups:
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAddrType
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.2
+        type: EnumAsInfo
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAddr
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.3
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAddrType
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.4
+        type: EnumAsInfo
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAddr
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.5
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalPort
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.6
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalAs
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.7
+        type: gauge
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerLocalIdentifier
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.8
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemotePort
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.9
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteAs
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.10
+        type: gauge
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerRemoteIdentifier
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.11
+        type: DisplayString
+      - labels:
+        - os10bgp4V2PeerInstance
+        - os10bgp4V2PeerRemoteAddr
+        labelname: os10bgp4V2PeerDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.200.1.1.2.1.14
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: connect
+        3: active
+        4: opensent
+        5: openconfirm
+        6: established
+    walk:
+    - 1.3.6.1.4.1.674.11000.5000.200.1.1.2

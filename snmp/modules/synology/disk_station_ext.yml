@@ -1,0 +1,366 @@
+# GENERATED from kentik/snmp-profiles — module disk_station_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  disk_station_ext:
+    metrics:
+    - name: snmp_systemStatus
+      oid: 1.3.6.1.4.1.6574.1.1
+      type: gauge
+      help: systemStatus (SYNOLOGY-SYSTEM-MIB) - 1.3.6.1.4.1.6574.1.1.0
+      enum_values:
+        1: normal
+        2: failed
+      lookups: []
+    - name: snmp_temperature
+      oid: 1.3.6.1.4.1.6574.1.2
+      type: gauge
+      help: temperature (SYNOLOGY-SYSTEM-MIB) - 1.3.6.1.4.1.6574.1.2.0
+      lookups: []
+    - name: snmp_powerStatus
+      oid: 1.3.6.1.4.1.6574.1.3
+      type: gauge
+      help: powerStatus (SYNOLOGY-SYSTEM-MIB) - 1.3.6.1.4.1.6574.1.3.0
+      enum_values:
+        1: normal
+        2: failed
+      lookups: []
+    - name: snmp_upgradeAvailable
+      oid: 1.3.6.1.4.1.6574.1.5.4
+      type: gauge
+      help: upgradeAvailable (SYNOLOGY-SYSTEM-MIB) - 1.3.6.1.4.1.6574.1.5.4.0
+      enum_values:
+        1: available
+        2: unavailable
+        3: connecting
+        4: disconnected
+        5: others
+      lookups: []
+    - name: snmp_diskStatus
+      oid: 1.3.6.1.4.1.6574.2.1.1.5
+      type: gauge
+      help: diskStatus (SYNOLOGY-DISK-MIB) - 1.3.6.1.4.1.6574.2.1.1.5
+      indexes:
+      - labelname: diskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIndex
+        labelname: diskID
+        oid: 1.3.6.1.4.1.6574.2.1.1.2
+        type: DisplayString
+      - labels:
+        - diskIndex
+        labelname: diskModel
+        oid: 1.3.6.1.4.1.6574.2.1.1.3
+        type: DisplayString
+      - labels:
+        - diskIndex
+        labelname: diskType
+        oid: 1.3.6.1.4.1.6574.2.1.1.4
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: initialized
+        3: notInitialized
+        4: systemPartitionFailed
+        5: crashed
+    - name: snmp_raidStatus
+      oid: 1.3.6.1.4.1.6574.3.1.1.3
+      type: gauge
+      help: raidStatus (SYNOLOGY-RAID-MIB) - 1.3.6.1.4.1.6574.3.1.1.3
+      indexes:
+      - labelname: raidIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidIndex
+        labelname: raidName
+        oid: 1.3.6.1.4.1.6574.3.1.1.2
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: repairing
+        3: migrating
+        4: expanding
+        5: deleting
+        6: creating
+        7: raidSyncing
+        8: raidParityChecking
+        9: raidAssembling
+        10: canceling
+        11: degrade
+        12: crashed
+        13: dataScrubbing
+        14: raidDeploying
+        15: raidUnDeploying
+        16: raidMountCache
+        17: raidUnmountCache
+        18: raidExpandingUnfinishedSHR
+        19: raidConvertSHRToPool
+        20: raidMigrateSHR1ToSHR2
+        21: raidUnknownStatus
+    - name: snmp_raidFreeSize
+      oid: 1.3.6.1.4.1.6574.3.1.1.4
+      type: counter
+      help: raidFreeSize (SYNOLOGY-RAID-MIB) - 1.3.6.1.4.1.6574.3.1.1.4
+      indexes:
+      - labelname: raidIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidIndex
+        labelname: raidName
+        oid: 1.3.6.1.4.1.6574.3.1.1.2
+        type: DisplayString
+    - name: snmp_raidTotalSize
+      oid: 1.3.6.1.4.1.6574.3.1.1.5
+      type: counter
+      help: raidTotalSize (SYNOLOGY-RAID-MIB) - 1.3.6.1.4.1.6574.3.1.1.5
+      indexes:
+      - labelname: raidIndex
+        type: gauge
+      lookups:
+      - labels:
+        - raidIndex
+        labelname: raidName
+        oid: 1.3.6.1.4.1.6574.3.1.1.2
+        type: DisplayString
+    - name: snmp_diskSMARTAttrCurrent
+      oid: 1.3.6.1.4.1.6574.5.1.1.5
+      type: gauge
+      help: diskSMARTAttrCurrent (SYNOLOGY-SMART-MIB) - 1.3.6.1.4.1.6574.5.1.1.5
+      indexes:
+      - labelname: diskSMARTInfoIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTInfoDevName
+        oid: 1.3.6.1.4.1.6574.5.1.1.2
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrName
+        oid: 1.3.6.1.4.1.6574.5.1.1.3
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrId
+        oid: 1.3.6.1.4.1.6574.5.1.1.4
+        type: DisplayString
+    - name: snmp_diskSMARTAttrThreshold
+      oid: 1.3.6.1.4.1.6574.5.1.1.7
+      type: gauge
+      help: diskSMARTAttrThreshold (SYNOLOGY-SMART-MIB) - 1.3.6.1.4.1.6574.5.1.1.7
+      indexes:
+      - labelname: diskSMARTInfoIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTInfoDevName
+        oid: 1.3.6.1.4.1.6574.5.1.1.2
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrName
+        oid: 1.3.6.1.4.1.6574.5.1.1.3
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrId
+        oid: 1.3.6.1.4.1.6574.5.1.1.4
+        type: DisplayString
+    - name: snmp_diskSMARTAttrStatus
+      oid: 1.3.6.1.4.1.6574.5.1.1.9
+      type: gauge
+      help: diskSMARTAttrStatus (SYNOLOGY-SMART-MIB) - 1.3.6.1.4.1.6574.5.1.1.9
+      indexes:
+      - labelname: diskSMARTInfoIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTInfoDevName
+        oid: 1.3.6.1.4.1.6574.5.1.1.2
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrName
+        oid: 1.3.6.1.4.1.6574.5.1.1.3
+        type: DisplayString
+      - labels:
+        - diskSMARTInfoIndex
+        labelname: diskSMARTAttrId
+        oid: 1.3.6.1.4.1.6574.5.1.1.4
+        type: DisplayString
+    - name: snmp_serviceUsers
+      oid: 1.3.6.1.4.1.6574.6.1.1.3
+      type: gauge
+      help: serviceUsers (SYNOLOGY-SERVICES-MIB) - 1.3.6.1.4.1.6574.6.1.1.3
+      indexes:
+      - labelname: serviceInfoIndex
+        type: gauge
+      lookups:
+      - labels:
+        - serviceInfoIndex
+        labelname: serviceName
+        oid: 1.3.6.1.4.1.6574.6.1.1.2
+        type: DisplayString
+    - name: snmp_storageIOReads
+      oid: 1.3.6.1.4.1.6574.101.1.1.5
+      type: counter
+      help: storageIOReads (SYNOLOGY-STORAGEIO-MIB) - 1.3.6.1.4.1.6574.101.1.1.5
+      indexes:
+      - labelname: storageIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - storageIOIndex
+        labelname: storageIODevice
+        oid: 1.3.6.1.4.1.6574.101.1.1.2
+        type: DisplayString
+    - name: snmp_storageIOWrites
+      oid: 1.3.6.1.4.1.6574.101.1.1.6
+      type: counter
+      help: storageIOWrites (SYNOLOGY-STORAGEIO-MIB) - 1.3.6.1.4.1.6574.101.1.1.6
+      indexes:
+      - labelname: storageIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - storageIOIndex
+        labelname: storageIODevice
+        oid: 1.3.6.1.4.1.6574.101.1.1.2
+        type: DisplayString
+    - name: snmp_storageIOLA
+      oid: 1.3.6.1.4.1.6574.101.1.1.8
+      type: gauge
+      help: storageIOLA (SYNOLOGY-STORAGEIO-MIB) - 1.3.6.1.4.1.6574.101.1.1.8
+      indexes:
+      - labelname: storageIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - storageIOIndex
+        labelname: storageIODevice
+        oid: 1.3.6.1.4.1.6574.101.1.1.2
+        type: DisplayString
+    - name: snmp_storageIONReadX
+      oid: 1.3.6.1.4.1.6574.101.1.1.12
+      type: counter
+      help: storageIONReadX (SYNOLOGY-STORAGEIO-MIB) - 1.3.6.1.4.1.6574.101.1.1.12
+      indexes:
+      - labelname: storageIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - storageIOIndex
+        labelname: storageIODevice
+        oid: 1.3.6.1.4.1.6574.101.1.1.2
+        type: DisplayString
+    - name: snmp_storageIONWrittenX
+      oid: 1.3.6.1.4.1.6574.101.1.1.13
+      type: counter
+      help: storageIONWrittenX (SYNOLOGY-STORAGEIO-MIB) - 1.3.6.1.4.1.6574.101.1.1.13
+      indexes:
+      - labelname: storageIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - storageIOIndex
+        labelname: storageIODevice
+        oid: 1.3.6.1.4.1.6574.101.1.1.2
+        type: DisplayString
+    - name: snmp_spaceIOReads
+      oid: 1.3.6.1.4.1.6574.102.1.1.5
+      type: counter
+      help: spaceIOReads (SYNOLOGY-SPACEIO-MIB) - 1.3.6.1.4.1.6574.102.1.1.5
+      indexes:
+      - labelname: spaceIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spaceIOIndex
+        labelname: spaceIODevice
+        oid: 1.3.6.1.4.1.6574.102.1.1.2
+        type: DisplayString
+    - name: snmp_spaceIOWrites
+      oid: 1.3.6.1.4.1.6574.102.1.1.6
+      type: counter
+      help: spaceIOWrites (SYNOLOGY-SPACEIO-MIB) - 1.3.6.1.4.1.6574.102.1.1.6
+      indexes:
+      - labelname: spaceIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spaceIOIndex
+        labelname: spaceIODevice
+        oid: 1.3.6.1.4.1.6574.102.1.1.2
+        type: DisplayString
+    - name: snmp_spaceIOLA
+      oid: 1.3.6.1.4.1.6574.102.1.1.8
+      type: gauge
+      help: spaceIOLA (SYNOLOGY-SPACEIO-MIB) - 1.3.6.1.4.1.6574.102.1.1.8
+      indexes:
+      - labelname: spaceIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spaceIOIndex
+        labelname: spaceIODevice
+        oid: 1.3.6.1.4.1.6574.102.1.1.2
+        type: DisplayString
+    - name: snmp_spaceIONReadX
+      oid: 1.3.6.1.4.1.6574.102.1.1.12
+      type: counter
+      help: spaceIONReadX (SYNOLOGY-SPACEIO-MIB) - 1.3.6.1.4.1.6574.102.1.1.12
+      indexes:
+      - labelname: spaceIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spaceIOIndex
+        labelname: spaceIODevice
+        oid: 1.3.6.1.4.1.6574.102.1.1.2
+        type: DisplayString
+    - name: snmp_spaceIONWrittenX
+      oid: 1.3.6.1.4.1.6574.102.1.1.13
+      type: counter
+      help: spaceIONWrittenX (SYNOLOGY-SPACEIO-MIB) - 1.3.6.1.4.1.6574.102.1.1.13
+      indexes:
+      - labelname: spaceIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - spaceIOIndex
+        labelname: spaceIODevice
+        oid: 1.3.6.1.4.1.6574.102.1.1.2
+        type: DisplayString
+    - name: snmp_gpuInfoSupported
+      oid: 1.3.6.1.4.1.6574.108.1
+      type: gauge
+      help: gpuInfoSupported (SYNOLOGY-GPUINFO-MIB) - 1.3.6.1.4.1.6574.108.1.0
+      enum_values:
+        0: supported
+        1: unsupported
+      lookups: []
+    - name: snmp_gpuUtilization
+      oid: 1.3.6.1.4.1.6574.108.2
+      type: gauge
+      help: gpuUtilization (SYNOLOGY-GPUINFO-MIB) - 1.3.6.1.4.1.6574.108.2.0
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.6574.2.1
+    - 1.3.6.1.4.1.6574.3.1
+    - 1.3.6.1.4.1.6574.5.1
+    - 1.3.6.1.4.1.6574.6.1
+    - 1.3.6.1.4.1.6574.101.1
+    - 1.3.6.1.4.1.6574.102.1
+    get:
+    - 1.3.6.1.4.1.6574.1.1.0
+    - 1.3.6.1.4.1.6574.1.2.0
+    - 1.3.6.1.4.1.6574.1.3.0
+    - 1.3.6.1.4.1.6574.1.5.4.0
+    - 1.3.6.1.4.1.6574.108.1.0
+    - 1.3.6.1.4.1.6574.108.2.0

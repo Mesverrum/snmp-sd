@@ -2,39 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   fortinet_fortigate:
-    walk:
-    - 1.3.6.1.4.1.12356.101.4.3.2
-    - 1.3.6.1.4.1.12356.101.4.9.2
-    - 1.3.6.1.4.1.12356.101.4.4.2
-    - 1.3.6.1.4.1.12356.101.3.2.1
-    - 1.3.6.1.4.1.12356.101.5.1.2.1
-    - 1.3.6.1.4.1.12356.101.5.1.2.2
-    - 1.3.6.1.4.1.12356.101.23.2.1
-    - 1.3.6.1.4.1.12356.101.13.2.1
-    - 1.3.6.1.4.1.12356.101.4.8.2
-    - 1.3.6.1.4.1.12356.101.12.2.2
-    get:
-    - 1.3.6.1.4.1.12356.101.4.1.3.0
-    - 1.3.6.1.4.1.12356.101.4.1.4.0
-    - 1.3.6.1.4.1.12356.101.4.1.5.0
-    - 1.3.6.1.4.1.12356.101.4.1.6.0
-    - 1.3.6.1.4.1.12356.101.4.1.7.0
-    - 1.3.6.1.4.1.12356.101.4.1.8.0
-    - 1.3.6.1.4.1.12356.101.4.1.9.0
-    - 1.3.6.1.4.1.12356.101.4.1.10.0
-    - 1.3.6.1.4.1.12356.101.4.1.11.0
-    - 1.3.6.1.4.1.12356.101.4.1.15.0
-    - 1.3.6.1.4.1.12356.101.4.1.16.0
-    - 1.3.6.1.4.1.12356.101.3.1.1.0
-    - 1.3.6.1.4.1.12356.101.3.1.2.0
-    - 1.3.6.1.4.1.12356.101.4.1.20
-    - 1.3.6.1.4.1.12356.101.23.1.1
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -77,6 +44,19 @@ modules:
       type: gauge
       help: fgSysCpuUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.3.0
       lookups: []
+    - name: snmp_fgVdEntCpuUsage
+      oid: 1.3.6.1.4.1.12356.101.3.2.1.1.5
+      type: gauge
+      help: fgVdEntCpuUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.2.1.1.5
+      indexes:
+      - labelname: fgVdEntIndex
+        type: gauge
+      lookups:
+      - labels:
+        - fgVdEntIndex
+        labelname: virtual_domain_name
+        oid: 1.3.6.1.4.1.12356.101.3.2.1.1.2
+        type: DisplayString
     - name: snmp_fgSysMemUsage
       oid: 1.3.6.1.4.1.12356.101.4.1.4
       type: gauge
@@ -86,16 +66,6 @@ modules:
       oid: 1.3.6.1.4.1.12356.101.4.1.5
       type: gauge
       help: fgSysMemCapacity (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.5.0
-      lookups: []
-    - name: snmp_fgSysDiskUsage
-      oid: 1.3.6.1.4.1.12356.101.4.1.6
-      type: gauge
-      help: fgSysDiskUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.6.0
-      lookups: []
-    - name: snmp_fgSysDiskCapacity
-      oid: 1.3.6.1.4.1.12356.101.4.1.7
-      type: gauge
-      help: fgSysDiskCapacity (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.7.0
       lookups: []
     - name: snmp_fgSysSesCount
       oid: 1.3.6.1.4.1.12356.101.4.1.8
@@ -127,242 +97,10 @@ modules:
       type: gauge
       help: fgSysSes6Rate1 (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.16.0
       lookups: []
-    - name: snmp_fgVdNumber
-      oid: 1.3.6.1.4.1.12356.101.3.1.1
-      type: gauge
-      help: fgVdNumber (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.1.1.0
-      lookups: []
-    - name: snmp_fgVdMaxVdoms
-      oid: 1.3.6.1.4.1.12356.101.3.1.2
-      type: gauge
-      help: fgVdMaxVdoms (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.1.2.0
-      lookups: []
-    - name: snmp_fgSysUpTime
-      oid: 1.3.6.1.4.1.12356.101.4.1.20
-      type: counter
-      help: fgSysUpTime (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.1.20
-      lookups: []
-    - name: snmp_fgDhcpServerNumber
-      oid: 1.3.6.1.4.1.12356.101.23.1.1
-      type: gauge
-      help: fgDhcpServerNumber (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.23.1.1
-      lookups: []
-    - name: snmp_fgHwSensorEntValue
-      oid: 1.3.6.1.4.1.12356.101.4.3.2.1.3
-      type: gauge
-      help: fgHwSensorEntValue (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.3.2.1.3
-      indexes:
-      - labelname: fgHwSensorEntIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgHwSensorEntIndex
-        labelname: fgHwSensorEntName
-        oid: 1.3.6.1.4.1.12356.101.4.3.2.1.2
-        type: DisplayString
-    - name: snmp_fgHwSensorEntAlarmStatus
-      oid: 1.3.6.1.4.1.12356.101.4.3.2.1.4
-      type: gauge
-      help: fgHwSensorEntAlarmStatus (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.3.2.1.4
-      indexes:
-      - labelname: fgHwSensorEntIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgHwSensorEntIndex
-        labelname: fgHwSensorEntName
-        oid: 1.3.6.1.4.1.12356.101.4.3.2.1.2
-        type: DisplayString
-      enum_values:
-        0: 'off'
-        1: 'on'
-    - name: snmp_fgVWLHealthCheckLinkSeq
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.3
-      type: gauge
-      help: fgVWLHealthCheckLinkSeq (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.3
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkState
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.4
-      type: gauge
-      help: fgVWLHealthCheckLinkState (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.4
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-      enum_values:
-        0: alive
-        1: dead
-    - name: snmp_fgVWLHealthCheckLinkLatency
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.5
-      type: gauge
-      help: fgVWLHealthCheckLinkLatency (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.5
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkJitter
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.6
-      type: gauge
-      help: fgVWLHealthCheckLinkJitter (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.6
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkPacketSend
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.7
-      type: counter
-      help: fgVWLHealthCheckLinkPacketSend (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.7
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkPacketRecv
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.8
-      type: counter
-      help: fgVWLHealthCheckLinkPacketRecv (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.8
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkPacketLoss
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.9
-      type: gauge
-      help: fgVWLHealthCheckLinkPacketLoss (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.9
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkVdom
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.10
-      type: gauge
-      help: fgVWLHealthCheckLinkVdom (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.10
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkBandwidthIn
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.11
-      type: counter
-      help: fgVWLHealthCheckLinkBandwidthIn (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.11
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkBandwidthOut
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.12
-      type: counter
-      help: fgVWLHealthCheckLinkBandwidthOut (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.12
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkBandwidthBi
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.13
-      type: counter
-      help: fgVWLHealthCheckLinkBandwidthBi (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.13
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
-    - name: snmp_fgVWLHealthCheckLinkIfName
-      oid: 1.3.6.1.4.1.12356.101.4.9.2.1.14
-      type: gauge
-      help: fgVWLHealthCheckLinkIfName (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.9.2.1.14
-      indexes:
-      - labelname: fgVWLHealthCheckLinkID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVWLHealthCheckLinkID
-        labelname: healthcheck_service_link_name
-        oid: 1.3.6.1.4.1.12356.101.4.9.2.1.2
-        type: DisplayString
     - name: snmp_fgProcessorUsage
       oid: 1.3.6.1.4.1.12356.101.4.4.2.1.2
       type: gauge
       help: fgProcessorUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.4.2.1.2
-      indexes:
-      - labelname: fgProcessorEntIndex
-        type: gauge
-      lookups: []
-    - name: snmp_fgProcessorPktRxCount
-      oid: 1.3.6.1.4.1.12356.101.4.4.2.1.6
-      type: counter
-      help: fgProcessorPktRxCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.4.2.1.6
-      indexes:
-      - labelname: fgProcessorEntIndex
-        type: gauge
-      lookups: []
-    - name: snmp_fgProcessorPktTxCount
-      oid: 1.3.6.1.4.1.12356.101.4.4.2.1.7
-      type: counter
-      help: fgProcessorPktTxCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.4.2.1.7
-      indexes:
-      - labelname: fgProcessorEntIndex
-        type: gauge
-      lookups: []
-    - name: snmp_fgProcessorPktDroppedCount
-      oid: 1.3.6.1.4.1.12356.101.4.4.2.1.8
-      type: counter
-      help: fgProcessorPktDroppedCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.4.2.1.8
       indexes:
       - labelname: fgProcessorEntIndex
         type: gauge
@@ -375,14 +113,6 @@ modules:
       - labelname: fgProcessorEntIndex
         type: gauge
       lookups: []
-    - name: snmp_fgApHTTPConnections
-      oid: 1.3.6.1.4.1.12356.101.10.100.4.0
-      type: gauge
-      help: fgApHTTPConnections (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.10.100.4.0
-      indexes:
-      - labelname: fgProcessorEntIndex
-        type: gauge
-      lookups: []
     - name: snmp_fgApHTTPMaxConnections
       oid: 1.3.6.1.4.1.12356.101.10.100.5.0
       type: gauge
@@ -391,52 +121,6 @@ modules:
       - labelname: fgProcessorEntIndex
         type: gauge
       lookups: []
-    - name: snmp_fgVdEntOpMode
-      oid: 1.3.6.1.4.1.12356.101.3.2.1.1.3
-      type: gauge
-      help: fgVdEntOpMode (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.2.1.1.3
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        labelname: virtual_domain_name
-        oid: 1.3.6.1.4.1.12356.101.3.2.1.1.2
-        type: DisplayString
-      enum_values:
-        1: nat
-        2: transparent
-    - name: snmp_fgVdEntHaState
-      oid: 1.3.6.1.4.1.12356.101.3.2.1.1.4
-      type: gauge
-      help: fgVdEntHaState (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.2.1.1.4
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        labelname: virtual_domain_name
-        oid: 1.3.6.1.4.1.12356.101.3.2.1.1.2
-        type: DisplayString
-      enum_values:
-        1: master
-        2: backup
-        3: standalone
-    - name: snmp_fgVdEntCpuUsage
-      oid: 1.3.6.1.4.1.12356.101.3.2.1.1.5
-      type: gauge
-      help: fgVdEntCpuUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.3.2.1.1.5
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        labelname: virtual_domain_name
-        oid: 1.3.6.1.4.1.12356.101.3.2.1.1.2
-        type: DisplayString
     - name: snmp_fgVdEntMemUsage
       oid: 1.3.6.1.4.1.12356.101.3.2.1.1.6
       type: gauge
@@ -476,192 +160,22 @@ modules:
         labelname: virtual_domain_name
         oid: 1.3.6.1.4.1.12356.101.3.2.1.1.2
         type: DisplayString
-    - name: snmp_fgFwPolPktCount
-      oid: 1.3.6.1.4.1.12356.101.5.1.2.1.1.2
-      type: counter
-      help: fgFwPolPktCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.5.1.2.1.1.2
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      - labelname: fgFwPolID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        - fgFwPolID
-        labelname: firewall_policy_index
-        oid: 1.3.6.1.4.1.12356.101.5.1.2.1.1.1
-        type: gauge
-    - name: snmp_fgFwPolByteCount
-      oid: 1.3.6.1.4.1.12356.101.5.1.2.1.1.3
-      type: counter
-      help: fgFwPolByteCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.5.1.2.1.1.3
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      - labelname: fgFwPolID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        - fgFwPolID
-        labelname: firewall_policy_index
-        oid: 1.3.6.1.4.1.12356.101.5.1.2.1.1.1
-        type: gauge
-    - name: snmp_fgFwPol6PktCount
-      oid: 1.3.6.1.4.1.12356.101.5.1.2.2.1.2
-      type: counter
-      help: fgFwPol6PktCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.5.1.2.2.1.2
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      - labelname: fgFwPol6ID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        - fgFwPol6ID
-        labelname: firewall_policy6_index
-        oid: 1.3.6.1.4.1.12356.101.5.1.2.2.1.1
-        type: gauge
-    - name: snmp_fgFwPol6ByteCount
-      oid: 1.3.6.1.4.1.12356.101.5.1.2.2.1.3
-      type: counter
-      help: fgFwPol6ByteCount (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.5.1.2.2.1.3
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      - labelname: fgFwPol6ID
-        type: gauge
-      lookups:
-      - labels:
-        - fgVdEntIndex
-        - fgFwPol6ID
-        labelname: firewall_policy6_index
-        oid: 1.3.6.1.4.1.12356.101.5.1.2.2.1.1
-        type: gauge
-    - name: snmp_fgDhcpLeaseUsage
-      oid: 1.3.6.1.4.1.12356.101.23.2.1.1.2
-      type: gauge
-      help: fgDhcpLeaseUsage (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.23.2.1.1.2
-      indexes:
-      - labelname: fgVdEntIndex
-        type: gauge
-      lookups: []
-    - name: snmp_fgHaStatsSyncStatus
-      oid: 1.3.6.1.4.1.12356.101.13.2.1.1.12
-      type: gauge
-      help: fgHaStatsSyncStatus (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.13.2.1.1.12
-      indexes:
-      - labelname: fgHaStatsIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgHaStatsIndex
-        labelname: fgHaStatsSerial
-        oid: 1.3.6.1.4.1.12356.101.13.2.1.1.2
-        type: DisplayString
-      - labels:
-        - fgHaStatsIndex
-        labelname: fgHaStatsHostname
-        oid: 1.3.6.1.4.1.12356.101.13.2.1.1.11
-        type: DisplayString
-      enum_values:
-        0: unsynchronized
-        1: synchronized
-    - name: snmp_fgHaStatsPrimarySerial
-      oid: 1.3.6.1.4.1.12356.101.13.2.1.1.16
-      type: gauge
-      help: fgHaStatsPrimarySerial (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.13.2.1.1.16
-      indexes:
-      - labelname: fgHaStatsIndex
-        type: gauge
-      lookups:
-      - labels:
-        - fgHaStatsIndex
-        labelname: fgHaStatsSerial
-        oid: 1.3.6.1.4.1.12356.101.13.2.1.1.2
-        type: DisplayString
-      - labels:
-        - fgHaStatsIndex
-        labelname: fgHaStatsHostname
-        oid: 1.3.6.1.4.1.12356.101.13.2.1.1.11
-        type: DisplayString
-    - name: snmp_fgLinkMonitorState
-      oid: 1.3.6.1.4.1.12356.101.4.8.2.1.3
-      type: gauge
-      help: fgLinkMonitorState (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.8.2.1.3
-      indexes:
-      - labelname: fgLinkMonitorID
-        type: gauge
-      lookups:
-      - labels:
-        - fgLinkMonitorID
-        labelname: fgLinkMonitorName
-        oid: 1.3.6.1.4.1.12356.101.4.8.2.1.2
-        type: DisplayString
-      enum_values:
-        0: alive
-        1: dead
-    - name: snmp_fgLinkMonitorLatency
-      oid: 1.3.6.1.4.1.12356.101.4.8.2.1.4
-      type: gauge
-      help: fgLinkMonitorLatency (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.8.2.1.4
-      indexes:
-      - labelname: fgLinkMonitorID
-        type: gauge
-      lookups:
-      - labels:
-        - fgLinkMonitorID
-        labelname: fgLinkMonitorName
-        oid: 1.3.6.1.4.1.12356.101.4.8.2.1.2
-        type: DisplayString
-    - name: snmp_fgLinkMonitorJitter
-      oid: 1.3.6.1.4.1.12356.101.4.8.2.1.5
-      type: gauge
-      help: fgLinkMonitorJitter (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.8.2.1.5
-      indexes:
-      - labelname: fgLinkMonitorID
-        type: gauge
-      lookups:
-      - labels:
-        - fgLinkMonitorID
-        labelname: fgLinkMonitorName
-        oid: 1.3.6.1.4.1.12356.101.4.8.2.1.2
-        type: DisplayString
-    - name: snmp_fgLinkMonitorPacketLoss
-      oid: 1.3.6.1.4.1.12356.101.4.8.2.1.8
-      type: gauge
-      help: fgLinkMonitorPacketLoss (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.4.8.2.1.8
-      indexes:
-      - labelname: fgLinkMonitorID
-        type: gauge
-      lookups:
-      - labels:
-        - fgLinkMonitorID
-        labelname: fgLinkMonitorName
-        oid: 1.3.6.1.4.1.12356.101.4.8.2.1.2
-        type: DisplayString
-    - name: snmp_fgVpnTunEntStatus
-      oid: 1.3.6.1.4.1.12356.101.12.2.2.1.20
-      type: gauge
-      help: fgVpnTunEntStatus (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.12.2.2.1.20
-      indexes:
-      - labelname: fgVpnTunEntIndex
-        type: gauge
-      - labelname: fgVpnTunEntPhase2Index
-        type: gauge
-      enum_values:
-        1: down
-        2: up
-      lookups: []
-    - name: snmp_fgVpnTunEntPhase1Name
-      oid: 1.3.6.1.4.1.12356.101.12.2.2.1.2
-      type: gauge
-      help: fgVpnTunEntPhase1Name (FORTINET-FORTIGATE-MIB) - 1.3.6.1.4.1.12356.101.12.2.2.1.2
-      indexes:
-      - labelname: fgVpnTunEntIndex
-        type: gauge
-      - labelname: fgVpnTunEntPhase2Index
-        type: gauge
-      lookups: []
+    walk:
+    - 1.3.6.1.4.1.12356.101.3.2.1
+    - 1.3.6.1.4.1.12356.101.4.4.2
+    get:
+    - 1.3.6.1.4.1.12356.101.4.1.3.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.12356.101.4.1.4.0
+    - 1.3.6.1.4.1.12356.101.4.1.5.0
+    - 1.3.6.1.4.1.12356.101.4.1.8.0
+    - 1.3.6.1.4.1.12356.101.4.1.9.0
+    - 1.3.6.1.4.1.12356.101.4.1.10.0
+    - 1.3.6.1.4.1.12356.101.4.1.11.0
+    - 1.3.6.1.4.1.12356.101.4.1.15.0
+    - 1.3.6.1.4.1.12356.101.4.1.16.0

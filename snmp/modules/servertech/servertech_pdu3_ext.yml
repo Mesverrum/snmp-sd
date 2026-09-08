@@ -1,0 +1,1001 @@
+# GENERATED from kentik/snmp-profiles — module servertech_pdu3_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  servertech_pdu3_ext:
+    metrics:
+    - name: snmp_systemTotalPower
+      oid: 1.3.6.1.4.1.1718.3.1.6
+      type: gauge
+      help: systemTotalPower (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.1.6.0
+      lookups: []
+    - name: snmp_systemConfigModifiedCount
+      oid: 1.3.6.1.4.1.1718.3.1.15
+      type: gauge
+      help: systemConfigModifiedCount (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.1.15.0
+      lookups: []
+    - name: snmp_towerStatus
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.4
+      type: gauge
+      help: towerStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.4
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: noComm
+        2: fanFail
+        3: overTemp
+        4: nvmFail
+        5: outOfBalance
+    - name: snmp_towerInfeedCount
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.5
+      type: gauge
+      help: towerInfeedCount (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.5
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerVACapacity
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.9
+      type: gauge
+      help: towerVACapacity (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.9
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerVACapacityUsed
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.10
+      type: gauge
+      help: towerVACapacityUsed (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.10
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerActivePower
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.11
+      type: gauge
+      help: towerActivePower (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.11
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerApparentPower
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.12
+      type: gauge
+      help: towerApparentPower (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.12
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerPowerFactor
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.13
+      type: gauge
+      help: towerPowerFactor (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.13
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerEnergy
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.14
+      type: gauge
+      help: towerEnergy (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.14
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_towerLineFrequency
+      oid: 1.3.6.1.4.1.1718.3.2.1.1.15
+      type: gauge
+      help: towerLineFrequency (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.1.1.15
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        labelname: towerID
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerName
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerProductSN
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.6
+        type: DisplayString
+      - labels:
+        - towerIndex
+        labelname: towerModelNumber
+        oid: 1.3.6.1.4.1.1718.3.2.1.1.7
+        type: DisplayString
+    - name: snmp_infeedStatus
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.5
+      type: gauge
+      help: infeedStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.5
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+        2: offWait
+        3: onWait
+        4: offError
+        5: onError
+        6: noComm
+        7: reading
+        8: offFuse
+        9: onFuse
+    - name: snmp_infeedLoadStatus
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.6
+      type: gauge
+      help: infeedLoadStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.6
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: notOn
+        2: reading
+        3: loadLow
+        4: loadHigh
+        5: overLoad
+        6: readError
+        7: noComm
+    - name: snmp_infeedLoadValue
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.7
+      type: gauge
+      help: infeedLoadValue (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.7
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedOutletCount
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.9
+      type: gauge
+      help: infeedOutletCount (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.9
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedCapacity
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.10
+      type: gauge
+      help: infeedCapacity (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.10
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedVoltage
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.11
+      type: gauge
+      help: infeedVoltage (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.11
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedPower
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.12
+      type: gauge
+      help: infeedPower (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.12
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedEnergy
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.16
+      type: gauge
+      help: infeedEnergy (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.16
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedReactance
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.17
+      type: gauge
+      help: infeedReactance (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.17
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: capacitive
+        2: inductive
+        3: resistive
+    - name: snmp_infeedPhaseVoltage
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.18
+      type: gauge
+      help: infeedPhaseVoltage (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.18
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedPhaseCurrent
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.19
+      type: gauge
+      help: infeedPhaseCurrent (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.19
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_infeedCapacityUsed
+      oid: 1.3.6.1.4.1.1718.3.2.2.1.20
+      type: gauge
+      help: infeedCapacityUsed (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.2.1.20
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedName
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.3
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.21
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedLineToLineID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.22
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        labelname: infeedPhaseID
+        oid: 1.3.6.1.4.1.1718.3.2.2.1.23
+        type: DisplayString
+    - name: snmp_outletStatus
+      oid: 1.3.6.1.4.1.1718.3.2.3.1.5
+      type: gauge
+      help: outletStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.3.1.5
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      - labelname: outletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletID
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletName
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.3
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+        2: offWait
+        3: onWait
+        4: offError
+        5: onError
+        6: noComm
+        7: reading
+        8: offFuse
+        9: onFuse
+    - name: snmp_outletControlState
+      oid: 1.3.6.1.4.1.1718.3.2.3.1.10
+      type: gauge
+      help: outletControlState (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.3.1.10
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      - labelname: outletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletID
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletName
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.3
+        type: DisplayString
+      enum_values:
+        0: idleOff
+        1: idleOn
+        2: wakeOff
+        3: wakeOn
+        4: 'off'
+        5: 'on'
+        6: lockedOff
+        7: lockedOn
+        8: reboot
+        9: shutdown
+        10: pendOn
+        11: pendOff
+        12: minimumOff
+        13: minimumOn
+        14: eventOff
+        15: eventOn
+        16: eventReboot
+        17: eventShutdown
+    - name: snmp_outletWakeupState
+      oid: 1.3.6.1.4.1.1718.3.2.3.1.19
+      type: gauge
+      help: outletWakeupState (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.3.1.19
+      indexes:
+      - labelname: towerIndex
+        type: gauge
+      - labelname: infeedIndex
+        type: gauge
+      - labelname: outletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletID
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.2
+        type: DisplayString
+      - labels:
+        - towerIndex
+        - infeedIndex
+        - outletIndex
+        labelname: outletName
+        oid: 1.3.6.1.4.1.1718.3.2.3.1.3
+        type: DisplayString
+      enum_values:
+        1: last
+        2: 'off'
+        3: 'on'
+    - name: snmp_envMonStatus
+      oid: 1.3.6.1.4.1.1718.3.2.4.1.4
+      type: gauge
+      help: envMonStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.4.1.4
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        labelname: envMonID
+        oid: 1.3.6.1.4.1.1718.3.2.4.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        labelname: envMonName
+        oid: 1.3.6.1.4.1.1718.3.2.4.1.3
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: noComm
+    - name: snmp_tempHumidSensorStatus
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.4
+      type: gauge
+      help: tempHumidSensorStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.4
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+      enum_values:
+        0: found
+        1: notFound
+        2: lost
+        3: noComm
+    - name: snmp_tempHumidSensorHumidStatus
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.9
+      type: gauge
+      help: tempHumidSensorHumidStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.9
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: notFound
+        2: reading
+        3: humidLow
+        4: humidHigh
+        5: readError
+        6: lost
+        7: noComm
+    - name: snmp_tempHumidSensorHumidValue
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.10
+      type: gauge
+      help: tempHumidSensorHumidValue (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.10
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.1718.3.2.5
+    - 1.3.6.1.4.1.1718.3.2.1
+    - 1.3.6.1.4.1.1718.3.2.2
+    - 1.3.6.1.4.1.1718.3.2.3
+    - 1.3.6.1.4.1.1718.3.2.4
+    get:
+    - 1.3.6.1.4.1.1718.3.1.15.0
+    - 1.3.6.1.4.1.1718.3.1.6.0

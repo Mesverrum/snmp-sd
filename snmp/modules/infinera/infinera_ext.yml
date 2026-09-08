@@ -1,0 +1,377 @@
+# GENERATED from kentik/snmp-profiles — module infinera_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  infinera_ext:
+    metrics:
+    - name: snmp_systemPowerConsumptionCurrent
+      oid: 1.3.6.1.4.1.42229.1.2.2.2.2
+      type: gauge
+      help: systemPowerConsumptionCurrent (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.2.2.2.0
+      lookups: []
+    - name: snmp_shelfAdminStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.5
+      type: gauge
+      help: shelfAdminStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_shelfOperStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.6
+      type: gauge
+      help: shelfOperStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.6
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_shelfAvailStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.7
+      type: gauge
+      help: shelfAvailStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.7
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+      enum_values:
+        0: none
+        1: failed
+        2: mismatch
+        3: lowerLayerDown
+        4: notPresent
+        5: shutdown
+        6: degraded
+        7: idle
+        8: busy
+        9: hibernation
+        10: inTest
+        11: loopback
+        12: softwareUpgrade
+        13: initializing
+        14: unknown
+        15: incomplete
+        16: laserSafetyShutoff
+        17: measuring
+        18: firmwareLoading
+        19: connected
+    - name: snmp_cardAdminStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.3
+      type: gauge
+      help: cardAdminStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.3
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_cardOperStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.4
+      type: gauge
+      help: cardOperStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+    - name: snmp_cardAvailStatus
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.5
+      type: gauge
+      help: cardAvailStatus (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        0: none
+        1: failed
+        2: mismatch
+        3: lowerLayerDown
+        4: notPresent
+        5: shutdown
+        6: degraded
+        7: idle
+        8: busy
+        9: hibernation
+        10: inTest
+        11: loopback
+        12: softwareUpgrade
+        13: initializing
+        14: unknown
+        15: incomplete
+        16: laserSafetyShutoff
+        17: measuring
+        18: firmwareLoading
+        19: connected
+    - name: snmp_cardMode
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.10
+      type: gauge
+      help: cardMode (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.10
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+      enum_values:
+        0: notApplicable
+        1: normal
+        2: regen
+    - name: snmp_portRxOpticalPower
+      oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.4
+      type: gauge
+      help: portRxOpticalPower (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.6.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.16
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.22
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.23
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portConnectedTo
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.24
+        type: DisplayString
+    - name: snmp_portTxOpticalPower
+      oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.5
+      type: gauge
+      help: portTxOpticalPower (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.6.1.1.5
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.16
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.22
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.23
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: portConnectedTo
+        oid: 1.3.6.1.4.1.42229.1.2.3.6.1.1.24
+        type: DisplayString
+    - name: snmp_ochOsCD
+      oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.23
+      type: gauge
+      help: ochOsCD (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.23
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: ochOsServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.21
+        type: DisplayString
+    - name: snmp_ochOsOSNR
+      oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.24
+      type: gauge
+      help: ochOsOSNR (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.24
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      - labelname: subslotId
+        type: gauge
+      - labelname: portId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        - subslotId
+        - portId
+        labelname: ochOsServiceLabel
+        oid: 1.3.6.1.4.1.42229.1.2.4.1.19.1.1.21
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.42229.1.2.3.1.1
+    - 1.3.6.1.4.1.42229.1.2.3.3.1
+    - 1.3.6.1.4.1.42229.1.2.3.6.1
+    - 1.3.6.1.4.1.42229.1.2.4.1.19.1
+    get:
+    - 1.3.6.1.4.1.42229.1.2.2.2.2.0

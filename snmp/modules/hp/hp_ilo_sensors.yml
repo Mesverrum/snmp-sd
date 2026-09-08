@@ -1,0 +1,656 @@
+# GENERATED from kentik/snmp-profiles — module hp_ilo_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hp_ilo_sensors:
+    metrics:
+    - name: snmp_cpqDaCntlrCurrentTemp
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.32
+      type: gauge
+      help: cpqDaCntlrCurrentTemp (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.32
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+    - name: snmp_cpqDaAccelBoardCurrentTemp
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.17
+      type: gauge
+      help: cpqDaAccelBoardCurrentTemp (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.17
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaAccelCapacitorCurrentTemp
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.18
+      type: gauge
+      help: cpqDaAccelCapacitorCurrentTemp (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.18
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaPhyDrvCurrentTemperature
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.70
+      type: gauge
+      help: cpqDaPhyDrvCurrentTemperature (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.70
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+    - name: snmp_cpqHeThermalTempStatus
+      oid: 1.3.6.1.4.1.232.6.2.6.3
+      type: gauge
+      help: cpqHeThermalTempStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.3.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeThermalSystemFanStatus
+      oid: 1.3.6.1.4.1.232.6.2.6.4
+      type: gauge
+      help: cpqHeThermalSystemFanStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.4.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeThermalCpuFanStatus
+      oid: 1.3.6.1.4.1.232.6.2.6.5
+      type: gauge
+      help: cpqHeThermalCpuFanStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.5.0
+      enum_values:
+        1: other
+        2: ok
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeFltTolFanSpeed
+      oid: 1.3.6.1.4.1.232.6.2.6.7.1.6
+      type: gauge
+      help: cpqHeFltTolFanSpeed (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.7.1.6
+      indexes:
+      - labelname: cpqHeFltTolFanChassis
+        type: gauge
+      - labelname: cpqHeFltTolFanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanLocale
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.3
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanPresent
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.4
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanType
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.5
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanRedundant
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.7
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: normal
+        3: high
+    - name: snmp_cpqHeFltTolFanCondition
+      oid: 1.3.6.1.4.1.232.6.2.6.7.1.9
+      type: gauge
+      help: cpqHeFltTolFanCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.7.1.9
+      indexes:
+      - labelname: cpqHeFltTolFanChassis
+        type: gauge
+      - labelname: cpqHeFltTolFanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanLocale
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.3
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanPresent
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.4
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanType
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.5
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanRedundant
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.7
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqHeFltTolFanHotPlug
+      oid: 1.3.6.1.4.1.232.6.2.6.7.1.10
+      type: gauge
+      help: cpqHeFltTolFanHotPlug (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.7.1.10
+      indexes:
+      - labelname: cpqHeFltTolFanChassis
+        type: gauge
+      - labelname: cpqHeFltTolFanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanLocale
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.3
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanPresent
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.4
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanType
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.5
+        type: EnumAsInfo
+      - labels:
+        - cpqHeFltTolFanChassis
+        - cpqHeFltTolFanIndex
+        labelname: cpqHeFltTolFanRedundant
+        oid: 1.3.6.1.4.1.232.6.2.6.7.1.7
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: nonHotPluggable
+        3: hotPluggable
+    - name: snmp_cpqHeTemperatureCelsius
+      oid: 1.3.6.1.4.1.232.6.2.6.8.1.4
+      type: gauge
+      help: cpqHeTemperatureCelsius (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.8.1.4
+      indexes:
+      - labelname: cpqHeTemperatureChassis
+        type: gauge
+      - labelname: cpqHeTemperatureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeTemperatureChassis
+        - cpqHeTemperatureIndex
+        labelname: cpqHeTemperatureLocale
+        oid: 1.3.6.1.4.1.232.6.2.6.8.1.3
+        type: EnumAsInfo
+    - name: snmp_cpqHeTemperatureCondition
+      oid: 1.3.6.1.4.1.232.6.2.6.8.1.6
+      type: gauge
+      help: cpqHeTemperatureCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.8.1.6
+      indexes:
+      - labelname: cpqHeTemperatureChassis
+        type: gauge
+      - labelname: cpqHeTemperatureIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeTemperatureChassis
+        - cpqHeTemperatureIndex
+        labelname: cpqHeTemperatureLocale
+        oid: 1.3.6.1.4.1.232.6.2.6.8.1.3
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqHeFltTolPowerSupplyPresent
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.3
+      type: gauge
+      help: cpqHeFltTolPowerSupplyPresent (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.3
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: other
+        2: absent
+        3: present
+    - name: snmp_cpqHeFltTolPowerSupplyCondition
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.4
+      type: gauge
+      help: cpqHeFltTolPowerSupplyCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.4
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqHeFltTolPowerSupplyStatus
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.5
+      type: gauge
+      help: cpqHeFltTolPowerSupplyStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.5
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: noError
+        2: generalFailure
+        3: bistFailure
+        4: fanFailure
+        5: tempFailure
+        6: interlockOpen
+        7: epromFailed
+        8: vrefFailed
+        9: dacFailed
+        10: ramTestFailed
+        11: voltageChannelFailed
+        12: orringdiodeFailed
+        13: brownOut
+        14: giveupOnStartup
+        15: nvramInvalid
+        16: calibrationTableInvalid
+    - name: snmp_cpqHeFltTolPowerSupplyMainVoltage
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.6
+      type: gauge
+      help: cpqHeFltTolPowerSupplyMainVoltage (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.6
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+    - name: snmp_cpqHeFltTolPowerSupplyCapacityUsed
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.7
+      type: gauge
+      help: cpqHeFltTolPowerSupplyCapacityUsed (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.7
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+    - name: snmp_cpqHeFltTolPowerSupplyRedundant
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.9
+      type: gauge
+      help: cpqHeFltTolPowerSupplyRedundant (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.9
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: other
+        2: notRedundant
+        3: redundant
+    - name: snmp_cpqHeFltTolPowerSupplyHotPlug
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.13
+      type: gauge
+      help: cpqHeFltTolPowerSupplyHotPlug (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.13
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: other
+        2: nonHotPluggable
+        3: hotPluggable
+    - name: snmp_cpqHeFltTolPowerSupplyErrorCondition
+      oid: 1.3.6.1.4.1.232.6.2.9.3.1.18
+      type: gauge
+      help: cpqHeFltTolPowerSupplyErrorCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.3.1.18
+      indexes:
+      - labelname: cpqHeFltTolPowerSupplyChassis
+        type: gauge
+      - labelname: cpqHeFltTolPowerSupplyBay
+        type: gauge
+      lookups:
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyBay
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.2
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyCapacityMaximum
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.8
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplyModel
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqHeFltTolPowerSupplyChassis
+        - cpqHeFltTolPowerSupplyBay
+        labelname: cpqHeFltTolPowerSupplySerialNumber
+        oid: 1.3.6.1.4.1.232.6.2.9.3.1.11
+        type: DisplayString
+      enum_values:
+        1: noError
+        2: generalFailure
+        3: overvoltage
+        4: overcurrent
+        5: overtemperature
+        6: powerinputloss
+        7: fanfailure
+        8: vinhighwarning
+        9: vinlowwarning
+        10: vouthighwarning
+        11: voutlowwarning
+        12: inlettemphighwarning
+        13: iinternaltemphighwarning
+        14: vauxhighwarning
+        15: vauxlowwarning
+    walk:
+    - 1.3.6.1.4.1.232.3.2.2.1
+    - 1.3.6.1.4.1.232.3.2.2.2
+    - 1.3.6.1.4.1.232.3.2.5
+    - 1.3.6.1.4.1.232.6.2.6.7
+    - 1.3.6.1.4.1.232.6.2.6.8
+    - 1.3.6.1.4.1.232.6.2.9.3
+    get:
+    - 1.3.6.1.4.1.232.6.2.6.3.0
+    - 1.3.6.1.4.1.232.6.2.6.4.0
+    - 1.3.6.1.4.1.232.6.2.6.5.0

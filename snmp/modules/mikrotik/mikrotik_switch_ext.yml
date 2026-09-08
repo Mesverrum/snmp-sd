@@ -1,0 +1,347 @@
+# GENERATED from kentik/snmp-profiles — module mikrotik_switch_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  mikrotik_switch_ext:
+    metrics:
+    - name: snmp_mtxrOpticalRxPower
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.10
+      type: gauge
+      help: mtxrOpticalRxPower (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.10
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxPower
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.9
+      type: gauge
+      help: mtxrOpticalTxPower (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.9
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxFault
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.4
+      type: gauge
+      help: mtxrOpticalTxFault (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.4
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+      enum_values:
+        0: 'false'
+        1: 'true'
+    - name: snmp_mtxrOpticalRxLoss
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.3
+      type: gauge
+      help: mtxrOpticalRxLoss (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.3
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+      enum_values:
+        0: 'false'
+        1: 'true'
+    - name: snmp_mtxrOpticalSupplyVoltage
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.7
+      type: gauge
+      help: mtxrOpticalSupplyVoltage (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.7
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_mtxrOpticalTxBiasCurrent
+      oid: 1.3.6.1.4.1.14988.1.1.19.1.1.8
+      type: gauge
+      help: mtxrOpticalTxBiasCurrent (MIKROTIK-MIB) - 1.3.6.1.4.1.14988.1.1.19.1.1.8
+      indexes:
+      - labelname: mtxrOpticalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - mtxrOpticalIndex
+        labelname: mtxrOpticalName
+        oid: 1.3.6.1.4.1.14988.1.1.19.1.1.2
+        type: DisplayString
+    - name: snmp_ifHCInOctets
+      oid: 1.3.6.1.2.1.31.1.1.1.6
+      type: counter
+      help: ifHCInOctets (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifDescr
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifAlias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+    - name: snmp_ifHCOutOctets
+      oid: 1.3.6.1.2.1.31.1.1.1.10
+      type: counter
+      help: ifHCOutOctets (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.10
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifDescr
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifAlias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+    - name: snmp_ifOperStatus
+      oid: 1.3.6.1.2.1.2.2.1.8
+      type: gauge
+      help: ifOperStatus (IF-MIB) - 1.3.6.1.2.1.2.2.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifDescr
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifAlias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: testing
+    - name: snmp_ifInErrors
+      oid: 1.3.6.1.2.1.2.2.1.14
+      type: counter
+      help: ifInErrors (IF-MIB) - 1.3.6.1.2.1.2.2.1.14
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifDescr
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifAlias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+    - name: snmp_ifOutErrors
+      oid: 1.3.6.1.2.1.2.2.1.20
+      type: counter
+      help: ifOutErrors (IF-MIB) - 1.3.6.1.2.1.2.2.1.20
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifDescr
+        oid: 1.3.6.1.2.1.2.2.1.2
+        type: DisplayString
+      - labels:
+        - ifIndex
+        labelname: ifAlias
+        oid: 1.3.6.1.2.1.31.1.1.1.18
+        type: DisplayString
+    - name: snmp_ifHighSpeed
+      oid: 1.3.6.1.2.1.31.1.1.1.15
+      type: gauge
+      help: ifHighSpeed (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.15
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifAdminStatus
+      oid: 1.3.6.1.2.1.2.2.1.7
+      type: gauge
+      help: ifAdminStatus (IF-MIB) - 1.3.6.1.2.1.2.2.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+      lookups: []
+    - name: snmp_ifHCInUcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.7
+      type: counter
+      help: ifHCInUcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifHCOutUcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.11
+      type: counter
+      help: ifHCOutUcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.11
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifHCInMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.8
+      type: counter
+      help: ifHCInMulticastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.8
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifHCOutMulticastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.12
+      type: counter
+      help: ifHCOutMulticastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.12
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifHCInBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.9
+      type: counter
+      help: ifHCInBroadcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.9
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifHCOutBroadcastPkts
+      oid: 1.3.6.1.2.1.31.1.1.1.13
+      type: counter
+      help: ifHCOutBroadcastPkts (IF-MIB) - 1.3.6.1.2.1.31.1.1.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifInDiscards
+      oid: 1.3.6.1.2.1.2.2.1.13
+      type: counter
+      help: ifInDiscards (IF-MIB) - 1.3.6.1.2.1.2.2.1.13
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_ifOutDiscards
+      oid: 1.3.6.1.2.1.2.2.1.19
+      type: counter
+      help: ifOutDiscards (IF-MIB) - 1.3.6.1.2.1.2.2.1.19
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups: []
+    - name: snmp_sysUpTime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) - 1.3.6.1.2.1.1.3.0
+      lookups: []
+    - name: snmp_sysContact
+      oid: 1.3.6.1.2.1.1.4
+      type: gauge
+      help: sysContact (SNMPv2-MIB) - 1.3.6.1.2.1.1.4.0
+      lookups: []
+    - name: snmp_sysName
+      oid: 1.3.6.1.2.1.1.5
+      type: gauge
+      help: sysName (SNMPv2-MIB) - 1.3.6.1.2.1.1.5.0
+      lookups: []
+    - name: snmp_sysLocation
+      oid: 1.3.6.1.2.1.1.6
+      type: gauge
+      help: sysLocation (SNMPv2-MIB) - 1.3.6.1.2.1.1.6.0
+      lookups: []
+    walk:
+    - 1.3.6.1.2.1.1.4
+    - 1.3.6.1.2.1.1.5
+    - 1.3.6.1.2.1.1.6
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.2
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.10
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.9
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.4
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.3
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.7
+    - 1.3.6.1.4.1.14988.1.1.19.1.1.8
+    - 1.3.6.1.2.1.31.1.1.1.6
+    - 1.3.6.1.2.1.31.1.1.1.1
+    - 1.3.6.1.2.1.2.2.1.2
+    - 1.3.6.1.2.1.31.1.1.1.18
+    - 1.3.6.1.2.1.31.1.1.1.10
+    - 1.3.6.1.2.1.2.2.1.8
+    - 1.3.6.1.2.1.2.2.1.14
+    - 1.3.6.1.2.1.2.2.1.20
+    - 1.3.6.1.2.1.31.1.1.1.15
+    - 1.3.6.1.2.1.2.2.1.7
+    - 1.3.6.1.2.1.31.1.1.1.7
+    - 1.3.6.1.2.1.31.1.1.1.11
+    - 1.3.6.1.2.1.31.1.1.1.8
+    - 1.3.6.1.2.1.31.1.1.1.12
+    - 1.3.6.1.2.1.31.1.1.1.9
+    - 1.3.6.1.2.1.31.1.1.1.13
+    - 1.3.6.1.2.1.2.2.1.13
+    - 1.3.6.1.2.1.2.2.1.19
+    - 1.3.6.1.2.1.1.3
+    get:
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.2.1.1.3.0

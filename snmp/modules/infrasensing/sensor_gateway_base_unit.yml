@@ -2,25 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   sensor_gateway_base_unit:
-    get:
-    - 1.3.6.1.4.1.17095.1000.1.1.0
-    - 1.3.6.1.4.1.17095.1000.1.2.0
-    - 1.3.6.1.4.1.17095.1000.1.3.0
-    - 1.3.6.1.4.1.17095.1000.1.4.0
-    - 1.3.6.1.4.1.17095.1000.1.5.0
-    - 1.3.6.1.4.1.17095.1000.1.6.0
-    - 1.3.6.1.4.1.17095.1000.2.1.0
-    - 1.3.6.1.4.1.17095.1000.2.2.0
-    - 1.3.6.1.4.1.17095.1000.2.3.0
-    - 1.3.6.1.4.1.17095.1000.2.4.0
-    - 1.3.6.1.4.1.17095.1000.2.5.0
-    - 1.3.6.1.4.1.17095.1000.2.6.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -58,63 +39,10 @@ modules:
         labelname: sysLocation
         oid: 1.3.6.1.2.1.1.6
         type: DisplayString
-    - name: snmp_sensor1_display_name
-      oid: 1.3.6.1.4.1.17095.1000.1.1
-      type: gauge
-      help: sensor1_display_name (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.1.0
-      lookups: []
-    - name: snmp_sensor1_sensor_type
-      oid: 1.3.6.1.4.1.17095.1000.1.2
-      type: gauge
-      help: sensor1_sensor_type (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.2.0
-      lookups: []
-    - name: snmp_sensor1_value_string
-      oid: 1.3.6.1.4.1.17095.1000.1.3
-      type: gauge
-      help: sensor1_value_string (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.3.0
-      lookups: []
-    - name: snmp_sensor1_value_integer
-      oid: 1.3.6.1.4.1.17095.1000.1.4
-      type: gauge
-      help: sensor1_value_integer (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.4.0
-      lookups: []
-    - name: snmp_sensor1_status
-      oid: 1.3.6.1.4.1.17095.1000.1.5
-      type: gauge
-      help: sensor1_status (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.5.0
-      lookups: []
-    - name: snmp_sensor1_threshold
-      oid: 1.3.6.1.4.1.17095.1000.1.6
-      type: gauge
-      help: sensor1_threshold (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.1.6.0
-      lookups: []
-    - name: snmp_sensor2_display_name
-      oid: 1.3.6.1.4.1.17095.1000.2.1
-      type: gauge
-      help: sensor2_display_name (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.1.0
-      lookups: []
-    - name: snmp_sensor2_sensor_type
-      oid: 1.3.6.1.4.1.17095.1000.2.2
-      type: gauge
-      help: sensor2_sensor_type (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.2.0
-      lookups: []
-    - name: snmp_sensor2_value_string
-      oid: 1.3.6.1.4.1.17095.1000.2.3
-      type: gauge
-      help: sensor2_value_string (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.3.0
-      lookups: []
-    - name: snmp_sensor2_value_integer
-      oid: 1.3.6.1.4.1.17095.1000.2.4
-      type: gauge
-      help: sensor2_value_integer (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.4.0
-      lookups: []
-    - name: snmp_sensor2_status
-      oid: 1.3.6.1.4.1.17095.1000.2.5
-      type: gauge
-      help: sensor2_status (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.5.0
-      lookups: []
-    - name: snmp_sensor2_threshold
-      oid: 1.3.6.1.4.1.17095.1000.2.6
-      type: gauge
-      help: sensor2_threshold (SENSORGATEWAY-MIB) - 1.3.6.1.4.1.17095.1000.2.6.0
-      lookups: []
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

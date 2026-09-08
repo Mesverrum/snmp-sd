@@ -1,0 +1,24 @@
+# GENERATED from kentik/snmp-profiles — module vertiv_ups_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  vertiv_ups_sensors:
+    metrics:
+    - name: snmp_lgpEnvTemperatureMeasurementDegC
+      oid: 1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.3
+      type: gauge
+      help: lgpEnvTemperatureMeasurementDegC (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.1.3.3.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_lgpEnvTemperatureMeasurementDegF
+      oid: 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3
+      type: gauge
+      help: lgpEnvTemperatureMeasurementDegF (LIEBERT-GP-ENVIRONMENTAL-MIB) - 1.3.6.1.4.1.476.1.42.3.4.1.2.3.1.3
+      indexes:
+      - labelname: lgpEnvTemperatureIdDegF
+        type: gauge
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.476.1.42.3.4.1.3.3
+    - 1.3.6.1.4.1.476.1.42.3.4.1.2.3

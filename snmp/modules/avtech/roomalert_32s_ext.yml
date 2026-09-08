@@ -1,0 +1,555 @@
+# GENERATED from kentik/snmp-profiles — module roomalert_32s_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  roomalert_32s_ext:
+    metrics:
+    - name: snmp_internal-tempf
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.1.1
+      type: gauge
+      help: internal-tempf (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.1.1.0
+      lookups: []
+    - name: snmp_internal-tempc
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.1.2
+      type: gauge
+      help: internal-tempc (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.1.2.0
+      lookups: []
+    - name: snmp_internal-power
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.3.1
+      type: gauge
+      help: internal-power (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.3.1.0
+      enum_values:
+        0: battery
+        1: ac
+      lookups: []
+    - name: snmp_internal-heat-index
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.4.1
+      type: gauge
+      help: internal-heat-index (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.4.1.0
+      lookups: []
+    - name: snmp_internal-heat-indexC
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.4.2
+      type: gauge
+      help: internal-heat-indexC (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.4.2.0
+      lookups: []
+    - name: snmp_internal-analog1
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.5.1
+      type: gauge
+      help: internal-analog1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.5.1.0
+      lookups: []
+    - name: snmp_internal-analog2
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.5.2
+      type: gauge
+      help: internal-analog2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.5.2.0
+      lookups: []
+    - name: snmp_internal-relay1
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.6.1
+      type: gauge
+      help: internal-relay1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.6.1.0
+      lookups: []
+    - name: snmp_internal-relay2
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.6.2
+      type: gauge
+      help: internal-relay2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.6.2.0
+      lookups: []
+    - name: snmp_internal-dew-point-c
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.7.1
+      type: gauge
+      help: internal-dew-point-c (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.7.1.0
+      lookups: []
+    - name: snmp_internal-dew-point-f
+      oid: 1.3.6.1.4.1.20916.1.11.1.1.7.2
+      type: gauge
+      help: internal-dew-point-f (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.1.7.2.0
+      lookups: []
+    - name: snmp_digital-sen1-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.1
+      type: gauge
+      help: digital-sen1-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.1.0
+      lookups: []
+    - name: snmp_digital-sen1-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.2
+      type: gauge
+      help: digital-sen1-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.2.0
+      lookups: []
+    - name: snmp_digital-sen1-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.3
+      type: gauge
+      help: digital-sen1-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.3.0
+      lookups: []
+    - name: snmp_digital-sen1-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.4
+      type: gauge
+      help: digital-sen1-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.4.0
+      lookups: []
+    - name: snmp_digital-sen1-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.5
+      type: gauge
+      help: digital-sen1-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.5.0
+      lookups: []
+    - name: snmp_digital-sen1-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.6
+      type: gauge
+      help: digital-sen1-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.6.0
+      lookups: []
+    - name: snmp_digital-sen1-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.1.7
+      type: gauge
+      help: digital-sen1-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.1.7.0
+      lookups: []
+    - name: snmp_digital-sen2-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.1
+      type: gauge
+      help: digital-sen2-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.1.0
+      lookups: []
+    - name: snmp_digital-sen2-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.2
+      type: gauge
+      help: digital-sen2-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.2.0
+      lookups: []
+    - name: snmp_digital-sen2-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.3
+      type: gauge
+      help: digital-sen2-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.3.0
+      lookups: []
+    - name: snmp_digital-sen2-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.4
+      type: gauge
+      help: digital-sen2-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.4.0
+      lookups: []
+    - name: snmp_digital-sen2-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.5
+      type: gauge
+      help: digital-sen2-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.5.0
+      lookups: []
+    - name: snmp_digital-sen2-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.6
+      type: gauge
+      help: digital-sen2-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.6.0
+      lookups: []
+    - name: snmp_digital-sen2-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.2.7
+      type: gauge
+      help: digital-sen2-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.2.7.0
+      lookups: []
+    - name: snmp_digital-sen3-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.1
+      type: gauge
+      help: digital-sen3-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.1.0
+      lookups: []
+    - name: snmp_digital-sen3-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.2
+      type: gauge
+      help: digital-sen3-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.2.0
+      lookups: []
+    - name: snmp_digital-sen3-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.3
+      type: gauge
+      help: digital-sen3-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.3.0
+      lookups: []
+    - name: snmp_digital-sen3-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.4
+      type: gauge
+      help: digital-sen3-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.4.0
+      lookups: []
+    - name: snmp_digital-sen3-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.5
+      type: gauge
+      help: digital-sen3-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.5.0
+      lookups: []
+    - name: snmp_digital-sen3-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.6
+      type: gauge
+      help: digital-sen3-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.6.0
+      lookups: []
+    - name: snmp_digital-sen3-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.3.7
+      type: gauge
+      help: digital-sen3-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.3.7.0
+      lookups: []
+    - name: snmp_digital-sen4-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.1
+      type: gauge
+      help: digital-sen4-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.1.0
+      lookups: []
+    - name: snmp_digital-sen4-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.2
+      type: gauge
+      help: digital-sen4-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.2.0
+      lookups: []
+    - name: snmp_digital-sen4-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.3
+      type: gauge
+      help: digital-sen4-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.3.0
+      lookups: []
+    - name: snmp_digital-sen4-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.4
+      type: gauge
+      help: digital-sen4-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.4.0
+      lookups: []
+    - name: snmp_digital-sen4-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.5
+      type: gauge
+      help: digital-sen4-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.5.0
+      lookups: []
+    - name: snmp_digital-sen4-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.6
+      type: gauge
+      help: digital-sen4-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.6.0
+      lookups: []
+    - name: snmp_digital-sen4-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.4.7
+      type: gauge
+      help: digital-sen4-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.4.7.0
+      lookups: []
+    - name: snmp_digital-sen5-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.1
+      type: gauge
+      help: digital-sen5-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.1.0
+      lookups: []
+    - name: snmp_digital-sen5-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.2
+      type: gauge
+      help: digital-sen5-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.2.0
+      lookups: []
+    - name: snmp_digital-sen5-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.3
+      type: gauge
+      help: digital-sen5-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.3.0
+      lookups: []
+    - name: snmp_digital-sen5-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.4
+      type: gauge
+      help: digital-sen5-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.4.0
+      lookups: []
+    - name: snmp_digital-sen5-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.5
+      type: gauge
+      help: digital-sen5-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.5.0
+      lookups: []
+    - name: snmp_digital-sen5-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.6
+      type: gauge
+      help: digital-sen5-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.6.0
+      lookups: []
+    - name: snmp_digital-sen5-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.5.7
+      type: gauge
+      help: digital-sen5-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.5.7.0
+      lookups: []
+    - name: snmp_digital-sen6-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.1
+      type: gauge
+      help: digital-sen6-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.1.0
+      lookups: []
+    - name: snmp_digital-sen6-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.2
+      type: gauge
+      help: digital-sen6-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.2.0
+      lookups: []
+    - name: snmp_digital-sen6-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.3
+      type: gauge
+      help: digital-sen6-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.3.0
+      lookups: []
+    - name: snmp_digital-sen6-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.4
+      type: gauge
+      help: digital-sen6-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.4.0
+      lookups: []
+    - name: snmp_digital-sen6-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.5
+      type: gauge
+      help: digital-sen6-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.5.0
+      lookups: []
+    - name: snmp_digital-sen6-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.6
+      type: gauge
+      help: digital-sen6-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.6.0
+      lookups: []
+    - name: snmp_digital-sen6-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.6.7
+      type: gauge
+      help: digital-sen6-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.6.7.0
+      lookups: []
+    - name: snmp_digital-sen7-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.1
+      type: gauge
+      help: digital-sen7-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.1.0
+      lookups: []
+    - name: snmp_digital-sen7-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.2
+      type: gauge
+      help: digital-sen7-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.2.0
+      lookups: []
+    - name: snmp_digital-sen7-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.3
+      type: gauge
+      help: digital-sen7-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.3.0
+      lookups: []
+    - name: snmp_digital-sen7-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.4
+      type: gauge
+      help: digital-sen7-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.4.0
+      lookups: []
+    - name: snmp_digital-sen7-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.5
+      type: gauge
+      help: digital-sen7-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.5.0
+      lookups: []
+    - name: snmp_digital-sen7-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.6
+      type: gauge
+      help: digital-sen7-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.6.0
+      lookups: []
+    - name: snmp_digital-sen7-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.7.7
+      type: gauge
+      help: digital-sen7-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.7.7.0
+      lookups: []
+    - name: snmp_digital-sen8-1
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.1
+      type: gauge
+      help: digital-sen8-1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.1.0
+      lookups: []
+    - name: snmp_digital-sen8-2
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.2
+      type: gauge
+      help: digital-sen8-2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.2.0
+      lookups: []
+    - name: snmp_digital-sen8-3
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.3
+      type: gauge
+      help: digital-sen8-3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.3.0
+      lookups: []
+    - name: snmp_digital-sen8-4
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.4
+      type: gauge
+      help: digital-sen8-4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.4.0
+      lookups: []
+    - name: snmp_digital-sen8-5
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.5
+      type: gauge
+      help: digital-sen8-5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.5.0
+      lookups: []
+    - name: snmp_digital-sen8-6
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.6
+      type: gauge
+      help: digital-sen8-6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.6.0
+      lookups: []
+    - name: snmp_digital-sen8-7
+      oid: 1.3.6.1.4.1.20916.1.11.1.2.8.7
+      type: gauge
+      help: digital-sen8-7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.2.8.7.0
+      lookups: []
+    - name: snmp_switch-sen1
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.1
+      type: gauge
+      help: switch-sen1 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.1.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen2
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.2
+      type: gauge
+      help: switch-sen2 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.2.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen3
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.3
+      type: gauge
+      help: switch-sen3 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.3.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen4
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.4
+      type: gauge
+      help: switch-sen4 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.4.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen5
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.5
+      type: gauge
+      help: switch-sen5 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.5.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen6
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.6
+      type: gauge
+      help: switch-sen6 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.6.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen7
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.7
+      type: gauge
+      help: switch-sen7 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.7.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen8
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.8
+      type: gauge
+      help: switch-sen8 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.8.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen9
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.9
+      type: gauge
+      help: switch-sen9 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.9.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen10
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.10
+      type: gauge
+      help: switch-sen10 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.10.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen11
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.11
+      type: gauge
+      help: switch-sen11 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.11.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen12
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.12
+      type: gauge
+      help: switch-sen12 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.12.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen13
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.13
+      type: gauge
+      help: switch-sen13 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.13.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen14
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.14
+      type: gauge
+      help: switch-sen14 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.14.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen15
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.15
+      type: gauge
+      help: switch-sen15 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.15.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_switch-sen16
+      oid: 1.3.6.1.4.1.20916.1.11.1.3.16
+      type: gauge
+      help: switch-sen16 (ROOMALERT32S-MIB) - 1.3.6.1.4.1.20916.1.11.1.3.16.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.20916.1.11.1.1.1.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.1.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.3.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.4.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.4.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.5.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.5.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.6.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.6.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.7.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.1.7.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.1.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.2.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.3.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.4.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.5.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.6.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.7.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.2.8.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.1.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.2.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.3.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.4.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.5.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.6.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.7.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.8.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.9.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.10.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.11.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.12.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.13.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.14.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.15.0
+    - 1.3.6.1.4.1.20916.1.11.1.3.16.0

@@ -1,0 +1,549 @@
+# GENERATED from kentik/snmp-profiles — module cisco_ucs_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_ucs_sensors:
+    metrics:
+    - name: snmp_cucsComputeRackUnitMbTempStatsAmbientTemp
+      oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.4
+      type: gauge
+      help: cucsComputeRackUnitMbTempStatsAmbientTemp (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.44.1.4
+      indexes:
+      - labelname: cucsComputeRackUnitMbTempStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitMbTempStatsInstanceId
+        labelname: cucsComputeRackUnitMbTempStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeRackUnitMbTempStatsFrontTemp
+      oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.8
+      type: gauge
+      help: cucsComputeRackUnitMbTempStatsFrontTemp (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.44.1.8
+      indexes:
+      - labelname: cucsComputeRackUnitMbTempStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitMbTempStatsInstanceId
+        labelname: cucsComputeRackUnitMbTempStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeRackUnitMbTempStatsIoh1Temp
+      oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.13
+      type: gauge
+      help: cucsComputeRackUnitMbTempStatsIoh1Temp (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.44.1.13
+      indexes:
+      - labelname: cucsComputeRackUnitMbTempStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitMbTempStatsInstanceId
+        labelname: cucsComputeRackUnitMbTempStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeRackUnitMbTempStatsRearTemp
+      oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.21
+      type: gauge
+      help: cucsComputeRackUnitMbTempStatsRearTemp (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.44.1.21
+      indexes:
+      - labelname: cucsComputeRackUnitMbTempStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitMbTempStatsInstanceId
+        labelname: cucsComputeRackUnitMbTempStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.44.1.2
+        type: DisplayString
+    - name: snmp_cucsEquipmentFanOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.9
+      type: gauge
+      help: cucsEquipmentFanOperState (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.12.1.9
+      indexes:
+      - labelname: cucsEquipmentFanInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanIntType
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.6
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsEquipmentFanOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.10
+      type: gauge
+      help: cucsEquipmentFanOperability (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) -
+        1.3.6.1.4.1.9.9.719.1.15.12.1.10
+      indexes:
+      - labelname: cucsEquipmentFanInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanIntType
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.6
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsEquipmentFanPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.11
+      type: gauge
+      help: cucsEquipmentFanPerf (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.12.1.11
+      indexes:
+      - labelname: cucsEquipmentFanInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanIntType
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.6
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsEquipmentFanPower
+      oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.12
+      type: gauge
+      help: cucsEquipmentFanPower (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.12.1.12
+      indexes:
+      - labelname: cucsEquipmentFanInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanIntType
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.6
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsEquipmentFanPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.13
+      type: gauge
+      help: cucsEquipmentFanPresence (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.12.1.13
+      indexes:
+      - labelname: cucsEquipmentFanInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentFanInstanceId
+        labelname: cucsEquipmentFanIntType
+        oid: 1.3.6.1.4.1.9.9.719.1.15.12.1.6
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsEquipmentPsuOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.7
+      type: gauge
+      help: cucsEquipmentPsuOperState (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.56.1.7
+      indexes:
+      - labelname: cucsEquipmentPsuInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuModel
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.6
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.12
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.13
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsEquipmentPsuOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.8
+      type: gauge
+      help: cucsEquipmentPsuOperability (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) -
+        1.3.6.1.4.1.9.9.719.1.15.56.1.8
+      indexes:
+      - labelname: cucsEquipmentPsuInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuModel
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.6
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.12
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.13
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsEquipmentPsuPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.9
+      type: gauge
+      help: cucsEquipmentPsuPerf (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.56.1.9
+      indexes:
+      - labelname: cucsEquipmentPsuInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuModel
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.6
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.12
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.13
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsEquipmentPsuPower
+      oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.10
+      type: gauge
+      help: cucsEquipmentPsuPower (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.56.1.10
+      indexes:
+      - labelname: cucsEquipmentPsuInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuModel
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.6
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.12
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.13
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsEquipmentPsuPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.11
+      type: gauge
+      help: cucsEquipmentPsuPresence (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) - 1.3.6.1.4.1.9.9.719.1.15.56.1.11
+      indexes:
+      - labelname: cucsEquipmentPsuInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.2
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuModel
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.6
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.12
+        type: DisplayString
+      - labels:
+        - cucsEquipmentPsuInstanceId
+        labelname: cucsEquipmentPsuSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.15.56.1.13
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsMemoryUnitEnvStatsTemperature
+      oid: 1.3.6.1.4.1.9.9.719.1.30.12.1.6
+      type: gauge
+      help: cucsMemoryUnitEnvStatsTemperature (CISCO-UNIFIED-COMPUTING-MEMORY-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.30.12.1.6
+      indexes:
+      - labelname: cucsMemoryUnitEnvStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitEnvStatsInstanceId
+        labelname: cucsMemoryUnitEnvStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.12.1.2
+        type: DisplayString
+    - name: snmp_cucsProcessorEnvStatsTemperature
+      oid: 1.3.6.1.4.1.9.9.719.1.41.2.1.10
+      type: gauge
+      help: cucsProcessorEnvStatsTemperature (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.41.2.1.10
+      indexes:
+      - labelname: cucsProcessorEnvStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorEnvStatsInstanceId
+        labelname: cucsProcessorEnvStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.2.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.9.9.719.1.9.44
+    - 1.3.6.1.4.1.9.9.719.1.15.12
+    - 1.3.6.1.4.1.9.9.719.1.15.56
+    - 1.3.6.1.4.1.9.9.719.1.30.12
+    - 1.3.6.1.4.1.9.9.719.1.41.2

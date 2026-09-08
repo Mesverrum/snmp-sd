@@ -1,0 +1,85 @@
+# GENERATED from kentik/snmp-profiles — module servertech_pdu3_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  servertech_pdu3_sensors:
+    metrics:
+    - name: snmp_tempHumidSensorTempStatus
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.5
+      type: gauge
+      help: tempHumidSensorTempStatus (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.5
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: notFound
+        2: reading
+        3: tempLow
+        4: tempHigh
+        5: readError
+        6: lost
+        7: noComm
+    - name: snmp_tempHumidSensorTempValue
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.6
+      type: gauge
+      help: tempHumidSensorTempValue (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.6
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+    - name: snmp_tempHumidSensorTempScale
+      oid: 1.3.6.1.4.1.1718.3.2.5.1.13
+      type: gauge
+      help: tempHumidSensorTempScale (SENTRY3-MIB) - 1.3.6.1.4.1.1718.3.2.5.1.13
+      indexes:
+      - labelname: envMonIndex
+        type: gauge
+      - labelname: tempHumidSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorID
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.2
+        type: DisplayString
+      - labels:
+        - envMonIndex
+        - tempHumidSensorIndex
+        labelname: tempHumidSensorName
+        oid: 1.3.6.1.4.1.1718.3.2.5.1.3
+        type: DisplayString
+      enum_values:
+        0: celsius
+        1: fahrenheit
+    walk:
+    - 1.3.6.1.4.1.1718.3.2.5

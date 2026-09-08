@@ -1,0 +1,507 @@
+# GENERATED from kentik/snmp-profiles — module netapp_cluster_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  netapp_cluster_sensors:
+    metrics:
+    - name: snmp_enclFansFailed
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.18
+      type: gauge
+      help: enclFansFailed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.18
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclTempSensorsOverTempFail
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.21
+      type: gauge
+      help: enclTempSensorsOverTempFail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.21
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclTempSensorsOverTempWarn
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.22
+      type: gauge
+      help: enclTempSensorsOverTempWarn (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.22
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclTempSensorsUnderTempFail
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.23
+      type: gauge
+      help: enclTempSensorsUnderTempFail (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.23
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclTempSensorsUnderTempWarn
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.24
+      type: gauge
+      help: enclTempSensorsUnderTempWarn (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.24
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclTempSensorsCurrentTemp
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.25
+      type: gauge
+      help: enclTempSensorsCurrentTemp (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.25
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_enclFansSpeed
+      oid: 1.3.6.1.4.1.789.1.21.1.2.1.62
+      type: gauge
+      help: enclFansSpeed (NETAPP-MIB) - 1.3.6.1.4.1.789.1.21.1.2.1.62
+      indexes:
+      - labelname: enclIndex
+        type: gauge
+      lookups:
+      - labels:
+        - enclIndex
+        labelname: enclChannelShelfAddr
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.3
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductLogicalID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.4
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductID
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.5
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductVendor
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.6
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductModel
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.7
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductRevision
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.8
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclProductSerialNo
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.9
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNumberDiskBays
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.10
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclDisksPresent
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.11
+        type: DisplayString
+      - labels:
+        - enclIndex
+        labelname: enclNodeName
+        oid: 1.3.6.1.4.1.789.1.21.1.2.1.65
+        type: DisplayString
+    - name: snmp_nodeEnvOverTemperature
+      oid: 1.3.6.1.4.1.789.1.25.2.1.18
+      type: gauge
+      help: nodeEnvOverTemperature (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.18
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+      enum_values:
+        1: 'off'
+        2: 'on'
+    - name: snmp_nodeEnvFailedFanCount
+      oid: 1.3.6.1.4.1.789.1.25.2.1.19
+      type: gauge
+      help: nodeEnvFailedFanCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.19
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+    - name: snmp_nodeEnvFailedFanMessage
+      oid: 1.3.6.1.4.1.789.1.25.2.1.20
+      type: gauge
+      help: nodeEnvFailedFanMessage (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.20
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+    - name: snmp_nodeEnvFailedPowerSupplyCount
+      oid: 1.3.6.1.4.1.789.1.25.2.1.21
+      type: gauge
+      help: nodeEnvFailedPowerSupplyCount (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.21
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+    - name: snmp_nodeEnvFailedPowerSupplyMessage
+      oid: 1.3.6.1.4.1.789.1.25.2.1.22
+      type: gauge
+      help: nodeEnvFailedPowerSupplyMessage (NETAPP-MIB) - 1.3.6.1.4.1.789.1.25.2.1.22
+      indexes:
+      - labelname: IMPLIEDnodeName
+        type: gauge
+      lookups:
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeName
+        oid: 1.3.6.1.4.1.789.1.25.2.1.1
+        type: DisplayString
+      - labels:
+        - IMPLIEDnodeName
+        labelname: nodeProductVersion
+        oid: 1.3.6.1.4.1.789.1.25.2.1.23
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.789.1.25.2
+    - 1.3.6.1.4.1.789.1.21.1.2

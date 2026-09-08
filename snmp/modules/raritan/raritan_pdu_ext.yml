@@ -1,0 +1,147 @@
+# GENERATED from kentik/snmp-profiles — module raritan_pdu_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  raritan_pdu_ext:
+    metrics:
+    - name: snmp_outletName
+      oid: 1.3.6.1.4.1.13742.6.3.5.3.1.3
+      type: gauge
+      help: outletName (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.3.5.3.1.3
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: outletId
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsInletPoleSensorIsAvailable
+      oid: 1.3.6.1.4.1.13742.6.5.2.4.1.2
+      type: gauge
+      help: measurementsInletPoleSensorIsAvailable (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.5.2.4.1.2
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: inletId
+        type: gauge
+      - labelname: inletPoleIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsInletPoleSensorState
+      oid: 1.3.6.1.4.1.13742.6.5.2.4.1.3
+      type: gauge
+      help: measurementsInletPoleSensorState (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.5.2.4.1.3
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: inletId
+        type: gauge
+      - labelname: inletPoleIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsInletPoleSensorSignedValue
+      oid: 1.3.6.1.4.1.13742.6.5.2.4.1.6
+      type: gauge
+      help: measurementsInletPoleSensorSignedValue (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.5.2.4.1.6
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: inletId
+        type: gauge
+      - labelname: inletPoleIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_inletPoleSensorDecimalDigits
+      oid: 1.3.6.1.4.1.13742.6.3.3.6.1.7
+      type: gauge
+      help: inletPoleSensorDecimalDigits (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.3.3.6.1.7
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: inletId
+        type: gauge
+      - labelname: inletPoleIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsOverCurrentProtectorSensorIsAvailable
+      oid: 1.3.6.1.4.1.13742.6.5.3.3.1.2
+      type: gauge
+      help: measurementsOverCurrentProtectorSensorIsAvailable (RARITAN-PX2-PDU2-MIB)
+        - 1.3.6.1.4.1.13742.6.5.3.3.1.2
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: overCurrentProtectorIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsOverCurrentProtectorSensorState
+      oid: 1.3.6.1.4.1.13742.6.5.3.3.1.3
+      type: gauge
+      help: measurementsOverCurrentProtectorSensorState (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.5.3.3.1.3
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: overCurrentProtectorIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_measurementsOverCurrentProtectorSensorSignedValue
+      oid: 1.3.6.1.4.1.13742.6.5.3.3.1.6
+      type: gauge
+      help: measurementsOverCurrentProtectorSensorSignedValue (RARITAN-PX2-PDU2-MIB)
+        - 1.3.6.1.4.1.13742.6.5.3.3.1.6
+      indexes:
+      - labelname: pduId
+        type: gauge
+      - labelname: overCurrentProtectorIndex
+        type: gauge
+      - labelname: sensorType
+        type: gauge
+      lookups: []
+    - name: snmp_overCurrentProtectorSensorDecimalDigits
+      oid: 1.3.6.1.4.1.13742.6.3.4.4.1.7
+      type: gauge
+      help: overCurrentProtectorSensorDecimalDigits (RARITAN-PX2-PDU2-MIB) - 1.3.6.1.4.1.13742.6.3.4.4.1.7
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: serial_number
+        oid: 1.3.6.1.4.1.13742.6.3.2.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: model_number
+        oid: 1.3.6.1.4.1.13742.6.3.2.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: pdu_name
+        oid: 1.3.6.1.4.1.13742.6.3.2.2.1.13
+        type: DisplayString
+      - labels:
+        - index
+        labelname: outletRatedCurrent
+        oid: 1.3.6.1.4.1.13742.6.3.5.3.1.7
+        type: DisplayString
+      - labels:
+        - index
+        labelname: outletRatedVoltage
+        oid: 1.3.6.1.4.1.13742.6.3.5.3.1.6
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.13742.6.5.2.4
+    - 1.3.6.1.4.1.13742.6.5.3.3
+    - 1.3.6.1.4.1.13742.6.3.5.3
+    - 1.3.6.1.4.1.13742.6.3.3.6

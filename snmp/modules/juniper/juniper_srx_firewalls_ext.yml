@@ -1,0 +1,153 @@
+# GENERATED from kentik/snmp-profiles — module juniper_srx_firewalls_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  juniper_srx_firewalls_ext:
+    metrics:
+    - name: snmp_jnxDcuStatsPackets
+      oid: 1.3.6.1.4.1.2636.3.6.2.1.4
+      type: counter
+      help: jnxDcuStatsPackets (JUNIPER-DCU-MIB) - 1.3.6.1.4.1.2636.3.6.2.1.4
+      indexes:
+      - labelname: jnxDcuStatsSrcIfIndex
+        type: gauge
+      - labelname: jnxDcuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: destination_class_name
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.3
+        type: DisplayString
+    - name: snmp_jnxDcuStatsBytes
+      oid: 1.3.6.1.4.1.2636.3.6.2.1.5
+      type: counter
+      help: jnxDcuStatsBytes (JUNIPER-DCU-MIB) - 1.3.6.1.4.1.2636.3.6.2.1.5
+      indexes:
+      - labelname: jnxDcuStatsSrcIfIndex
+        type: gauge
+      - labelname: jnxDcuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: destination_class_name
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.3
+        type: DisplayString
+    - name: snmp_jnxScuStatsPackets
+      oid: 1.3.6.1.4.1.2636.3.16.1.1.1.4
+      type: counter
+      help: jnxScuStatsPackets (JUNIPER-SCU-MIB) - 1.3.6.1.4.1.2636.3.16.1.1.1.4
+      indexes:
+      - labelname: jnxScuStatsDstIfIndex
+        type: gauge
+      - labelname: jnxScuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxScuStatsDstIfIndex
+        - jnxScuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxScuStatsDstIfIndex
+        - jnxScuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.16.1.1.1.2
+        type: DisplayString
+    - name: snmp_jnxScuStatsBytes
+      oid: 1.3.6.1.4.1.2636.3.16.1.1.1.5
+      type: counter
+      help: jnxScuStatsBytes (JUNIPER-SCU-MIB) - 1.3.6.1.4.1.2636.3.16.1.1.1.5
+      indexes:
+      - labelname: jnxScuStatsDstIfIndex
+        type: gauge
+      - labelname: jnxScuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxScuStatsDstIfIndex
+        - jnxScuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxScuStatsDstIfIndex
+        - jnxScuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.16.1.1.1.2
+        type: DisplayString
+    - name: snmp_jnxUserFwLDAPTotalQuery
+      oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.3
+      type: gauge
+      help: jnxUserFwLDAPTotalQuery (JUNIPER-USERFIREWALL-MIB) - 1.3.6.1.4.1.2636.3.89.1.1.3.1.3
+      indexes:
+      - labelname: jnxUserFwLDAPDomain
+        type: DisplayString
+      - labelname: jnxUserFwLDAPHost
+        type: DisplayString
+      lookups:
+      - labels:
+        - jnxUserFwLDAPDomain
+        - jnxUserFwLDAPHost
+        labelname: ldap_domain_name
+        oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.1
+        type: DisplayString
+      - labels:
+        - jnxUserFwLDAPDomain
+        - jnxUserFwLDAPHost
+        labelname: ldap_host
+        oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.2
+        type: DisplayString
+    - name: snmp_jnxUserFwLDAPFailedQuery
+      oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.4
+      type: gauge
+      help: jnxUserFwLDAPFailedQuery (JUNIPER-USERFIREWALL-MIB) - 1.3.6.1.4.1.2636.3.89.1.1.3.1.4
+      indexes:
+      - labelname: jnxUserFwLDAPDomain
+        type: DisplayString
+      - labelname: jnxUserFwLDAPHost
+        type: DisplayString
+      lookups:
+      - labels:
+        - jnxUserFwLDAPDomain
+        - jnxUserFwLDAPHost
+        labelname: ldap_domain_name
+        oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.1
+        type: DisplayString
+      - labels:
+        - jnxUserFwLDAPDomain
+        - jnxUserFwLDAPHost
+        labelname: ldap_host
+        oid: 1.3.6.1.4.1.2636.3.89.1.1.3.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.2636.3.6.2
+    - 1.3.6.1.4.1.2636.3.16.1.1
+    - 1.3.6.1.4.1.2636.3.89.1.1.3

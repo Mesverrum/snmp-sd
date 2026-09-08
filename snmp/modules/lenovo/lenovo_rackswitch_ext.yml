@@ -1,0 +1,16 @@
+# GENERATED from kentik/snmp-profiles — module lenovo_rackswitch_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  lenovo_rackswitch_ext:
+    metrics:
+    - name: snmp_hwGlobalHealthStatus
+      oid: 1.3.6.1.4.1.19046.2.7.24.1.3.1.15
+      type: gauge
+      help: hwGlobalHealthStatus (LENOVO-TOR-MIBS) - 1.3.6.1.4.1.19046.2.7.24.1.3.1.15.0
+      enum_values:
+        1: ok
+        2: noncritical
+        3: critical
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.19046.2.7.24.1.3.1.15.0

@@ -1,0 +1,235 @@
+# GENERATED from kentik/snmp-profiles — module ucd_mib_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ucd_mib_ext:
+    metrics:
+    - name: snmp_memMinimumSwap
+      oid: 1.3.6.1.4.1.2021.4.12
+      type: gauge
+      help: memMinimumSwap (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.4.12.0
+      lookups: []
+    - name: snmp_dskTotal
+      oid: 1.3.6.1.4.1.2021.9.1.6
+      type: gauge
+      help: dskTotal (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.6
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskAvail
+      oid: 1.3.6.1.4.1.2021.9.1.7
+      type: gauge
+      help: dskAvail (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.7
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskUsed
+      oid: 1.3.6.1.4.1.2021.9.1.8
+      type: gauge
+      help: dskUsed (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.8
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskPercent
+      oid: 1.3.6.1.4.1.2021.9.1.9
+      type: gauge
+      help: dskPercent (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.9
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskPercentNode
+      oid: 1.3.6.1.4.1.2021.9.1.10
+      type: gauge
+      help: dskPercentNode (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.10
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_dskErrorFlag
+      oid: 1.3.6.1.4.1.2021.9.1.100
+      type: gauge
+      help: dskErrorFlag (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.100
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+      enum_values:
+        0: noError
+        1: error
+    - name: snmp_dskErrorMsg
+      oid: 1.3.6.1.4.1.2021.9.1.101
+      type: gauge
+      help: dskErrorMsg (UCD-SNMP-MIB) - 1.3.6.1.4.1.2021.9.1.101
+      indexes:
+      - labelname: dskIndex
+        type: gauge
+      lookups:
+      - labels:
+        - dskIndex
+        labelname: dsk_path
+        oid: 1.3.6.1.4.1.2021.9.1.2
+        type: DisplayString
+      - labels:
+        - dskIndex
+        labelname: dsk_device
+        oid: 1.3.6.1.4.1.2021.9.1.3
+        type: DisplayString
+    - name: snmp_diskIOReads
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.5
+      type: counter
+      help: diskIOReads (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.5
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOWrites
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.6
+      type: counter
+      help: diskIOWrites (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.6
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA1
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.9
+      type: gauge
+      help: diskIOLA1 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.9
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA5
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.10
+      type: gauge
+      help: diskIOLA5 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.10
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIOLA15
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.11
+      type: gauge
+      help: diskIOLA15 (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.11
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIONReadX
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.12
+      type: counter
+      help: diskIONReadX (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.12
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    - name: snmp_diskIONWrittenX
+      oid: 1.3.6.1.4.1.2021.13.15.1.1.13
+      type: counter
+      help: diskIONWrittenX (UCD-DISKIO-MIB) - 1.3.6.1.4.1.2021.13.15.1.1.13
+      indexes:
+      - labelname: diskIOIndex
+        type: gauge
+      lookups:
+      - labels:
+        - diskIOIndex
+        labelname: diskIO_device
+        oid: 1.3.6.1.4.1.2021.13.15.1.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.2021.9
+    - 1.3.6.1.4.1.2021.13.15.1
+    get:
+    - 1.3.6.1.4.1.2021.4.12.0

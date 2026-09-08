@@ -1,0 +1,117 @@
+# GENERATED from kentik/snmp-profiles — module arista_switch_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  arista_switch_ext:
+    metrics:
+    - name: snmp_aristaIngressQueuePktsDropped
+      oid: 1.3.6.1.4.1.30065.3.6.1.1.1.3
+      type: counter
+      help: aristaIngressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: interface_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.1
+        type: gauge
+      - labels:
+        - index
+        labelname: queue_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.2
+        type: gauge
+    - name: snmp_aristaEgressQueuePktsDropped
+      oid: 1.3.6.1.4.1.30065.3.6.1.2.1.6
+      type: counter
+      help: aristaEgressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: interface_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.1
+        type: gauge
+      - labels:
+        - index
+        labelname: queue_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.2
+        type: gauge
+    - name: snmp_aristaIfInPktRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.3
+      type: gauge
+      help: aristaIfInPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfOutPktRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.4
+      type: gauge
+      help: aristaIfOutPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfInOctetRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.5
+      type: counter
+      help: aristaIfInOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfOutOctetRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.6
+      type: counter
+      help: aristaIfOutOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.30065.3.6.1.1
+    - 1.3.6.1.4.1.30065.3.6.1.2
+    - 1.3.6.1.4.1.30065.3.15.1.1

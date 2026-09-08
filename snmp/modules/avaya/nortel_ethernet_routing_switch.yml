@@ -2,19 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   nortel_ethernet_routing_switch:
-    walk:
-    - 1.3.6.1.4.1.45.1.6.3.3.1
-    get:
-    - 1.3.6.1.4.1.45.1.6.3.8.1.1.5.3.10.0
-    - 1.3.6.1.4.1.45.1.6.3.8.1.1.12.3.10.0
-    - 1.3.6.1.4.1.45.1.6.3.8.1.1.13.3.10.0
-    - 1.3.6.1.4.1.45.1.6.3.7.1.1.5.5.10.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -67,66 +54,13 @@ modules:
       type: gauge
       help: s5ChasUtilMemoryAvailableMB (S5-CHASSIS-MIB) - 1.3.6.1.4.1.45.1.6.3.8.1.1.13.3.10.0
       lookups: []
-    - name: snmp_s5ChasTmpSnrTmpValue
-      oid: 1.3.6.1.4.1.45.1.6.3.7.1.1.5.5.10
-      type: gauge
-      help: s5ChasTmpSnrTmpValue (S5-CHASSIS-MIB) - 1.3.6.1.4.1.45.1.6.3.7.1.1.5.5.10.0
-      lookups: []
-    - name: snmp_s5ChasComAdminState
-      oid: 1.3.6.1.4.1.45.1.6.3.3.1.1.9
-      type: gauge
-      help: s5ChasComAdminState (S5-CHASSIS-MIB) - 1.3.6.1.4.1.45.1.6.3.3.1.1.9
-      indexes:
-      - labelname: s5ChasComGrpIndx
-        type: gauge
-      - labelname: s5ChasComIndx
-        type: gauge
-      - labelname: s5ChasComSubIndx
-        type: gauge
-      lookups:
-      - labels:
-        - s5ChasComGrpIndx
-        - s5ChasComIndx
-        - s5ChasComSubIndx
-        labelname: s5ChasComDescr
-        oid: 1.3.6.1.4.1.45.1.6.3.3.1.1.5
-        type: DisplayString
-      enum_values:
-        1: other
-        2: notAvail
-        3: disable
-        4: enable
-        5: reset
-        6: test
-    - name: snmp_s5ChasComOperState
-      oid: 1.3.6.1.4.1.45.1.6.3.3.1.1.10
-      type: gauge
-      help: s5ChasComOperState (S5-CHASSIS-MIB) - 1.3.6.1.4.1.45.1.6.3.3.1.1.10
-      indexes:
-      - labelname: s5ChasComGrpIndx
-        type: gauge
-      - labelname: s5ChasComIndx
-        type: gauge
-      - labelname: s5ChasComSubIndx
-        type: gauge
-      lookups:
-      - labels:
-        - s5ChasComGrpIndx
-        - s5ChasComIndx
-        - s5ChasComSubIndx
-        labelname: s5ChasComDescr
-        oid: 1.3.6.1.4.1.45.1.6.3.3.1.1.5
-        type: DisplayString
-      enum_values:
-        1: other
-        2: notAvail
-        3: removed
-        4: disabled
-        5: normal
-        6: resetInProg
-        7: testing
-        8: warning
-        9: nonFatalErr
-        10: fatalErr
-        11: notConfig
-        12: obsoleted
+    get:
+    - 1.3.6.1.4.1.45.1.6.3.8.1.1.5.3.10.0
+    - 1.3.6.1.4.1.45.1.6.3.8.1.1.12.3.10.0
+    - 1.3.6.1.4.1.45.1.6.3.8.1.1.13.3.10.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

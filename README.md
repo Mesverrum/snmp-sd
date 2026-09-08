@@ -94,7 +94,16 @@ Scan log from that run: `found=5` in ~1s, `ping_up=11`, `probe_errors=6` (non-SN
 
 ## Library
 
-`snmp/modules/<vendor>/*.yml` is the edit surface. Re-run convert only when ingesting a new Kentik vendor pack. See [`tools/snmp-profile-convert/README.md`](tools/snmp-profile-convert/README.md).
+`snmp/modules/<vendor>/*.yml` is the edit surface. Re-run convert only when ingesting a new Kentik vendor pack. After ingest (or to re-split): `python3 tools/snmp-profile-convert/split_vendor_tiers.py`. See [`tools/snmp-profile-convert/README.md`](tools/snmp-profile-convert/README.md).
+
+Vendor packs follow the same three-tier pattern (no invented `{name}_hot`):
+
+| Module | Tier | Contents |
+|---|---|---|
+| `{name}` | hot | identity, uptime, CPU / CPULoad, RAM (plus `hrStorage` when RAM/disk share a table), and core-service counts (firewall sessions, WLC client totals) |
+| `{name}_sensors` | cold | chassis / temp / fans / PSU |
+| `{name}_ext` | cold | everything else (sessions, disk, vendor IF extras, …) |
+| `{name}_bgp` / `{name}_topo` | topology | BGP-only leftover uses `_bgp`; mixed LLDP/CDP/OSPF/ISIS uses `_topo` |
 
 Kentik attribution: [`snmp/NOTICE`](snmp/NOTICE). Apache-2.0. Metric names are `snmp_*`, not `kentik_snmp_*`. This is not a ktranslate name-parity contract.
 

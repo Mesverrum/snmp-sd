@@ -1,0 +1,48 @@
+# GENERATED from kentik/snmp-profiles — module cisco_wlc_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_wlc_sensors:
+    metrics:
+    - name: snmp_agentSwitchInfoPowerSupply1Present
+      oid: 1.3.6.1.4.1.14179.1.1.3.2
+      type: gauge
+      help: agentSwitchInfoPowerSupply1Present (AIRESPACE-SWITCHING-MIB) - 1.3.6.1.4.1.14179.1.1.3.2.0
+      enum_values:
+        0: 'off'
+        1: 'on'
+      lookups: []
+    - name: snmp_agentSwitchInfoPowerSupply1Operational
+      oid: 1.3.6.1.4.1.14179.1.1.3.3
+      type: gauge
+      help: agentSwitchInfoPowerSupply1Operational (AIRESPACE-SWITCHING-MIB) - 1.3.6.1.4.1.14179.1.1.3.3.0
+      enum_values:
+        0: 'off'
+        1: 'on'
+      lookups: []
+    - name: snmp_agentSwitchInfoPowerSupply2Present
+      oid: 1.3.6.1.4.1.14179.1.1.3.4
+      type: gauge
+      help: agentSwitchInfoPowerSupply2Present (AIRESPACE-SWITCHING-MIB) - 1.3.6.1.4.1.14179.1.1.3.4.0
+      enum_values:
+        0: 'off'
+        1: 'on'
+      lookups: []
+    - name: snmp_agentSwitchInfoPowerSupply2Operational
+      oid: 1.3.6.1.4.1.14179.1.1.3.5
+      type: gauge
+      help: agentSwitchInfoPowerSupply2Operational (AIRESPACE-SWITCHING-MIB) - 1.3.6.1.4.1.14179.1.1.3.5.0
+      enum_values:
+        0: 'off'
+        1: 'on'
+      lookups: []
+    - name: snmp_bsnSensorTemperature
+      oid: 1.3.6.1.4.1.14179.2.3.1.13
+      type: gauge
+      help: bsnSensorTemperature (AIRESPACE-WIRELESS-MIB) - 1.3.6.1.4.1.14179.2.3.1.13.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.14179.1.1.3.2.0
+    - 1.3.6.1.4.1.14179.1.1.3.3.0
+    - 1.3.6.1.4.1.14179.1.1.3.4.0
+    - 1.3.6.1.4.1.14179.1.1.3.5.0
+    - 1.3.6.1.4.1.14179.2.3.1.13.0

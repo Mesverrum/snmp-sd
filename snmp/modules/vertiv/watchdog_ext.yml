@@ -1,0 +1,70 @@
+# GENERATED from kentik/snmp-profiles — module watchdog_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  watchdog_ext:
+    metrics:
+    - name: snmp_internalAvail
+      oid: 1.3.6.1.4.1.21239.5.1.2.1.4
+      type: gauge
+      help: internalAvail (VERTIV-BB-MIB) - 1.3.6.1.4.1.21239.5.1.2.1.4
+      indexes:
+      - labelname: internalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - internalIndex
+        labelname: internalSerial
+        oid: 1.3.6.1.4.1.21239.5.1.2.1.2
+        type: DisplayString
+      - labels:
+        - internalIndex
+        labelname: temperatureUnits
+        oid: 1.3.6.1.4.1.21239.5.1.1.7.0
+        type: EnumAsInfo
+      enum_values:
+        0: unavailable
+        1: available
+        2: partiallyUnavailable
+    - name: snmp_internalDewPoint
+      oid: 1.3.6.1.4.1.21239.5.1.2.1.7
+      type: gauge
+      help: internalDewPoint (VERTIV-BB-MIB) - 1.3.6.1.4.1.21239.5.1.2.1.7
+      indexes:
+      - labelname: internalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - internalIndex
+        labelname: internalSerial
+        oid: 1.3.6.1.4.1.21239.5.1.2.1.2
+        type: DisplayString
+      - labels:
+        - internalIndex
+        labelname: temperatureUnits
+        oid: 1.3.6.1.4.1.21239.5.1.1.7.0
+        type: EnumAsInfo
+    - name: snmp_tempSensorAvail
+      oid: 1.3.6.1.4.1.21239.5.1.4.1.4
+      type: gauge
+      help: tempSensorAvail (VERTIV-BB-MIB) - 1.3.6.1.4.1.21239.5.1.4.1.4
+      indexes:
+      - labelname: tempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorSerial
+        oid: 1.3.6.1.4.1.21239.5.1.4.1.2
+        type: DisplayString
+      - labels:
+        - tempSensorIndex
+        labelname: tempSensorName
+        oid: 1.3.6.1.4.1.21239.5.1.4.1.3
+        type: DisplayString
+      enum_values:
+        0: unavailable
+        1: available
+        2: partiallyUnavailable
+    walk:
+    - 1.3.6.1.4.1.21239.5.1.2
+    - 1.3.6.1.4.1.21239.5.1.4

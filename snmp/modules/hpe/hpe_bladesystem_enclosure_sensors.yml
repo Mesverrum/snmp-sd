@@ -1,0 +1,689 @@
+# GENERATED from kentik/snmp-profiles — module hpe_bladesystem_enclosure_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hpe_bladesystem_enclosure_sensors:
+    metrics:
+    - name: snmp_cpqRackCommonEnclosureTempCurrent
+      oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.6
+      type: gauge
+      help: cpqRackCommonEnclosureTempCurrent (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.2.1.6
+      indexes:
+      - labelname: cpqRackCommonEnclosureTempRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempSensorEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.5
+        type: DisplayString
+    - name: snmp_cpqRackCommonEnclosureTempCondition
+      oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.8
+      type: gauge
+      help: cpqRackCommonEnclosureTempCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.2.1.8
+      indexes:
+      - labelname: cpqRackCommonEnclosureTempRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempSensorEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.5
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqRackCommonEnclosureTempType
+      oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.9
+      type: EnumAsInfo
+      help: cpqRackCommonEnclosureTempType (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.2.1.9
+      indexes:
+      - labelname: cpqRackCommonEnclosureTempRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempSensorEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureTempRack
+        - cpqRackCommonEnclosureTempChassis
+        - cpqRackCommonEnclosureTempSensorIndex
+        labelname: cpqRackCommonEnclosureTempLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.2.1.5
+        type: DisplayString
+      enum_values:
+        1: other
+        5: blowout
+        9: caution
+        15: critical
+    - name: snmp_cpqRackCommonEnclosureFanCondition
+      oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.11
+      type: gauge
+      help: cpqRackCommonEnclosureFanCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.3.1.3.1.11
+      indexes:
+      - labelname: cpqRackCommonEnclosureFanRack
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFanChassis
+        type: gauge
+      - labelname: cpqRackCommonEnclosureFanIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanLocation
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanSparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanPresent
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.8
+        type: EnumAsInfo
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanRedundant
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.9
+        type: EnumAsInfo
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanRedundantGroupId
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.10
+        type: DisplayString
+      - labels:
+        - cpqRackCommonEnclosureFanRack
+        - cpqRackCommonEnclosureFanChassis
+        - cpqRackCommonEnclosureFanIndex
+        labelname: cpqRackCommonEnclosureFanEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.3.1.3.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqRackServerTempSensorCurrent
+      oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.8
+      type: gauge
+      help: cpqRackServerTempSensorCurrent (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.3.1.1.8
+      indexes:
+      - labelname: cpqRackServerTempSensorRack
+        type: gauge
+      - labelname: cpqRackServerTempSensorChassis
+        type: gauge
+      - labelname: cpqRackServerTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorName
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorLocation
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.7
+        type: DisplayString
+    - name: snmp_cpqRackServerTempSensorCondition
+      oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.10
+      type: gauge
+      help: cpqRackServerTempSensorCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.3.1.1.10
+      indexes:
+      - labelname: cpqRackServerTempSensorRack
+        type: gauge
+      - labelname: cpqRackServerTempSensorChassis
+        type: gauge
+      - labelname: cpqRackServerTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorName
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorLocation
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.7
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqRackServerTempSensorType
+      oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.11
+      type: EnumAsInfo
+      help: cpqRackServerTempSensorType (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.4.3.1.1.11
+      indexes:
+      - labelname: cpqRackServerTempSensorRack
+        type: gauge
+      - labelname: cpqRackServerTempSensorChassis
+        type: gauge
+      - labelname: cpqRackServerTempSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorName
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackServerTempSensorRack
+        - cpqRackServerTempSensorChassis
+        - cpqRackServerTempSensorIndex
+        labelname: cpqRackServerTempSensorLocation
+        oid: 1.3.6.1.4.1.232.22.2.4.3.1.1.7
+        type: DisplayString
+      enum_values:
+        1: other
+        5: blowout
+        9: caution
+        15: critical
+    - name: snmp_cpqRackPowerSupplyCurPwrOutput
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.10
+      type: gauge
+      help: cpqRackPowerSupplyCurPwrOutput (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.10
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackPowerSupplyIntakeTemp
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.12
+      type: gauge
+      help: cpqRackPowerSupplyIntakeTemp (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.12
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackPowerSupplyExhaustTemp
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.13
+      type: gauge
+      help: cpqRackPowerSupplyExhaustTemp (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.13
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+    - name: snmp_cpqRackPowerSupplyStatus
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.14
+      type: gauge
+      help: cpqRackPowerSupplyStatus (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.14
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: noError
+        2: generalFailure
+        3: bistFailure
+        4: fanFailure
+        5: tempFailure
+        6: interlockOpen
+        7: epromFailed
+        8: vrefFailed
+        9: dacFailed
+        10: ramTestFailed
+        11: voltageChannelFailed
+        12: orringdiodeFailed
+        13: brownOut
+        14: giveupOnStartup
+        15: nvramInvalid
+        16: calibrationTableInvalid
+    - name: snmp_cpqRackPowerSupplyInputLineStatus
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.15
+      type: gauge
+      help: cpqRackPowerSupplyInputLineStatus (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.15
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: noError
+        2: lineOverVoltage
+        3: lineUnderVoltage
+        4: lineHit
+        5: brownOut
+        6: linePowerLoss
+    - name: snmp_cpqRackPowerSupplyCondition
+      oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.17
+      type: gauge
+      help: cpqRackPowerSupplyCondition (CPQRACK-MIB) - 1.3.6.1.4.1.232.22.2.5.1.1.1.17
+      indexes:
+      - labelname: cpqRackPowerSupplyRack
+        type: gauge
+      - labelname: cpqRackPowerSupplyChassis
+        type: gauge
+      - labelname: cpqRackPowerSupplyIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureName
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.4
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.5
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.6
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplySparePartNumber
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.7
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyFWRev
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.8
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyMaxPwrOutput
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyPresent
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.16
+        type: EnumAsInfo
+      - labels:
+        - cpqRackPowerSupplyRack
+        - cpqRackPowerSupplyChassis
+        - cpqRackPowerSupplyIndex
+        labelname: cpqRackPowerSupplyEnclosureSerialNum
+        oid: 1.3.6.1.4.1.232.22.2.5.1.1.1.18
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    walk:
+    - 1.3.6.1.4.1.232.22.2.3.1.2
+    - 1.3.6.1.4.1.232.22.2.3.1.3
+    - 1.3.6.1.4.1.232.22.2.4.3.1
+    - 1.3.6.1.4.1.232.22.2.5.1.1

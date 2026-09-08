@@ -2,17 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   cisco_nexus:
-    walk:
-    - 1.3.6.1.4.1.9.9.187.1.2.9
-    get:
-    - 1.3.6.1.4.1.9.9.305.1.1.1.0
-    - 1.3.6.1.4.1.9.9.305.1.1.2.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -60,50 +49,12 @@ modules:
       type: gauge
       help: cseSysMemoryUtilization (CISCO-SYSTEM-EXT-MIB) - 1.3.6.1.4.1.9.9.305.1.1.2.0
       lookups: []
-    - name: snmp_cbgpPeer3State
-      oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.5
-      type: gauge
-      help: cbgpPeer3State (CISCO-BGP4-MIB) - 1.3.6.1.4.1.9.9.187.1.2.9.1.5
-      indexes:
-      - labelname: cbgpPeer3VrfId
-        type: gauge
-      - labelname: cbgpPeer3Type
-        type: gauge
-      - labelname: cbgpPeer3RemoteAddr
-        type: gauge
-      lookups:
-      - labels:
-        - cbgpPeer3VrfId
-        - cbgpPeer3Type
-        - cbgpPeer3RemoteAddr
-        labelname: cbgpPeer3VrfId
-        oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.1
-        type: DisplayString
-      - labels:
-        - cbgpPeer3VrfId
-        - cbgpPeer3Type
-        - cbgpPeer3RemoteAddr
-        labelname: cbgpPeer3Type
-        oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.2
-        type: EnumAsInfo
-      - labels:
-        - cbgpPeer3VrfId
-        - cbgpPeer3Type
-        - cbgpPeer3RemoteAddr
-        labelname: cbgpPeer3RemoteAddr
-        oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.3
-        type: DisplayString
-      - labels:
-        - cbgpPeer3VrfId
-        - cbgpPeer3Type
-        - cbgpPeer3RemoteAddr
-        labelname: cbgpPeer3VrfName
-        oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.4
-        type: DisplayString
-      enum_values:
-        1: idle
-        2: connect
-        3: active
-        4: opensent
-        5: openconfirm
-        6: established
+    get:
+    - 1.3.6.1.4.1.9.9.305.1.1.1.0
+    - 1.3.6.1.4.1.9.9.305.1.1.2.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

@@ -1,0 +1,440 @@
+# GENERATED from kentik/snmp-profiles — module aruba_clearpass_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  aruba_clearpass_ext:
+    metrics:
+    - name: snmp_cppmSystemDiskSpaceTotal
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.1.1.1.14
+      type: counter
+      help: cppmSystemDiskSpaceTotal (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.1.1.1.14
+      indexes:
+      - labelname: cppmSystemIdx
+        type: gauge
+      lookups: []
+    - name: snmp_cppmSystemDiskSpaceFree
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.1.1.1.15
+      type: counter
+      help: cppmSystemDiskSpaceFree (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.1.1.1.15
+      indexes:
+      - labelname: cppmSystemIdx
+        type: gauge
+      lookups: []
+    - name: snmp_radPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.1
+      type: gauge
+      help: radPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.1
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_radAuthRequestTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.2
+      type: gauge
+      help: radAuthRequestTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.2
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_radServerCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.3
+      type: gauge
+      help: radServerCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.3
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_radServerCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.4
+      type: gauge
+      help: radServerCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.4
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_radServerCounterCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.5
+      type: gauge
+      help: radServerCounterCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.1.1.5
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_radAuthCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.3
+      type: gauge
+      help: radAuthCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.3
+      indexes:
+      - labelname: radAuthSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - radAuthSourceIdx
+        labelname: radAuthSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.2
+        type: DisplayString
+    - name: snmp_radAuthCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.4
+      type: gauge
+      help: radAuthCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.4
+      indexes:
+      - labelname: radAuthSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - radAuthSourceIdx
+        labelname: radAuthSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.2
+        type: DisplayString
+    - name: snmp_radAuthCounterCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.5
+      type: gauge
+      help: radAuthCounterCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.5
+      indexes:
+      - labelname: radAuthSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - radAuthSourceIdx
+        labelname: radAuthSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.2
+        type: DisplayString
+    - name: snmp_radAuthCounterTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.6
+      type: gauge
+      help: radAuthCounterTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.6
+      indexes:
+      - labelname: radAuthSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - radAuthSourceIdx
+        labelname: radAuthSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.2.1.2
+        type: DisplayString
+    - name: snmp_psServicePolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.1
+      type: gauge
+      help: psServicePolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.1
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psRolemappingPolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.2
+      type: gauge
+      help: psRolemappingPolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.2
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psPosturePolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.3
+      type: gauge
+      help: psPosturePolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.3
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAuditPolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.4
+      type: gauge
+      help: psAuditPolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.4
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psRestrictionPolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.5
+      type: gauge
+      help: psRestrictionPolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.5
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psEnforcementPolicyEvalCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.6
+      type: gauge
+      help: psEnforcementPolicyEvalCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.6
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psServicePolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.7
+      type: gauge
+      help: psServicePolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.7
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psRolemappingPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.8
+      type: gauge
+      help: psRolemappingPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.8
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psPosturePolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.9
+      type: gauge
+      help: psPosturePolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.9
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAuditPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.10
+      type: gauge
+      help: psAuditPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.10
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psRestrictionPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.11
+      type: gauge
+      help: psRestrictionPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.11
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psEnforcementPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.12
+      type: gauge
+      help: psEnforcementPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.12
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psSessionlogTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.13
+      type: gauge
+      help: psSessionlogTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.13
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAuthCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.14
+      type: gauge
+      help: psAuthCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.14
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAuthCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.15
+      type: gauge
+      help: psAuthCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.15
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAuthCounterTotal
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.16
+      type: gauge
+      help: psAuthCounterTotal (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.16
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_dailySuccessAuthCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.17
+      type: gauge
+      help: dailySuccessAuthCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.17
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_dailyFailedAuthCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.18
+      type: gauge
+      help: dailyFailedAuthCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.18
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_dailyTotalAuthCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.19
+      type: gauge
+      help: dailyTotalAuthCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.3.1.19
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_psAutzCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.3
+      type: gauge
+      help: psAutzCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.3
+      indexes:
+      - labelname: psAutzSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - psAutzSourceIdx
+        labelname: psAutzSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.2
+        type: DisplayString
+    - name: snmp_psAutzCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.4
+      type: gauge
+      help: psAutzCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.4
+      indexes:
+      - labelname: psAutzSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - psAutzSourceIdx
+        labelname: psAutzSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.2
+        type: DisplayString
+    - name: snmp_psAutzCounterCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.5
+      type: gauge
+      help: psAutzCounterCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.5
+      indexes:
+      - labelname: psAutzSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - psAutzSourceIdx
+        labelname: psAutzSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.2
+        type: DisplayString
+    - name: snmp_psAutzCounterTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.6
+      type: gauge
+      help: psAutzCounterTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.6
+      indexes:
+      - labelname: psAutzSourceIdx
+        type: gauge
+      lookups:
+      - labels:
+        - psAutzSourceIdx
+        labelname: psAutzSourceName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.2.5.1.2
+        type: DisplayString
+    - name: snmp_tacAuthCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.1
+      type: gauge
+      help: tacAuthCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.1
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAuthCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.2
+      type: gauge
+      help: tacAuthCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.2
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAuthCounterCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.3
+      type: gauge
+      help: tacAuthCounterCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.3
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAuthCounterTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.4
+      type: gauge
+      help: tacAuthCounterTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.4
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAuthCounterAuthTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.5
+      type: gauge
+      help: tacAuthCounterAuthTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.5
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacServicePolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.6
+      type: gauge
+      help: tacServicePolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.6
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacPolicyEvalTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.7
+      type: gauge
+      help: tacPolicyEvalTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.7.1.7
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAutzCounterSuccess
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.1
+      type: gauge
+      help: tacAutzCounterSuccess (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.1
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAutzCounterFailure
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.2
+      type: gauge
+      help: tacAutzCounterFailure (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.2
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAutzCounterCount
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.3
+      type: gauge
+      help: tacAutzCounterCount (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.3
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_tacAutzCounterTime
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.4
+      type: gauge
+      help: tacAutzCounterTime (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.2.8.1.4
+      indexes:
+      - labelname: cppmSystemHostname
+        type: gauge
+      lookups: []
+    - name: snmp_nwAppPort
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.3
+      type: gauge
+      help: nwAppPort (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.3
+      indexes:
+      - labelname: nwAppIdx
+        type: gauge
+      lookups:
+      - labels:
+        - nwAppIdx
+        labelname: nwAppName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.2
+        type: DisplayString
+    - name: snmp_nwTrafficTotal
+      oid: 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.4
+      type: counter
+      help: nwTrafficTotal (CPPM-MIB) - 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.4
+      indexes:
+      - labelname: nwAppIdx
+        type: gauge
+      lookups:
+      - labels:
+        - nwAppIdx
+        labelname: nwAppName
+        oid: 1.3.6.1.4.1.14823.1.6.1.1.3.1.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.14823.1.6.1.1.1.1
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.1
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.2
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.3
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.5
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.7
+    - 1.3.6.1.4.1.14823.1.6.1.1.2.8
+    - 1.3.6.1.4.1.14823.1.6.1.1.3.1

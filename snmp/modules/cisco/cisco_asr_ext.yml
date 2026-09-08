@@ -1,0 +1,75 @@
+# GENERATED from kentik/snmp-profiles — module cisco_asr_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_asr_ext:
+    metrics:
+    - name: snmp_cvCallVolMediaIncomingCalls
+      oid: 1.3.6.1.4.1.9.9.63.1.3.8.5.1.1
+      type: gauge
+      help: cvCallVolMediaIncomingCalls (CISCO-VOICE-DIAL-CONTROL-MIB) - 1.3.6.1.4.1.9.9.63.1.3.8.5.1.1
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: DisplayString
+    - name: snmp_cvCallVolMediaOutgoingCalls
+      oid: 1.3.6.1.4.1.9.9.63.1.3.8.5.1.2
+      type: gauge
+      help: cvCallVolMediaOutgoingCalls (CISCO-VOICE-DIAL-CONTROL-MIB) - 1.3.6.1.4.1.9.9.63.1.3.8.5.1.2
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_Type
+        oid: 1.3.6.1.2.1.2.2.1.3
+        type: DisplayString
+    - name: snmp_cwceLteCurrRsrp
+      oid: 1.3.6.1.4.1.9.9.817.1.1.1.1.1.1
+      type: gauge
+      help: cwceLteCurrRsrp (CISCO-WAN-CELL-EXT-MIB) - 1.3.6.1.4.1.9.9.817.1.1.1.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cwceLteCurrRsrq
+      oid: 1.3.6.1.4.1.9.9.817.1.1.1.1.1.2
+      type: gauge
+      help: cwceLteCurrRsrq (CISCO-WAN-CELL-EXT-MIB) - 1.3.6.1.4.1.9.9.817.1.1.1.1.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cwceLteCurrSnr
+      oid: 1.3.6.1.4.1.9.9.817.1.1.1.1.1.3
+      type: gauge
+      help: cwceLteCurrSnr (CISCO-WAN-CELL-EXT-MIB) - 1.3.6.1.4.1.9.9.817.1.1.1.1.1.3
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cwceLteCurrSinr
+      oid: 1.3.6.1.4.1.9.9.817.1.1.1.1.1.4
+      type: gauge
+      help: cwceLteCurrSinr (CISCO-WAN-CELL-EXT-MIB) - 1.3.6.1.4.1.9.9.817.1.1.1.1.1.4
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cmqVoIPCallActiveRxPred107RMosConv
+      oid: 1.3.6.1.4.1.9.9.769.1.1.1.1.31
+      type: gauge
+      help: cmqVoIPCallActiveRxPred107RMosConv (ciscoMediaQualityMIB) - 1.3.6.1.4.1.9.9.769.1.1.1.1.31
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.9.9.63.1.3.8.5
+    - 1.3.6.1.4.1.9.9.817.1.1.1.1
+    - 1.3.6.1.4.1.9.9.769.1.1.1

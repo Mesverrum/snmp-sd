@@ -2,28 +2,7 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   hpe_cambium:
-    get:
-    - 1.3.6.1.4.1.232.165.3.2.1.0
-    - 1.3.6.1.4.1.232.165.3.2.2.0
-    - 1.3.6.1.4.1.232.165.3.2.3.0
-    - 1.3.6.1.4.1.232.165.3.2.4.0
-    - 1.3.6.1.4.1.232.165.3.2.5.0
-    - 1.3.6.1.4.1.232.165.3.3.1.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.33.1.1.1
-    - 1.3.6.1.2.1.33.1.1.2
-    - 1.3.6.1.2.1.33.1.1.5
     metrics:
-    - name: snmp_batteryChargePercent
-      oid: 1.3.6.1.4.1.232.165.3.2.1
-      type: gauge
-      help: batteryChargePercent (HPE-UPS) - 1.3.6.1.4.1.232.165.3.2.1.0
-      lookups: []
     - name: snmp_device_info
       oid: 1.3.6.1.2.1.1.5
       type: DisplayString
@@ -70,46 +49,12 @@ modules:
         labelname: upsIdentName
         oid: 1.3.6.1.2.1.33.1.1.5
         type: DisplayString
-    - name: snmp_batteryVoltage
-      oid: 1.3.6.1.4.1.232.165.3.2.2
-      type: gauge
-      help: batteryVoltage (HPE-UPS) - 1.3.6.1.4.1.232.165.3.2.2.0
-      lookups: []
-    - name: snmp_onBattery
-      oid: 1.3.6.1.4.1.232.165.3.2.3
-      type: gauge
-      help: onBattery (HPE-UPS) - 1.3.6.1.4.1.232.165.3.2.3.0
-      enum_values:
-        0: 'off'
-        1: 'on'
-      lookups: []
-    - name: snmp_estimatedRuntime
-      oid: 1.3.6.1.4.1.232.165.3.2.4
-      type: gauge
-      help: estimatedRuntime (HPE-UPS) - 1.3.6.1.4.1.232.165.3.2.4.0
-      lookups: []
-    - name: snmp_loadPercent
-      oid: 1.3.6.1.4.1.232.165.3.2.5
-      type: gauge
-      help: loadPercent (HPE-UPS) - 1.3.6.1.4.1.232.165.3.2.5.0
-      lookups: []
-    - name: snmp_batteryTemperatureC
-      oid: 1.3.6.1.4.1.232.165.3.3.1
-      type: gauge
-      help: batteryTemperatureC (HPE-UPS) - 1.3.6.1.4.1.232.165.3.3.1.0
-      lookups: []
-    - name: snmp_sysDescr
-      oid: 1.3.6.1.2.1.1.1
-      type: gauge
-      help: sysDescr (SNMPv2-MIB) - 1.3.6.1.2.1.1.1.0
-      lookups: []
-    - name: snmp_sysUpTime
-      oid: 1.3.6.1.2.1.1.3
-      type: gauge
-      help: sysUpTime (SNMPv2-MIB) - 1.3.6.1.2.1.1.3.0
-      lookups: []
-    - name: snmp_sysLocation
-      oid: 1.3.6.1.2.1.1.6
-      type: gauge
-      help: sysLocation (SNMPv2-MIB) - 1.3.6.1.2.1.1.6.0
-      lookups: []
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.33.1.1.1
+    - 1.3.6.1.2.1.33.1.1.2
+    - 1.3.6.1.2.1.33.1.1.5

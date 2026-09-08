@@ -1,0 +1,96 @@
+# GENERATED from kentik/snmp-profiles — module cisco_wan_optimizer_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_wan_optimizer_ext:
+    metrics:
+    - name: snmp_cceAlarmCriticalCount
+      oid: 1.3.6.1.4.1.9.9.178.1.6.2.1
+      type: gauge
+      help: cceAlarmCriticalCount (CISCO-CONTENT-ENGINE-MIB) - 1.3.6.1.4.1.9.9.178.1.6.2.1.0
+      lookups: []
+    - name: snmp_cceAlarmMajorCount
+      oid: 1.3.6.1.4.1.9.9.178.1.6.2.2
+      type: gauge
+      help: cceAlarmMajorCount (CISCO-CONTENT-ENGINE-MIB) - 1.3.6.1.4.1.9.9.178.1.6.2.2.0
+      lookups: []
+    - name: snmp_cceAlarmMinorCount
+      oid: 1.3.6.1.4.1.9.9.178.1.6.2.3
+      type: gauge
+      help: cceAlarmMinorCount (CISCO-CONTENT-ENGINE-MIB) - 1.3.6.1.4.1.9.9.178.1.6.2.3.0
+      lookups: []
+    - name: snmp_cwoTfoStatsTotalOptConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.1
+      type: counter
+      help: cwoTfoStatsTotalOptConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.1.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActiveOptConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.2
+      type: counter
+      help: cwoTfoStatsActiveOptConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.2.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActiveOptTCPPlusConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.4
+      type: counter
+      help: cwoTfoStatsActiveOptTCPPlusConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.4.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActiveOptTCPOnlyConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.5
+      type: counter
+      help: cwoTfoStatsActiveOptTCPOnlyConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.5.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActiveOptTCPPrepConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.6
+      type: counter
+      help: cwoTfoStatsActiveOptTCPPrepConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.6.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActiveADConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.7
+      type: counter
+      help: cwoTfoStatsActiveADConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.7.0
+      lookups: []
+    - name: snmp_cwoTfoStatsReservedConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.8
+      type: gauge
+      help: cwoTfoStatsReservedConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.8.0
+      lookups: []
+    - name: snmp_cwoTfoStatsPendingConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.9
+      type: counter
+      help: cwoTfoStatsPendingConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.9.0
+      lookups: []
+    - name: snmp_cwoTfoStatsActivePTConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.10
+      type: counter
+      help: cwoTfoStatsActivePTConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.10.0
+      lookups: []
+    - name: snmp_cwoTfoStatsTotalNormalClosedConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.11
+      type: counter
+      help: cwoTfoStatsTotalNormalClosedConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.11.0
+      lookups: []
+    - name: snmp_cwoTfoStatsResetConn
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.12
+      type: counter
+      help: cwoTfoStatsResetConn (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.12.0
+      lookups: []
+    - name: snmp_cwoTfoStatsLoadStatus
+      oid: 1.3.6.1.4.1.9.9.762.1.2.1.13
+      type: gauge
+      help: cwoTfoStatsLoadStatus (CISCO-WAN-OPTIMIZATION-MIB) - 1.3.6.1.4.1.9.9.762.1.2.1.13.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.9.9.178.1.6.2.1.0
+    - 1.3.6.1.4.1.9.9.178.1.6.2.2.0
+    - 1.3.6.1.4.1.9.9.178.1.6.2.3.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.1.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.2.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.4.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.5.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.6.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.7.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.8.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.9.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.10.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.11.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.12.0
+    - 1.3.6.1.4.1.9.9.762.1.2.1.13.0

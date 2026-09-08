@@ -1,0 +1,488 @@
+# GENERATED from kentik/snmp-profiles — module cisco_all_devices_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_all_devices_sensors:
+    metrics:
+    - name: snmp_cefcFanTrayOperStatus
+      oid: 1.3.6.1.4.1.9.9.117.1.4.1.1.1
+      type: gauge
+      help: cefcFanTrayOperStatus (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.4.1.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: up
+        3: down
+        4: warning
+    - name: snmp_cefcFanSpeed
+      oid: 1.3.6.1.4.1.9.9.117.1.4.2.1.1
+      type: gauge
+      help: cefcFanSpeed (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.4.2.1.1
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_cefcFanSpeedPercent
+      oid: 1.3.6.1.4.1.9.9.117.1.4.2.1.2
+      type: gauge
+      help: cefcFanSpeedPercent (CISCO-ENTITY-FRU-CONTROL-MIB) - 1.3.6.1.4.1.9.9.117.1.4.2.1.2
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_entSensorValue
+      oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.4
+      type: gauge
+      help: entSensorValue (CISCO-ENTITY-SENSOR-MIB) - 1.3.6.1.4.1.9.9.91.1.1.1.1.4
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_type
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_scale
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_precision
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_entSensorStatus
+      oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.5
+      type: gauge
+      help: entSensorStatus (CISCO-ENTITY-SENSOR-MIB) - 1.3.6.1.4.1.9.9.91.1.1.1.1.5
+      indexes:
+      - labelname: entPhysicalIndex
+        type: gauge
+      lookups:
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_type
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_scale
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_sensor_precision
+        oid: 1.3.6.1.4.1.9.9.91.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - entPhysicalIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: ok
+        2: unavailable
+        3: nonoperational
+    - name: snmp_ciscoEnvMonVoltageStatusValue
+      oid: 1.3.6.1.4.1.9.9.13.1.2.1.3
+      type: gauge
+      help: ciscoEnvMonVoltageStatusValue (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.2.1.3
+      indexes:
+      - labelname: ciscoEnvMonVoltageStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: voltage_descr
+        oid: 1.3.6.1.4.1.9.9.13.1.2.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_ciscoEnvMonVoltageState
+      oid: 1.3.6.1.4.1.9.9.13.1.2.1.7
+      type: gauge
+      help: ciscoEnvMonVoltageState (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.2.1.7
+      indexes:
+      - labelname: ciscoEnvMonVoltageStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: voltage_descr
+        oid: 1.3.6.1.4.1.9.9.13.1.2.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonVoltageStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: warning
+        3: critical
+        4: shutdown
+        5: notPresent
+        6: notFunctioning
+    - name: snmp_ciscoEnvMonTemperatureStatusValue
+      oid: 1.3.6.1.4.1.9.9.13.1.3.1.3
+      type: gauge
+      help: ciscoEnvMonTemperatureStatusValue (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.3.1.3
+      indexes:
+      - labelname: ciscoEnvMonTemperatureStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: temp_descr
+        oid: 1.3.6.1.4.1.9.9.13.1.3.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: temp_threshold
+        oid: 1.3.6.1.4.1.9.9.13.1.3.1.4
+        type: gauge
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+    - name: snmp_ciscoEnvMonTemperatureState
+      oid: 1.3.6.1.4.1.9.9.13.1.3.1.6
+      type: gauge
+      help: ciscoEnvMonTemperatureState (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.3.1.6
+      indexes:
+      - labelname: ciscoEnvMonTemperatureStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: temp_descr
+        oid: 1.3.6.1.4.1.9.9.13.1.3.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: temp_threshold
+        oid: 1.3.6.1.4.1.9.9.13.1.3.1.4
+        type: gauge
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonTemperatureStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: warning
+        3: critical
+        4: shutdown
+        5: notPresent
+        6: notFunctioning
+    - name: snmp_ciscoEnvMonFanState
+      oid: 1.3.6.1.4.1.9.9.13.1.4.1.3
+      type: gauge
+      help: ciscoEnvMonFanState (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.4.1.3
+      indexes:
+      - labelname: ciscoEnvMonFanStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: fan_descr
+        oid: 1.3.6.1.4.1.9.9.13.1.4.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonFanStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: warning
+        3: critical
+        4: shutdown
+        5: notPresent
+        6: notFunctioning
+    - name: snmp_ciscoEnvMonSupplyState
+      oid: 1.3.6.1.4.1.9.9.13.1.5.1.3
+      type: gauge
+      help: ciscoEnvMonSupplyState (CISCO-ENVMON-MIB) - 1.3.6.1.4.1.9.9.13.1.5.1.3
+      indexes:
+      - labelname: ciscoEnvMonSupplyStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: power_status_description
+        oid: 1.3.6.1.4.1.9.9.13.1.5.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: power_source
+        oid: 1.3.6.1.4.1.9.9.13.1.5.1.4
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: entity_description
+        oid: 1.3.6.1.2.1.47.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: entity_class
+        oid: 1.3.6.1.2.1.47.1.1.1.1.5
+        type: EnumAsInfo
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: entity_name
+        oid: 1.3.6.1.2.1.47.1.1.1.1.7
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: entity_serial
+        oid: 1.3.6.1.2.1.47.1.1.1.1.11
+        type: DisplayString
+      - labels:
+        - ciscoEnvMonSupplyStatusIndex
+        labelname: entity_model
+        oid: 1.3.6.1.2.1.47.1.1.1.1.13
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: warning
+        3: critical
+        4: shutdown
+        5: notPresent
+        6: notFunctioning
+    walk:
+    - 1.3.6.1.4.1.9.9.117.1.4.1
+    - 1.3.6.1.4.1.9.9.117.1.4.2
+    - 1.3.6.1.4.1.9.9.91.1.1.1
+    - 1.3.6.1.4.1.9.9.13.1.2
+    - 1.3.6.1.4.1.9.9.13.1.3
+    - 1.3.6.1.4.1.9.9.13.1.4
+    - 1.3.6.1.4.1.9.9.13.1.5

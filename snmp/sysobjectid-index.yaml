@@ -19,10 +19,12 @@ modules:
     - 3com_huawei
     module_chain_hot:
     - if_mib
+    - 3com_huawei
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - 3com_huawei
+    - 3com_huawei_sensors
+    - 3com_huawei_ext
     module_chain_topology: []
   3com:
     profile: 3com.yml
@@ -43,10 +45,10 @@ modules:
     - 3com
     module_chain_hot:
     - if_mib
+    - 3com
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - 3com
     module_chain_topology: []
   6wind_vsr:
     profile: 6wind-vsr.yml
@@ -79,15 +81,15 @@ modules:
     - 6wind_vsr
     module_chain_hot:
     - if_mib
+    - 6wind_vsr
     module_chain_cold:
     - if_mib_meta
     - ip_addr
     - ip_mib
     - tcp_mib
     - udp_mib
+    module_chain_topology:
     - bgp4_mib
-    - 6wind_vsr
-    module_chain_topology: []
   cambium_mib:
     profile: cambium-mib.yml
     vendor: Cambium
@@ -110,11 +112,13 @@ modules:
     - cambium_mib
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - cambium_mib
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - cambium_mib
+    - ucd_mib_ext
+    - cambium_mib_ext
     module_chain_topology: []
   bgp4_mib:
     profile: bgp4-mib.yml
@@ -129,9 +133,9 @@ modules:
     module_chain:
     - bgp4_mib
     module_chain_hot: []
-    module_chain_cold:
+    module_chain_cold: []
+    module_chain_topology:
     - bgp4_mib
-    module_chain_topology: []
   entity_sensor_mib:
     profile: entity-sensor-mib.yml
     vendor: _general
@@ -160,9 +164,10 @@ modules:
     extends_modules: []
     module_chain:
     - host_resources_mib
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - host_resources_mib
+    module_chain_cold:
+    - host_resources_mib_ext
     module_chain_topology: []
   if_mib:
     profile: if-mib.yml
@@ -192,11 +197,9 @@ modules:
     extends_modules: []
     module_chain:
     - if_mib_meta
-    - ip_addr
     module_chain_hot: []
     module_chain_cold:
     - if_mib_meta
-    - ip_addr
     module_chain_topology: []
   if32_mib:
     profile: if32-mib.yml
@@ -226,11 +229,9 @@ modules:
     extends_modules: []
     module_chain:
     - if32_mib_meta
-    - ip_addr
     module_chain_hot: []
     module_chain_cold:
     - if32_mib_meta
-    - ip_addr
     module_chain_topology: []
   ip_mib:
     profile: ip-mib.yml
@@ -292,14 +293,18 @@ modules:
     - dell_poweredge
     - net_snmp
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - dell_poweredge
     - net_snmp
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - dell_poweredge_sensors
+    - dell_poweredge_ext
     module_chain_topology: []
   ospf_mib:
     profile: ospf-mib.yml
@@ -314,9 +319,9 @@ modules:
     module_chain:
     - ospf_mib
     module_chain_hot: []
-    module_chain_cold:
+    module_chain_cold: []
+    module_chain_topology:
     - ospf_mib
-    module_chain_topology: []
   tcp_mib:
     profile: tcp-mib.yml
     vendor: _general
@@ -345,9 +350,10 @@ modules:
     extends_modules: []
     module_chain:
     - ucd_mib
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - ucd_mib
+    module_chain_cold:
+    - ucd_mib_ext
     module_chain_topology: []
   udp_mib:
     profile: udp-mib.yml
@@ -471,12 +477,14 @@ modules:
     - a10_thunder
     module_chain_hot:
     - if_mib
+    - a10_thunder
     module_chain_cold:
     - if_mib_meta
     - ip_addr
+    - a10_thunder_sensors
+    - a10_thunder_ext
+    module_chain_topology:
     - ospf_mib
-    - a10_thunder
-    module_chain_topology: []
   alcatel_lucent_ent:
     profile: alcatel-lucent-ent.yml
     vendor: alcatel_lucent
@@ -500,10 +508,12 @@ modules:
     - alcatel_lucent_ent
     module_chain_hot:
     - if_mib
+    - alcatel_lucent_ent
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - alcatel_lucent_ent
+    - alcatel_lucent_ent_sensors
+    - alcatel_lucent_ent_ext
     module_chain_topology: []
   alcatel_lucent_ind:
     profile: alcatel-lucent-ind.yml
@@ -537,10 +547,12 @@ modules:
     - alcatel_lucent_ind
     module_chain_hot:
     - if_mib
+    - alcatel_lucent_ind
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - alcatel_lucent_ind
+    - alcatel_lucent_ind_sensors
+    - alcatel_lucent_ind_ext
     module_chain_topology: []
   omni_access_wlc:
     profile: omni-access-wlc.yml
@@ -574,10 +586,11 @@ modules:
     - omni_access_wlc
     module_chain_hot:
     - if_mib
+    - omni_access_wlc
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - omni_access_wlc
+    - omni_access_wlc_ext
     module_chain_topology: []
   anue_packet_broker:
     profile: anue-packet-broker.yml
@@ -598,10 +611,10 @@ modules:
     - anue_packet_broker
     module_chain_hot:
     - if_mib
+    - anue_packet_broker
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - anue_packet_broker
     module_chain_topology: []
   apc_netbotz:
     profile: apc-netbotz.yml
@@ -617,9 +630,11 @@ modules:
     extends_modules: []
     module_chain:
     - apc_netbotz
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - apc_netbotz
+    module_chain_cold:
+    - apc_netbotz_sensors
+    - apc_netbotz_ext
     module_chain_topology: []
   apc_ats:
     profile: apc_ats.yml
@@ -659,9 +674,11 @@ modules:
     extends_modules: []
     module_chain:
     - apc_ats
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - apc_ats
+    module_chain_cold:
+    - apc_ats_sensors
+    - apc_ats_ext
     module_chain_topology: []
   apc_pdu:
     profile: apc_pdu.yml
@@ -707,9 +724,11 @@ modules:
     extends_modules: []
     module_chain:
     - apc_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - apc_pdu
+    module_chain_cold:
+    - apc_pdu_sensors
+    - apc_pdu_ext
     module_chain_topology: []
   apc_ups:
     profile: apc_ups.yml
@@ -755,10 +774,12 @@ modules:
     module_chain:
     - ups_mib
     - apc_ups
-    module_chain_hot: []
+    module_chain_hot:
+    - apc_ups
     module_chain_cold:
     - ups_mib
-    - apc_ups
+    - apc_ups_sensors
+    - apc_ups_ext
     module_chain_topology: []
   arista_switch:
     profile: arista-switch.yml
@@ -943,15 +964,17 @@ modules:
     - arista_switch
     module_chain_hot:
     - if_mib
+    - arista_switch
     module_chain_cold:
     - entity_sensor_mib
     - if_mib_meta
     - ip_addr
+    - arista_switch_ext
+    module_chain_topology:
     - ospf_mib
     - bgp4_mib
-    - arista_switch
-    module_chain_topology:
     - lldp_mib
+    - arista_switch_bgp
   aruba_access_point:
     profile: aruba-access-point.yml
     vendor: aruba
@@ -1089,10 +1112,10 @@ modules:
     - aruba_access_point
     module_chain_hot:
     - if_mib
+    - aruba_access_point
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_access_point
     module_chain_topology: []
   aruba_clearpass:
     profile: aruba-clearpass.yml
@@ -1119,10 +1142,11 @@ modules:
     - aruba_clearpass
     module_chain_hot:
     - if_mib
+    - aruba_clearpass
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_clearpass
+    - aruba_clearpass_ext
     module_chain_topology: []
   aruba_cx_switch:
     profile: aruba-cx-switch.yml
@@ -1156,10 +1180,11 @@ modules:
     - aruba_cx_switch
     module_chain_hot:
     - if_mib
+    - aruba_cx_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_cx_switch
+    - aruba_cx_switch_sensors
     module_chain_topology: []
   aruba_mobility_controller:
     profile: aruba-mobility-controller.yml
@@ -1183,10 +1208,10 @@ modules:
     - aruba_mobility_controller
     module_chain_hot:
     - if_mib
+    - aruba_mobility_controller
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_mobility_controller
     module_chain_topology: []
   aruba_switch:
     profile: aruba-switch.yml
@@ -1367,10 +1392,11 @@ modules:
     - aruba_switch
     module_chain_hot:
     - if_mib
+    - aruba_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_switch
+    - aruba_switch_ext
     module_chain_topology: []
   aruba_wireless_controller:
     profile: aruba-wireless-controller.yml
@@ -1458,10 +1484,11 @@ modules:
     - aruba_wireless_controller
     module_chain_hot:
     - if_mib
+    - aruba_wireless_controller
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - aruba_wireless_controller
+    - aruba_wireless_controller_ext
     module_chain_topology: []
   audiocodes_mediant_sbc:
     profile: audiocodes-mediant-sbc.yml
@@ -1482,10 +1509,10 @@ modules:
     - audiocodes_mediant_sbc
     module_chain_hot:
     - if_mib
+    - audiocodes_mediant_sbc
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - audiocodes_mediant_sbc
     module_chain_topology: []
   aura_media_server:
     profile: aura-media-server.yml
@@ -1509,11 +1536,12 @@ modules:
     - aura_media_server
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - aura_media_server
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - aura_media_server
+    - host_resources_mib_ext
     module_chain_topology: []
   avaya_cajun_switch:
     profile: avaya-cajun-switch.yml
@@ -1531,9 +1559,10 @@ modules:
     extends_modules: []
     module_chain:
     - avaya_cajun_switch
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - avaya_cajun_switch
+    module_chain_cold:
+    - avaya_cajun_switch_ext
     module_chain_topology: []
   avaya_media_gateway:
     profile: avaya-media-gateway.yml
@@ -1573,13 +1602,14 @@ modules:
     - avaya_media_gateway
     module_chain_hot:
     - if_mib
+    - avaya_media_gateway
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ospf_mib
     - entity_sensor_mib
-    - avaya_media_gateway
-    module_chain_topology: []
+    - avaya_media_gateway_ext
+    module_chain_topology:
+    - ospf_mib
   nortel_ethernet_routing_switch:
     profile: nortel-ethernet-routing-switch.yml
     vendor: avaya
@@ -1599,10 +1629,11 @@ modules:
     - nortel_ethernet_routing_switch
     module_chain_hot:
     - if_mib
+    - nortel_ethernet_routing_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - nortel_ethernet_routing_switch
+    - nortel_ethernet_routing_switch_ext
     module_chain_topology: []
   acs:
     profile: acs.yml
@@ -1633,11 +1664,14 @@ modules:
     - acs
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - acs
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - acs
+    - ucd_mib_ext
+    - acs_sensors
+    - acs_ext
     module_chain_topology: []
   roomalert_32s:
     profile: roomalert-32s.yml
@@ -1653,9 +1687,11 @@ modules:
     extends_modules: []
     module_chain:
     - roomalert_32s
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - roomalert_32s
+    module_chain_cold:
+    - roomalert_32s_sensors
+    - roomalert_32s_ext
     module_chain_topology: []
   roomalert_3e:
     profile: roomalert-3e.yml
@@ -1671,9 +1707,10 @@ modules:
     extends_modules: []
     module_chain:
     - roomalert_3e
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - roomalert_3e
+    module_chain_cold:
+    - roomalert_3e_ext
     module_chain_topology: []
   roomalert_3s:
     profile: roomalert-3s.yml
@@ -1689,9 +1726,10 @@ modules:
     extends_modules: []
     module_chain:
     - roomalert_3s
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - roomalert_3s
+    module_chain_cold:
+    - roomalert_3s_ext
     module_chain_topology: []
   barracuda_cloudgen:
     profile: barracuda-cloudgen.yml
@@ -1715,12 +1753,16 @@ modules:
     - barracuda_cloudgen
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - barracuda_cloudgen
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - barracuda_cloudgen
-    module_chain_topology: []
+    - ucd_mib_ext
+    - barracuda_cloudgen_sensors
+    - barracuda_cloudgen_ext
+    module_chain_topology:
+    - barracuda_cloudgen_topo
   barracuda_email_gateway:
     profile: barracuda-email-gateway.yml
     vendor: barracuda
@@ -1743,11 +1785,13 @@ modules:
     - barracuda_email_gateway
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - barracuda_email_gateway
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - barracuda_email_gateway
+    - ucd_mib_ext
+    - barracuda_email_gateway_ext
     module_chain_topology: []
   barracuda_waf:
     profile: barracuda-waf.yml
@@ -1783,11 +1827,13 @@ modules:
     - barracuda_waf
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - barracuda_waf
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - barracuda_waf
+    - ucd_mib_ext
+    - barracuda_waf_ext
     module_chain_topology: []
   bluecat_server:
     profile: bluecat-server.yml
@@ -1830,13 +1876,16 @@ modules:
     - ucd_mib
     - bluecat_server
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - bluecat_server
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - bluecat_server_ext
     module_chain_topology: []
   diameter:
     profile: diameter.yml
@@ -1863,13 +1912,16 @@ modules:
     - ucd_mib
     - diameter
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - diameter
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - diameter_ext
     module_chain_topology: []
   brocade_fc_switch:
     profile: brocade-fc-switch.yml
@@ -1907,10 +1959,11 @@ modules:
     - brocade_fc_switch
     module_chain_hot:
     - if_mib
+    - brocade_fc_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - brocade_fc_switch
+    - brocade_fc_switch_ext
     module_chain_topology: []
   brother_net_printer:
     profile: brother-net-printer.yml
@@ -1932,9 +1985,10 @@ modules:
     extends_modules: []
     module_chain:
     - brother_net_printer
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - brother_net_printer
+    module_chain_cold:
+    - brother_net_printer_ext
     module_chain_topology: []
   checkpoint_firewall:
     profile: checkpoint-firewall.yml
@@ -1956,10 +2010,12 @@ modules:
     - checkpoint_firewall
     module_chain_hot:
     - if_mib
+    - checkpoint_firewall
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - checkpoint_firewall
+    - checkpoint_firewall_sensors
+    - checkpoint_firewall_ext
     module_chain_topology: []
   watchguard:
     profile: watchguard.yml
@@ -1986,12 +2042,13 @@ modules:
     - if_mib
     - watchguard
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - watchguard
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - watchguard
+    - host_resources_mib_ext
     module_chain_topology: []
   luna_hsm:
     profile: luna-hsm.yml
@@ -2013,11 +2070,13 @@ modules:
     - ucd_mib
     - tcp_mib
     - luna_hsm
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - ucd_mib
-    - tcp_mib
     - luna_hsm
+    module_chain_cold:
+    - tcp_mib
+    - ucd_mib_ext
+    - luna_hsm_ext
     module_chain_topology: []
   cisco_access_point:
     profile: cisco-access-point.yml
@@ -2072,10 +2131,11 @@ modules:
     - cisco_access_point
     module_chain_hot:
     - if_mib
+    - cisco_access_point
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cisco_access_point
+    - cisco_access_point_ext
     module_chain_topology: []
   cisco_all_devices:
     profile: cisco-all-devices.yml
@@ -2103,13 +2163,15 @@ modules:
     - cisco_all_devices
     module_chain_hot:
     - if_mib
+    - cisco_all_devices
     module_chain_cold:
-    - bgp4_mib
     - if_mib_meta
     - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    module_chain_topology:
+    - bgp4_mib
     - ospf_mib
-    - cisco_all_devices
-    module_chain_topology: []
   cisco_apic_server:
     profile: cisco-apic-server.yml
     vendor: cisco
@@ -2124,9 +2186,11 @@ modules:
     extends_modules: []
     module_chain:
     - cisco_apic_server
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - cisco_apic_server
+    module_chain_cold:
+    - cisco_apic_server_sensors
+    - cisco_apic_server_ext
     module_chain_topology: []
   cisco_asa:
     profile: cisco-asa.yml
@@ -2295,14 +2359,17 @@ modules:
     - cisco_asa
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_asa
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_asa_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_asr:
     profile: cisco-asr.yml
     vendor: cisco
@@ -3147,14 +3214,17 @@ modules:
     - cisco_asr
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_asr
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_asr_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_call_manager:
     profile: cisco-call-manager.yml
     vendor: cisco
@@ -3178,16 +3248,20 @@ modules:
     - cisco_all_devices
     - cisco_call_manager
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
+    - if_mib
     - cisco_all_devices
     - cisco_call_manager
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_call_manager_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_catalyst:
     profile: cisco-catalyst.yml
     vendor: cisco
@@ -3606,14 +3680,17 @@ modules:
     - cisco_catalyst
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_catalyst
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_catalyst_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_csr:
     profile: cisco-csr.yml
     vendor: cisco
@@ -3638,12 +3715,13 @@ modules:
     - cisco_csr
     module_chain_hot:
     - if_mib
+    - cisco_csr
     module_chain_cold:
-    - bgp4_mib
     - if_mib_meta
     - ip_addr
-    - cisco_csr
-    module_chain_topology: []
+    - cisco_csr_ext
+    module_chain_topology:
+    - bgp4_mib
   cisco_firepower:
     profile: cisco-firepower.yml
     vendor: cisco
@@ -3699,10 +3777,12 @@ modules:
     - cisco_firepower
     module_chain_hot:
     - if_mib
+    - cisco_firepower
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cisco_firepower
+    - cisco_firepower_sensors
+    - cisco_firepower_ext
     module_chain_topology: []
   cisco_ironport_email:
     profile: cisco-ironport-email.yml
@@ -3736,10 +3816,12 @@ modules:
     - cisco_ironport_email
     module_chain_hot:
     - if_mib
+    - cisco_ironport_email
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cisco_ironport_email
+    - cisco_ironport_email_sensors
+    - cisco_ironport_email_ext
     module_chain_topology: []
   cisco_ise:
     profile: cisco-ise.yml
@@ -3766,13 +3848,15 @@ modules:
     - ucd_mib
     - cisco_ise
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - cisco_ise
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
     module_chain_topology: []
   cisco_load_balancer:
     profile: cisco-load-balancer.yml
@@ -3814,14 +3898,17 @@ modules:
     - cisco_load_balancer
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_load_balancer
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_load_balancer_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_nexus:
     profile: cisco-nexus.yml
     vendor: cisco
@@ -3966,14 +4053,17 @@ modules:
     - cisco_nexus
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_nexus
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
+    - cisco_nexus_bgp
   cisco_sb:
     profile: cisco-sb.yml
     vendor: cisco
@@ -3994,10 +4084,10 @@ modules:
     - cisco_sb
     module_chain_hot:
     - if_mib
+    - cisco_sb
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cisco_sb
     module_chain_topology: []
   cisco_ucs:
     profile: cisco-ucs.yml
@@ -4022,10 +4112,12 @@ modules:
     - cisco_ucs
     module_chain_hot:
     - if_mib
+    - cisco_ucs
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cisco_ucs
+    - cisco_ucs_sensors
+    - cisco_ucs_ext
     module_chain_topology: []
   cisco_voice:
     profile: cisco-voice.yml
@@ -4052,14 +4144,17 @@ modules:
     - cisco_voice
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - cisco_voice
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - cisco_voice_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_wan_optimizer:
     profile: cisco-wan-optimizer.yml
     vendor: cisco
@@ -4100,15 +4195,19 @@ modules:
     - cisco_wan_optimizer
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - host_resources_mib
     - cisco_wan_optimizer
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - host_resources_mib_ext
+    - cisco_wan_optimizer_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   cisco_wlc:
     profile: cisco-wlc.yml
     vendor: cisco
@@ -4167,15 +4266,20 @@ modules:
     - cisco_wlc
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - bgp4_mib
-    - if_mib_meta
-    - ip_addr
-    - ospf_mib
     - cisco_all_devices
     - host_resources_mib
     - cisco_wlc
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - cisco_all_devices_sensors
+    - cisco_all_devices_ext
+    - host_resources_mib_ext
+    - cisco_wlc_sensors
+    - cisco_wlc_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   netscaler_sdx:
     profile: netscaler-sdx.yml
     vendor: citrix
@@ -4209,9 +4313,10 @@ modules:
     extends_modules: []
     module_chain:
     - netscaler_sdx
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - netscaler_sdx
+    module_chain_cold:
+    - netscaler_sdx_ext
     module_chain_topology: []
   netscaler:
     profile: netscaler.yml
@@ -4250,10 +4355,11 @@ modules:
     - netscaler
     module_chain_hot:
     - if_mib
+    - netscaler
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netscaler
+    - netscaler_ext
     module_chain_topology: []
   cradlepoint:
     profile: cradlepoint.yml
@@ -4321,10 +4427,11 @@ modules:
     - cradlepoint
     module_chain_hot:
     - if_mib
+    - cradlepoint
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - cradlepoint
+    - cradlepoint_ext
     module_chain_topology: []
   cyberpower_pdu:
     profile: cyberpower-pdu.yml
@@ -4384,9 +4491,11 @@ modules:
     extends_modules: []
     module_chain:
     - cyberpower_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - cyberpower_pdu
+    module_chain_cold:
+    - cyberpower_pdu_sensors
+    - cyberpower_pdu_ext
     module_chain_topology: []
   cyberpower_ups:
     profile: cyberpower-ups.yml
@@ -4430,10 +4539,12 @@ modules:
     module_chain:
     - ups_mib
     - cyberpower_ups
-    module_chain_hot: []
+    module_chain_hot:
+    - cyberpower_ups
     module_chain_cold:
     - ups_mib
-    - cyberpower_ups
+    - cyberpower_ups_sensors
+    - cyberpower_ups_ext
     module_chain_topology: []
   dell_avamar:
     profile: dell-avamar.yml
@@ -4457,11 +4568,12 @@ modules:
     - dell_avamar
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - dell_avamar
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - dell_avamar
+    - host_resources_mib_ext
     module_chain_topology: []
   dell_idrac:
     profile: dell-idrac.yml
@@ -4479,9 +4591,11 @@ modules:
     extends_modules: []
     module_chain:
     - dell_idrac
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - dell_idrac
+    module_chain_cold:
+    - dell_idrac_sensors
+    - dell_idrac_ext
     module_chain_topology: []
   dell_os10:
     profile: dell-os10.yml
@@ -4527,12 +4641,16 @@ modules:
     - dell_os10
     module_chain_hot:
     - if32_mib
+    - host_resources_mib
+    - dell_os10
     module_chain_cold:
     - if32_mib_meta
     - ip_addr
-    - host_resources_mib
-    - dell_os10
-    module_chain_topology: []
+    - host_resources_mib_ext
+    - dell_os10_sensors
+    - dell_os10_ext
+    module_chain_topology:
+    - dell_os10_bgp
   dell_powerconnect:
     profile: dell-powerconnect.yml
     vendor: dell
@@ -4635,10 +4753,12 @@ modules:
     - dell_powerconnect
     module_chain_hot:
     - if_mib
+    - dell_powerconnect
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - dell_powerconnect
+    - dell_powerconnect_sensors
+    - dell_powerconnect_ext
     module_chain_topology: []
   dell_poweredge:
     profile: dell-poweredge.yml
@@ -4652,9 +4772,11 @@ modules:
     extends_modules: []
     module_chain:
     - dell_poweredge
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - dell_poweredge
+    module_chain_cold:
+    - dell_poweredge_sensors
+    - dell_poweredge_ext
     module_chain_topology: []
   emc_data_domain:
     profile: emc-data-domain.yml
@@ -4712,10 +4834,11 @@ modules:
     - emc_data_domain
     module_chain_hot:
     - if_mib
+    - emc_data_domain
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - emc_data_domain
+    - emc_data_domain_ext
     module_chain_topology: []
   force10:
     profile: force10.yml
@@ -4736,10 +4859,10 @@ modules:
     - force10
     module_chain_hot:
     - if_mib
+    - force10
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - force10
     module_chain_topology: []
   sonicwall_sma:
     profile: sonicwall-sma.yml
@@ -4781,11 +4904,13 @@ modules:
     - sonicwall_sma
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - sonicwall_sma
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - sonicwall_sma
+    - host_resources_mib_ext
+    - sonicwall_sma_ext
     module_chain_topology: []
   sonicwall:
     profile: sonicwall.yml
@@ -4830,10 +4955,11 @@ modules:
     - sonicwall
     module_chain_hot:
     - if_mib
+    - sonicwall
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - sonicwall
+    - sonicwall_ext
     module_chain_topology: []
   dialogic_media_gateway:
     profile: dialogic-media-gateway.yml
@@ -4854,10 +4980,10 @@ modules:
     - dialogic_media_gateway
     module_chain_hot:
     - if_mib
+    - dialogic_media_gateway
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - dialogic_media_gateway
     module_chain_topology: []
   dlink_dgs_switch:
     profile: dlink-dgs-switch.yml
@@ -4885,10 +5011,12 @@ modules:
     - dlink_dgs_switch
     module_chain_hot:
     - if_mib
+    - dlink_dgs_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - dlink_dgs_switch
+    - dlink_dgs_switch_sensors
+    - dlink_dgs_switch_ext
     module_chain_topology: []
   eaton_epdu:
     profile: eaton_epdu.yml
@@ -4930,9 +5058,11 @@ modules:
     extends_modules: []
     module_chain:
     - eaton_epdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - eaton_epdu
+    module_chain_cold:
+    - eaton_epdu_sensors
+    - eaton_epdu_ext
     module_chain_topology: []
   elemental_device:
     profile: elemental-device.yml
@@ -4962,12 +5092,14 @@ modules:
     - if_mib
     - elemental_device
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - elemental_device
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - elemental_device
+    - host_resources_mib_ext
+    - elemental_device_ext
     module_chain_topology: []
   exagrid:
     profile: exagrid.yml
@@ -4997,11 +5129,13 @@ modules:
     - exagrid
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - exagrid
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - exagrid
+    - host_resources_mib_ext
+    - exagrid_ext
     module_chain_topology: []
   extreme_switching:
     profile: extreme-switching.yml
@@ -5038,11 +5172,13 @@ modules:
     - extreme_switching
     module_chain_hot:
     - if_mib
+    - extreme_switching
     module_chain_cold:
     - if_mib_meta
     - ip_addr
     - entity_sensor_mib
-    - extreme_switching
+    - extreme_switching_sensors
+    - extreme_switching_ext
     module_chain_topology: []
   f5:
     profile: f5.yml
@@ -5078,10 +5214,11 @@ modules:
     - f5
     module_chain_hot:
     - if_mib
+    - f5
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - f5
+    - f5_ext
     module_chain_topology: []
   fireeye:
     profile: fireeye.yml
@@ -5120,10 +5257,12 @@ modules:
     - fireeye
     module_chain_hot:
     - if_mib
+    - fireeye
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - fireeye
+    - fireeye_sensors
+    - fireeye_ext
     module_chain_topology: []
   fortinet_appliance:
     profile: fortinet-appliance.yml
@@ -5211,10 +5350,11 @@ modules:
     - fortinet_appliance
     module_chain_hot:
     - if_mib
+    - fortinet_appliance
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - fortinet_appliance
+    - fortinet_appliance_ext
     module_chain_topology: []
   fortinet_fortiap:
     profile: fortinet-fortiap.yml
@@ -5293,10 +5433,11 @@ modules:
     - fortinet_fortiap
     module_chain_hot:
     - if_mib
+    - fortinet_fortiap
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - fortinet_fortiap
+    - fortinet_fortiap_ext
     module_chain_topology: []
   fortinet_fortigate:
     profile: fortinet-fortigate.yml
@@ -5436,13 +5577,14 @@ modules:
     - fortinet_fortigate
     module_chain_hot:
     - if_mib
+    - fortinet_fortigate
     module_chain_cold:
     - if_mib_meta
     - ip_addr
+    - fortinet_fortigate_ext
+    module_chain_topology:
     - bgp4_mib
     - ospf_mib
-    - fortinet_fortigate
-    module_chain_topology: []
   fortinet_fortiswitch:
     profile: fortinet-fortiswitch.yml
     vendor: fortinet
@@ -5483,10 +5625,11 @@ modules:
     - fortinet_fortiswitch
     module_chain_hot:
     - if_mib
+    - fortinet_fortiswitch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - fortinet_fortiswitch
+    - fortinet_fortiswitch_ext
     module_chain_topology: []
   base:
     profile: base.yml
@@ -5519,15 +5662,15 @@ modules:
     - base
     module_chain_hot:
     - if_mib
+    - base
     module_chain_cold:
     - if_mib_meta
     - ip_addr
     - ip_mib
     - tcp_mib
     - udp_mib
+    module_chain_topology:
     - ospf_mib
-    - base
-    module_chain_topology: []
   ups:
     profile: ups.yml
     vendor: generic
@@ -5545,10 +5688,10 @@ modules:
     module_chain:
     - ups_mib
     - ups
-    module_chain_hot: []
+    module_chain_hot:
+    - ups
     module_chain_cold:
     - ups_mib
-    - ups
     module_chain_topology: []
   gigamon:
     profile: gigamon.yml
@@ -5570,10 +5713,10 @@ modules:
     - gigamon
     module_chain_hot:
     - if_mib
+    - gigamon
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - gigamon
     module_chain_topology: []
   hp_h3c_switch:
     profile: hp-h3c-switch.yml
@@ -5594,10 +5737,11 @@ modules:
     - hp_h3c_switch
     module_chain_hot:
     - if_mib
+    - hp_h3c_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - hp_h3c_switch
+    - hp_h3c_switch_ext
     module_chain_topology: []
   hp_icf_switch:
     profile: hp-icf-switch.yml
@@ -5618,10 +5762,10 @@ modules:
     - hp_icf_switch
     module_chain_hot:
     - if_mib
+    - hp_icf_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - hp_icf_switch
     module_chain_topology: []
   hp_ilo:
     profile: hp-ilo.yml
@@ -5675,10 +5819,12 @@ modules:
     - hp_ilo
     module_chain_hot:
     - if_mib
+    - hp_ilo
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - hp_ilo
+    - hp_ilo_sensors
+    - hp_ilo_ext
     module_chain_topology: []
   hpe_bladesystem_enclosure:
     profile: hpe-bladesystem-enclosure.yml
@@ -5702,11 +5848,14 @@ modules:
     - hpe_bladesystem_enclosure
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - hpe_bladesystem_enclosure
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - hpe_bladesystem_enclosure
+    - ucd_mib_ext
+    - hpe_bladesystem_enclosure_sensors
+    - hpe_bladesystem_enclosure_ext
     module_chain_topology: []
   hpe_cambium:
     profile: hpe-cambium.yml
@@ -5725,10 +5874,12 @@ modules:
     module_chain:
     - ups_mib
     - hpe_cambium
-    module_chain_hot: []
+    module_chain_hot:
+    - hpe_cambium
     module_chain_cold:
     - ups_mib
-    - hpe_cambium
+    - hpe_cambium_sensors
+    - hpe_cambium_ext
     module_chain_topology: []
   hpe_msa:
     profile: hpe-msa.yaml
@@ -5767,10 +5918,11 @@ modules:
     - hpe_msa
     module_chain_hot:
     - if_mib
+    - hpe_msa
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - hpe_msa
+    - hpe_msa_ext
     module_chain_topology: []
   hpe_nimble:
     profile: hpe-nimble.yml
@@ -5791,10 +5943,11 @@ modules:
     - hpe_nimble
     module_chain_hot:
     - if_mib
+    - hpe_nimble
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - hpe_nimble
+    - hpe_nimble_ext
     module_chain_topology: []
   hpe_synergy:
     profile: hpe-synergy.yml
@@ -5818,11 +5971,12 @@ modules:
     - hpe_synergy
     module_chain_hot:
     - if_mib
+    - hpe_synergy
     module_chain_cold:
     - if_mib_meta
     - ip_addr
     - ip_mib
-    - hpe_synergy
+    - hpe_synergy_ext
     module_chain_topology: []
   huawei_access_controllers:
     profile: huawei-access-controllers.yml
@@ -5843,10 +5997,10 @@ modules:
     - huawei_access_controllers
     module_chain_hot:
     - if_mib
+    - huawei_access_controllers
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - huawei_access_controllers
     module_chain_topology: []
   huawei_all_devices:
     profile: huawei-all-devices.yml
@@ -5877,12 +6031,15 @@ modules:
     - huawei_all_devices_identity
     module_chain_hot:
     - if_mib
+    - huawei_all_devices
     - huawei_all_devices_identity
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - huawei_all_devices
-    module_chain_topology: []
+    - huawei_all_devices_sensors
+    - huawei_all_devices_ext
+    module_chain_topology:
+    - huawei_all_devices_topo
   huawei_routers:
     profile: huawei-routers.yml
     vendor: huawei
@@ -5907,12 +6064,17 @@ modules:
     - huawei_routers
     module_chain_hot:
     - if_mib
+    - huawei_all_devices
+    - huawei_routers
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - huawei_all_devices
-    - huawei_routers
-    module_chain_topology: []
+    - huawei_all_devices_sensors
+    - huawei_all_devices_ext
+    - huawei_routers_ext
+    module_chain_topology:
+    - huawei_all_devices_topo
+    - huawei_routers_bgp
   huawei_switches:
     profile: huawei-switches.yml
     vendor: huawei
@@ -5935,12 +6097,16 @@ modules:
     - huawei_switches
     module_chain_hot:
     - if_mib
+    - huawei_all_devices
+    - huawei_switches
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - huawei_all_devices
-    - huawei_switches
-    module_chain_topology: []
+    - huawei_all_devices_sensors
+    - huawei_all_devices_ext
+    - huawei_switches_ext
+    module_chain_topology:
+    - huawei_all_devices_topo
   ibm_datapower_gateway:
     profile: ibm-datapower-gateway.yml
     vendor: ibm
@@ -5955,9 +6121,11 @@ modules:
     extends_modules: []
     module_chain:
     - ibm_datapower_gateway
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - ibm_datapower_gateway
+    module_chain_cold:
+    - ibm_datapower_gateway_sensors
+    - ibm_datapower_gateway_ext
     module_chain_topology: []
   ibm_lenovo_server:
     profile: ibm-lenovo-server.yml
@@ -5997,13 +6165,16 @@ modules:
     - ucd_mib
     - ibm_lenovo_server
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - ibm_lenovo_server
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - ibm_lenovo_server_ext
     module_chain_topology: []
   ibm_wga:
     profile: ibm-wga.yml
@@ -6029,13 +6200,15 @@ modules:
     - ucd_mib
     - ibm_wga
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - ibm_wga
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
     module_chain_topology: []
   infinera:
     profile: infinera.yml
@@ -6056,10 +6229,12 @@ modules:
     - infinera
     module_chain_hot:
     - if_mib
+    - infinera
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - infinera
+    - infinera_sensors
+    - infinera_ext
     module_chain_topology: []
   infoblox_ipam:
     profile: infoblox-ipam.yml
@@ -6147,12 +6322,15 @@ modules:
     - infoblox_ipam
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
     - host_resources_mib
     - ucd_mib
     - infoblox_ipam
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - infoblox_ipam_ext
     module_chain_topology: []
   sensor_gateway_base_unit:
     profile: sensor-gateway-base-unit.yml
@@ -6168,9 +6346,10 @@ modules:
     extends_modules: []
     module_chain:
     - sensor_gateway_base_unit
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - sensor_gateway_base_unit
+    module_chain_cold:
+    - sensor_gateway_base_unit_ext
     module_chain_topology: []
   ipower_mib:
     profile: ipower-mib.yaml
@@ -6186,9 +6365,11 @@ modules:
     extends_modules: []
     module_chain:
     - ipower_mib
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - ipower_mib
+    module_chain_cold:
+    - ipower_mib_sensors
+    - ipower_mib_ext
     module_chain_topology: []
   isilon:
     profile: isilon.yml
@@ -6204,9 +6385,10 @@ modules:
     extends_modules: []
     module_chain:
     - isilon
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - isilon
+    module_chain_cold:
+    - isilon_ext
     module_chain_topology: []
   juniper_all_devices:
     profile: juniper-all-devices.yml
@@ -6240,15 +6422,18 @@ modules:
     - juniper_all_devices_identity
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - juniper_all_devices
     - juniper_all_devices_identity
     module_chain_cold:
     - if_mib_meta
     - ip_addr
+    - host_resources_mib_ext
+    - juniper_all_devices_sensors
+    - juniper_all_devices_ext
+    module_chain_topology:
     - bgp4_mib
     - ospf_mib
-    - host_resources_mib
-    - juniper_all_devices
-    module_chain_topology: []
   juniper_ex_switches:
     profile: juniper-ex-switches.yml
     vendor: juniper
@@ -6302,15 +6487,19 @@ modules:
     - juniper_ex_switches
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
-    - bgp4_mib
-    - ospf_mib
     - host_resources_mib
     - juniper_all_devices
     - juniper_ex_switches
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - juniper_all_devices_sensors
+    - juniper_all_devices_ext
+    - juniper_ex_switches_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   juniper_mx_router:
     profile: juniper-mx-router.yml
     vendor: juniper
@@ -6362,15 +6551,19 @@ modules:
     - juniper_mx_router
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
-    - bgp4_mib
-    - ospf_mib
     - host_resources_mib
     - juniper_all_devices
     - juniper_mx_router
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - juniper_all_devices_sensors
+    - juniper_all_devices_ext
+    - juniper_mx_router_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   juniper_qfx_switches:
     profile: juniper-qfx-switches.yml
     vendor: juniper
@@ -6394,15 +6587,19 @@ modules:
     - juniper_qfx_switches
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
-    - bgp4_mib
-    - ospf_mib
     - host_resources_mib
     - juniper_all_devices
     - juniper_qfx_switches
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - juniper_all_devices_sensors
+    - juniper_all_devices_ext
+    - juniper_qfx_switches_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   juniper_srx_firewalls:
     profile: juniper-srx-firewalls.yml
     vendor: juniper
@@ -6470,15 +6667,19 @@ modules:
     - juniper_srx_firewalls
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
-    - bgp4_mib
-    - ospf_mib
     - host_resources_mib
     - juniper_all_devices
     - juniper_srx_firewalls
-    module_chain_topology: []
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - juniper_all_devices_sensors
+    - juniper_all_devices_ext
+    - juniper_srx_firewalls_ext
+    module_chain_topology:
+    - bgp4_mib
+    - ospf_mib
   pulse_secure:
     profile: pulse-secure.yml
     vendor: juniper
@@ -6522,12 +6723,16 @@ modules:
     - pulse_secure
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
     - host_resources_mib
     - ucd_mib
     - pulse_secure
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - pulse_secure_sensors
+    - pulse_secure_ext
     module_chain_topology: []
   kyocera_printer:
     profile: kyocera-printer.yml
@@ -6562,10 +6767,11 @@ modules:
     - kyocera_printer
     module_chain_hot:
     - if32_mib
+    - kyocera_printer
     module_chain_cold:
     - if32_mib_meta
     - ip_addr
-    - kyocera_printer
+    - kyocera_printer_ext
     module_chain_topology: []
   lenovo_rackswitch:
     profile: lenovo-rackswitch.yml
@@ -6604,10 +6810,12 @@ modules:
     - lenovo_rackswitch
     module_chain_hot:
     - if_mib
+    - lenovo_rackswitch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - lenovo_rackswitch
+    - lenovo_rackswitch_sensors
+    - lenovo_rackswitch_ext
     module_chain_topology: []
   linksys:
     profile: linksys.yml
@@ -6628,10 +6836,10 @@ modules:
     - linksys
     module_chain_hot:
     - if_mib
+    - linksys
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - linksys
     module_chain_topology: []
   mcafee_web_gateway:
     profile: mcafee-web-gateway.yml
@@ -6730,10 +6938,11 @@ modules:
     - mcafee_web_gateway
     module_chain_hot:
     - if_mib
+    - mcafee_web_gateway
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - mcafee_web_gateway
+    - mcafee_web_gateway_ext
     module_chain_topology: []
   meraki_cloud_controller:
     profile: meraki-cloud-controller.yml
@@ -6754,10 +6963,11 @@ modules:
     - meraki_cloud_controller
     module_chain_hot:
     - if_mib
+    - meraki_cloud_controller
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - meraki_cloud_controller
+    - meraki_cloud_controller_ext
     module_chain_topology: []
   meraki_device:
     profile: meraki-device.yaml
@@ -6862,10 +7072,10 @@ modules:
     - meraki_device
     module_chain_hot:
     - if_mib
+    - meraki_device
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - meraki_device
     module_chain_topology: []
   mikrotik_router:
     profile: mikrotik-router.yml
@@ -6886,10 +7096,12 @@ modules:
     - mikrotik_router
     module_chain_hot:
     - if_mib
+    - mikrotik_router
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - mikrotik_router
+    - mikrotik_router_sensors
+    - mikrotik_router_ext
     module_chain_topology: []
   mikrotik_switch:
     profile: mikrotik-switch.yml
@@ -6910,10 +7122,12 @@ modules:
     - mikrotik_switch
     module_chain_hot:
     - if_mib
+    - mikrotik_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - mikrotik_switch
+    - mikrotik_switch_sensors
+    - mikrotik_switch_ext
     module_chain_topology: []
   mimosa_device:
     profile: mimosa-device.yml
@@ -6952,10 +7166,12 @@ modules:
     - mimosa_device
     module_chain_hot:
     - if_mib
+    - mimosa_device
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - mimosa_device
+    - mimosa_device_sensors
+    - mimosa_device_ext
     module_chain_topology: []
   minuteman_pdu:
     profile: minuteman-pdu.yml
@@ -6995,9 +7211,10 @@ modules:
     extends_modules: []
     module_chain:
     - minuteman_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - minuteman_pdu
+    module_chain_cold:
+    - minuteman_pdu_ext
     module_chain_topology: []
   nasuni_filer:
     profile: nasuni-filer.yml
@@ -7058,11 +7275,14 @@ modules:
     - nasuni_filer
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - nasuni_filer
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - nasuni_filer
+    - ucd_mib_ext
+    - nasuni_filer_sensors
+    - nasuni_filer_ext
     module_chain_topology: []
   univerge:
     profile: univerge.yml
@@ -7087,12 +7307,13 @@ modules:
     - univerge
     module_chain_hot:
     - if_mib
+    - univerge
     module_chain_cold:
     - if_mib_meta
     - ip_addr
+    - univerge_ext
+    module_chain_topology:
     - bgp4_mib
-    - univerge
-    module_chain_topology: []
   netapp_cluster:
     profile: netapp-cluster.yml
     vendor: netapp
@@ -7143,10 +7364,12 @@ modules:
     - netapp_cluster
     module_chain_hot:
     - if_mib
+    - netapp_cluster
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netapp_cluster
+    - netapp_cluster_sensors
+    - netapp_cluster_ext
     module_chain_topology: []
   netapp_hci:
     profile: netapp-hci.yml
@@ -7188,11 +7411,14 @@ modules:
     - netapp_hci
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - netapp_hci
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - netapp_hci
+    - host_resources_mib_ext
+    - netapp_hci_sensors
+    - netapp_hci_ext
     module_chain_topology: []
   netgear_access_point:
     profile: netgear-access-point.yml
@@ -7213,10 +7439,10 @@ modules:
     - netgear_access_point
     module_chain_hot:
     - if_mib
+    - netgear_access_point
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netgear_access_point
     module_chain_topology: []
   netgear_generic:
     profile: netgear-generic.yml
@@ -7237,10 +7463,10 @@ modules:
     - netgear_generic
     module_chain_hot:
     - if_mib
+    - netgear_generic
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netgear_generic
     module_chain_topology: []
   netgear_switch:
     profile: netgear-switch.yml
@@ -7268,10 +7494,10 @@ modules:
     - netgear_switch
     module_chain_hot:
     - if_mib
+    - netgear_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netgear_switch
     module_chain_topology: []
   readynas:
     profile: readynas.yml
@@ -7304,11 +7530,14 @@ modules:
     - readynas
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - readynas
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - readynas
+    - ucd_mib_ext
+    - readynas_sensors
+    - readynas_ext
     module_chain_topology: []
   netoptics_switch:
     profile: netoptics-switch.yml
@@ -7338,10 +7567,12 @@ modules:
     - netoptics_switch
     module_chain_hot:
     - if_mib
+    - netoptics_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - netoptics_switch
+    - netoptics_switch_sensors
+    - netoptics_switch_ext
     module_chain_topology: []
   netskope_appliance:
     profile: netskope-appliance.yml
@@ -7365,11 +7596,12 @@ modules:
     - netskope_appliance
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - netskope_appliance
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - netskope_appliance
+    - ucd_mib_ext
     module_chain_topology: []
   nokia_srlinux:
     profile: nokia-srlinux.yml
@@ -7396,6 +7628,7 @@ modules:
     - if_mib_meta
     - ip_addr
     - nokia_srlinux_sensors
+    - nokia_srlinux_ext
     module_chain_topology:
     - nokia_srlinux_bgp
   nutanix:
@@ -7422,13 +7655,16 @@ modules:
     - ucd_mib
     - nutanix
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - nutanix
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
+    - nutanix_ext
     module_chain_topology: []
   cumulus_linux_switch:
     profile: cumulus-linux-switch.yml
@@ -7454,13 +7690,15 @@ modules:
     - if_mib
     - cumulus_linux_switch
     module_chain_hot:
+    - host_resources_mib
     - if_mib
+    - cumulus_linux_switch
     module_chain_cold:
     - entity_sensor_mib
-    - host_resources_mib
     - if_mib_meta
     - ip_addr
-    - cumulus_linux_switch
+    - host_resources_mib_ext
+    - cumulus_linux_switch_ext
     module_chain_topology: []
   mellanox_switchx:
     profile: mellanox-switchx.yml
@@ -7539,11 +7777,11 @@ modules:
     - mellanox_switchx
     module_chain_hot:
     - if_mib
+    - mellanox_switchx
     module_chain_cold:
     - if_mib_meta
     - ip_addr
     - entity_sensor_mib
-    - mellanox_switchx
     module_chain_topology: []
   omron_cj_ethernet_ip:
     profile: omron-cj-ethernet-ip.yml
@@ -7565,10 +7803,10 @@ modules:
     - omron_cj_ethernet_ip
     module_chain_hot:
     - if_mib
+    - omron_cj_ethernet_ip
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - omron_cj_ethernet_ip
     module_chain_topology: []
   opengear_console_manager:
     profile: opengear-console-manager.yml
@@ -7596,13 +7834,15 @@ modules:
     - if_mib
     - opengear_console_manager
     module_chain_hot:
+    - host_resources_mib
     - if_mib
+    - opengear_console_manager
     module_chain_cold:
     - entity_sensor_mib
-    - host_resources_mib
     - if_mib_meta
     - ip_addr
-    - opengear_console_manager
+    - host_resources_mib_ext
+    - opengear_console_manager_ext
     module_chain_topology: []
   opengear_infrastructure_manager:
     profile: opengear-infrastructure-manager.yml
@@ -7624,10 +7864,12 @@ modules:
     - opengear_infrastructure_manager
     module_chain_hot:
     - if_mib
+    - opengear_infrastructure_manager
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - opengear_infrastructure_manager
+    - opengear_infrastructure_manager_sensors
+    - opengear_infrastructure_manager_ext
     module_chain_topology: []
   opnsense_protectli:
     profile: opnsense-protectli.yml
@@ -7648,10 +7890,10 @@ modules:
     - opnsense_protectli
     module_chain_hot:
     - if_mib
+    - opnsense_protectli
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - opnsense_protectli
     module_chain_topology: []
   cloudgenix:
     profile: cloudgenix.yml
@@ -7683,13 +7925,15 @@ modules:
     - ucd_mib
     - cloudgenix
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - cloudgenix
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
     module_chain_topology: []
   palo_alto:
     profile: palo-alto.yml
@@ -7785,14 +8029,16 @@ modules:
     - palo_alto
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - palo_alto
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - ospf_mib
     - entity_sensor_mib
-    - palo_alto
-    module_chain_topology: []
+    - host_resources_mib_ext
+    - palo_alto_ext
+    module_chain_topology:
+    - ospf_mib
   panduit_pdu:
     profile: panduit_pdu.yml
     vendor: panduit
@@ -7807,9 +8053,10 @@ modules:
     extends_modules: []
     module_chain:
     - panduit_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - panduit_pdu
+    module_chain_cold:
+    - panduit_pdu_ext
     module_chain_topology: []
   peplink:
     profile: peplink.yml
@@ -7863,12 +8110,15 @@ modules:
     - if_mib
     - peplink
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - peplink
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - peplink
+    - host_resources_mib_ext
+    - peplink_sensors
+    - peplink_ext
     module_chain_topology: []
   pf_sense:
     profile: pf_sense.yml
@@ -7894,13 +8144,15 @@ modules:
     - ucd_mib
     - pf_sense
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
-    - if_mib_meta
-    - ip_addr
+    - if_mib
     - ucd_mib
     - pf_sense
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - host_resources_mib_ext
+    - ucd_mib_ext
     module_chain_topology: []
   dominion:
     profile: dominion.yml
@@ -7922,10 +8174,12 @@ modules:
     - dominion
     module_chain_hot:
     - if_mib
+    - dominion
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - dominion
+    - dominion_sensors
+    - dominion_ext
     module_chain_topology: []
   raritan_pdu:
     profile: raritan-pdu.yml
@@ -7942,9 +8196,11 @@ modules:
     extends_modules: []
     module_chain:
     - raritan_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - raritan_pdu
+    module_chain_cold:
+    - raritan_pdu_sensors
+    - raritan_pdu_ext
     module_chain_topology: []
   riverbed_interceptor:
     profile: riverbed-interceptor.yml
@@ -7979,10 +8235,11 @@ modules:
     - riverbed_interceptor
     module_chain_hot:
     - if_mib
+    - riverbed_interceptor
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - riverbed_interceptor
+    - riverbed_interceptor_ext
     module_chain_topology: []
   riverbed_steelhead:
     profile: riverbed-steelhead.yml
@@ -8003,10 +8260,11 @@ modules:
     - riverbed_steelhead
     module_chain_hot:
     - if_mib
+    - riverbed_steelhead
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - riverbed_steelhead
+    - riverbed_steelhead_ext
     module_chain_topology: []
   Ruckus_Contoller_SNMP:
     profile: Ruckus_Contoller_SNMP.yml
@@ -8054,10 +8312,11 @@ modules:
     - ruckus_unleashed
     module_chain_hot:
     - if_mib
+    - ruckus_unleashed
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ruckus_unleashed
+    - ruckus_unleashed_ext
     module_chain_topology: []
   ruckus_wap:
     profile: ruckus-wap.yml
@@ -8082,11 +8341,12 @@ modules:
     - ruckus_wap
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - ruckus_wap
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - ruckus_wap
+    - ucd_mib_ext
     module_chain_topology: []
   server_iron_switch:
     profile: server-iron-switch.yml
@@ -8110,11 +8370,12 @@ modules:
     - server_iron_switch
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - server_iron_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - server_iron_switch
+    - host_resources_mib_ext
     module_chain_topology: []
   servertech_pdu3:
     profile: servertech-pdu3.yml
@@ -8142,9 +8403,11 @@ modules:
     extends_modules: []
     module_chain:
     - servertech_pdu3
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - servertech_pdu3
+    module_chain_cold:
+    - servertech_pdu3_sensors
+    - servertech_pdu3_ext
     module_chain_topology: []
   servertech_pdu4:
     profile: servertech-pdu4.yml
@@ -8190,9 +8453,10 @@ modules:
     extends_modules: []
     module_chain:
     - servertech_pdu4
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - servertech_pdu4
+    module_chain_cold:
+    - servertech_pdu4_ext
     module_chain_topology: []
   edgeconnect:
     profile: edgeconnect.yml
@@ -8231,10 +8495,11 @@ modules:
     - edgeconnect
     module_chain_hot:
     - if_mib
+    - edgeconnect
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - edgeconnect
+    - edgeconnect_ext
     module_chain_topology: []
   eagle_i:
     profile: eagle-i.yml
@@ -8268,9 +8533,10 @@ modules:
     extends_modules: []
     module_chain:
     - eagle_i
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - eagle_i
+    module_chain_cold:
+    - eagle_i_ext
     module_chain_topology: []
   xgs_firewall:
     profile: xgs-firewall.yml
@@ -8309,10 +8575,11 @@ modules:
     - xgs_firewall
     module_chain_hot:
     - if_mib
+    - xgs_firewall
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - xgs_firewall
+    - xgs_firewall_ext
     module_chain_topology: []
   dctrack:
     profile: dctrack.yml
@@ -8335,12 +8602,14 @@ modules:
     - if_mib
     - dctrack
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - dctrack
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - dctrack
+    - host_resources_mib_ext
+    - dctrack_ext
     module_chain_topology: []
   power_iq:
     profile: power-iq.yml
@@ -8363,12 +8632,14 @@ modules:
     - if_mib
     - power_iq
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - power_iq
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - power_iq
+    - host_resources_mib_ext
+    - power_iq_ext
     module_chain_topology: []
   disk_station:
     profile: disk_station.yml
@@ -8407,10 +8678,12 @@ modules:
     - disk_station
     module_chain_hot:
     - if_mib
+    - disk_station
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - disk_station
+    - disk_station_sensors
+    - disk_station_ext
     module_chain_topology: []
   tp_link:
     profile: tp_link.yml
@@ -8434,10 +8707,10 @@ modules:
     - tp_link
     module_chain_hot:
     - if_mib
+    - tp_link
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - tp_link
     module_chain_topology: []
   tripplite_pdu:
     profile: tripplite-pdu.yml
@@ -8453,9 +8726,11 @@ modules:
     extends_modules: []
     module_chain:
     - tripplite_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - tripplite_pdu
+    module_chain_cold:
+    - tripplite_pdu_sensors
+    - tripplite_pdu_ext
     module_chain_topology: []
   tripplite_ups:
     profile: tripplite-ups.yml
@@ -8497,10 +8772,12 @@ modules:
     module_chain:
     - ups_mib
     - tripplite_ups
-    module_chain_hot: []
+    module_chain_hot:
+    - tripplite_ups
     module_chain_cold:
     - ups_mib
-    - tripplite_ups
+    - tripplite_ups_sensors
+    - tripplite_ups_ext
     module_chain_topology: []
   truenas:
     profile: truenas.yml
@@ -8527,12 +8804,15 @@ modules:
     - truenas
     module_chain_hot:
     - if_mib
-    module_chain_cold:
-    - if_mib_meta
-    - ip_addr
     - ucd_mib
     - host_resources_mib
     - truenas
+    module_chain_cold:
+    - if_mib_meta
+    - ip_addr
+    - ucd_mib_ext
+    - host_resources_mib_ext
+    - truenas_ext
     module_chain_topology: []
   unifi_access_point:
     profile: unifi-access-point.yml
@@ -8554,10 +8834,11 @@ modules:
     - unifi_access_point
     module_chain_hot:
     - if_mib
+    - unifi_access_point
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - unifi_access_point
+    - unifi_access_point_ext
     module_chain_topology: []
   unifi_security_gateway:
     profile: unifi-security-gateway.yml
@@ -8581,11 +8862,12 @@ modules:
     - unifi_security_gateway
     module_chain_hot:
     - if_mib
+    - ucd_mib
+    - unifi_security_gateway
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - ucd_mib
-    - unifi_security_gateway
+    - ucd_mib_ext
     module_chain_topology: []
   unifi_switch:
     profile: unifi-switch.yml
@@ -8606,10 +8888,10 @@ modules:
     - unifi_switch
     module_chain_hot:
     - if_mib
+    - unifi_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - unifi_switch
     module_chain_topology: []
   velocloud_edge:
     profile: velocloud-edge.yml
@@ -8633,11 +8915,13 @@ modules:
     - velocloud_edge
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - velocloud_edge
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - velocloud_edge
+    - host_resources_mib_ext
+    - velocloud_edge_ext
     module_chain_topology: []
   liebert_ac:
     profile: liebert-ac.yml
@@ -8665,9 +8949,11 @@ modules:
     extends_modules: []
     module_chain:
     - liebert_ac
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - liebert_ac
+    module_chain_cold:
+    - liebert_ac_sensors
+    - liebert_ac_ext
     module_chain_topology: []
   vertiv_pdu:
     profile: vertiv-pdu.yml
@@ -8707,9 +8993,10 @@ modules:
     extends_modules: []
     module_chain:
     - vertiv_pdu
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - vertiv_pdu
+    module_chain_cold:
+    - vertiv_pdu_ext
     module_chain_topology: []
   vertiv_ups:
     profile: vertiv-ups.yml
@@ -8743,10 +9030,12 @@ modules:
     module_chain:
     - ups_mib
     - vertiv_ups
-    module_chain_hot: []
+    module_chain_hot:
+    - vertiv_ups
     module_chain_cold:
     - ups_mib
-    - vertiv_ups
+    - vertiv_ups_sensors
+    - vertiv_ups_ext
     module_chain_topology: []
   watchdog:
     profile: watchdog.yml
@@ -8786,9 +9075,11 @@ modules:
     extends_modules: []
     module_chain:
     - watchdog
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - watchdog
+    module_chain_cold:
+    - watchdog_sensors
+    - watchdog_ext
     module_chain_topology: []
   esx:
     profile: esx.yml
@@ -8812,11 +9103,13 @@ modules:
     - esx
     module_chain_hot:
     - if_mib
+    - host_resources_mib
+    - esx
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - host_resources_mib
-    - esx
+    - host_resources_mib_ext
+    - esx_ext
     module_chain_topology: []
   vmware_nsx:
     profile: vmware-nsx.yml
@@ -8925,11 +9218,13 @@ modules:
     - vmware_nsx
     module_chain_hot:
     - if_mib
+    - vmware_nsx
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - vmware_nsx
-    module_chain_topology: []
+    - vmware_nsx_ext
+    module_chain_topology:
+    - vmware_nsx_bgp
   mycloud_ex2:
     profile: mycloud-ex2.yml
     vendor: western_digital
@@ -8966,12 +9261,15 @@ modules:
     - if_mib
     - mycloud_ex2
     module_chain_hot:
-    - if_mib
-    module_chain_cold:
     - host_resources_mib
+    - if_mib
+    - mycloud_ex2
+    module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - mycloud_ex2
+    - host_resources_mib_ext
+    - mycloud_ex2_sensors
+    - mycloud_ex2_ext
     module_chain_topology: []
   workcentre:
     profile: workcentre.yml
@@ -9006,10 +9304,11 @@ modules:
     - workcentre
     module_chain_hot:
     - if_mib
+    - workcentre
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - workcentre
+    - workcentre_ext
     module_chain_topology: []
   zebra_printer:
     profile: zebra-printer.yml
@@ -9043,9 +9342,10 @@ modules:
     extends_modules: []
     module_chain:
     - zebra_printer
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - zebra_printer
+    module_chain_cold:
+    - zebra_printer_ext
     module_chain_topology: []
   zscaler_nss:
     profile: zscaler_nss.yml
@@ -9068,9 +9368,10 @@ modules:
     extends_modules: []
     module_chain:
     - zscaler_nss
-    module_chain_hot: []
-    module_chain_cold:
+    module_chain_hot:
     - zscaler_nss
+    module_chain_cold:
+    - zscaler_nss_ext
     module_chain_topology: []
   zyxel_switch:
     profile: zyxel-switch.yml
@@ -9115,10 +9416,10 @@ modules:
     - zyxel_switch
     module_chain_hot:
     - if_mib
+    - zyxel_switch
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    - zyxel_switch
     module_chain_topology: []
   device_base:
     profile: device_base.yml
@@ -9179,4 +9480,2958 @@ modules:
     module_chain_hot:
     - juniper_all_devices_identity
     module_chain_cold: []
+    module_chain_topology: []
+  3com_huawei_ext:
+    profile: 3com-huawei-ext.yml
+    vendor: 3com
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - 3com_huawei_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - 3com_huawei_ext
+    module_chain_topology: []
+  3com_huawei_sensors:
+    profile: 3com-huawei-sensors.yml
+    vendor: 3com
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - 3com_huawei_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - 3com_huawei_sensors
+    module_chain_topology: []
+  host_resources_mib_ext:
+    profile: host-resources-mib-ext.yml
+    vendor: _general
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - host_resources_mib_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - host_resources_mib_ext
+    module_chain_topology: []
+  ucd_mib_ext:
+    profile: ucd-mib-ext.yml
+    vendor: _general
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ucd_mib_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - ucd_mib_ext
+    module_chain_topology: []
+  a10_thunder_ext:
+    profile: a10-thunder-ext.yml
+    vendor: a10_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - a10_thunder_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - a10_thunder_ext
+    module_chain_topology: []
+  a10_thunder_sensors:
+    profile: a10-thunder-sensors.yml
+    vendor: a10_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - a10_thunder_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - a10_thunder_sensors
+    module_chain_topology: []
+  alcatel_lucent_ent_ext:
+    profile: alcatel-lucent-ent-ext.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ent_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - alcatel_lucent_ent_ext
+    module_chain_topology: []
+  alcatel_lucent_ent_sensors:
+    profile: alcatel-lucent-ent-sensors.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ent_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - alcatel_lucent_ent_sensors
+    module_chain_topology: []
+  alcatel_lucent_ind_ext:
+    profile: alcatel-lucent-ind-ext.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ind_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - alcatel_lucent_ind_ext
+    module_chain_topology: []
+  alcatel_lucent_ind_sensors:
+    profile: alcatel-lucent-ind-sensors.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ind_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - alcatel_lucent_ind_sensors
+    module_chain_topology: []
+  omni_access_wlc_ext:
+    profile: omni-access-wlc-ext.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - omni_access_wlc_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - omni_access_wlc_ext
+    module_chain_topology: []
+  apc_ats_ext:
+    profile: apc-ats-ext.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_ats_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_ats_ext
+    module_chain_topology: []
+  apc_ats_sensors:
+    profile: apc-ats-sensors.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_ats_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_ats_sensors
+    module_chain_topology: []
+  apc_netbotz_ext:
+    profile: apc-netbotz-ext.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_netbotz_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_netbotz_ext
+    module_chain_topology: []
+  apc_netbotz_sensors:
+    profile: apc-netbotz-sensors.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_netbotz_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_netbotz_sensors
+    module_chain_topology: []
+  apc_pdu_ext:
+    profile: apc-pdu-ext.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_pdu_ext
+    module_chain_topology: []
+  apc_pdu_sensors:
+    profile: apc-pdu-sensors.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_pdu_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_pdu_sensors
+    module_chain_topology: []
+  apc_ups_ext:
+    profile: apc-ups-ext.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_ups_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_ups_ext
+    module_chain_topology: []
+  apc_ups_sensors:
+    profile: apc-ups-sensors.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - apc_ups_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - apc_ups_sensors
+    module_chain_topology: []
+  arista_switch_bgp:
+    profile: arista-switch-bgp.yml
+    vendor: arista
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - arista_switch_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - arista_switch_bgp
+  arista_switch_ext:
+    profile: arista-switch-ext.yml
+    vendor: arista
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - arista_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - arista_switch_ext
+    module_chain_topology: []
+  aruba_clearpass_ext:
+    profile: aruba-clearpass-ext.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - aruba_clearpass_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - aruba_clearpass_ext
+    module_chain_topology: []
+  aruba_cx_switch_sensors:
+    profile: aruba-cx-switch-sensors.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - aruba_cx_switch_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - aruba_cx_switch_sensors
+    module_chain_topology: []
+  aruba_switch_ext:
+    profile: aruba-switch-ext.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - aruba_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - aruba_switch_ext
+    module_chain_topology: []
+  aruba_wireless_controller_ext:
+    profile: aruba-wireless-controller-ext.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - aruba_wireless_controller_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - aruba_wireless_controller_ext
+    module_chain_topology: []
+  avaya_cajun_switch_ext:
+    profile: avaya-cajun-switch-ext.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - avaya_cajun_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - avaya_cajun_switch_ext
+    module_chain_topology: []
+  avaya_media_gateway_ext:
+    profile: avaya-media-gateway-ext.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - avaya_media_gateway_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - avaya_media_gateway_ext
+    module_chain_topology: []
+  nortel_ethernet_routing_switch_ext:
+    profile: nortel-ethernet-routing-switch-ext.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nortel_ethernet_routing_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - nortel_ethernet_routing_switch_ext
+    module_chain_topology: []
+  acs_ext:
+    profile: acs-ext.yml
+    vendor: avocent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - acs_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - acs_ext
+    module_chain_topology: []
+  acs_sensors:
+    profile: acs-sensors.yml
+    vendor: avocent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - acs_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - acs_sensors
+    module_chain_topology: []
+  roomalert_32s_ext:
+    profile: roomalert-32s-ext.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - roomalert_32s_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - roomalert_32s_ext
+    module_chain_topology: []
+  roomalert_32s_sensors:
+    profile: roomalert-32s-sensors.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - roomalert_32s_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - roomalert_32s_sensors
+    module_chain_topology: []
+  roomalert_3e_ext:
+    profile: roomalert-3e-ext.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - roomalert_3e_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - roomalert_3e_ext
+    module_chain_topology: []
+  roomalert_3s_ext:
+    profile: roomalert-3s-ext.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - roomalert_3s_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - roomalert_3s_ext
+    module_chain_topology: []
+  barracuda_cloudgen_ext:
+    profile: barracuda-cloudgen-ext.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - barracuda_cloudgen_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - barracuda_cloudgen_ext
+    module_chain_topology: []
+  barracuda_cloudgen_sensors:
+    profile: barracuda-cloudgen-sensors.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - barracuda_cloudgen_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - barracuda_cloudgen_sensors
+    module_chain_topology: []
+  barracuda_cloudgen_topo:
+    profile: barracuda-cloudgen-topo.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - barracuda_cloudgen_topo
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - barracuda_cloudgen_topo
+  barracuda_email_gateway_ext:
+    profile: barracuda-email-gateway-ext.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - barracuda_email_gateway_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - barracuda_email_gateway_ext
+    module_chain_topology: []
+  barracuda_waf_ext:
+    profile: barracuda-waf-ext.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - barracuda_waf_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - barracuda_waf_ext
+    module_chain_topology: []
+  bluecat_server_ext:
+    profile: bluecat-server-ext.yml
+    vendor: bluecat
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - bluecat_server_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - bluecat_server_ext
+    module_chain_topology: []
+  diameter_ext:
+    profile: diameter-ext.yml
+    vendor: broadforward
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - diameter_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - diameter_ext
+    module_chain_topology: []
+  brocade_fc_switch_ext:
+    profile: brocade-fc-switch-ext.yml
+    vendor: brocade
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - brocade_fc_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - brocade_fc_switch_ext
+    module_chain_topology: []
+  brother_net_printer_ext:
+    profile: brother-net-printer-ext.yml
+    vendor: brother
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - brother_net_printer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - brother_net_printer_ext
+    module_chain_topology: []
+  cambium_mib_ext:
+    profile: cambium-mib-ext.yml
+    vendor: Cambium
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cambium_mib_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cambium_mib_ext
+    module_chain_topology: []
+  checkpoint_firewall_ext:
+    profile: checkpoint-firewall-ext.yml
+    vendor: checkpoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - checkpoint_firewall_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - checkpoint_firewall_ext
+    module_chain_topology: []
+  checkpoint_firewall_sensors:
+    profile: checkpoint-firewall-sensors.yml
+    vendor: checkpoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - checkpoint_firewall_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - checkpoint_firewall_sensors
+    module_chain_topology: []
+  luna_hsm_ext:
+    profile: luna-hsm-ext.yml
+    vendor: chrysalis
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - luna_hsm_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - luna_hsm_ext
+    module_chain_topology: []
+  cisco_access_point_ext:
+    profile: cisco-access-point-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_access_point_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_access_point_ext
+    module_chain_topology: []
+  cisco_all_devices_ext:
+    profile: cisco-all-devices-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_all_devices_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_all_devices_ext
+    module_chain_topology: []
+  cisco_all_devices_sensors:
+    profile: cisco-all-devices-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_all_devices_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_all_devices_sensors
+    module_chain_topology: []
+  cisco_apic_server_ext:
+    profile: cisco-apic-server-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_apic_server_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_apic_server_ext
+    module_chain_topology: []
+  cisco_apic_server_sensors:
+    profile: cisco-apic-server-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_apic_server_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_apic_server_sensors
+    module_chain_topology: []
+  cisco_asa_ext:
+    profile: cisco-asa-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_asa_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_asa_ext
+    module_chain_topology: []
+  cisco_asr_ext:
+    profile: cisco-asr-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_asr_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_asr_ext
+    module_chain_topology: []
+  cisco_call_manager_ext:
+    profile: cisco-call-manager-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_call_manager_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_call_manager_ext
+    module_chain_topology: []
+  cisco_catalyst_ext:
+    profile: cisco-catalyst-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_catalyst_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_catalyst_ext
+    module_chain_topology: []
+  cisco_csr_ext:
+    profile: cisco-csr-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_csr_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_csr_ext
+    module_chain_topology: []
+  cisco_firepower_ext:
+    profile: cisco-firepower-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_firepower_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_firepower_ext
+    module_chain_topology: []
+  cisco_firepower_sensors:
+    profile: cisco-firepower-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_firepower_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_firepower_sensors
+    module_chain_topology: []
+  cisco_ironport_email_ext:
+    profile: cisco-ironport-email-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_ironport_email_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_ironport_email_ext
+    module_chain_topology: []
+  cisco_ironport_email_sensors:
+    profile: cisco-ironport-email-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_ironport_email_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_ironport_email_sensors
+    module_chain_topology: []
+  cisco_load_balancer_ext:
+    profile: cisco-load-balancer-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_load_balancer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_load_balancer_ext
+    module_chain_topology: []
+  cisco_nexus_bgp:
+    profile: cisco-nexus-bgp.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_nexus_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_nexus_bgp
+  cisco_ucs_ext:
+    profile: cisco-ucs-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_ucs_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_ucs_ext
+    module_chain_topology: []
+  cisco_ucs_sensors:
+    profile: cisco-ucs-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_ucs_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_ucs_sensors
+    module_chain_topology: []
+  cisco_voice_ext:
+    profile: cisco-voice-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_voice_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_voice_ext
+    module_chain_topology: []
+  cisco_wan_optimizer_ext:
+    profile: cisco-wan-optimizer-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_wan_optimizer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_wan_optimizer_ext
+    module_chain_topology: []
+  cisco_wlc_ext:
+    profile: cisco-wlc-ext.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_wlc_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_wlc_ext
+    module_chain_topology: []
+  cisco_wlc_sensors:
+    profile: cisco-wlc-sensors.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cisco_wlc_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cisco_wlc_sensors
+    module_chain_topology: []
+  netscaler_ext:
+    profile: netscaler-ext.yml
+    vendor: citrix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netscaler_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - netscaler_ext
+    module_chain_topology: []
+  netscaler_sdx_ext:
+    profile: netscaler-sdx-ext.yml
+    vendor: citrix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netscaler_sdx_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - netscaler_sdx_ext
+    module_chain_topology: []
+  cradlepoint_ext:
+    profile: cradlepoint-ext.yml
+    vendor: cradlepoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cradlepoint_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cradlepoint_ext
+    module_chain_topology: []
+  cyberpower_pdu_ext:
+    profile: cyberpower-pdu-ext.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cyberpower_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cyberpower_pdu_ext
+    module_chain_topology: []
+  cyberpower_pdu_sensors:
+    profile: cyberpower-pdu-sensors.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cyberpower_pdu_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cyberpower_pdu_sensors
+    module_chain_topology: []
+  cyberpower_ups_ext:
+    profile: cyberpower-ups-ext.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cyberpower_ups_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cyberpower_ups_ext
+    module_chain_topology: []
+  cyberpower_ups_sensors:
+    profile: cyberpower-ups-sensors.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cyberpower_ups_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - cyberpower_ups_sensors
+    module_chain_topology: []
+  dell_idrac_ext:
+    profile: dell-idrac-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_idrac_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_idrac_ext
+    module_chain_topology: []
+  dell_idrac_sensors:
+    profile: dell-idrac-sensors.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_idrac_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_idrac_sensors
+    module_chain_topology: []
+  dell_os10_bgp:
+    profile: dell-os10-bgp.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_os10_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dell_os10_bgp
+  dell_os10_ext:
+    profile: dell-os10-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_os10_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_os10_ext
+    module_chain_topology: []
+  dell_os10_sensors:
+    profile: dell-os10-sensors.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_os10_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_os10_sensors
+    module_chain_topology: []
+  dell_powerconnect_ext:
+    profile: dell-powerconnect-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_powerconnect_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_powerconnect_ext
+    module_chain_topology: []
+  dell_powerconnect_sensors:
+    profile: dell-powerconnect-sensors.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_powerconnect_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_powerconnect_sensors
+    module_chain_topology: []
+  dell_poweredge_ext:
+    profile: dell-poweredge-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_poweredge_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_poweredge_ext
+    module_chain_topology: []
+  dell_poweredge_sensors:
+    profile: dell-poweredge-sensors.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dell_poweredge_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dell_poweredge_sensors
+    module_chain_topology: []
+  emc_data_domain_ext:
+    profile: emc-data-domain-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - emc_data_domain_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - emc_data_domain_ext
+    module_chain_topology: []
+  sonicwall_ext:
+    profile: sonicwall-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - sonicwall_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - sonicwall_ext
+    module_chain_topology: []
+  sonicwall_sma_ext:
+    profile: sonicwall-sma-ext.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - sonicwall_sma_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - sonicwall_sma_ext
+    module_chain_topology: []
+  dlink_dgs_switch_ext:
+    profile: dlink-dgs-switch-ext.yml
+    vendor: dlink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dlink_dgs_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dlink_dgs_switch_ext
+    module_chain_topology: []
+  dlink_dgs_switch_sensors:
+    profile: dlink-dgs-switch-sensors.yml
+    vendor: dlink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dlink_dgs_switch_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dlink_dgs_switch_sensors
+    module_chain_topology: []
+  eaton_epdu_ext:
+    profile: eaton-epdu-ext.yml
+    vendor: eaton
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - eaton_epdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - eaton_epdu_ext
+    module_chain_topology: []
+  eaton_epdu_sensors:
+    profile: eaton-epdu-sensors.yml
+    vendor: eaton
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - eaton_epdu_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - eaton_epdu_sensors
+    module_chain_topology: []
+  elemental_device_ext:
+    profile: elemental-device-ext.yml
+    vendor: elemental
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - elemental_device_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - elemental_device_ext
+    module_chain_topology: []
+  exagrid_ext:
+    profile: exagrid-ext.yml
+    vendor: exagrid
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - exagrid_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - exagrid_ext
+    module_chain_topology: []
+  extreme_switching_ext:
+    profile: extreme-switching-ext.yml
+    vendor: extreme_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - extreme_switching_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - extreme_switching_ext
+    module_chain_topology: []
+  extreme_switching_sensors:
+    profile: extreme-switching-sensors.yml
+    vendor: extreme_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - extreme_switching_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - extreme_switching_sensors
+    module_chain_topology: []
+  f5_ext:
+    profile: f5-ext.yml
+    vendor: f5
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - f5_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - f5_ext
+    module_chain_topology: []
+  fireeye_ext:
+    profile: fireeye-ext.yml
+    vendor: fireeye
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fireeye_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - fireeye_ext
+    module_chain_topology: []
+  fireeye_sensors:
+    profile: fireeye-sensors.yml
+    vendor: fireeye
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fireeye_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - fireeye_sensors
+    module_chain_topology: []
+  fortinet_appliance_ext:
+    profile: fortinet-appliance-ext.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fortinet_appliance_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - fortinet_appliance_ext
+    module_chain_topology: []
+  fortinet_fortiap_ext:
+    profile: fortinet-fortiap-ext.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fortinet_fortiap_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - fortinet_fortiap_ext
+    module_chain_topology: []
+  fortinet_fortigate_ext:
+    profile: fortinet-fortigate-ext.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fortinet_fortigate_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - fortinet_fortigate_ext
+    module_chain_topology: []
+  fortinet_fortiswitch_ext:
+    profile: fortinet-fortiswitch-ext.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - fortinet_fortiswitch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - fortinet_fortiswitch_ext
+    module_chain_topology: []
+  hp_h3c_switch_ext:
+    profile: hp-h3c-switch-ext.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hp_h3c_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hp_h3c_switch_ext
+    module_chain_topology: []
+  hp_ilo_ext:
+    profile: hp-ilo-ext.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hp_ilo_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hp_ilo_ext
+    module_chain_topology: []
+  hp_ilo_sensors:
+    profile: hp-ilo-sensors.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hp_ilo_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - hp_ilo_sensors
+    module_chain_topology: []
+  hpe_bladesystem_enclosure_ext:
+    profile: hpe-bladesystem-enclosure-ext.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_bladesystem_enclosure_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_bladesystem_enclosure_ext
+    module_chain_topology: []
+  hpe_bladesystem_enclosure_sensors:
+    profile: hpe-bladesystem-enclosure-sensors.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_bladesystem_enclosure_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_bladesystem_enclosure_sensors
+    module_chain_topology: []
+  hpe_cambium_ext:
+    profile: hpe-cambium-ext.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_cambium_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_cambium_ext
+    module_chain_topology: []
+  hpe_cambium_sensors:
+    profile: hpe-cambium-sensors.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_cambium_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_cambium_sensors
+    module_chain_topology: []
+  hpe_msa_ext:
+    profile: hpe-msa-ext.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_msa_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_msa_ext
+    module_chain_topology: []
+  hpe_nimble_ext:
+    profile: hpe-nimble-ext.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_nimble_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_nimble_ext
+    module_chain_topology: []
+  hpe_synergy_ext:
+    profile: hpe-synergy-ext.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - hpe_synergy_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - hpe_synergy_ext
+    module_chain_topology: []
+  huawei_all_devices_ext:
+    profile: huawei-all-devices-ext.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_all_devices_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - huawei_all_devices_ext
+    module_chain_topology: []
+  huawei_all_devices_sensors:
+    profile: huawei-all-devices-sensors.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_all_devices_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - huawei_all_devices_sensors
+    module_chain_topology: []
+  huawei_all_devices_topo:
+    profile: huawei-all-devices-topo.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_all_devices_topo
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - huawei_all_devices_topo
+  huawei_routers_bgp:
+    profile: huawei-routers-bgp.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_routers_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - huawei_routers_bgp
+  huawei_routers_ext:
+    profile: huawei-routers-ext.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_routers_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - huawei_routers_ext
+    module_chain_topology: []
+  huawei_switches_ext:
+    profile: huawei-switches-ext.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - huawei_switches_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - huawei_switches_ext
+    module_chain_topology: []
+  ibm_datapower_gateway_ext:
+    profile: ibm-datapower-gateway-ext.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ibm_datapower_gateway_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - ibm_datapower_gateway_ext
+    module_chain_topology: []
+  ibm_datapower_gateway_sensors:
+    profile: ibm-datapower-gateway-sensors.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ibm_datapower_gateway_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - ibm_datapower_gateway_sensors
+    module_chain_topology: []
+  ibm_lenovo_server_ext:
+    profile: ibm-lenovo-server-ext.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ibm_lenovo_server_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - ibm_lenovo_server_ext
+    module_chain_topology: []
+  infinera_ext:
+    profile: infinera-ext.yml
+    vendor: infinera
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - infinera_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - infinera_ext
+    module_chain_topology: []
+  infinera_sensors:
+    profile: infinera-sensors.yml
+    vendor: infinera
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - infinera_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - infinera_sensors
+    module_chain_topology: []
+  infoblox_ipam_ext:
+    profile: infoblox-ipam-ext.yml
+    vendor: infoblox
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - infoblox_ipam_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - infoblox_ipam_ext
+    module_chain_topology: []
+  sensor_gateway_base_unit_ext:
+    profile: sensor-gateway-base-unit-ext.yml
+    vendor: infrasensing
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - sensor_gateway_base_unit_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - sensor_gateway_base_unit_ext
+    module_chain_topology: []
+  ipower_mib_ext:
+    profile: ipower-mib-ext.yml
+    vendor: ipower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ipower_mib_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - ipower_mib_ext
+    module_chain_topology: []
+  ipower_mib_sensors:
+    profile: ipower-mib-sensors.yml
+    vendor: ipower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ipower_mib_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - ipower_mib_sensors
+    module_chain_topology: []
+  isilon_ext:
+    profile: isilon-ext.yml
+    vendor: isilon
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - isilon_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - isilon_ext
+    module_chain_topology: []
+  juniper_all_devices_ext:
+    profile: juniper-all-devices-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_all_devices_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_all_devices_ext
+    module_chain_topology: []
+  juniper_all_devices_sensors:
+    profile: juniper-all-devices-sensors.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_all_devices_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_all_devices_sensors
+    module_chain_topology: []
+  juniper_ex_switches_ext:
+    profile: juniper-ex-switches-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_ex_switches_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_ex_switches_ext
+    module_chain_topology: []
+  juniper_mx_router_ext:
+    profile: juniper-mx-router-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_mx_router_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_mx_router_ext
+    module_chain_topology: []
+  juniper_qfx_switches_ext:
+    profile: juniper-qfx-switches-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_qfx_switches_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_qfx_switches_ext
+    module_chain_topology: []
+  juniper_srx_firewalls_ext:
+    profile: juniper-srx-firewalls-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - juniper_srx_firewalls_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - juniper_srx_firewalls_ext
+    module_chain_topology: []
+  pulse_secure_ext:
+    profile: pulse-secure-ext.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - pulse_secure_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - pulse_secure_ext
+    module_chain_topology: []
+  pulse_secure_sensors:
+    profile: pulse-secure-sensors.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - pulse_secure_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - pulse_secure_sensors
+    module_chain_topology: []
+  kyocera_printer_ext:
+    profile: kyocera-printer-ext.yml
+    vendor: kyocera
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - kyocera_printer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - kyocera_printer_ext
+    module_chain_topology: []
+  lenovo_rackswitch_ext:
+    profile: lenovo-rackswitch-ext.yml
+    vendor: lenovo
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - lenovo_rackswitch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - lenovo_rackswitch_ext
+    module_chain_topology: []
+  lenovo_rackswitch_sensors:
+    profile: lenovo-rackswitch-sensors.yml
+    vendor: lenovo
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - lenovo_rackswitch_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - lenovo_rackswitch_sensors
+    module_chain_topology: []
+  mcafee_web_gateway_ext:
+    profile: mcafee-web-gateway-ext.yml
+    vendor: mcafee
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mcafee_web_gateway_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - mcafee_web_gateway_ext
+    module_chain_topology: []
+  meraki_cloud_controller_ext:
+    profile: meraki-cloud-controller-ext.yml
+    vendor: meraki
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - meraki_cloud_controller_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - meraki_cloud_controller_ext
+    module_chain_topology: []
+  mikrotik_router_ext:
+    profile: mikrotik-router-ext.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mikrotik_router_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - mikrotik_router_ext
+    module_chain_topology: []
+  mikrotik_router_sensors:
+    profile: mikrotik-router-sensors.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mikrotik_router_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - mikrotik_router_sensors
+    module_chain_topology: []
+  mikrotik_switch_ext:
+    profile: mikrotik-switch-ext.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mikrotik_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - mikrotik_switch_ext
+    module_chain_topology: []
+  mikrotik_switch_sensors:
+    profile: mikrotik-switch-sensors.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mikrotik_switch_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - mikrotik_switch_sensors
+    module_chain_topology: []
+  mimosa_device_ext:
+    profile: mimosa-device-ext.yml
+    vendor: mimosa
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mimosa_device_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - mimosa_device_ext
+    module_chain_topology: []
+  mimosa_device_sensors:
+    profile: mimosa-device-sensors.yml
+    vendor: mimosa
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mimosa_device_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - mimosa_device_sensors
+    module_chain_topology: []
+  minuteman_pdu_ext:
+    profile: minuteman-pdu-ext.yml
+    vendor: minuteman
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - minuteman_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - minuteman_pdu_ext
+    module_chain_topology: []
+  nasuni_filer_ext:
+    profile: nasuni-filer-ext.yml
+    vendor: nasuni
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nasuni_filer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - nasuni_filer_ext
+    module_chain_topology: []
+  nasuni_filer_sensors:
+    profile: nasuni-filer-sensors.yml
+    vendor: nasuni
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nasuni_filer_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - nasuni_filer_sensors
+    module_chain_topology: []
+  univerge_ext:
+    profile: univerge-ext.yml
+    vendor: nec
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - univerge_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - univerge_ext
+    module_chain_topology: []
+  netapp_cluster_ext:
+    profile: netapp-cluster-ext.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netapp_cluster_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - netapp_cluster_ext
+    module_chain_topology: []
+  netapp_cluster_sensors:
+    profile: netapp-cluster-sensors.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netapp_cluster_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - netapp_cluster_sensors
+    module_chain_topology: []
+  netapp_hci_ext:
+    profile: netapp-hci-ext.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netapp_hci_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - netapp_hci_ext
+    module_chain_topology: []
+  netapp_hci_sensors:
+    profile: netapp-hci-sensors.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netapp_hci_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - netapp_hci_sensors
+    module_chain_topology: []
+  readynas_ext:
+    profile: readynas-ext.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - readynas_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - readynas_ext
+    module_chain_topology: []
+  readynas_sensors:
+    profile: readynas-sensors.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - readynas_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - readynas_sensors
+    module_chain_topology: []
+  netoptics_switch_ext:
+    profile: netoptics-switch-ext.yml
+    vendor: netoptics
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netoptics_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - netoptics_switch_ext
+    module_chain_topology: []
+  netoptics_switch_sensors:
+    profile: netoptics-switch-sensors.yml
+    vendor: netoptics
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - netoptics_switch_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - netoptics_switch_sensors
+    module_chain_topology: []
+  nokia_srlinux_bgp:
+    profile: nokia-srlinux-bgp.yml
+    vendor: nokia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nokia_srlinux_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - nokia_srlinux_bgp
+  nokia_srlinux_sensors:
+    profile: nokia-srlinux-sensors.yml
+    vendor: nokia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nokia_srlinux_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - nokia_srlinux_sensors
+    module_chain_topology: []
+  nutanix_ext:
+    profile: nutanix-ext.yml
+    vendor: nutanix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nutanix_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - nutanix_ext
+    module_chain_topology: []
+  cumulus_linux_switch_ext:
+    profile: cumulus-linux-switch-ext.yml
+    vendor: nvidia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - cumulus_linux_switch_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - cumulus_linux_switch_ext
+    module_chain_topology: []
+  opengear_console_manager_ext:
+    profile: opengear-console-manager-ext.yml
+    vendor: opengear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - opengear_console_manager_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - opengear_console_manager_ext
+    module_chain_topology: []
+  opengear_infrastructure_manager_ext:
+    profile: opengear-infrastructure-manager-ext.yml
+    vendor: opengear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - opengear_infrastructure_manager_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - opengear_infrastructure_manager_ext
+    module_chain_topology: []
+  opengear_infrastructure_manager_sensors:
+    profile: opengear-infrastructure-manager-sensors.yml
+    vendor: opengear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - opengear_infrastructure_manager_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - opengear_infrastructure_manager_sensors
+    module_chain_topology: []
+  palo_alto_ext:
+    profile: palo-alto-ext.yml
+    vendor: palo_alto
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - palo_alto_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - palo_alto_ext
+    module_chain_topology: []
+  panduit_pdu_ext:
+    profile: panduit-pdu-ext.yml
+    vendor: panduit
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - panduit_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - panduit_pdu_ext
+    module_chain_topology: []
+  peplink_ext:
+    profile: peplink-ext.yml
+    vendor: peplink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - peplink_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - peplink_ext
+    module_chain_topology: []
+  peplink_sensors:
+    profile: peplink-sensors.yml
+    vendor: peplink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - peplink_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - peplink_sensors
+    module_chain_topology: []
+  dominion_ext:
+    profile: dominion-ext.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dominion_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dominion_ext
+    module_chain_topology: []
+  dominion_sensors:
+    profile: dominion-sensors.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dominion_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - dominion_sensors
+    module_chain_topology: []
+  raritan_pdu_ext:
+    profile: raritan-pdu-ext.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - raritan_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - raritan_pdu_ext
+    module_chain_topology: []
+  raritan_pdu_sensors:
+    profile: raritan-pdu-sensors.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - raritan_pdu_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - raritan_pdu_sensors
+    module_chain_topology: []
+  riverbed_interceptor_ext:
+    profile: riverbed-interceptor-ext.yml
+    vendor: riverbed
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - riverbed_interceptor_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - riverbed_interceptor_ext
+    module_chain_topology: []
+  riverbed_steelhead_ext:
+    profile: riverbed-steelhead-ext.yml
+    vendor: riverbed
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - riverbed_steelhead_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - riverbed_steelhead_ext
+    module_chain_topology: []
+  ruckus_unleashed_ext:
+    profile: ruckus-unleashed-ext.yml
+    vendor: ruckus
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - ruckus_unleashed_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - ruckus_unleashed_ext
+    module_chain_topology: []
+  servertech_pdu3_ext:
+    profile: servertech-pdu3-ext.yml
+    vendor: servertech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - servertech_pdu3_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - servertech_pdu3_ext
+    module_chain_topology: []
+  servertech_pdu3_sensors:
+    profile: servertech-pdu3-sensors.yml
+    vendor: servertech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - servertech_pdu3_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - servertech_pdu3_sensors
+    module_chain_topology: []
+  servertech_pdu4_ext:
+    profile: servertech-pdu4-ext.yml
+    vendor: servertech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - servertech_pdu4_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - servertech_pdu4_ext
+    module_chain_topology: []
+  edgeconnect_ext:
+    profile: edgeconnect-ext.yml
+    vendor: silverpeak
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - edgeconnect_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - edgeconnect_ext
+    module_chain_topology: []
+  eagle_i_ext:
+    profile: eagle-i-ext.yml
+    vendor: sinetica
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - eagle_i_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - eagle_i_ext
+    module_chain_topology: []
+  xgs_firewall_ext:
+    profile: xgs-firewall-ext.yml
+    vendor: sophos
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - xgs_firewall_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - xgs_firewall_ext
+    module_chain_topology: []
+  dctrack_ext:
+    profile: dctrack-ext.yml
+    vendor: sunbird
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - dctrack_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - dctrack_ext
+    module_chain_topology: []
+  power_iq_ext:
+    profile: power-iq-ext.yml
+    vendor: sunbird
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - power_iq_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - power_iq_ext
+    module_chain_topology: []
+  disk_station_ext:
+    profile: disk-station-ext.yml
+    vendor: synology
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - disk_station_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - disk_station_ext
+    module_chain_topology: []
+  disk_station_sensors:
+    profile: disk-station-sensors.yml
+    vendor: synology
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - disk_station_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - disk_station_sensors
+    module_chain_topology: []
+  tripplite_pdu_ext:
+    profile: tripplite-pdu-ext.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - tripplite_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - tripplite_pdu_ext
+    module_chain_topology: []
+  tripplite_pdu_sensors:
+    profile: tripplite-pdu-sensors.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - tripplite_pdu_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - tripplite_pdu_sensors
+    module_chain_topology: []
+  tripplite_ups_ext:
+    profile: tripplite-ups-ext.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - tripplite_ups_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - tripplite_ups_ext
+    module_chain_topology: []
+  tripplite_ups_sensors:
+    profile: tripplite-ups-sensors.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - tripplite_ups_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - tripplite_ups_sensors
+    module_chain_topology: []
+  truenas_ext:
+    profile: truenas-ext.yml
+    vendor: truenas
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - truenas_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - truenas_ext
+    module_chain_topology: []
+  unifi_access_point_ext:
+    profile: unifi-access-point-ext.yml
+    vendor: ubiquiti
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - unifi_access_point_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - unifi_access_point_ext
+    module_chain_topology: []
+  velocloud_edge_ext:
+    profile: velocloud-edge-ext.yml
+    vendor: velocloud
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - velocloud_edge_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - velocloud_edge_ext
+    module_chain_topology: []
+  liebert_ac_ext:
+    profile: liebert-ac-ext.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - liebert_ac_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - liebert_ac_ext
+    module_chain_topology: []
+  liebert_ac_sensors:
+    profile: liebert-ac-sensors.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - liebert_ac_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - liebert_ac_sensors
+    module_chain_topology: []
+  vertiv_pdu_ext:
+    profile: vertiv-pdu-ext.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - vertiv_pdu_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - vertiv_pdu_ext
+    module_chain_topology: []
+  vertiv_ups_ext:
+    profile: vertiv-ups-ext.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - vertiv_ups_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - vertiv_ups_ext
+    module_chain_topology: []
+  vertiv_ups_sensors:
+    profile: vertiv-ups-sensors.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - vertiv_ups_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - vertiv_ups_sensors
+    module_chain_topology: []
+  watchdog_ext:
+    profile: watchdog-ext.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - watchdog_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - watchdog_ext
+    module_chain_topology: []
+  watchdog_sensors:
+    profile: watchdog-sensors.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - watchdog_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - watchdog_sensors
+    module_chain_topology: []
+  esx_ext:
+    profile: esx-ext.yml
+    vendor: vmware
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - esx_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - esx_ext
+    module_chain_topology: []
+  vmware_nsx_bgp:
+    profile: vmware-nsx-bgp.yml
+    vendor: vmware
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - vmware_nsx_bgp
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - vmware_nsx_bgp
+  vmware_nsx_ext:
+    profile: vmware-nsx-ext.yml
+    vendor: vmware
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - vmware_nsx_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - vmware_nsx_ext
+    module_chain_topology: []
+  mycloud_ex2_ext:
+    profile: mycloud-ex2-ext.yml
+    vendor: western_digital
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mycloud_ex2_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - mycloud_ex2_ext
+    module_chain_topology: []
+  mycloud_ex2_sensors:
+    profile: mycloud-ex2-sensors.yml
+    vendor: western_digital
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - mycloud_ex2_sensors
+    module_chain_hot: []
+    module_chain_cold:
+    - mycloud_ex2_sensors
+    module_chain_topology: []
+  workcentre_ext:
+    profile: workcentre-ext.yml
+    vendor: xerox
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - workcentre_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - workcentre_ext
+    module_chain_topology: []
+  zebra_printer_ext:
+    profile: zebra-printer-ext.yml
+    vendor: zebra
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - zebra_printer_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - zebra_printer_ext
+    module_chain_topology: []
+  zscaler_nss_ext:
+    profile: zscaler-nss-ext.yml
+    vendor: zscaler
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - zscaler_nss_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - zscaler_nss_ext
+    module_chain_topology: []
+  nokia_srlinux_ext:
+    profile: nokia-srlinux-ext.yml
+    vendor: nokia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: vendor tier sidecar
+    extends_modules: []
+    module_chain:
+    - nokia_srlinux_ext
+    module_chain_hot: []
+    module_chain_cold:
+    - nokia_srlinux_ext
     module_chain_topology: []

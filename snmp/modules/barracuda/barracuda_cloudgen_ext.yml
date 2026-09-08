@@ -1,0 +1,252 @@
+# GENERATED from kentik/snmp-profiles — module barracuda_cloudgen_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  barracuda_cloudgen_ext:
+    metrics:
+    - name: snmp_boxServiceState
+      oid: 1.3.6.1.4.1.10704.1.0.1.2
+      type: gauge
+      help: boxServiceState (PHION-MIB) - 1.3.6.1.4.1.10704.1.0.1.2
+      indexes:
+      - labelname: boxServiceName
+        type: DisplayString
+      lookups:
+      - labels:
+        - boxServiceName
+        labelname: boxServiceName
+        oid: 1.3.6.1.4.1.10704.1.0.1.1
+        type: DisplayString
+      enum_values:
+        -1: unknown
+        0: stopped
+        1: started
+        2: blocked
+        4: removed
+    - name: snmp_packetThroughput
+      oid: 1.3.6.1.4.1.10704.1.10.1.2
+      type: gauge
+      help: packetThroughput (PHION-MIB) - 1.3.6.1.4.1.10704.1.10.1.2
+      indexes:
+      - labelname: firewallSessions
+        type: gauge
+      lookups: []
+    - name: snmp_dataThroughput
+      oid: 1.3.6.1.4.1.10704.1.10.1.3
+      type: gauge
+      help: dataThroughput (PHION-MIB) - 1.3.6.1.4.1.10704.1.10.1.3
+      indexes:
+      - labelname: firewallSessions
+        type: gauge
+      lookups: []
+    - name: snmp_vpnUsers
+      oid: 1.3.6.1.4.1.10704.1.11
+      type: gauge
+      help: vpnUsers (PHION-MIB) - 1.3.6.1.4.1.10704.1.11.0
+      lookups: []
+    - name: snmp_rate
+      oid: 1.3.6.1.4.1.10704.1.12.1.2
+      type: counter
+      help: rate (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.2
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class1Total
+      oid: 1.3.6.1.4.1.10704.1.12.1.4
+      type: counter
+      help: class1Total (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.4
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class1Pakets
+      oid: 1.3.6.1.4.1.10704.1.12.1.5
+      type: counter
+      help: class1Pakets (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.5
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class1Drop
+      oid: 1.3.6.1.4.1.10704.1.12.1.6
+      type: counter
+      help: class1Drop (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.6
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class2Total
+      oid: 1.3.6.1.4.1.10704.1.12.1.7
+      type: counter
+      help: class2Total (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.7
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class2Pakets
+      oid: 1.3.6.1.4.1.10704.1.12.1.8
+      type: counter
+      help: class2Pakets (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.8
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class2Drop
+      oid: 1.3.6.1.4.1.10704.1.12.1.9
+      type: counter
+      help: class2Drop (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.9
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class3Total
+      oid: 1.3.6.1.4.1.10704.1.12.1.10
+      type: counter
+      help: class3Total (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.10
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class3Pakets
+      oid: 1.3.6.1.4.1.10704.1.12.1.11
+      type: counter
+      help: class3Pakets (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.11
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_class3Drop
+      oid: 1.3.6.1.4.1.10704.1.12.1.12
+      type: counter
+      help: class3Drop (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.12
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_noDelayTotal
+      oid: 1.3.6.1.4.1.10704.1.12.1.13
+      type: counter
+      help: noDelayTotal (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.13
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_noDelayPakets
+      oid: 1.3.6.1.4.1.10704.1.12.1.14
+      type: counter
+      help: noDelayPakets (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.14
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_noDelayDrop
+      oid: 1.3.6.1.4.1.10704.1.12.1.15
+      type: counter
+      help: noDelayDrop (PHION-MIB) - 1.3.6.1.4.1.10704.1.12.1.15
+      indexes:
+      - labelname: connectorName
+        type: DisplayString
+      lookups:
+      - labels:
+        - connectorName
+        labelname: connectorName
+        oid: 1.3.6.1.4.1.10704.1.12.1.1
+        type: DisplayString
+    - name: snmp_vpnState
+      oid: 1.3.6.1.4.1.10704.1.6.1.2
+      type: gauge
+      help: vpnState (PHION-MIB) - 1.3.6.1.4.1.10704.1.6.1.2
+      indexes:
+      - labelname: vpnName
+        type: DisplayString
+      lookups:
+      - labels:
+        - vpnName
+        labelname: vpnName
+        oid: 1.3.6.1.4.1.10704.1.6.1.1
+        type: DisplayString
+      enum_values:
+        -1: down
+        0: down-disabled
+        1: active
+    - name: snmp_ripNeighborState
+      oid: 1.3.6.1.4.1.10704.1.9.1.2
+      type: gauge
+      help: ripNeighborState (PHION-MIB) - 1.3.6.1.4.1.10704.1.9.1.2
+      indexes:
+      - labelname: ripNeighborAddress
+        type: InetAddress
+      lookups:
+      - labels:
+        - ripNeighborAddress
+        labelname: ripNeighborAddress
+        oid: 1.3.6.1.4.1.10704.1.9.1.1
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.10704.1.0
+    - 1.3.6.1.4.1.10704.1.10
+    - 1.3.6.1.4.1.10704.1.12
+    - 1.3.6.1.4.1.10704.1.6
+    - 1.3.6.1.4.1.10704.1.9
+    get:
+    - 1.3.6.1.4.1.10704.1.11.0

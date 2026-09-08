@@ -1,0 +1,76 @@
+# GENERATED from kentik/snmp-profiles — module ruckus_unleashed_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  ruckus_unleashed_ext:
+    metrics:
+    - name: snmp_ruckusUnleashedSystemStatsNumRegisteredAP
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.15
+      type: gauge
+      help: ruckusUnleashedSystemStatsNumRegisteredAP (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.15.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsNumAP
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.1
+      type: gauge
+      help: ruckusUnleashedSystemStatsNumAP (RUCKUS-UNLEASHED-SYSTEM-MIB) - 1.3.6.1.4.1.25053.1.15.1.1.1.15.1.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalRxPkts
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.5
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalRxPkts (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.5.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalRxBytes
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.6
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalRxBytes (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.6.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalTxPkts
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.8
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalTxPkts (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.8.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalTxBytes
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.9
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalTxBytes (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.9.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalTxFail
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.11
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalTxFail (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.11.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalTxRetry
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.12
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalTxRetry (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.12.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsWLANTotalAssocFail
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.16
+      type: counter
+      help: ruckusUnleashedSystemStatsWLANTotalAssocFail (RUCKUS-UNLEASHED-SYSTEM-MIB)
+        - 1.3.6.1.4.1.25053.1.15.1.1.1.15.16.0
+      lookups: []
+    - name: snmp_ruckusUnleashedSystemStatsAllNumSta
+      oid: 1.3.6.1.4.1.25053.1.15.1.1.1.15.30
+      type: gauge
+      help: ruckusUnleashedSystemStatsAllNumSta (RUCKUS-UNLEASHED-SYSTEM-MIB) - 1.3.6.1.4.1.25053.1.15.1.1.1.15.30.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.13.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.14.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.15.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.1.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.5.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.6.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.8.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.9.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.11.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.12.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.16.0
+    - 1.3.6.1.4.1.25053.1.15.1.1.1.15.30.0

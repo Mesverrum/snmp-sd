@@ -1,0 +1,117 @@
+# GENERATED from kentik/snmp-profiles — module roomalert_3s_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  roomalert_3s_ext:
+    metrics:
+    - name: snmp_internal-tempf
+      oid: 1.3.6.1.4.1.20916.1.13.1.1.1.1
+      type: gauge
+      help: internal-tempf (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.1.1.1.0
+      lookups: []
+    - name: snmp_internal-tempc
+      oid: 1.3.6.1.4.1.20916.1.13.1.1.1.2
+      type: gauge
+      help: internal-tempc (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.1.1.2.0
+      lookups: []
+    - name: snmp_digital-sen1-1
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.1
+      type: gauge
+      help: digital-sen1-1 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.1.0
+      lookups: []
+    - name: snmp_digital-sen1-2
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.2
+      type: gauge
+      help: digital-sen1-2 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.2.0
+      lookups: []
+    - name: snmp_digital-sen1-3
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.3
+      type: gauge
+      help: digital-sen1-3 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.3.0
+      lookups: []
+    - name: snmp_digital-sen1-4
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.4
+      type: gauge
+      help: digital-sen1-4 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.4.0
+      lookups: []
+    - name: snmp_digital-sen1-5
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.5
+      type: gauge
+      help: digital-sen1-5 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.5.0
+      lookups: []
+    - name: snmp_digital-sen1-6
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.6
+      type: gauge
+      help: digital-sen1-6 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.6.0
+      lookups: []
+    - name: snmp_digital-sen1-7
+      oid: 1.3.6.1.4.1.20916.1.13.1.2.1.7
+      type: gauge
+      help: digital-sen1-7 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.2.1.7.0
+      lookups: []
+    - name: snmp_switch-sen1
+      oid: 1.3.6.1.4.1.20916.1.13.1.3.1
+      type: gauge
+      help: switch-sen1 (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.1.3.1.0
+      enum_values:
+        0: open
+        1: closed
+      lookups: []
+    - name: snmp_externalrelay1-element-one
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.1
+      type: gauge
+      help: externalrelay1-element-one (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.1.0
+      lookups: []
+    - name: snmp_externalrelay1-element-two
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.2
+      type: gauge
+      help: externalrelay1-element-two (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.2.0
+      lookups: []
+    - name: snmp_externalrelay1-element-three
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.3
+      type: gauge
+      help: externalrelay1-element-three (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.3.0
+      lookups: []
+    - name: snmp_externalrelay1-element-four
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.4
+      type: gauge
+      help: externalrelay1-element-four (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.4.0
+      lookups: []
+    - name: snmp_externalrelay1-element-five
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.5
+      type: gauge
+      help: externalrelay1-element-five (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.5.0
+      lookups: []
+    - name: snmp_externalrelay1-element-six
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.6
+      type: gauge
+      help: externalrelay1-element-six (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.6.0
+      lookups: []
+    - name: snmp_externalrelay1-element-seven
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.7
+      type: gauge
+      help: externalrelay1-element-seven (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.7.0
+      lookups: []
+    - name: snmp_externalrelay1-element-eight
+      oid: 1.3.6.1.4.1.20916.1.13.3.1.8
+      type: gauge
+      help: externalrelay1-element-eight (ROOMALERT3S-MIB_SENSORS) - 1.3.6.1.4.1.20916.1.13.3.1.8.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.20916.1.13.1.1.1.1.0
+    - 1.3.6.1.4.1.20916.1.13.1.1.1.2.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.1.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.2.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.3.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.4.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.5.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.6.0
+    - 1.3.6.1.4.1.20916.1.13.1.2.1.7.0
+    - 1.3.6.1.4.1.20916.1.13.1.3.1.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.1.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.2.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.3.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.4.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.5.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.6.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.7.0
+    - 1.3.6.1.4.1.20916.1.13.3.1.8.0

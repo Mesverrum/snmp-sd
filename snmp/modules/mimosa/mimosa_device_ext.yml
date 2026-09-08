@@ -1,0 +1,60 @@
+# GENERATED from kentik/snmp-profiles — module mimosa_device_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  mimosa_device_ext:
+    metrics:
+    - name: snmp_mimosaSatelliteStrength
+      oid: 1.3.6.1.4.1.43356.2.1.2.2.5
+      type: gauge
+      help: mimosaSatelliteStrength (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.2.5.0
+      enum_values:
+        1: good
+        0: bad
+      lookups: []
+    - name: snmp_mimosaWanStatus
+      oid: 1.3.6.1.4.1.43356.2.1.2.3.3
+      type: gauge
+      help: mimosaWanStatus (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.3.3.0
+      enum_values:
+        1: connected
+        0: disconnected
+      lookups: []
+    - name: snmp_mimosaWanUpTime
+      oid: 1.3.6.1.4.1.43356.2.1.2.3.4
+      type: gauge
+      help: mimosaWanUpTime (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.3.4.0
+      lookups: []
+    - name: snmp_mimosaPhyTxRate
+      oid: 1.3.6.1.4.1.43356.2.1.2.7.1
+      type: gauge
+      help: mimosaPhyTxRate (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.7.1.0
+      lookups: []
+    - name: snmp_mimosaPhyRxRate
+      oid: 1.3.6.1.4.1.43356.2.1.2.7.2
+      type: gauge
+      help: mimosaPhyRxRate (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.7.2.0
+      lookups: []
+    - name: snmp_mimosaPerTxRate
+      oid: 1.3.6.1.4.1.43356.2.1.2.7.3
+      type: gauge
+      help: mimosaPerTxRate (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.7.3.0
+      lookups: []
+    - name: snmp_mimosaPerRxRate
+      oid: 1.3.6.1.4.1.43356.2.1.2.7.4
+      type: gauge
+      help: mimosaPerRxRate (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.7.4.0
+      lookups: []
+    - name: snmp_mimosaLastRebootTime
+      oid: 1.3.6.1.4.1.43356.2.1.2.1.5
+      type: gauge
+      help: mimosaLastRebootTime (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.1.5.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.43356.2.1.2.2.5.0
+    - 1.3.6.1.4.1.43356.2.1.2.3.3.0
+    - 1.3.6.1.4.1.43356.2.1.2.3.4.0
+    - 1.3.6.1.4.1.43356.2.1.2.7.1.0
+    - 1.3.6.1.4.1.43356.2.1.2.7.2.0
+    - 1.3.6.1.4.1.43356.2.1.2.7.3.0
+    - 1.3.6.1.4.1.43356.2.1.2.7.4.0
+    - 1.3.6.1.4.1.43356.2.1.2.1.5.0

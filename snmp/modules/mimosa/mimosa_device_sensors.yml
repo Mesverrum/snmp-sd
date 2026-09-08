@@ -1,0 +1,12 @@
+# GENERATED from kentik/snmp-profiles — module mimosa_device_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  mimosa_device_sensors:
+    metrics:
+    - name: snmp_mimosaInternalTemp
+      oid: 1.3.6.1.4.1.43356.2.1.2.1.8
+      type: gauge
+      help: mimosaInternalTemp (MIMOSA-MIB) - 1.3.6.1.4.1.43356.2.1.2.1.8.0
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.43356.2.1.2.1.8.0

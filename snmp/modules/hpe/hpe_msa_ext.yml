@@ -1,0 +1,166 @@
+# GENERATED from kentik/snmp-profiles — module hpe_msa_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hpe_msa_ext:
+    metrics:
+    - name: snmp_connUnitSensorStatus
+      oid: 1.3.6.1.3.94.1.8.1.4
+      type: gauge
+      help: connUnitSensorStatus (FCMGMT-MIB) - 1.3.6.1.3.94.1.8.1.4
+      indexes:
+      - labelname: connUnitSensorUnitId
+        type: gauge
+      - labelname: connUnitSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - connUnitSensorUnitId
+        - connUnitSensorIndex
+        labelname: connUnitSensorName
+        oid: 1.3.6.1.3.94.1.8.1.3
+        type: DisplayString
+      - labels:
+        - connUnitSensorUnitId
+        - connUnitSensorIndex
+        labelname: connUnitSensorCharacteristic
+        oid: 1.3.6.1.3.94.1.8.1.8
+        type: EnumAsInfo
+      enum_values:
+        1: unknown
+        2: other
+        3: ok
+        4: warning
+        5: failed
+    - name: snmp_connUnitSensorMessage
+      oid: 1.3.6.1.3.94.1.8.1.6
+      type: gauge
+      help: connUnitSensorMessage (FCMGMT-MIB) - 1.3.6.1.3.94.1.8.1.6
+      indexes:
+      - labelname: connUnitSensorUnitId
+        type: gauge
+      - labelname: connUnitSensorIndex
+        type: gauge
+      lookups:
+      - labels:
+        - connUnitSensorUnitId
+        - connUnitSensorIndex
+        labelname: connUnitSensorName
+        oid: 1.3.6.1.3.94.1.8.1.3
+        type: DisplayString
+      - labels:
+        - connUnitSensorUnitId
+        - connUnitSensorIndex
+        labelname: connUnitSensorCharacteristic
+        oid: 1.3.6.1.3.94.1.8.1.8
+        type: EnumAsInfo
+    - name: snmp_connUnitPortState
+      oid: 1.3.6.1.3.94.1.10.1.6
+      type: gauge
+      help: connUnitPortState (FCMGMT-MIB) - 1.3.6.1.3.94.1.10.1.6
+      indexes:
+      - labelname: connUnitPortUnitId
+        type: gauge
+      - labelname: connUnitPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortType
+        oid: 1.3.6.1.3.94.1.10.1.3
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortTransmitterType
+        oid: 1.3.6.1.3.94.1.10.1.8
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortModuleType
+        oid: 1.3.6.1.3.94.1.10.1.9
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortWwn
+        oid: 1.3.6.1.3.94.1.10.1.10
+        type: DisplayString
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortSpeed
+        oid: 1.3.6.1.3.94.1.10.1.15
+        type: DisplayString
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortName
+        oid: 1.3.6.1.3.94.1.10.1.17
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: online
+        3: offline
+        4: bypassed
+        5: diagnostics
+    - name: snmp_connUnitPortStatus
+      oid: 1.3.6.1.3.94.1.10.1.7
+      type: gauge
+      help: connUnitPortStatus (FCMGMT-MIB) - 1.3.6.1.3.94.1.10.1.7
+      indexes:
+      - labelname: connUnitPortUnitId
+        type: gauge
+      - labelname: connUnitPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortType
+        oid: 1.3.6.1.3.94.1.10.1.3
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortTransmitterType
+        oid: 1.3.6.1.3.94.1.10.1.8
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortModuleType
+        oid: 1.3.6.1.3.94.1.10.1.9
+        type: EnumAsInfo
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortWwn
+        oid: 1.3.6.1.3.94.1.10.1.10
+        type: DisplayString
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortSpeed
+        oid: 1.3.6.1.3.94.1.10.1.15
+        type: DisplayString
+      - labels:
+        - connUnitPortUnitId
+        - connUnitPortIndex
+        labelname: connUnitPortName
+        oid: 1.3.6.1.3.94.1.10.1.17
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: unused
+        3: ready
+        4: warning
+        5: failure
+        6: notparticipating
+        7: initializing
+        8: bypass
+        9: ols
+    walk:
+    - 1.3.6.1.3.94.1.8
+    - 1.3.6.1.3.94.1.10

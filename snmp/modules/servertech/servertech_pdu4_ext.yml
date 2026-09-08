@@ -1,0 +1,2791 @@
+# GENERATED from kentik/snmp-profiles — module servertech_pdu4_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  servertech_pdu4_ext:
+    metrics:
+    - name: snmp_st4UnitStatus
+      oid: 1.3.6.1.4.1.1718.4.1.2.3.1.1.1
+      type: gauge
+      help: st4UnitStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.2.3.1.1.1
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+      lookups: []
+    - name: snmp_st4InputCordState
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.1
+      type: gauge
+      help: st4InputCordState (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: 'off'
+    - name: snmp_st4InputCordStatus
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.2
+      type: gauge
+      help: st4InputCordStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.2
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4InputCordActivePower
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.3
+      type: gauge
+      help: st4InputCordActivePower (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.3
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordActivePowerStatus
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.4
+      type: gauge
+      help: st4InputCordActivePowerStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.4
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4InputCordApparentPower
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.5
+      type: gauge
+      help: st4InputCordApparentPower (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.5
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordApparentPowerStatus
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.6
+      type: gauge
+      help: st4InputCordApparentPowerStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.6
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4InputCordPowerUtilized
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.7
+      type: gauge
+      help: st4InputCordPowerUtilized (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.7
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordPowerFactor
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.8
+      type: gauge
+      help: st4InputCordPowerFactor (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.8
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordPowerFactorStatus
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.9
+      type: gauge
+      help: st4InputCordPowerFactorStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.9
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4InputCordEnergy
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.10
+      type: gauge
+      help: st4InputCordEnergy (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.10
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordFrequency
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.11
+      type: gauge
+      help: st4InputCordFrequency (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.11
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordOutOfBalance
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.12
+      type: gauge
+      help: st4InputCordOutOfBalance (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.12
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+    - name: snmp_st4InputCordOutOfBalanceStatus
+      oid: 1.3.6.1.4.1.1718.4.1.3.3.1.13
+      type: gauge
+      help: st4InputCordOutOfBalanceStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.3.3.1.13
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordID
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordName
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordInletType
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMin
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordNominalVoltageMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.9
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.10
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.11
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.12
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordLineCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordPhaseCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOcpCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.22
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.23
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        labelname: st4InputCordOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.3.2.1.24
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4LineState
+      oid: 1.3.6.1.4.1.1718.4.1.4.3.1.1
+      type: gauge
+      help: st4LineState (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.4.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4LineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineID
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineLabel
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.6
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: 'off'
+    - name: snmp_st4LineStatus
+      oid: 1.3.6.1.4.1.1718.4.1.4.3.1.2
+      type: gauge
+      help: st4LineStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.4.3.1.2
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4LineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineID
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineLabel
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.6
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4LineCurrent
+      oid: 1.3.6.1.4.1.1718.4.1.4.3.1.3
+      type: gauge
+      help: st4LineCurrent (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.4.3.1.3
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4LineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineID
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineLabel
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.6
+        type: DisplayString
+    - name: snmp_st4LineCurrentStatus
+      oid: 1.3.6.1.4.1.1718.4.1.4.3.1.4
+      type: gauge
+      help: st4LineCurrentStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.4.3.1.4
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4LineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineID
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineLabel
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.6
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4LineCurrentUtilized
+      oid: 1.3.6.1.4.1.1718.4.1.4.3.1.5
+      type: gauge
+      help: st4LineCurrentUtilized (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.4.3.1.5
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4LineIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineID
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineLabel
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4LineIndex
+        labelname: st4LineCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.4.2.1.6
+        type: DisplayString
+    - name: snmp_st4PhaseState
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.1
+      type: gauge
+      help: st4PhaseState (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: 'off'
+    - name: snmp_st4PhaseStatus
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.2
+      type: gauge
+      help: st4PhaseStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.2
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4PhaseVoltage
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.3
+      type: gauge
+      help: st4PhaseVoltage (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.3
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhaseVoltageStatus
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.4
+      type: gauge
+      help: st4PhaseVoltageStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.4
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4PhaseVoltageDeviation
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.5
+      type: gauge
+      help: st4PhaseVoltageDeviation (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.5
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhaseCurrent
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.6
+      type: gauge
+      help: st4PhaseCurrent (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.6
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhaseCurrentCrestFactor
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.7
+      type: gauge
+      help: st4PhaseCurrentCrestFactor (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.7
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhaseActivePower
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.8
+      type: gauge
+      help: st4PhaseActivePower (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.8
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhaseApparentPower
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.9
+      type: gauge
+      help: st4PhaseApparentPower (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.9
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhasePowerFactor
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.10
+      type: gauge
+      help: st4PhasePowerFactor (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.10
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4PhasePowerFactorStatus
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.11
+      type: gauge
+      help: st4PhasePowerFactorStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.11
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4PhaseReactance
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.12
+      type: gauge
+      help: st4PhaseReactance (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.12
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: capacitive
+        2: inductive
+        3: resistive
+    - name: snmp_st4PhaseEnergy
+      oid: 1.3.6.1.4.1.1718.4.1.5.3.1.13
+      type: gauge
+      help: st4PhaseEnergy (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.5.3.1.13
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4PhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseLabel
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseNominalVoltage
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4PhaseIndex
+        labelname: st4PhaseOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.5.2.1.21
+        type: DisplayString
+    - name: snmp_st4OcpStatus
+      oid: 1.3.6.1.4.1.1718.4.1.6.3.1.1
+      type: gauge
+      help: st4OcpStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.6.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4OcpIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpID
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpLabel
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpType
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.6
+        type: EnumAsInfo
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpCurrentCapacityMax
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpBranchCount
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OcpIndex
+        labelname: st4OcpOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.6.2.1.21
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4BranchState
+      oid: 1.3.6.1.4.1.1718.4.1.7.3.1.1
+      type: gauge
+      help: st4BranchState (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.7.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4BranchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchLabel
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.30
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: 'off'
+    - name: snmp_st4BranchStatus
+      oid: 1.3.6.1.4.1.1718.4.1.7.3.1.2
+      type: gauge
+      help: st4BranchStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.7.3.1.2
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4BranchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchLabel
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.30
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4BranchCurrent
+      oid: 1.3.6.1.4.1.1718.4.1.7.3.1.3
+      type: gauge
+      help: st4BranchCurrent (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.7.3.1.3
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4BranchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchLabel
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.30
+        type: DisplayString
+    - name: snmp_st4BranchCurrentStatus
+      oid: 1.3.6.1.4.1.1718.4.1.7.3.1.4
+      type: gauge
+      help: st4BranchCurrentStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.7.3.1.4
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4BranchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchLabel
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.30
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    - name: snmp_st4BranchCurrentUtilized
+      oid: 1.3.6.1.4.1.1718.4.1.7.3.1.5
+      type: gauge
+      help: st4BranchCurrentUtilized (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.7.3.1.5
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4BranchIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchLabel
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.4
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.20
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4BranchIndex
+        labelname: st4BranchOutletCount
+        oid: 1.3.6.1.4.1.1718.4.1.7.2.1.30
+        type: DisplayString
+    - name: snmp_st4OutletState
+      oid: 1.3.6.1.4.1.1718.4.1.8.3.1.1
+      type: gauge
+      help: st4OutletState (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.8.3.1.1
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletName
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletSocketType
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletWakeupState
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.20
+        type: EnumAsInfo
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPostOnDelay
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.30
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.31
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletBranchID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.32
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: 'off'
+    - name: snmp_st4OutletStatus
+      oid: 1.3.6.1.4.1.1718.4.1.8.3.1.2
+      type: gauge
+      help: st4OutletStatus (Sentry4-MIB) - 1.3.6.1.4.1.1718.4.1.8.3.1.2
+      indexes:
+      - labelname: st4UnitIndex
+        type: gauge
+      - labelname: st4InputCordIndex
+        type: gauge
+      - labelname: st4OutletIndex
+        type: gauge
+      lookups:
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.2
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletName
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.3
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletSocketType
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.6
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletCurrentCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.7
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPowerCapacity
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.8
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletWakeupState
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.20
+        type: EnumAsInfo
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPostOnDelay
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.21
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletPhaseID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.30
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletOcpID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.31
+        type: DisplayString
+      - labels:
+        - st4UnitIndex
+        - st4InputCordIndex
+        - st4OutletIndex
+        labelname: st4OutletBranchID
+        oid: 1.3.6.1.4.1.1718.4.1.8.2.1.32
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: disabled
+        2: purged
+        5: reading
+        6: settle
+        7: notFound
+        8: lost
+        9: readError
+        10: noComm
+        11: pwrError
+        12: breakerTripped
+        13: fuseBlown
+        14: lowAlarm
+        15: lowWarning
+        16: highWarning
+        17: highAlarm
+        18: alarm
+        19: underLimit
+        20: overLimit
+        21: nvmFail
+        22: profileError
+        23: conflict
+    walk:
+    - 1.3.6.1.4.1.1718.4.1.3.3
+    - 1.3.6.1.4.1.1718.4.1.4.3
+    - 1.3.6.1.4.1.1718.4.1.5.3
+    - 1.3.6.1.4.1.1718.4.1.6.3
+    - 1.3.6.1.4.1.1718.4.1.7.3
+    - 1.3.6.1.4.1.1718.4.1.8.3
+    get:
+    - 1.3.6.1.4.1.1718.4.1.2.3.1.1.1

@@ -2,8 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   entity_sensor_mib:
-    walk:
-    - 1.3.6.1.2.1.99.1.1
     metrics:
     - name: snmp_entPhySensorValue
       oid: 1.3.6.1.2.1.99.1.1.1.4
@@ -115,3 +113,5 @@ modules:
         1: ok
         2: unavailable
         3: nonoperational
+    walk:
+    - 1.3.6.1.2.1.99.1.1

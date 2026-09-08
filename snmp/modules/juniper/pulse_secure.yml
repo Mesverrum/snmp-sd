@@ -2,37 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   pulse_secure:
-    get:
-    - 1.3.6.1.4.1.12532.1.0
-    - 1.3.6.1.4.1.12532.2.0
-    - 1.3.6.1.4.1.12532.3.0
-    - 1.3.6.1.4.1.12532.10.0
-    - 1.3.6.1.4.1.12532.11.0
-    - 1.3.6.1.4.1.12532.12.0
-    - 1.3.6.1.4.1.12532.13.0
-    - 1.3.6.1.4.1.12532.14.0
-    - 1.3.6.1.4.1.12532.15.0
-    - 1.3.6.1.4.1.12532.16.0
-    - 1.3.6.1.4.1.12532.17.0
-    - 1.3.6.1.4.1.12532.18.0
-    - 1.3.6.1.4.1.12532.19.0
-    - 1.3.6.1.4.1.12532.20.0
-    - 1.3.6.1.4.1.12532.21.0
-    - 1.3.6.1.4.1.12532.24.0
-    - 1.3.6.1.4.1.12532.25.0
-    - 1.3.6.1.4.1.12532.42.0
-    - 1.3.6.1.4.1.12532.43.0
-    - 1.3.6.1.4.1.12532.44.0
-    - 1.3.6.1.4.1.12532.48.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.12532.6.0
-    - 1.3.6.1.4.1.12532.7.0
-    - 1.3.6.1.4.1.12532.45.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -85,21 +54,6 @@ modules:
         labelname: esap_version
         oid: 1.3.6.1.4.1.12532.45
         type: DisplayString
-    - name: snmp_logFullPercent
-      oid: 1.3.6.1.4.1.12532.1
-      type: gauge
-      help: logFullPercent (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.1.0
-      lookups: []
-    - name: snmp_signedInWebUsers
-      oid: 1.3.6.1.4.1.12532.2
-      type: gauge
-      help: signedInWebUsers (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.2.0
-      lookups: []
-    - name: snmp_signedInMailUsers
-      oid: 1.3.6.1.4.1.12532.3
-      type: gauge
-      help: signedInMailUsers (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.3.0
-      lookups: []
     - name: snmp_CPU
       oid: 1.3.6.1.4.1.12532.10
       type: gauge
@@ -120,73 +74,17 @@ modules:
       type: gauge
       help: clusterConcurrentUsers (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.13.0
       lookups: []
-    - name: snmp_iveTotalHits
-      oid: 1.3.6.1.4.1.12532.14
-      type: counter
-      help: iveTotalHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.14.0
-      lookups: []
-    - name: snmp_iveFileHits
-      oid: 1.3.6.1.4.1.12532.15
-      type: counter
-      help: iveFileHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.15.0
-      lookups: []
-    - name: snmp_iveWebHits
-      oid: 1.3.6.1.4.1.12532.16
-      type: counter
-      help: iveWebHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.16.0
-      lookups: []
-    - name: snmp_iveAppletHits
-      oid: 1.3.6.1.4.1.12532.17
-      type: counter
-      help: iveAppletHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.17.0
-      lookups: []
-    - name: snmp_ivetermHits
-      oid: 1.3.6.1.4.1.12532.18
-      type: counter
-      help: ivetermHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.18.0
-      lookups: []
-    - name: snmp_iveSAMHits
-      oid: 1.3.6.1.4.1.12532.19
-      type: counter
-      help: iveSAMHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.19.0
-      lookups: []
-    - name: snmp_iveNCHits
-      oid: 1.3.6.1.4.1.12532.20
-      type: counter
-      help: iveNCHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.20.0
-      lookups: []
-    - name: snmp_meetingHits
-      oid: 1.3.6.1.4.1.12532.21
-      type: counter
-      help: meetingHits (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.21.0
-      lookups: []
-    - name: snmp_iveSwapUtil
-      oid: 1.3.6.1.4.1.12532.24
-      type: gauge
-      help: iveSwapUtil (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.24.0
-      lookups: []
-    - name: snmp_diskFullPercent
-      oid: 1.3.6.1.4.1.12532.25
-      type: gauge
-      help: diskFullPercent (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.25.0
-      lookups: []
-    - name: snmp_iveTemperature
-      oid: 1.3.6.1.4.1.12532.42
-      type: gauge
-      help: iveTemperature (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.42.0
-      lookups: []
-    - name: snmp_iveVPNTunnels
-      oid: 1.3.6.1.4.1.12532.43
-      type: gauge
-      help: iveVPNTunnels (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.43.0
-      lookups: []
-    - name: snmp_iveSSLConnections
-      oid: 1.3.6.1.4.1.12532.44
-      type: gauge
-      help: iveSSLConnections (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.44.0
-      lookups: []
-    - name: snmp_iveTotalSignedInUsers
-      oid: 1.3.6.1.4.1.12532.48
-      type: gauge
-      help: iveTotalSignedInUsers (JUNIPER-IVE-MIB) - 1.3.6.1.4.1.12532.48.0
-      lookups: []
+    get:
+    - 1.3.6.1.4.1.12532.10.0
+    - 1.3.6.1.4.1.12532.11.0
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.12532.6.0
+    - 1.3.6.1.4.1.12532.7.0
+    - 1.3.6.1.4.1.12532.45.0
+    - 1.3.6.1.4.1.12532.12.0
+    - 1.3.6.1.4.1.12532.13.0

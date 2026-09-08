@@ -1,0 +1,1437 @@
+# GENERATED from kentik/snmp-profiles — module juniper_qfx_switches_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  juniper_qfx_switches_ext:
+    metrics:
+    - name: snmp_jnxDcuStatsPackets
+      oid: 1.3.6.1.4.1.2636.3.6.2.1.4
+      type: counter
+      help: jnxDcuStatsPackets (JUNIPER-DCU-MIB) - 1.3.6.1.4.1.2636.3.6.2.1.4
+      indexes:
+      - labelname: jnxDcuStatsSrcIfIndex
+        type: gauge
+      - labelname: jnxDcuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: destination_class_name
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.3
+        type: DisplayString
+    - name: snmp_jnxDcuStatsBytes
+      oid: 1.3.6.1.4.1.2636.3.6.2.1.5
+      type: counter
+      help: jnxDcuStatsBytes (JUNIPER-DCU-MIB) - 1.3.6.1.4.1.2636.3.6.2.1.5
+      indexes:
+      - labelname: jnxDcuStatsSrcIfIndex
+        type: gauge
+      - labelname: jnxDcuStatsAddrFamily
+        type: gauge
+      lookups:
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: address_family
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxDcuStatsSrcIfIndex
+        - jnxDcuStatsAddrFamily
+        labelname: destination_class_name
+        oid: 1.3.6.1.4.1.2636.3.6.2.1.3
+        type: DisplayString
+    - name: snmp_jnxFWCounterPacketCount
+      oid: 1.3.6.1.4.1.2636.3.5.2.1.4
+      type: counter
+      help: jnxFWCounterPacketCount (JUNIPER-FIREWALL-MIB) - 1.3.6.1.4.1.2636.3.5.2.1.4
+      indexes:
+      - labelname: jnxFWCounterFilterName
+        type: DisplayString
+      lookups:
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: firewall_filter_name
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.1
+        type: DisplayString
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: counter_name
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: counter_type
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.3
+        type: DisplayString
+    - name: snmp_jnxFWCounterByteCount
+      oid: 1.3.6.1.4.1.2636.3.5.2.1.5
+      type: counter
+      help: jnxFWCounterByteCount (JUNIPER-FIREWALL-MIB) - 1.3.6.1.4.1.2636.3.5.2.1.5
+      indexes:
+      - labelname: jnxFWCounterFilterName
+        type: DisplayString
+      lookups:
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: firewall_filter_name
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.1
+        type: DisplayString
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: counter_name
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.2
+        type: DisplayString
+      - labels:
+        - jnxFWCounterFilterName
+        labelname: counter_type
+        oid: 1.3.6.1.4.1.2636.3.5.2.1.3
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInPkts
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.5
+      type: counter
+      help: jnxVirtualChassisPortInPkts (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.5
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortOutPkts
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.6
+      type: counter
+      help: jnxVirtualChassisPortOutPkts (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.6
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInOctets
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.7
+      type: counter
+      help: jnxVirtualChassisPortInOctets (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.7
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortOutOctets
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.8
+      type: counter
+      help: jnxVirtualChassisPortOutOctets (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.8
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInMcasts
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.9
+      type: counter
+      help: jnxVirtualChassisPortInMcasts (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.9
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortOutMcasts
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.10
+      type: counter
+      help: jnxVirtualChassisPortOutMcasts (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.10
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortCarrierTrans
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.15
+      type: counter
+      help: jnxVirtualChassisPortCarrierTrans (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.15
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInCRCAlignErrors
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.16
+      type: counter
+      help: jnxVirtualChassisPortInCRCAlignErrors (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.16
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortUndersizePkts
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.17
+      type: counter
+      help: jnxVirtualChassisPortUndersizePkts (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.17
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortCollisions
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.18
+      type: counter
+      help: jnxVirtualChassisPortCollisions (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.18
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInPkts1secRate
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.11
+      type: counter
+      help: jnxVirtualChassisPortInPkts1secRate (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.11
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortOutPkts1secRate
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.12
+      type: counter
+      help: jnxVirtualChassisPortOutPkts1secRate (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.12
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortInOctets1secRate
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.13
+      type: counter
+      help: jnxVirtualChassisPortInOctets1secRate (JUNIPER-VIRTUALCHASSIS-MIB) - 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.13
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxVirtualChassisPortOutOctets1secRate
+      oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.14
+      type: counter
+      help: jnxVirtualChassisPortOutOctets1secRate (JUNIPER-VIRTUALCHASSIS-MIB) -
+        1.3.6.1.4.1.2636.3.40.1.4.1.2.1.14
+      indexes:
+      - labelname: jnxVirtualChassisFpcId
+        type: gauge
+      - labelname: jnxVirtualChassisPortName
+        type: gauge
+      lookups:
+      - labels:
+        - jnxVirtualChassisFpcId
+        - jnxVirtualChassisPortName
+        labelname: port_name
+        oid: 1.3.6.1.4.1.2636.3.40.1.4.1.2.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatQedPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.3
+      type: counter
+      help: jnxCosIfsetQstatQedPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.3
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatQedBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.5
+      type: counter
+      help: jnxCosIfsetQstatQedBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.5
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTxedPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.7
+      type: counter
+      help: jnxCosIfsetQstatTxedPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.7
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTxedBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.9
+      type: counter
+      help: jnxCosIfsetQstatTxedBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.9
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTailDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.11
+      type: counter
+      help: jnxCosIfsetQstatTailDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.11
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTotalRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.13
+      type: counter
+      help: jnxCosIfsetQstatTotalRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.13
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpNonTcpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.15
+      type: counter
+      help: jnxCosIfsetQstatLpNonTcpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.15
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpTcpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.17
+      type: counter
+      help: jnxCosIfsetQstatLpTcpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.17
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpNonTcpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.19
+      type: counter
+      help: jnxCosIfsetQstatHpNonTcpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.19
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpTcpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.21
+      type: counter
+      help: jnxCosIfsetQstatHpTcpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.21
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTotalRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.23
+      type: counter
+      help: jnxCosIfsetQstatTotalRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.23
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpNonTcpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.25
+      type: counter
+      help: jnxCosIfsetQstatLpNonTcpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.25
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpTcpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.27
+      type: counter
+      help: jnxCosIfsetQstatLpTcpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.27
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpNonTcpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.29
+      type: counter
+      help: jnxCosIfsetQstatHpNonTcpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.29
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpTcpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.31
+      type: counter
+      help: jnxCosIfsetQstatHpTcpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.31
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.33
+      type: counter
+      help: jnxCosIfsetQstatLpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.33
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMLpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.35
+      type: counter
+      help: jnxCosIfsetQstatMLpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.35
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMHpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.37
+      type: counter
+      help: jnxCosIfsetQstatMHpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.37
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpRedDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.39
+      type: counter
+      help: jnxCosIfsetQstatHpRedDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.39
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.41
+      type: counter
+      help: jnxCosIfsetQstatLpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.41
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMLpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.43
+      type: counter
+      help: jnxCosIfsetQstatMLpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.43
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMHpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.45
+      type: counter
+      help: jnxCosIfsetQstatMHpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.45
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpRedDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.47
+      type: counter
+      help: jnxCosIfsetQstatHpRedDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.47
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatRateLimitDropPkts
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.49
+      type: counter
+      help: jnxCosIfsetQstatRateLimitDropPkts (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.49
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatRateLimitDropBytes
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.51
+      type: counter
+      help: jnxCosIfsetQstatRateLimitDropBytes (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.51
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatQedPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.4
+      type: counter
+      help: jnxCosIfsetQstatQedPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.4
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatQedByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.6
+      type: counter
+      help: jnxCosIfsetQstatQedByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.6
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTxedPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.8
+      type: counter
+      help: jnxCosIfsetQstatTxedPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.8
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTxedByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.10
+      type: counter
+      help: jnxCosIfsetQstatTxedByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.10
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTailDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.12
+      type: counter
+      help: jnxCosIfsetQstatTailDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.12
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTotalRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.14
+      type: counter
+      help: jnxCosIfsetQstatTotalRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.14
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpNonTcpRDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.16
+      type: counter
+      help: jnxCosIfsetQstatLpNonTcpRDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.16
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpTcpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.18
+      type: counter
+      help: jnxCosIfsetQstatLpTcpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.18
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpNonTcpRDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.20
+      type: counter
+      help: jnxCosIfsetQstatHpNonTcpRDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.20
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpTcpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.22
+      type: counter
+      help: jnxCosIfsetQstatHpTcpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.22
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatTotalRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.24
+      type: counter
+      help: jnxCosIfsetQstatTotalRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.24
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpNonTcpRDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.26
+      type: counter
+      help: jnxCosIfsetQstatLpNonTcpRDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.26
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpTcpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.28
+      type: counter
+      help: jnxCosIfsetQstatLpTcpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.28
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpNonTcpRDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.30
+      type: counter
+      help: jnxCosIfsetQstatHpNonTcpRDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.30
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpTcpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.32
+      type: counter
+      help: jnxCosIfsetQstatHpTcpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.32
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.34
+      type: counter
+      help: jnxCosIfsetQstatLpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.34
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMLpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.36
+      type: counter
+      help: jnxCosIfsetQstatMLpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.36
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMHpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.38
+      type: counter
+      help: jnxCosIfsetQstatMHpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.38
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpRedDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.40
+      type: counter
+      help: jnxCosIfsetQstatHpRedDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.40
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatLpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.42
+      type: counter
+      help: jnxCosIfsetQstatLpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.42
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMLpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.44
+      type: counter
+      help: jnxCosIfsetQstatMLpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.44
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatMHpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.46
+      type: counter
+      help: jnxCosIfsetQstatMHpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.46
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatHpRedDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.48
+      type: counter
+      help: jnxCosIfsetQstatHpRedDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.48
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatRateLimitDropPktRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.50
+      type: counter
+      help: jnxCosIfsetQstatRateLimitDropPktRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.50
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    - name: snmp_jnxCosIfsetQstatRateLimitDropByteRate
+      oid: 1.3.6.1.4.1.2636.3.15.10.1.52
+      type: counter
+      help: jnxCosIfsetQstatRateLimitDropByteRate (JUNIPER-COS-MIB) - 1.3.6.1.4.1.2636.3.15.10.1.52
+      indexes:
+      - labelname: jnxCosIfsetQstatChildIfIndex
+        type: gauge
+      - labelname: jnxCosIfsetQstatQueueNr
+        type: gauge
+      lookups:
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: interface_name
+        oid: 1.3.6.1.4.1.2636.3.15.9.1.2
+        type: DisplayString
+      - labels:
+        - jnxCosIfsetQstatChildIfIndex
+        - jnxCosIfsetQstatQueueNr
+        labelname: queue_number
+        oid: 1.3.6.1.4.1.2636.3.15.10.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.2636.3.6.2
+    - 1.3.6.1.4.1.2636.3.5.2
+    - 1.3.6.1.4.1.2636.3.40.1.4.1.2
+    - 1.3.6.1.4.1.2636.3.15.10

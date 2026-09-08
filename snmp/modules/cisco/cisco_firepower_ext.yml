@@ -1,0 +1,56 @@
+# GENERATED from kentik/snmp-profiles — module cisco_firepower_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_firepower_ext:
+    metrics:
+    - name: snmp_cempMemPoolHCUsed
+      oid: 1.3.6.1.4.1.9.9.221.1.1.1.1.18
+      type: counter
+      help: cempMemPoolHCUsed (CISCO-ENHANCED-MEMPOOL-MIB) - 1.3.6.1.4.1.9.9.221.1.1.1.1.18
+      lookups: []
+    - name: snmp_cempMemPoolHCFree
+      oid: 1.3.6.1.4.1.9.9.221.1.1.1.1.20
+      type: counter
+      help: cempMemPoolHCFree (CISCO-ENHANCED-MEMPOOL-MIB) - 1.3.6.1.4.1.9.9.221.1.1.1.1.20
+      lookups: []
+    - name: snmp_cufwFOGrpLastFailoverAt
+      oid: 1.3.6.1.4.1.9.9.491.1.4.2.1.1.2
+      type: gauge
+      help: cufwFOGrpLastFailoverAt (CISCO-UNIFIED-FIREWALL-MIB) - 1.3.6.1.4.1.9.9.491.1.4.2.1.1.2
+      indexes:
+      - labelname: cufwFOGroupIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cufwFOGrpHAstate
+      oid: 1.3.6.1.4.1.9.9.491.1.4.2.1.1.3
+      type: gauge
+      help: cufwFOGrpHAstate (CISCO-UNIFIED-FIREWALL-MIB) - 1.3.6.1.4.1.9.9.491.1.4.2.1.1.3
+      indexes:
+      - labelname: cufwFOGroupIndex
+        type: gauge
+      enum_values:
+        0: active
+        1: standby
+        2: unknown
+      lookups: []
+    - name: snmp_cufwFOGrpUpTime
+      oid: 1.3.6.1.4.1.9.9.491.1.4.2.1.1.4
+      type: gauge
+      help: cufwFOGrpUpTime (CISCO-UNIFIED-FIREWALL-MIB) - 1.3.6.1.4.1.9.9.491.1.4.2.1.1.4
+      indexes:
+      - labelname: cufwFOGroupIndex
+        type: gauge
+      lookups: []
+    - name: snmp_cufwFOGrpContextCount
+      oid: 1.3.6.1.4.1.9.9.491.1.4.2.1.1.5
+      type: gauge
+      help: cufwFOGrpContextCount (CISCO-UNIFIED-FIREWALL-MIB) - 1.3.6.1.4.1.9.9.491.1.4.2.1.1.5
+      indexes:
+      - labelname: cufwFOGroupIndex
+        type: gauge
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.9.9.491.1.4.2.1
+    get:
+    - 1.3.6.1.4.1.9.9.221.1.1.1.1.18
+    - 1.3.6.1.4.1.9.9.221.1.1.1.1.20

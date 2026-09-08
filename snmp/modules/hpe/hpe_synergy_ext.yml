@@ -1,0 +1,66 @@
+# GENERATED from kentik/snmp-profiles — module hpe_synergy_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hpe_synergy_ext:
+    metrics:
+    - name: snmp_syn100GhpeNLPServerPortResetLoopDetection
+      oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.5.1.2
+      type: gauge
+      help: syn100GhpeNLPServerPortResetLoopDetection (HPE-SYNERGY-MIB) - 1.3.6.1.4.1.11.5.7.5.9.1.4060.5.1.2
+      indexes:
+      - labelname: syn100GhpeNLPServerPortNumber
+        type: gauge
+      lookups:
+      - labels:
+        - syn100GhpeNLPServerPortNumber
+        labelname: syn100GhpeNLPServerPortNumber
+        oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.5.1.1
+        type: DisplayString
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_syn100GhpeNLPLoopDetectedStatus
+      oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.2
+      type: gauge
+      help: syn100GhpeNLPLoopDetectedStatus (HPE-SYNERGY-MIB) - 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.2
+      indexes:
+      - labelname: syn100GhpeNLPStatsPortNumber
+        type: gauge
+      lookups:
+      - labels:
+        - syn100GhpeNLPStatsPortNumber
+        labelname: syn100GhpeNLPStatsPortNumber
+        oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.1
+        type: DisplayString
+      enum_values:
+        1: 'on'
+        2: 'off'
+    - name: snmp_syn100GhpeNLPLoopDetectedCount
+      oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.3
+      type: gauge
+      help: syn100GhpeNLPLoopDetectedCount (HPE-SYNERGY-MIB) - 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.3
+      indexes:
+      - labelname: syn100GhpeNLPStatsPortNumber
+        type: gauge
+      lookups:
+      - labels:
+        - syn100GhpeNLPStatsPortNumber
+        labelname: syn100GhpeNLPStatsPortNumber
+        oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.1
+        type: DisplayString
+    - name: snmp_syn100GhpeNLPLastLoopDetectTimeStamp
+      oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.4
+      type: gauge
+      help: syn100GhpeNLPLastLoopDetectTimeStamp (HPE-SYNERGY-MIB) - 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.4
+      indexes:
+      - labelname: syn100GhpeNLPStatsPortNumber
+        type: gauge
+      lookups:
+      - labels:
+        - syn100GhpeNLPStatsPortNumber
+        labelname: syn100GhpeNLPStatsPortNumber
+        oid: 1.3.6.1.4.1.11.5.7.5.9.1.4060.6.1.1
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.11.5.7.5.9.1.4060.5
+    - 1.3.6.1.4.1.11.5.7.5.9.1.4060.6

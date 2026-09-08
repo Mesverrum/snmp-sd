@@ -2,17 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   avaya_cajun_switch:
-    walk:
-    - 1.3.6.1.4.1.81.9.1
-    get:
-    - 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.6.1
-    - 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.1
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -55,135 +44,11 @@ modules:
       type: gauge
       help: genCpuCurrentUtilization (UTILIZATION-MANAGEMENT-MIB) - 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.6.1
       lookups: []
-    - name: snmp_genMemUtilizationPercentUsed
-      oid: 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.1
-      type: gauge
-      help: genMemUtilizationPercentUsed (UTILIZATION-MANAGEMENT-MIB) - 1.3.6.1.4.1.6889.2.1.11.1.2.6.1.3.1
-      lookups: []
-    - name: snmp_genPortAdminStatus
-      oid: 1.3.6.1.4.1.81.9.1.1.10
-      type: gauge
-      help: genPortAdminStatus (CONFIG-MIB) - 1.3.6.1.4.1.81.9.1.1.10
-      indexes:
-      - labelname: genPortGroupId
-        type: gauge
-      - labelname: genPortId
-        type: gauge
-      lookups:
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortId
-        oid: 1.3.6.1.4.1.81.9.1.1.2
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortFunctionality
-        oid: 1.3.6.1.4.1.81.9.1.1.3
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortType
-        oid: 1.3.6.1.4.1.81.9.1.1.4
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortDescr
-        oid: 1.3.6.1.4.1.81.9.1.1.5
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortName
-        oid: 1.3.6.1.4.1.81.9.1.1.21
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortClassification
-        oid: 1.3.6.1.4.1.81.9.1.1.22
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: scEthPortMode
-        oid: 1.3.6.1.4.1.81.28.2.1.1.1.28
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: scEthPortSpeed
-        oid: 1.3.6.1.4.1.81.28.2.1.1.1.29
-        type: EnumAsInfo
-      enum_values:
-        1: enabled
-        2: disabled
-    - name: snmp_scEthPortFunctionalStatus
-      oid: 1.3.6.1.4.1.81.28.2.1.1.1.27
-      type: gauge
-      help: scEthPortFunctionalStatus (CONFIG-MIB) - 1.3.6.1.4.1.81.28.2.1.1.1.27
-      indexes:
-      - labelname: genPortGroupId
-        type: gauge
-      - labelname: genPortId
-        type: gauge
-      lookups:
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortId
-        oid: 1.3.6.1.4.1.81.9.1.1.2
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortFunctionality
-        oid: 1.3.6.1.4.1.81.9.1.1.3
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortType
-        oid: 1.3.6.1.4.1.81.9.1.1.4
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortDescr
-        oid: 1.3.6.1.4.1.81.9.1.1.5
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortName
-        oid: 1.3.6.1.4.1.81.9.1.1.21
-        type: DisplayString
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: genPortClassification
-        oid: 1.3.6.1.4.1.81.9.1.1.22
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: scEthPortMode
-        oid: 1.3.6.1.4.1.81.28.2.1.1.1.28
-        type: EnumAsInfo
-      - labels:
-        - genPortGroupId
-        - genPortId
-        labelname: scEthPortSpeed
-        oid: 1.3.6.1.4.1.81.28.2.1.1.1.29
-        type: EnumAsInfo
-      enum_values:
-        1: ok
-        2: rld
-        3: rxJabber
-        8: partition
-        10: remoteFault
-        11: rspError
-        255: notSupported
+    get:
+    - 1.3.6.1.4.1.6889.2.1.11.1.1.1.1.6.1
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0

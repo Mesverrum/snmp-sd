@@ -1,0 +1,402 @@
+# GENERATED from kentik/snmp-profiles — module huawei_all_devices_topo
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  huawei_all_devices_topo:
+    metrics:
+    - name: snmp_hwOspfv2NbrRouterId
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.9
+      type: gauge
+      help: hwOspfv2NbrRouterId (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.9
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+    - name: snmp_hwOspfv2NbrState
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.10
+      type: gauge
+      help: hwOspfv2NbrState (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.10
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+      enum_values:
+        1: down
+        2: attempt
+        3: init
+        4: twoWay
+        5: exchangeStart
+        6: exchange
+        7: loading
+        8: full
+    - name: snmp_hwOspfv2NbrMode
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.11
+      type: gauge
+      help: hwOspfv2NbrMode (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.11
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+      enum_values:
+        1: master
+        2: slave
+    - name: snmp_hwOspfv2NbrPriority
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.12
+      type: gauge
+      help: hwOspfv2NbrPriority (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.12
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+    - name: snmp_hwOspfv2NbrUpTime
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.13
+      type: gauge
+      help: hwOspfv2NbrUpTime (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.13
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+    - name: snmp_hwOspfv2NbrDeadTimeLeft
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.15
+      type: gauge
+      help: hwOspfv2NbrDeadTimeLeft (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.15
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+    - name: snmp_hwOspfv2NbrGrStatus
+      oid: 1.3.6.1.4.1.2011.5.25.155.6.1.16
+      type: gauge
+      help: hwOspfv2NbrGrStatus (HUAWEI-OSPFV2-MIB) - 1.3.6.1.4.1.2011.5.25.155.6.1.16
+      indexes:
+      - labelname: hwOspfv2ProcessIdIndex
+        type: gauge
+      - labelname: hwOspfv2AreaIdIndex
+        type: gauge
+      - labelname: hwOspfv2SelfIfnetIndex
+        type: gauge
+      - labelname: hwOspfv2NbrIpAddrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_router_id
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.3
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_ip_address
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.4
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: self_if_name
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.5
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.6
+        type: DisplayString
+      - labels:
+        - hwOspfv2ProcessIdIndex
+        - hwOspfv2AreaIdIndex
+        - hwOspfv2SelfIfnetIndex
+        - hwOspfv2NbrIpAddrIndex
+        labelname: backup_designated_router
+        oid: 1.3.6.1.4.1.2011.5.25.155.6.1.7
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: doingGR
+        3: helper
+        4: notSupported
+    walk:
+    - 1.3.6.1.4.1.2011.5.25.155.6

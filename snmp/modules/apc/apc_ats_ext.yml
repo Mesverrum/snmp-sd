@@ -1,0 +1,1322 @@
+# GENERATED from kentik/snmp-profiles — module apc_ats_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  apc_ats_ext:
+    metrics:
+    - name: snmp_atsStatusSelectedSource
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.2
+      type: gauge
+      help: atsStatusSelectedSource (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.2
+      enum_values:
+        1: sourceA
+        2: sourceB
+      lookups: []
+    - name: snmp_atsStatusRedundancyState
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.3
+      type: gauge
+      help: atsStatusRedundancyState (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.3
+      enum_values:
+        1: atsRedundancyLost
+        2: atsFullyRedundant
+      lookups: []
+    - name: snmp_atsStatusOverCurrentState
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.4
+      type: gauge
+      help: atsStatusOverCurrentState (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.4
+      enum_values:
+        1: atsOverCurrent
+        2: atsCurrentOK
+      lookups: []
+    - name: snmp_atsStatusSwitchStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.10
+      type: gauge
+      help: atsStatusSwitchStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.10
+      enum_values:
+        1: fail
+        2: ok
+      lookups: []
+    - name: snmp_atsStatusFrontPanel
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.11
+      type: gauge
+      help: atsStatusFrontPanel (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.11
+      enum_values:
+        1: locked
+        2: unlocked
+      lookups: []
+    - name: snmp_atsStatusSourceAStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.12
+      type: gauge
+      help: atsStatusSourceAStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.12
+      enum_values:
+        1: fail
+        2: ok
+      lookups: []
+    - name: snmp_atsStatusSourceBStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.13
+      type: gauge
+      help: atsStatusSourceBStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.13
+      enum_values:
+        1: fail
+        2: ok
+      lookups: []
+    - name: snmp_atsStatusPhaseSyncStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.14
+      type: gauge
+      help: atsStatusPhaseSyncStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.14
+      enum_values:
+        1: inSync
+        2: outOfSync
+      lookups: []
+    - name: snmp_atsStatusVoltageOutStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.15
+      type: gauge
+      help: atsStatusVoltageOutStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.15
+      enum_values:
+        1: fail
+        2: ok
+      lookups: []
+    - name: snmp_atsStatusHardwareStatus
+      oid: 1.3.6.1.4.1.318.1.1.8.5.1.16
+      type: gauge
+      help: atsStatusHardwareStatus (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.1.16
+      enum_values:
+        1: fail
+        2: ok
+      lookups: []
+    - name: snmp_atsInputFrequency
+      oid: 1.3.6.1.4.1.318.1.1.8.5.3.2.1.4
+      type: gauge
+      help: atsInputFrequency (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.3.2.1.4
+      indexes:
+      - labelname: atsInputTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsInputTableIndex
+        labelname: input_name
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.2.1.6
+        type: DisplayString
+      - labels:
+        - atsInputTableIndex
+        labelname: input_num_phases
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.2.1.2
+        type: DisplayString
+      - labels:
+        - atsInputTableIndex
+        labelname: input_voltage_orientation
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.2.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsInputTableIndex
+        labelname: input_type
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.2.1.5
+        type: EnumAsInfo
+    - name: snmp_atsInputVoltage
+      oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.3
+      type: gauge
+      help: atsInputVoltage (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.3.3.1.3
+      indexes:
+      - labelname: atsInputPhaseTableIndex
+        type: gauge
+      - labelname: atsInputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.2
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.4
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.5
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.7
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.8
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.10
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.11
+        type: DisplayString
+    - name: snmp_atsInputCurrent
+      oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.6
+      type: gauge
+      help: atsInputCurrent (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.3.3.1.6
+      indexes:
+      - labelname: atsInputPhaseTableIndex
+        type: gauge
+      - labelname: atsInputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.2
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.4
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.5
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.7
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.8
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.10
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.11
+        type: DisplayString
+    - name: snmp_atsInputPower
+      oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.9
+      type: gauge
+      help: atsInputPower (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.3.3.1.9
+      indexes:
+      - labelname: atsInputPhaseTableIndex
+        type: gauge
+      - labelname: atsInputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.2
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.4
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_voltage
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.5
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.7
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.8
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.10
+        type: DisplayString
+      - labels:
+        - atsInputPhaseTableIndex
+        - atsInputPhaseIndex
+        labelname: input_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.3.3.1.11
+        type: DisplayString
+    - name: snmp_atsOutputFrequency
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.2.1.4
+      type: gauge
+      help: atsOutputFrequency (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.2.1.4
+      indexes:
+      - labelname: atsOutputTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputTableIndex
+        labelname: output_num_phases
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.2.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputTableIndex
+        labelname: output_voltage_orientation
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.2.1.3
+        type: EnumAsInfo
+    - name: snmp_atsOutputVoltage
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.3
+      type: gauge
+      help: atsOutputVoltage (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.3
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputCurrent
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.4
+      type: gauge
+      help: atsOutputCurrent (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.4
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputLoad
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.7
+      type: gauge
+      help: atsOutputLoad (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.7
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputPercentLoad
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.10
+      type: gauge
+      help: atsOutputPercentLoad (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.10
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputPower
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.13
+      type: gauge
+      help: atsOutputPower (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.13
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputPercentPower
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.16
+      type: gauge
+      help: atsOutputPercentPower (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.16
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+    - name: snmp_atsOutputPhaseState
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.19
+      type: gauge
+      help: atsOutputPhaseState (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.3.1.19
+      indexes:
+      - labelname: atsOutputPhaseTableIndex
+        type: gauge
+      - labelname: atsOutputPhaseIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_number
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.2
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.5
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.6
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.9
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.12
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.15
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputPhaseTableIndex
+        - atsOutputPhaseIndex
+        labelname: output_phase_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.3.1.18
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: lowload
+        3: nearoverload
+        4: overload
+    - name: snmp_atsOutputBankCurrent
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.4
+      type: gauge
+      help: atsOutputBankCurrent (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.4
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    - name: snmp_atsOutputBankState
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.5
+      type: gauge
+      help: atsOutputBankState (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.5
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+      enum_values:
+        1: normal
+        2: lowload
+        3: nearoverload
+        4: overload
+    - name: snmp_atsOutputBankOutputVoltage
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.6
+      type: gauge
+      help: atsOutputBankOutputVoltage (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.6
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    - name: snmp_atsOutputBankLoad
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.9
+      type: gauge
+      help: atsOutputBankLoad (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.9
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    - name: snmp_atsOutputBankPercentLoad
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.12
+      type: gauge
+      help: atsOutputBankPercentLoad (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.12
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    - name: snmp_atsOutputBankPower
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.15
+      type: gauge
+      help: atsOutputBankPower (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.15
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    - name: snmp_atsOutputBankPercentPower
+      oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.18
+      type: gauge
+      help: atsOutputBankPercentPower (PowerNet-MIB_ATS) - 1.3.6.1.4.1.318.1.1.8.5.4.5.1.18
+      indexes:
+      - labelname: atsOutputBankTableIndex
+        type: gauge
+      lookups:
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_phase
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.2
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_num
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.3
+        type: EnumAsInfo
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.7
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_current
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.8
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.10
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.11
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.13
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_load
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.14
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.16
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.17
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_max_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.19
+        type: DisplayString
+      - labels:
+        - atsOutputBankTableIndex
+        labelname: output_bank_min_percent_power
+        oid: 1.3.6.1.4.1.318.1.1.8.5.4.5.1.20
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.318.1.1.8.5.3.2
+    - 1.3.6.1.4.1.318.1.1.8.5.3.3
+    - 1.3.6.1.4.1.318.1.1.8.5.4.2
+    - 1.3.6.1.4.1.318.1.1.8.5.4.3
+    - 1.3.6.1.4.1.318.1.1.8.5.4.5
+    get:
+    - 1.3.6.1.4.1.318.1.1.8.5.1.2
+    - 1.3.6.1.4.1.318.1.1.8.5.1.3
+    - 1.3.6.1.4.1.318.1.1.8.5.1.4
+    - 1.3.6.1.4.1.318.1.1.8.5.1.10
+    - 1.3.6.1.4.1.318.1.1.8.5.1.11
+    - 1.3.6.1.4.1.318.1.1.8.5.1.12
+    - 1.3.6.1.4.1.318.1.1.8.5.1.13
+    - 1.3.6.1.4.1.318.1.1.8.5.1.14
+    - 1.3.6.1.4.1.318.1.1.8.5.1.15
+    - 1.3.6.1.4.1.318.1.1.8.5.1.16

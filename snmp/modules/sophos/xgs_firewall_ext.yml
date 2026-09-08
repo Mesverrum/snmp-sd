@@ -1,0 +1,666 @@
+# GENERATED from kentik/snmp-profiles — module xgs_firewall_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  xgs_firewall_ext:
+    metrics:
+    - name: snmp_sfosMemoryPercentUsage
+      oid: 1.3.6.1.4.1.2604.5.1.2.5.2
+      type: gauge
+      help: sfosMemoryPercentUsage (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.5.2.0
+      lookups: []
+    - name: snmp_sfosDiskCapacity
+      oid: 1.3.6.1.4.1.2604.5.1.2.4.1
+      type: gauge
+      help: sfosDiskCapacity (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.4.1.0
+      lookups: []
+    - name: snmp_sfosDiskPercentUsage
+      oid: 1.3.6.1.4.1.2604.5.1.2.4.2
+      type: gauge
+      help: sfosDiskPercentUsage (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.4.2.0
+      lookups: []
+    - name: snmp_sfosSwapCapacity
+      oid: 1.3.6.1.4.1.2604.5.1.2.5.3
+      type: gauge
+      help: sfosSwapCapacity (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.5.3.0
+      lookups: []
+    - name: snmp_sfosSwapPercentUsage
+      oid: 1.3.6.1.4.1.2604.5.1.2.5.4
+      type: gauge
+      help: sfosSwapPercentUsage (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.5.4.0
+      lookups: []
+    - name: snmp_sfosLiveUsersCount
+      oid: 1.3.6.1.4.1.2604.5.1.2.6
+      type: gauge
+      help: sfosLiveUsersCount (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.6.0
+      lookups: []
+    - name: snmp_sfosHTTPHits
+      oid: 1.3.6.1.4.1.2604.5.1.2.7
+      type: counter
+      help: sfosHTTPHits (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.7.0
+      lookups: []
+    - name: snmp_sfosFTPHits
+      oid: 1.3.6.1.4.1.2604.5.1.2.8
+      type: counter
+      help: sfosFTPHits (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.8.0
+      lookups: []
+    - name: snmp_sfosPOP3Hits
+      oid: 1.3.6.1.4.1.2604.5.1.2.9.1
+      type: counter
+      help: sfosPOP3Hits (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.9.1.0
+      lookups: []
+    - name: snmp_sfosImapHits
+      oid: 1.3.6.1.4.1.2604.5.1.2.9.2
+      type: counter
+      help: sfosImapHits (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.9.2.0
+      lookups: []
+    - name: snmp_sfosSmtpHits
+      oid: 1.3.6.1.4.1.2604.5.1.2.9.3
+      type: counter
+      help: sfosSmtpHits (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.2.9.3.0
+      lookups: []
+    - name: snmp_sfosPoP3Service
+      oid: 1.3.6.1.4.1.2604.5.1.3.1
+      type: gauge
+      help: sfosPoP3Service (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.1.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosImap4Service
+      oid: 1.3.6.1.4.1.2604.5.1.3.2
+      type: gauge
+      help: sfosImap4Service (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.2.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosSmtpService
+      oid: 1.3.6.1.4.1.2604.5.1.3.3
+      type: gauge
+      help: sfosSmtpService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.3.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosFtpService
+      oid: 1.3.6.1.4.1.2604.5.1.3.4
+      type: gauge
+      help: sfosFtpService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.4.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosHttpService
+      oid: 1.3.6.1.4.1.2604.5.1.3.5
+      type: gauge
+      help: sfosHttpService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.5.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosAVService
+      oid: 1.3.6.1.4.1.2604.5.1.3.6
+      type: gauge
+      help: sfosAVService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.6.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosASService
+      oid: 1.3.6.1.4.1.2604.5.1.3.7
+      type: gauge
+      help: sfosASService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.7.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosDNSService
+      oid: 1.3.6.1.4.1.2604.5.1.3.8
+      type: gauge
+      help: sfosDNSService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.8.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosHAService
+      oid: 1.3.6.1.4.1.2604.5.1.3.9
+      type: gauge
+      help: sfosHAService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.9.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosIPSService
+      oid: 1.3.6.1.4.1.2604.5.1.3.10
+      type: gauge
+      help: sfosIPSService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.10.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosApacheService
+      oid: 1.3.6.1.4.1.2604.5.1.3.11
+      type: gauge
+      help: sfosApacheService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.11.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosNtpService
+      oid: 1.3.6.1.4.1.2604.5.1.3.12
+      type: gauge
+      help: sfosNtpService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.12.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosTomcatService
+      oid: 1.3.6.1.4.1.2604.5.1.3.13
+      type: gauge
+      help: sfosTomcatService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.13.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosSSLVpnService
+      oid: 1.3.6.1.4.1.2604.5.1.3.14
+      type: gauge
+      help: sfosSSLVpnService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.14.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosIPSecVpnService
+      oid: 1.3.6.1.4.1.2604.5.1.3.15
+      type: gauge
+      help: sfosIPSecVpnService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.15.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosDatabaseService
+      oid: 1.3.6.1.4.1.2604.5.1.3.16
+      type: gauge
+      help: sfosDatabaseService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.16.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosNetworkService
+      oid: 1.3.6.1.4.1.2604.5.1.3.17
+      type: gauge
+      help: sfosNetworkService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.17.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosGarnerService
+      oid: 1.3.6.1.4.1.2604.5.1.3.18
+      type: gauge
+      help: sfosGarnerService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.18.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosDroutingService
+      oid: 1.3.6.1.4.1.2604.5.1.3.19
+      type: gauge
+      help: sfosDroutingService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.19.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosSSHdService
+      oid: 1.3.6.1.4.1.2604.5.1.3.20
+      type: gauge
+      help: sfosSSHdService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.20.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosDgdService
+      oid: 1.3.6.1.4.1.2604.5.1.3.21
+      type: gauge
+      help: sfosDgdService (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.3.21.0
+      enum_values:
+        0: untouched
+        1: stopped
+        2: initializing
+        3: running
+        4: exiting
+        5: dead
+        6: frozen
+        7: unregistered
+      lookups: []
+    - name: snmp_sfosHAStatus
+      oid: 1.3.6.1.4.1.2604.5.1.4.1
+      type: gauge
+      help: sfosHAStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.4.1.0
+      enum_values:
+        0: disabled
+        1: enabled
+      lookups: []
+    - name: snmp_sfosDeviceCurrentHAState
+      oid: 1.3.6.1.4.1.2604.5.1.4.4
+      type: gauge
+      help: sfosDeviceCurrentHAState (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.4.4.0
+      enum_values:
+        0: notApplicable
+        1: auxiliary
+        2: standAlone
+        3: primary
+        4: faulty
+        5: ready
+      lookups: []
+    - name: snmp_sfosDevicePeerHAState
+      oid: 1.3.6.1.4.1.2604.5.1.4.5
+      type: gauge
+      help: sfosDevicePeerHAState (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.4.5.0
+      enum_values:
+        0: notApplicable
+        1: auxiliary
+        2: standAlone
+        3: primary
+        4: faulty
+        5: ready
+      lookups: []
+    - name: snmp_sfosBaseFWLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.1.1
+      type: gauge
+      help: sfosBaseFWLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.1.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosBaseFWLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.1.2
+      type: gauge
+      help: sfosBaseFWLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.1.2.0
+      lookups: []
+    - name: snmp_sfosNetProtectionLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.2.1
+      type: gauge
+      help: sfosNetProtectionLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.2.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosNetProtectionLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.2.2
+      type: gauge
+      help: sfosNetProtectionLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.2.2.0
+      lookups: []
+    - name: snmp_sfosWebProtectionLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.3.1
+      type: gauge
+      help: sfosWebProtectionLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.3.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosWebProtectionLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.3.2
+      type: gauge
+      help: sfosWebProtectionLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.3.2.0
+      lookups: []
+    - name: snmp_sfosMailProtectionLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.4.1
+      type: gauge
+      help: sfosMailProtectionLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.4.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosMailProtectionLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.4.2
+      type: gauge
+      help: sfosMailProtectionLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.4.2.0
+      lookups: []
+    - name: snmp_sfosWebServerProtectionLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.5.1
+      type: gauge
+      help: sfosWebServerProtectionLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.5.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosWebServerProtectionLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.5.2
+      type: gauge
+      help: sfosWebServerProtectionLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.5.2.0
+      lookups: []
+    - name: snmp_sfosSandstromLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.6.1
+      type: gauge
+      help: sfosSandstromLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.6.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosEnhancedSupportLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.7.1
+      type: gauge
+      help: sfosEnhancedSupportLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.7.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosEnhancedSupportLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.7.2
+      type: gauge
+      help: sfosEnhancedSupportLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.7.2.0
+      lookups: []
+    - name: snmp_sfosEnhancedPlusLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.8.1
+      type: gauge
+      help: sfosEnhancedPlusLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.8.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosEnhancedPlusLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.8.2
+      type: gauge
+      help: sfosEnhancedPlusLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.8.2.0
+      lookups: []
+    - name: snmp_sfosCentralOrchestrationLicRegStatus
+      oid: 1.3.6.1.4.1.2604.5.1.5.9.1
+      type: gauge
+      help: sfosCentralOrchestrationLicRegStatus (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.9.1.0
+      enum_values:
+        1: trial
+        2: unsubscribed
+        3: subscribed
+        4: expired
+      lookups: []
+    - name: snmp_sfosCentralOrchestrationLicExpiryDate
+      oid: 1.3.6.1.4.1.2604.5.1.5.9.2
+      type: gauge
+      help: sfosCentralOrchestrationLicExpiryDate (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.5.9.2.0
+      lookups: []
+    - name: snmp_sfosIPSecVpnConnMode
+      oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.5
+      type: gauge
+      help: sfosIPSecVpnConnMode (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.5
+      indexes:
+      - labelname: sfosIPSecVpnConnId
+        type: gauge
+      lookups:
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnDes
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnPolicyName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.4
+        type: DisplayString
+    - name: snmp_sfosIPSecVpnConnType
+      oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.6
+      type: gauge
+      help: sfosIPSecVpnConnType (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.6
+      indexes:
+      - labelname: sfosIPSecVpnConnId
+        type: gauge
+      lookups:
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnDes
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnPolicyName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.4
+        type: DisplayString
+      enum_values:
+        1: host_to_host
+        2: site_to_site
+    - name: snmp_sfosIPSecVpnLocalgwPort
+      oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.7
+      type: gauge
+      help: sfosIPSecVpnLocalgwPort (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.7
+      indexes:
+      - labelname: sfosIPSecVpnConnId
+        type: gauge
+      lookups:
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnDes
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnPolicyName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.4
+        type: DisplayString
+    - name: snmp_sfosIPSecVpnActiveTunnel
+      oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.8
+      type: gauge
+      help: sfosIPSecVpnActiveTunnel (SFOS-FIREWALL-MIB) - 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.8
+      indexes:
+      - labelname: sfosIPSecVpnConnId
+        type: gauge
+      lookups:
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.2
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnConnDes
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.3
+        type: DisplayString
+      - labels:
+        - sfosIPSecVpnConnId
+        labelname: sfosIPSecVpnPolicyName
+        oid: 1.3.6.1.4.1.2604.5.1.6.1.1.1.1.4
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.2604.5.1.6.1.1.1
+    get:
+    - 1.3.6.1.4.1.2604.5.1.2.5.2.0
+    - 1.3.6.1.4.1.2604.5.1.2.4.1.0
+    - 1.3.6.1.4.1.2604.5.1.2.4.2.0
+    - 1.3.6.1.4.1.2604.5.1.2.5.3.0
+    - 1.3.6.1.4.1.2604.5.1.2.5.4.0
+    - 1.3.6.1.4.1.2604.5.1.2.6.0
+    - 1.3.6.1.4.1.2604.5.1.2.7.0
+    - 1.3.6.1.4.1.2604.5.1.2.8.0
+    - 1.3.6.1.4.1.2604.5.1.2.9.1.0
+    - 1.3.6.1.4.1.2604.5.1.2.9.2.0
+    - 1.3.6.1.4.1.2604.5.1.2.9.3.0
+    - 1.3.6.1.4.1.2604.5.1.3.1.0
+    - 1.3.6.1.4.1.2604.5.1.3.2.0
+    - 1.3.6.1.4.1.2604.5.1.3.3.0
+    - 1.3.6.1.4.1.2604.5.1.3.4.0
+    - 1.3.6.1.4.1.2604.5.1.3.5.0
+    - 1.3.6.1.4.1.2604.5.1.3.6.0
+    - 1.3.6.1.4.1.2604.5.1.3.7.0
+    - 1.3.6.1.4.1.2604.5.1.3.8.0
+    - 1.3.6.1.4.1.2604.5.1.3.9.0
+    - 1.3.6.1.4.1.2604.5.1.3.10.0
+    - 1.3.6.1.4.1.2604.5.1.3.11.0
+    - 1.3.6.1.4.1.2604.5.1.3.12.0
+    - 1.3.6.1.4.1.2604.5.1.3.13.0
+    - 1.3.6.1.4.1.2604.5.1.3.14.0
+    - 1.3.6.1.4.1.2604.5.1.3.15.0
+    - 1.3.6.1.4.1.2604.5.1.3.16.0
+    - 1.3.6.1.4.1.2604.5.1.3.17.0
+    - 1.3.6.1.4.1.2604.5.1.3.18.0
+    - 1.3.6.1.4.1.2604.5.1.3.19.0
+    - 1.3.6.1.4.1.2604.5.1.3.20.0
+    - 1.3.6.1.4.1.2604.5.1.3.21.0
+    - 1.3.6.1.4.1.2604.5.1.4.1.0
+    - 1.3.6.1.4.1.2604.5.1.4.4.0
+    - 1.3.6.1.4.1.2604.5.1.4.5.0
+    - 1.3.6.1.4.1.2604.5.1.5.1.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.1.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.2.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.2.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.3.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.3.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.4.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.4.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.5.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.5.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.6.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.7.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.7.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.8.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.8.2.0
+    - 1.3.6.1.4.1.2604.5.1.5.9.1.0
+    - 1.3.6.1.4.1.2604.5.1.5.9.2.0

@@ -1,0 +1,183 @@
+# GENERATED from kentik/snmp-profiles — module opengear_console_manager_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  opengear_console_manager_ext:
+    metrics:
+    - name: snmp_ogSerialPortRxBytes
+      oid: 1.3.6.1.4.1.25049.17.2.1.10
+      type: counter
+      help: ogSerialPortRxBytes (OG-STATUSv2-MIB) - 1.3.6.1.4.1.25049.17.2.1.10
+      indexes:
+      - labelname: ogSerialPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortLabel
+        oid: 1.3.6.1.4.1.25049.17.2.1.2
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortSpeed
+        oid: 1.3.6.1.4.1.25049.17.2.1.3
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDataBits
+        oid: 1.3.6.1.4.1.25049.17.2.1.4
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortPortParity
+        oid: 1.3.6.1.4.1.25049.17.2.1.5
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortStopBits
+        oid: 1.3.6.1.4.1.25049.17.2.1.6
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortFlowControl
+        oid: 1.3.6.1.4.1.25049.17.2.1.7
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortMode
+        oid: 1.3.6.1.4.1.25049.17.2.1.8
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortLogLevel
+        oid: 1.3.6.1.4.1.25049.17.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDCD
+        oid: 1.3.6.1.4.1.25049.17.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDTR
+        oid: 1.3.6.1.4.1.25049.17.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDSR
+        oid: 1.3.6.1.4.1.25049.17.2.1.18
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortCTS
+        oid: 1.3.6.1.4.1.25049.17.2.1.19
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortRTS
+        oid: 1.3.6.1.4.1.25049.17.2.1.20
+        type: EnumAsInfo
+    - name: snmp_ogSerialPortTxBytes
+      oid: 1.3.6.1.4.1.25049.17.2.1.11
+      type: counter
+      help: ogSerialPortTxBytes (OG-STATUSv2-MIB) - 1.3.6.1.4.1.25049.17.2.1.11
+      indexes:
+      - labelname: ogSerialPortIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortLabel
+        oid: 1.3.6.1.4.1.25049.17.2.1.2
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortSpeed
+        oid: 1.3.6.1.4.1.25049.17.2.1.3
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDataBits
+        oid: 1.3.6.1.4.1.25049.17.2.1.4
+        type: DisplayString
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortPortParity
+        oid: 1.3.6.1.4.1.25049.17.2.1.5
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortStopBits
+        oid: 1.3.6.1.4.1.25049.17.2.1.6
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortFlowControl
+        oid: 1.3.6.1.4.1.25049.17.2.1.7
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortMode
+        oid: 1.3.6.1.4.1.25049.17.2.1.8
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortLogLevel
+        oid: 1.3.6.1.4.1.25049.17.2.1.9
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDCD
+        oid: 1.3.6.1.4.1.25049.17.2.1.16
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDTR
+        oid: 1.3.6.1.4.1.25049.17.2.1.17
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortDSR
+        oid: 1.3.6.1.4.1.25049.17.2.1.18
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortCTS
+        oid: 1.3.6.1.4.1.25049.17.2.1.19
+        type: EnumAsInfo
+      - labels:
+        - ogSerialPortIndex
+        labelname: ogSerialPortRTS
+        oid: 1.3.6.1.4.1.25049.17.2.1.20
+        type: EnumAsInfo
+    - name: snmp_ogCellModemCounter
+      oid: 1.3.6.1.4.1.25049.17.17.1.16
+      type: counter
+      help: ogCellModemCounter (OG-STATUSv2-MIB) - 1.3.6.1.4.1.25049.17.17.1.16
+      indexes:
+      - labelname: ogCellModemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogCellModemIndex
+        labelname: ogCellModemEnabled
+        oid: 1.3.6.1.4.1.25049.17.17.1.4
+        type: EnumAsInfo
+    - name: snmp_ogCellModemConnected
+      oid: 1.3.6.1.4.1.25049.17.17.1.5
+      type: gauge
+      help: ogCellModemConnected (OG-STATUSv2-MIB) - 1.3.6.1.4.1.25049.17.17.1.5
+      indexes:
+      - labelname: ogCellModemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogCellModemIndex
+        labelname: ogCellModemEnabled
+        oid: 1.3.6.1.4.1.25049.17.17.1.4
+        type: EnumAsInfo
+      enum_values:
+        1: connected
+        2: disconnected
+    walk:
+    - 1.3.6.1.4.1.25049.17.2
+    - 1.3.6.1.4.1.25049.17.17

@@ -1,0 +1,168 @@
+# GENERATED from kentik/snmp-profiles — module exagrid_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  exagrid_ext:
+    metrics:
+    - name: snmp_egLandingSpaceConfiguredWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.1.1.0
+      type: gauge
+      help: egLandingSpaceConfiguredWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.1.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egLandingSpaceConfiguredFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.1.2.0
+      type: gauge
+      help: egLandingSpaceConfiguredFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.1.2.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egLandingSpaceAvailableWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.1.3.0
+      type: gauge
+      help: egLandingSpaceAvailableWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.1.3.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egLandingSpaceAvailableFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.1.4.0
+      type: gauge
+      help: egLandingSpaceAvailableFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.1.4.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egRetentionSpaceConfiguredWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.2.1.0
+      type: gauge
+      help: egRetentionSpaceConfiguredWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.2.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egRetentionSpaceConfiguredFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.2.2.0
+      type: gauge
+      help: egRetentionSpaceConfiguredFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.2.2.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egRetentionSpaceAvailableWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.2.3.0
+      type: gauge
+      help: egRetentionSpaceAvailableWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.2.3.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egRetentionSpaceAvailableFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.2.4.0
+      type: gauge
+      help: egRetentionSpaceAvailableFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.2.4.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egBackupDataAvailableWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.3.1.0
+      type: gauge
+      help: egBackupDataAvailableWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.3.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egBackupDataAvailableFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.3.2.0
+      type: gauge
+      help: egBackupDataAvailableFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.3.2.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egBackupDataSpaceConsumedWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.3.3.0
+      type: gauge
+      help: egBackupDataSpaceConsumedWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.3.3.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egBackupDataSpaceConsumedFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.3.4.0
+      type: gauge
+      help: egBackupDataSpaceConsumedFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.3.4.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingDeduplicationWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.4.1.0
+      type: gauge
+      help: egPendingDeduplicationWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.4.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingDeduplicationFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.4.2.0
+      type: gauge
+      help: egPendingDeduplicationFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.4.2.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingDeduplicationAge
+      oid: 1.3.6.1.4.1.14941.4.4.3.0
+      type: gauge
+      help: egPendingDeduplicationAge (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.4.3.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingReplicationWholeGigabytes
+      oid: 1.3.6.1.4.1.14941.4.5.1.0
+      type: gauge
+      help: egPendingReplicationWholeGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.5.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingReplicationFractionalGigabytes
+      oid: 1.3.6.1.4.1.14941.4.5.2.0
+      type: gauge
+      help: egPendingReplicationFractionalGigabytes (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.5.2.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egPendingReplicationAge
+      oid: 1.3.6.1.4.1.14941.4.5.3.0
+      type: gauge
+      help: egPendingReplicationAge (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.5.3.0
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups: []
+    - name: snmp_egServerAlarmState
+      oid: 1.3.6.1.4.1.14941.4.6.1.0
+      type: gauge
+      help: egServerAlarmState (EXAGRID-MIB) - 1.3.6.1.4.1.14941.4.6.1.0
+      indexes:
+      - labelname: index
+        type: gauge
+      enum_values:
+        1: noAlarm
+        2: warningAlarm
+        3: errorAlarm
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.14941.4.1
+    - 1.3.6.1.4.1.14941.4.2
+    - 1.3.6.1.4.1.14941.4.3
+    - 1.3.6.1.4.1.14941.4.4
+    - 1.3.6.1.4.1.14941.4.5
+    - 1.3.6.1.4.1.14941.4.6

@@ -2,21 +2,6 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   omni_access_wlc:
-    walk:
-    - 1.3.6.1.4.1.14823.2.2.1.1.1.9
-    - 1.3.6.1.4.1.14823.2.2.1.1.1.10
-    - 1.3.6.1.4.1.14823.2.2.1.1.1.11
-    get:
-    - 1.3.6.1.4.1.14823.2.2.1.1.3.1.0
-    - 1.3.6.1.4.1.14823.2.2.1.1.3.2.0
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-    - 1.3.6.1.4.1.14823.2.2.1.1.1.2.0
-    - 1.3.6.1.4.1.14823.2.2.1.1.1.12
     metrics:
     - name: snmp_Uptime
       oid: 1.3.6.1.2.1.1.3
@@ -77,42 +62,6 @@ modules:
         labelname: sysXProcessorDescr
         oid: 1.3.6.1.4.1.14823.2.2.1.1.1.9.1.2
         type: DisplayString
-    - name: snmp_sysXStorageSize
-      oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.3
-      type: gauge
-      help: sysXStorageSize () - 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.3
-      indexes:
-      - labelname: sysXStorageIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sysXStorageIndex
-        labelname: sysXStorageType
-        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.2
-        type: EnumAsInfo
-      - labels:
-        - sysXStorageIndex
-        labelname: sysXStorageName
-        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.5
-        type: DisplayString
-    - name: snmp_sysXStorageUsed
-      oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.4
-      type: gauge
-      help: sysXStorageUsed () - 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.4
-      indexes:
-      - labelname: sysXStorageIndex
-        type: gauge
-      lookups:
-      - labels:
-        - sysXStorageIndex
-        labelname: sysXStorageType
-        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.2
-        type: EnumAsInfo
-      - labels:
-        - sysXStorageIndex
-        labelname: sysXStorageName
-        oid: 1.3.6.1.4.1.14823.2.2.1.1.1.10.1.5
-        type: DisplayString
     - name: snmp_MemoryTotal
       oid: 1.3.6.1.4.1.14823.2.2.1.1.1.11.1.2
       type: gauge
@@ -137,13 +86,21 @@ modules:
       - labelname: sysXMemoryIndex
         type: gauge
       lookups: []
-    - name: snmp_wlsxSwitchTotalNumAccessPoints
-      oid: 1.3.6.1.4.1.14823.2.2.1.1.3.1
-      type: gauge
-      help: wlsxSwitchTotalNumAccessPoints () - 1.3.6.1.4.1.14823.2.2.1.1.3.1.0
-      lookups: []
     - name: snmp_wlsxSwitchTotalNumStationsAssociated
       oid: 1.3.6.1.4.1.14823.2.2.1.1.3.2
       type: gauge
       help: wlsxSwitchTotalNumStationsAssociated () - 1.3.6.1.4.1.14823.2.2.1.1.3.2.0
       lookups: []
+    walk:
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.9
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.11
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.2.0
+    - 1.3.6.1.4.1.14823.2.2.1.1.1.12
+    - 1.3.6.1.4.1.14823.2.2.1.1.3.2.0

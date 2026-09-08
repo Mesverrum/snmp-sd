@@ -2,35 +2,25 @@
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   host_resources_mib:
-    walk:
-    - 1.3.6.1.2.1.25.2.3
-    - 1.3.6.1.2.1.25.3.3
-    get:
-    - 1.3.6.1.2.1.25.1.1.0
-    - 1.3.6.1.2.1.25.1.5.0
-    - 1.3.6.1.2.1.25.1.6.0
-    - 1.3.6.1.2.1.25.1.7.0
     metrics:
     - name: snmp_hrSystemUptime
       oid: 1.3.6.1.2.1.25.1.1
       type: gauge
       help: hrSystemUptime (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.1.0
       lookups: []
-    - name: snmp_hrSystemNumUsers
-      oid: 1.3.6.1.2.1.25.1.5
+    - name: snmp_CPU
+      oid: 1.3.6.1.2.1.25.3.3.1.2
       type: gauge
-      help: hrSystemNumUsers (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.5.0
-      lookups: []
-    - name: snmp_hrSystemProcesses
-      oid: 1.3.6.1.2.1.25.1.6
-      type: gauge
-      help: hrSystemProcesses (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.6.0
-      lookups: []
-    - name: snmp_hrSystemMaxProcesses
-      oid: 1.3.6.1.2.1.25.1.7
-      type: gauge
-      help: hrSystemMaxProcesses (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.1.7.0
-      lookups: []
+      help: hrProcessorLoad (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.3.3.1.2
+      indexes:
+      - labelname: hrDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hrDeviceIndex
+        labelname: processor_description
+        oid: 1.3.6.1.2.1.25.3.2.1.3
+        type: DisplayString
     - name: snmp_hrStorageAllocationUnits
       oid: 1.3.6.1.2.1.25.2.3.1.4
       type: gauge
@@ -103,16 +93,8 @@ modules:
         labelname: storage_type
         oid: 1.3.6.1.2.1.25.2.3.1.2
         type: EnumAsInfo
-    - name: snmp_CPU
-      oid: 1.3.6.1.2.1.25.3.3.1.2
-      type: gauge
-      help: hrProcessorLoad (HOST-RESOURCES-MIB) - 1.3.6.1.2.1.25.3.3.1.2
-      indexes:
-      - labelname: hrDeviceIndex
-        type: gauge
-      lookups:
-      - labels:
-        - hrDeviceIndex
-        labelname: processor_description
-        oid: 1.3.6.1.2.1.25.3.2.1.3
-        type: DisplayString
+    walk:
+    - 1.3.6.1.2.1.25.3.3
+    - 1.3.6.1.2.1.25.2.3
+    get:
+    - 1.3.6.1.2.1.25.1.1.0

@@ -1,0 +1,2882 @@
+# GENERATED from kentik/snmp-profiles — module barracuda_waf_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  barracuda_waf_ext:
+    metrics:
+    - name: snmp_sslProxyActiveConn
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.4
+      type: counter
+      help: sslProxyActiveConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.4
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyFullHandshakes
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.5
+      type: counter
+      help: sslProxyFullHandshakes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.5
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyResumptionHandshakes
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.6
+      type: counter
+      help: sslProxyResumptionHandshakes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.6
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyHandshakeAttempts
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.7
+      type: counter
+      help: sslProxyHandshakeAttempts (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.7
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyCacheHits
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.8
+      type: counter
+      help: sslProxyCacheHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.8
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyCacheMiss
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.9
+      type: counter
+      help: sslProxyCacheMiss (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.9
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyCacheTimeouts
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.10
+      type: counter
+      help: sslProxyCacheTimeouts (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.10
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyErrPms
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.11
+      type: counter
+      help: sslProxyErrPms (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.11
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyAuthBadCertErr
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.12
+      type: counter
+      help: sslProxyAuthBadCertErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.12
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyAuthBadCNErr
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.13
+      type: counter
+      help: sslProxyAuthBadCNErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.13
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyBadDNCErr
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.14
+      type: counter
+      help: sslProxyBadDNCErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.14
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyBadCRLErr
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.15
+      type: counter
+      help: sslProxyBadCRLErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.15
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyInBytes
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.16
+      type: counter
+      help: sslProxyInBytes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.16
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyOutBytes
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.17
+      type: counter
+      help: sslProxyOutBytes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.17
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyTotalReq
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.18
+      type: counter
+      help: sslProxyTotalReq (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.18
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyTotalConn
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.19
+      type: counter
+      help: sslProxyTotalConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.19
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslProxyCurrentConn
+      oid: 1.3.6.1.4.1.20632.8.50.2.1.20
+      type: counter
+      help: sslProxyCurrentConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.2.1.20
+      indexes:
+      - labelname: sslProxyAddress
+        type: InetAddress
+      - labelname: sslProxyPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.2
+        type: DisplayString
+      - labels:
+        - sslProxyAddress
+        - sslProxyPort
+        labelname: sslProxyPort
+        oid: 1.3.6.1.4.1.20632.8.50.2.1.3
+        type: DisplayString
+    - name: snmp_sslSrvrTotReqAccepted
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.7
+      type: counter
+      help: sslSrvrTotReqAccepted (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.7
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotReqActive
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.8
+      type: counter
+      help: sslSrvrTotReqActive (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.8
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotReqRejected
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.9
+      type: counter
+      help: sslSrvrTotReqRejected (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.9
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotSuccess
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.10
+      type: counter
+      help: sslSrvrTotSuccess (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.10
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotRefused
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.11
+      type: counter
+      help: sslSrvrTotRefused (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.11
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotTimedout
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.12
+      type: counter
+      help: sslSrvrTotTimedout (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.12
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrAvgReqPerConn
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.13
+      type: counter
+      help: sslSrvrAvgReqPerConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.13
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrTotResponse
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.14
+      type: counter
+      help: sslSrvrTotResponse (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.14
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrAvgResTime
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.15
+      type: counter
+      help: sslSrvrAvgResTime (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.15
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrMaxResTime
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.16
+      type: counter
+      help: sslSrvrMaxResTime (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.16
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrMinResTime
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.17
+      type: counter
+      help: sslSrvrMinResTime (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.17
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumReqEnqueue
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.18
+      type: counter
+      help: sslSrvrNumReqEnqueue (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.18
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumFreeConn
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.19
+      type: counter
+      help: sslSrvrNumFreeConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.19
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumOpeningConn
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.20
+      type: counter
+      help: sslSrvrNumOpeningConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.20
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumConn
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.21
+      type: counter
+      help: sslSrvrNumConn (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.21
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumIBDisabled
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.22
+      type: counter
+      help: sslSrvrNumIBDisabled (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.22
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumOOBDisabled
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.23
+      type: counter
+      help: sslSrvrNumOOBDisabled (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.23
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrNumOOBEnabled
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.24
+      type: counter
+      help: sslSrvrNumOOBEnabled (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.24
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrLastDisabledTime
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.25
+      type: gauge
+      help: sslSrvrLastDisabledTime (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.25
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrState
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.26
+      type: gauge
+      help: sslSrvrState (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.26
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+      enum_values:
+        0: up
+        1: down
+    - name: snmp_sslSrvrInBytes
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.27
+      type: counter
+      help: sslSrvrInBytes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.27
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_sslSrvrOutBytes
+      oid: 1.3.6.1.4.1.20632.8.50.6.1.28
+      type: counter
+      help: sslSrvrOutBytes (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.6.1.28
+      indexes:
+      - labelname: sslSrvrSrvcAddress
+        type: InetAddress
+      - labelname: sslSrvrSrvcPort
+        type: gauge
+      - labelname: sslSrvrAddress
+        type: InetAddress
+      - labelname: sslSrvrPort
+        type: gauge
+      lookups:
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.2
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.3
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrAddress
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.5
+        type: DisplayString
+      - labels:
+        - sslSrvrSrvcAddress
+        - sslSrvrSrvcPort
+        - sslSrvrAddress
+        - sslSrvrPort
+        labelname: sslSrvrPort
+        oid: 1.3.6.1.4.1.20632.8.50.6.1.6
+        type: DisplayString
+    - name: snmp_ipsReqSrvcNoOfUrlProfMatched
+      oid: 1.3.6.1.4.1.20632.8.50.7.1.4
+      type: counter
+      help: ipsReqSrvcNoOfUrlProfMatched (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.7.1.4
+      indexes:
+      - labelname: ipsReqSrvcAddress
+        type: InetAddress
+      - labelname: ipsReqSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.3
+        type: DisplayString
+    - name: snmp_ipsReqSrvcNoOfAppProfViol
+      oid: 1.3.6.1.4.1.20632.8.50.7.1.5
+      type: counter
+      help: ipsReqSrvcNoOfAppProfViol (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.7.1.5
+      indexes:
+      - labelname: ipsReqSrvcAddress
+        type: InetAddress
+      - labelname: ipsReqSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.3
+        type: DisplayString
+    - name: snmp_ipsReqSrvcTotProfViol
+      oid: 1.3.6.1.4.1.20632.8.50.7.1.6
+      type: counter
+      help: ipsReqSrvcTotProfViol (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.7.1.6
+      indexes:
+      - labelname: ipsReqSrvcAddress
+        type: InetAddress
+      - labelname: ipsReqSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqSrvcAddress
+        - ipsReqSrvcPort
+        labelname: ipsReqSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.7.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcUpdatesByReq
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.4
+      type: counter
+      help: ipsLrnSrvcUpdatesByReq (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.4
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcUpdatesByRsp
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.5
+      type: counter
+      help: ipsLrnSrvcUpdatesByRsp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.5
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTotUpdatesByReq
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.6
+      type: counter
+      help: ipsLrnSrvcTotUpdatesByReq (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.6
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTotUpdatesByRsp
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.7
+      type: counter
+      help: ipsLrnSrvcTotUpdatesByRsp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.7
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTotUrlUpdated
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.8
+      type: counter
+      help: ipsLrnSrvcTotUrlUpdated (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.8
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTotParamsLearned
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.9
+      type: counter
+      help: ipsLrnSrvcTotParamsLearned (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.9
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTimeLastUpdated
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.10
+      type: gauge
+      help: ipsLrnSrvcTimeLastUpdated (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.10
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsLrnSrvcTimeLocked
+      oid: 1.3.6.1.4.1.20632.8.50.8.1.11
+      type: gauge
+      help: ipsLrnSrvcTimeLocked (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.8.1.11
+      indexes:
+      - labelname: ipsLrnSrvcAddress
+        type: InetAddress
+      - labelname: ipsLrnSrvcPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcAddress
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.2
+        type: DisplayString
+      - labels:
+        - ipsLrnSrvcAddress
+        - ipsLrnSrvcPort
+        labelname: ipsLrnSrvcPort
+        oid: 1.3.6.1.4.1.20632.8.50.8.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitUrlLenOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.4
+      type: counter
+      help: ipsReqLimitUrlLenOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.4
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitQueryLenOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.5
+      type: counter
+      help: ipsReqLimitQueryLenOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.5
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitReqLenOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.6
+      type: counter
+      help: ipsReqLimitReqLenOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.6
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitCookieLenOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.7
+      type: counter
+      help: ipsReqLimitCookieLenOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.7
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitHdrCntOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.8
+      type: counter
+      help: ipsReqLimitHdrCntOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.8
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitHdrLenOFErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.9
+      type: counter
+      help: ipsReqLimitHdrLenOFErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.9
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitContentLenErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.10
+      type: counter
+      help: ipsReqLimitContentLenErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.10
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsReqLimitBlkdMethodErr
+      oid: 1.3.6.1.4.1.20632.8.50.9.1.11
+      type: counter
+      help: ipsReqLimitBlkdMethodErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.9.1.11
+      indexes:
+      - labelname: ipsReqLimitAddress
+        type: InetAddress
+      - labelname: ipsReqLimitPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitAddress
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.2
+        type: DisplayString
+      - labels:
+        - ipsReqLimitAddress
+        - ipsReqLimitPort
+        labelname: ipsReqLimitPort
+        oid: 1.3.6.1.4.1.20632.8.50.9.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlNormEncodingErr
+      oid: 1.3.6.1.4.1.20632.8.50.10.1.4
+      type: counter
+      help: ipsUrlNormEncodingErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.10.1.4
+      indexes:
+      - labelname: ipsUrlNormAddress
+        type: InetAddress
+      - labelname: ipsUrlNormPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormAddress
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormPort
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlNormSlashDotInUrlErr
+      oid: 1.3.6.1.4.1.20632.8.50.10.1.5
+      type: counter
+      help: ipsUrlNormSlashDotInUrlErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.10.1.5
+      indexes:
+      - labelname: ipsUrlNormAddress
+        type: InetAddress
+      - labelname: ipsUrlNormPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormAddress
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormPort
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlNormTildaInUrl
+      oid: 1.3.6.1.4.1.20632.8.50.10.1.6
+      type: counter
+      help: ipsUrlNormTildaInUrl (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.10.1.6
+      indexes:
+      - labelname: ipsUrlNormAddress
+        type: InetAddress
+      - labelname: ipsUrlNormPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormAddress
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormPort
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlNormCharSetEncodingErr
+      oid: 1.3.6.1.4.1.20632.8.50.10.1.7
+      type: counter
+      help: ipsUrlNormCharSetEncodingErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.10.1.7
+      indexes:
+      - labelname: ipsUrlNormAddress
+        type: InetAddress
+      - labelname: ipsUrlNormPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormAddress
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlNormAddress
+        - ipsUrlNormPort
+        labelname: ipsUrlNormPort
+        oid: 1.3.6.1.4.1.20632.8.50.10.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecEncrypted
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.4
+      type: counter
+      help: ipsCookieSecEncrypted (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.4
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecTampered
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.5
+      type: counter
+      help: ipsCookieSecTampered (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.5
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecNumCookieAllow
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.6
+      type: counter
+      help: ipsCookieSecNumCookieAllow (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.6
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecNumCookieSet
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.7
+      type: counter
+      help: ipsCookieSecNumCookieSet (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.7
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecNumCookieErr
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.8
+      type: counter
+      help: ipsCookieSecNumCookieErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.8
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecCookieDecErr
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.9
+      type: counter
+      help: ipsCookieSecCookieDecErr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.9
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsCookieSecCookieDecrypted
+      oid: 1.3.6.1.4.1.20632.8.50.11.1.10
+      type: counter
+      help: ipsCookieSecCookieDecrypted (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.11.1.10
+      indexes:
+      - labelname: ipsCookieSecAddress
+        type: InetAddress
+      - labelname: ipsCookieSecPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecAddress
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.2
+        type: DisplayString
+      - labels:
+        - ipsCookieSecAddress
+        - ipsCookieSecPort
+        labelname: ipsCookieSecPort
+        oid: 1.3.6.1.4.1.20632.8.50.11.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlAclProcessAclHits
+      oid: 1.3.6.1.4.1.20632.8.50.12.1.4
+      type: counter
+      help: ipsUrlAclProcessAclHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.12.1.4
+      indexes:
+      - labelname: ipsUrlAclAddress
+        type: InetAddress
+      - labelname: ipsUrlAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlAclPolicyHits
+      oid: 1.3.6.1.4.1.20632.8.50.12.1.5
+      type: counter
+      help: ipsUrlAclPolicyHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.12.1.5
+      indexes:
+      - labelname: ipsUrlAclAddress
+        type: InetAddress
+      - labelname: ipsUrlAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlAclTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.12.1.6
+      type: gauge
+      help: ipsUrlAclTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.12.1.6
+      indexes:
+      - labelname: ipsUrlAclAddress
+        type: InetAddress
+      - labelname: ipsUrlAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlAclAllowAclHits
+      oid: 1.3.6.1.4.1.20632.8.50.12.1.8
+      type: counter
+      help: ipsUrlAclAllowAclHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.12.1.8
+      indexes:
+      - labelname: ipsUrlAclAddress
+        type: InetAddress
+      - labelname: ipsUrlAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlAclAddress
+        - ipsUrlAclPort
+        labelname: ipsUrlAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.12.1.3
+        type: DisplayString
+    - name: snmp_ipsHdrAclHits
+      oid: 1.3.6.1.4.1.20632.8.50.13.1.4
+      type: counter
+      help: ipsHdrAclHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.13.1.4
+      indexes:
+      - labelname: ipsHdrAclAddress
+        type: InetAddress
+      - labelname: ipsHdrAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsHdrAclAddress
+        - ipsHdrAclPort
+        labelname: ipsHdrAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.13.1.2
+        type: DisplayString
+      - labels:
+        - ipsHdrAclAddress
+        - ipsHdrAclPort
+        labelname: ipsHdrAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.13.1.3
+        type: DisplayString
+    - name: snmp_ipsHdrAclTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.13.1.5
+      type: gauge
+      help: ipsHdrAclTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.13.1.5
+      indexes:
+      - labelname: ipsHdrAclAddress
+        type: InetAddress
+      - labelname: ipsHdrAclPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsHdrAclAddress
+        - ipsHdrAclPort
+        labelname: ipsHdrAclAddress
+        oid: 1.3.6.1.4.1.20632.8.50.13.1.2
+        type: DisplayString
+      - labels:
+        - ipsHdrAclAddress
+        - ipsHdrAclPort
+        labelname: ipsHdrAclPort
+        oid: 1.3.6.1.4.1.20632.8.50.13.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransReqUrlTrans
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.4
+      type: counter
+      help: ipsWebAddrTransReqUrlTrans (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.4
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransRspUrlTrans
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.5
+      type: counter
+      help: ipsWebAddrTransRspUrlTrans (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.5
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransReqUrlReWritten
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.6
+      type: counter
+      help: ipsWebAddrTransReqUrlReWritten (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.6
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransReqHdrReWritten
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.7
+      type: counter
+      help: ipsWebAddrTransReqHdrReWritten (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.7
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransRspHdrReWritten
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.8
+      type: counter
+      help: ipsWebAddrTransRspHdrReWritten (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.8
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransReqReDirection
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.9
+      type: counter
+      help: ipsWebAddrTransReqReDirection (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.9
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsWebAddrTransTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.14.1.10
+      type: gauge
+      help: ipsWebAddrTransTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.14.1.10
+      indexes:
+      - labelname: ipsWebAddrTransAddress
+        type: InetAddress
+      - labelname: ipsWebAddrTransPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransAddress
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.2
+        type: DisplayString
+      - labels:
+        - ipsWebAddrTransAddress
+        - ipsWebAddrTransPort
+        labelname: ipsWebAddrTransPort
+        oid: 1.3.6.1.4.1.20632.8.50.14.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlMissingCookie
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.4
+      type: counter
+      help: ipsAccessCtrlMissingCookie (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.4
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlNoAuthHdr
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.5
+      type: counter
+      help: ipsAccessCtrlNoAuthHdr (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.5
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlInvalidCookie
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.6
+      type: counter
+      help: ipsAccessCtrlInvalidCookie (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.6
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlExpiredCookie
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.7
+      type: counter
+      help: ipsAccessCtrlExpiredCookie (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.7
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAccessDenied
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.8
+      type: counter
+      help: ipsAccessCtrlAccessDenied (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.8
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlGenFailure
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.9
+      type: counter
+      help: ipsAccessCtrlGenFailure (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.9
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAccessAttempts
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.10
+      type: counter
+      help: ipsAccessCtrlAccessAttempts (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.10
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAccessAttemptsTotRtt
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.11
+      type: counter
+      help: ipsAccessCtrlAccessAttemptsTotRtt (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.11
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlInvalidSrcIp
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.12
+      type: counter
+      help: ipsAccessCtrlInvalidSrcIp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.12
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAuthCacheHits
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.13
+      type: counter
+      help: ipsAccessCtrlAuthCacheHits (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.13
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAuthCacheMiss
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.14
+      type: counter
+      help: ipsAccessCtrlAuthCacheMiss (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.14
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlAuthCacheExp
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.15
+      type: counter
+      help: ipsAccessCtrlAuthCacheExp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.15
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsAccessCtrlTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.15.1.16
+      type: gauge
+      help: ipsAccessCtrlTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.15.1.16
+      indexes:
+      - labelname: ipsAccessCtrlAddress
+        type: InetAddress
+      - labelname: ipsAccessCtrlPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlAddress
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.2
+        type: DisplayString
+      - labels:
+        - ipsAccessCtrlAddress
+        - ipsAccessCtrlPort
+        labelname: ipsAccessCtrlPort
+        oid: 1.3.6.1.4.1.20632.8.50.15.1.3
+        type: DisplayString
+    - name: snmp_ipsRCTotServed
+      oid: 1.3.6.1.4.1.20632.8.50.16.1.4
+      type: counter
+      help: ipsRCTotServed (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.16.1.4
+      indexes:
+      - labelname: ipsRCAddress
+        type: InetAddress
+      - labelname: ipsRCPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCAddress
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.2
+        type: DisplayString
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCPort
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.3
+        type: DisplayString
+    - name: snmp_ipsRCTotQueued
+      oid: 1.3.6.1.4.1.20632.8.50.16.1.5
+      type: counter
+      help: ipsRCTotQueued (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.16.1.5
+      indexes:
+      - labelname: ipsRCAddress
+        type: InetAddress
+      - labelname: ipsRCPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCAddress
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.2
+        type: DisplayString
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCPort
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.3
+        type: DisplayString
+    - name: snmp_ipsRCTotDropped
+      oid: 1.3.6.1.4.1.20632.8.50.16.1.6
+      type: counter
+      help: ipsRCTotDropped (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.16.1.6
+      indexes:
+      - labelname: ipsRCAddress
+        type: InetAddress
+      - labelname: ipsRCPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCAddress
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.2
+        type: DisplayString
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCPort
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.3
+        type: DisplayString
+    - name: snmp_ipsRCTotOutOfResource
+      oid: 1.3.6.1.4.1.20632.8.50.16.1.7
+      type: counter
+      help: ipsRCTotOutOfResource (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.16.1.7
+      indexes:
+      - labelname: ipsRCAddress
+        type: InetAddress
+      - labelname: ipsRCPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCAddress
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.2
+        type: DisplayString
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCPort
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.3
+        type: DisplayString
+    - name: snmp_ipsRCTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.16.1.8
+      type: gauge
+      help: ipsRCTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.16.1.8
+      indexes:
+      - labelname: ipsRCAddress
+        type: InetAddress
+      - labelname: ipsRCPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCAddress
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.2
+        type: DisplayString
+      - labels:
+        - ipsRCAddress
+        - ipsRCPort
+        labelname: ipsRCPort
+        oid: 1.3.6.1.4.1.20632.8.50.16.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyTotServed
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.4
+      type: counter
+      help: ipsUrlPolicyTotServed (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.4
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyTotQueued
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.5
+      type: counter
+      help: ipsUrlPolicyTotQueued (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.5
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyTotDropped
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.6
+      type: counter
+      help: ipsUrlPolicyTotDropped (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.6
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyTotOutOfResource
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.7
+      type: counter
+      help: ipsUrlPolicyTotOutOfResource (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.7
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyEntryCtrlAuth
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.8
+      type: counter
+      help: ipsUrlPolicyEntryCtrlAuth (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.8
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    - name: snmp_ipsUrlPolicyTimeStamp
+      oid: 1.3.6.1.4.1.20632.8.50.17.1.9
+      type: gauge
+      help: ipsUrlPolicyTimeStamp (BWS-MIB) - 1.3.6.1.4.1.20632.8.50.17.1.9
+      indexes:
+      - labelname: ipsUrlPolicyAddress
+        type: InetAddress
+      - labelname: ipsUrlPolicyPort
+        type: gauge
+      lookups:
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyAddress
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.2
+        type: DisplayString
+      - labels:
+        - ipsUrlPolicyAddress
+        - ipsUrlPolicyPort
+        labelname: ipsUrlPolicyPort
+        oid: 1.3.6.1.4.1.20632.8.50.17.1.3
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.20632.8.50.2
+    - 1.3.6.1.4.1.20632.8.50.6
+    - 1.3.6.1.4.1.20632.8.50.7
+    - 1.3.6.1.4.1.20632.8.50.8
+    - 1.3.6.1.4.1.20632.8.50.9
+    - 1.3.6.1.4.1.20632.8.50.10
+    - 1.3.6.1.4.1.20632.8.50.11
+    - 1.3.6.1.4.1.20632.8.50.12
+    - 1.3.6.1.4.1.20632.8.50.13
+    - 1.3.6.1.4.1.20632.8.50.14
+    - 1.3.6.1.4.1.20632.8.50.15
+    - 1.3.6.1.4.1.20632.8.50.16
+    - 1.3.6.1.4.1.20632.8.50.17

@@ -1,0 +1,100 @@
+# GENERATED from kentik/snmp-profiles — module infinera_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  infinera_sensors:
+    metrics:
+    - name: snmp_shelfInletTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.3
+      type: gauge
+      help: shelfInletTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.3
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+    - name: snmp_shelfOutletTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+      type: gauge
+      help: shelfOutletTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        labelname: shelfLocation
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.4
+        type: DisplayString
+      - labels:
+        - shelfId
+        labelname: shelfAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.1.1.1.8
+        type: DisplayString
+    - name: snmp_cardFanSpeedRate
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.7
+      type: gauge
+      help: cardFanSpeedRate (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.7
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+    - name: snmp_cardTemperature
+      oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.9
+      type: gauge
+      help: cardTemperature (CORIANT-GROOVE-MIB) - 1.3.6.1.4.1.42229.1.2.3.3.1.1.9
+      indexes:
+      - labelname: shelfId
+        type: gauge
+      - labelname: slotId
+        type: gauge
+      lookups:
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardRequiredType
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.1
+        type: EnumAsInfo
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardEquipmentName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.2
+        type: DisplayString
+      - labels:
+        - shelfId
+        - slotId
+        labelname: cardAliasName
+        oid: 1.3.6.1.4.1.42229.1.2.3.3.1.1.6
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.42229.1.2.3.1.1
+    - 1.3.6.1.4.1.42229.1.2.3.3.1

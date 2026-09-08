@@ -29,15 +29,16 @@ Parents that both fingerprint (`sysobjectid`) **and** have children (`huawei_all
 
 Alloy / exporter: `config_file` = this concat + `config_merge_strategy = "replace"` (this library replaces stock embedded snmp.yml). `snmp-discovery --snmp-config` and `--fingerprinters` must be this same convert.
 
-Nokia is split across the three scrape tiers (no invented `nokia_srlinux_hot`):
+Every vendor pack is split the same way (no invented `{name}_hot`):
 
 | Module | Tier | Contents |
 |---|---|---|
-| `nokia_srlinux` | hot | `snmp_device_info`, `snmp_Uptime`, CPU, memory |
-| `nokia_srlinux_sensors` | cold | chassis oper, temperature, fans, PSU |
-| `nokia_srlinux_bgp` | topology | TIMETRA-BGP peer tables |
+| `{name}` | hot | `snmp_device_info`, `snmp_Uptime`, CPU / CPULoad, RAM (plus `hrStorage` when RAM/disk share a table), core-service counts |
+| `{name}_sensors` | cold | chassis / temp / fans / PSU when that is the leftover |
+| `{name}_ext` | cold | everything else (sessions, disk, vendor IF extras, …) |
+| `{name}_bgp` / `{name}_topo` | topology | BGP-only leftover uses `_bgp`; mixed LLDP/CDP/OSPF/ISIS uses `_topo` |
 
-Re-split without a full vendor ingest: `python3 tools/snmp-profile-convert/split_nokia_tiers.py`.
+Nokia keeps `nokia_srlinux` / `_sensors` / `_bgp`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
 
 **Metric names:** every series is `snmp_<stem>`. Profile `tag` values (`CPU`, `MemoryUsed`, `MemoryFree`, `MemoryTotal`, `Temperature`) become the stem (`snmp_CPU`); other objects keep the MIB name (`snmp_ifHCInOctets`). Labels are not prefixed. Two symbols in one module that would share a vital stem and the same indexes: first wins; later keep the native stem (converter warns).
 

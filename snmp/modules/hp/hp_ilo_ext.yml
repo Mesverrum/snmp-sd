@@ -1,0 +1,1666 @@
+# GENERATED from kentik/snmp-profiles — module hp_ilo_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hp_ilo_ext:
+    metrics:
+    - name: snmp_cpqDaCntlrStndIntr
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.4
+      type: gauge
+      help: cpqDaCntlrStndIntr (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.4
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: primary
+        3: secondary
+        4: disabled
+        5: unavailable
+    - name: snmp_cpqDaCntlrCondition
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.6
+      type: gauge
+      help: cpqDaCntlrCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.6
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaCntlrCurrentRole
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.9
+      type: gauge
+      help: cpqDaCntlrCurrentRole (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.9
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notDuplexed
+        3: active
+        4: backup
+        5: asymActiveActive
+    - name: snmp_cpqDaCntlrBoardStatus
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.10
+      type: gauge
+      help: cpqDaCntlrBoardStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.10
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: generalFailure
+        4: cableProblem
+        5: poweredOff
+        6: cacheModuleMissing
+    - name: snmp_cpqDaCntlrPartnerBoardStatus
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.11
+      type: gauge
+      help: cpqDaCntlrPartnerBoardStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.11
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: generalFailure
+        4: cableProblem
+        5: poweredOff
+    - name: snmp_cpqDaCntlrBoardCondition
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.12
+      type: gauge
+      help: cpqDaCntlrBoardCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.12
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaCntlrPartnerBoardCondition
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.13
+      type: gauge
+      help: cpqDaCntlrPartnerBoardCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.13
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaCntlrDriveOwnership
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.14
+      type: gauge
+      help: cpqDaCntlrDriveOwnership (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.14
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: owner
+        3: notOwner
+    - name: snmp_cpqDaCntlrRedundancyType
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.16
+      type: EnumAsInfo
+      help: cpqDaCntlrRedundancyType (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.16
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notRedundant
+        3: driverDuplexing
+        4: fwActiveStandby
+        5: fwPrimarySecondary
+        6: fwActiveActive
+    - name: snmp_cpqDaCntlrRedundancyError
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.17
+      type: gauge
+      help: cpqDaCntlrRedundancyError (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.17
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: noFailure
+        3: noRedundantController
+        4: differentHardware
+        5: noLink
+        6: differentFirmware
+        7: differentCache
+        8: otherCacheFailure
+        9: noDrives
+        10: otherNoDrives
+        11: unsupportedDrives
+        12: expandInProgress
+    - name: snmp_cpqDaCntlrAccessModuleStatus
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.18
+      type: gauge
+      help: cpqDaCntlrAccessModuleStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.18
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notSupported
+        3: notPresent
+        4: badSignature
+        5: badChecksum
+        6: fullyFunctional
+        7: upgradeFirmware
+    - name: snmp_cpqDaCntlrDaughterBoardType
+      oid: 1.3.6.1.4.1.232.3.2.2.1.1.19
+      type: EnumAsInfo
+      help: cpqDaCntlrDaughterBoardType (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.1.1.19
+      indexes:
+      - labelname: cpqDaCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrModel
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.2
+        type: EnumAsInfo
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrFWRev
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.3
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.15
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrHwLocation
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.20
+        type: DisplayString
+      - labels:
+        - cpqDaCntlrIndex
+        labelname: cpqDaCntlrOperatingMode
+        oid: 1.3.6.1.4.1.232.3.2.2.1.1.43
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notSupported
+        3: notPresent
+        4: scsiBoardPresent
+        5: fibreBoardPresent
+        6: arrayExpansionModulePresent
+    - name: snmp_cpqDaAccelStatus
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.2
+      type: gauge
+      help: cpqDaAccelStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.2
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: invalid
+        3: enabled
+        4: tmpDisabled
+        5: permDisabled
+        6: cacheModFlashMemNotAttached
+        7: cacheModDegradedFailsafeSpeed
+        8: cacheModCriticalFailure
+        9: cacheReadCacheNotMapped
+    - name: snmp_cpqDaAccelBadData
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.4
+      type: gauge
+      help: cpqDaAccelBadData (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.4
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: none
+        3: possible
+    - name: snmp_cpqDaAccelErrCode
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.5
+      type: gauge
+      help: cpqDaAccelErrCode (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.5
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: invalid
+        3: badConfig
+        4: lowBattery
+        5: disableCmd
+        6: noResources
+        7: notConnected
+        8: badMirrorData
+        9: readErr
+        10: writeErr
+        11: configCmd
+        12: expandInProgress
+        13: snapshotInProgress
+        14: redundantLowBattery
+        15: redundantSizeMismatch
+        16: redundantCacheFailure
+        17: excessiveEccErrors
+        18: adgEnablerMissing
+        19: postEccErrors
+        20: batteryHotRemoved
+        21: capacitorChargeLow
+        22: notEnoughBatteries
+        23: cacheModuleNotSupported
+        24: batteryNotSupported
+        25: noCapacitorAttached
+        26: capBasedBackupFailed
+        27: capBasedRestoreFailed
+        28: capBasedModuleHWFailure
+        29: capacitorFailedToCharge
+        30: capacitorBasedHWMemBeingErased
+        31: incompatibleCacheModule
+        32: fbcmChargerCircuitFailure
+    - name: snmp_cpqDaAccelBattery
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.6
+      type: gauge
+      help: cpqDaAccelBattery (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.6
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: recharging
+        4: failed
+        5: degraded
+        6: notPresent
+        7: capacitorFailed
+    - name: snmp_cpqDaAccelReadErrs
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.7
+      type: counter
+      help: cpqDaAccelReadErrs (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.7
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaAccelWriteErrs
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.8
+      type: counter
+      help: cpqDaAccelWriteErrs (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.8
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaAccelCondition
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.9
+      type: gauge
+      help: cpqDaAccelCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.9
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaAccelReadCachePercent
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.13
+      type: gauge
+      help: cpqDaAccelReadCachePercent (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.13
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaAccelWriteCachePercent
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.14
+      type: gauge
+      help: cpqDaAccelWriteCachePercent (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.14
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+    - name: snmp_cpqDaAccelBackupPowerSource
+      oid: 1.3.6.1.4.1.232.3.2.2.2.1.16
+      type: gauge
+      help: cpqDaAccelBackupPowerSource (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.2.2.1.16
+      indexes:
+      - labelname: cpqDaAccelCntlrIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelSerialNumber
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.11
+        type: DisplayString
+      - labels:
+        - cpqDaAccelCntlrIndex
+        labelname: cpqDaAccelTotalMemory
+        oid: 1.3.6.1.4.1.232.3.2.2.2.1.12
+        type: DisplayString
+      enum_values:
+        1: other
+        2: battery
+        3: capacitor
+    - name: snmp_cpqDaLogDrvFaultTol
+      oid: 1.3.6.1.4.1.232.3.2.3.1.1.3
+      type: gauge
+      help: cpqDaLogDrvFaultTol (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.3.1.1.3
+      indexes:
+      - labelname: cpqDaLogDrvCntlrIndex
+        type: gauge
+      - labelname: cpqDaLogDrvIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvIndex
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.2
+        type: gauge
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvHasAccel
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.7
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvCacheVolAccelAssocType
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.21
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSSDSmartPathStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.24
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.25
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: none
+        3: mirroring
+        4: dataGuard
+        5: distribDataGuard
+        7: advancedDataGuard
+        8: raid50
+        9: raid60
+        10: raid1Adm
+        11: raid10Adm
+    - name: snmp_cpqDaLogDrvStatus
+      oid: 1.3.6.1.4.1.232.3.2.3.1.1.4
+      type: gauge
+      help: cpqDaLogDrvStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.3.1.1.4
+      indexes:
+      - labelname: cpqDaLogDrvCntlrIndex
+        type: gauge
+      - labelname: cpqDaLogDrvIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvIndex
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.2
+        type: gauge
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvHasAccel
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.7
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvCacheVolAccelAssocType
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.21
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSSDSmartPathStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.24
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.25
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: failed
+        4: unconfigured
+        5: recovering
+        6: readyForRebuild
+        7: rebuilding
+        8: wrongDrive
+        9: badConnect
+        10: overheating
+        11: shutdown
+        12: expanding
+        13: notAvailable
+        14: queuedForExpansion
+        15: multipathAccessDegraded
+        16: erasing
+        17: predictiveSpareRebuildReady
+        18: rapidParityInitInProgress
+        19: rapidParityInitPending
+        20: noAccessEncryptedNoCntlrKey
+        21: unencryptedToEncryptedInProgress
+        22: newLogDrvKeyRekeyInProgress
+        23: noAccessEncryptedCntlrEncryptnNotEnbld
+        24: unencryptedToEncryptedNotStarted
+        25: newLogDrvKeyRekeyRequestReceived
+    - name: snmp_cpqDaLogDrvCondition
+      oid: 1.3.6.1.4.1.232.3.2.3.1.1.11
+      type: gauge
+      help: cpqDaLogDrvCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.3.1.1.11
+      indexes:
+      - labelname: cpqDaLogDrvCntlrIndex
+        type: gauge
+      - labelname: cpqDaLogDrvIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvIndex
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.2
+        type: gauge
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvHasAccel
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.7
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvCacheVolAccelAssocType
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.21
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSSDSmartPathStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.24
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.25
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaLogDrvMultipathAccess
+      oid: 1.3.6.1.4.1.232.3.2.3.1.1.18
+      type: gauge
+      help: cpqDaLogDrvMultipathAccess (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.3.1.1.18
+      indexes:
+      - labelname: cpqDaLogDrvCntlrIndex
+        type: gauge
+      - labelname: cpqDaLogDrvIndex
+        type: gauge
+      lookups:
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvIndex
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.2
+        type: gauge
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvHasAccel
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.7
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.9
+        type: DisplayString
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvCacheVolAccelAssocType
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.21
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvSSDSmartPathStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.24
+        type: EnumAsInfo
+      - labels:
+        - cpqDaLogDrvCntlrIndex
+        - cpqDaLogDrvIndex
+        labelname: cpqDaLogDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.3.1.1.25
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notSupported
+        3: notConfigured
+        4: pathRedundant
+        5: noRedundantPath
+    - name: snmp_cpqDaPhyDrvStatus
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.6
+      type: gauge
+      help: cpqDaPhyDrvStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: failed
+        4: predictiveFailure
+        5: erasing
+        6: eraseDone
+        7: eraseQueued
+        8: ssdWearOut
+        9: notAuthenticated
+    - name: snmp_cpqDaPhyDrvRefHours
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.9
+      type: counter
+      help: cpqDaPhyDrvRefHours (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.9
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+    - name: snmp_cpqDaPhyDrvCondition
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.37
+      type: gauge
+      help: cpqDaPhyDrvCondition (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.37
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+    - name: snmp_cpqDaPhyDrvSmartStatus
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.57
+      type: gauge
+      help: cpqDaPhyDrvSmartStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.57
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: replaceDrive
+        4: replaceDriveSSDWearOut
+    - name: snmp_cpqDaPhyDrvConfigurationStatus
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.58
+      type: gauge
+      help: cpqDaPhyDrvConfigurationStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.58
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: configured
+        3: notConfigured
+    - name: snmp_cpqDaPhyDrvMultipathAccess
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.68
+      type: gauge
+      help: cpqDaPhyDrvMultipathAccess (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.68
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notSupported
+        3: notConfigured
+        4: pathRedundant
+        5: noRedundantPath
+        6: driveFailed
+    - name: snmp_cpqDaPhyDrvSSDWearStatus
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.73
+      type: gauge
+      help: cpqDaPhyDrvSSDWearStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.73
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: ok
+        3: fiftySixDayThreshold
+        4: fivePercentThreshold
+        5: twoPercentThreshold
+        6: ssdWearOut
+    - name: snmp_cpqDaPhyDrvAuthenticationStatus
+      oid: 1.3.6.1.4.1.232.3.2.5.1.1.77
+      type: gauge
+      help: cpqDaPhyDrvAuthenticationStatus (CPQIDA-MIB) - 1.3.6.1.4.1.232.3.2.5.1.1.77
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvModel
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.3
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvFWRev
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.4
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvBay
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.5
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSize
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.45
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSerialNum
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.51
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvRotationalSpeed
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.59
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.60
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvSataVersion
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.61
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvHostConnector
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.62
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvLocationString
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.64
+        type: DisplayString
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvMediaType
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.69
+        type: EnumAsInfo
+      - labels:
+        - index
+        labelname: cpqDaPhyDrvEncryptionStatus
+        oid: 1.3.6.1.4.1.232.3.2.5.1.1.80
+        type: EnumAsInfo
+      enum_values:
+        1: other
+        2: notSupported
+        3: authenticationFailed
+        4: authenticationPassed
+    - name: snmp_cpqHeAsrStatus
+      oid: 1.3.6.1.4.1.232.6.2.5.1
+      type: gauge
+      help: cpqHeAsrStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.5.1.0
+      enum_values:
+        1: other
+        2: notAvailable
+        3: disabled
+        4: enabled
+      lookups: []
+    - name: snmp_cpqHeAsrCondition
+      oid: 1.3.6.1.4.1.232.6.2.5.17
+      type: gauge
+      help: cpqHeAsrCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.5.17.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeThermalCondition
+      oid: 1.3.6.1.4.1.232.6.2.6.1
+      type: gauge
+      help: cpqHeThermalCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.6.1.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeFltTolPwrSupplyCondition
+      oid: 1.3.6.1.4.1.232.6.2.9.1
+      type: gauge
+      help: cpqHeFltTolPwrSupplyCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.1.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+        4: failed
+      lookups: []
+    - name: snmp_cpqHeFltTolPwrSupplyStatus
+      oid: 1.3.6.1.4.1.232.6.2.9.2
+      type: gauge
+      help: cpqHeFltTolPwrSupplyStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.9.2.0
+      enum_values:
+        1: other
+        2: notSupported
+        3: notInstalled
+        4: installed
+      lookups: []
+    - name: snmp_cpqHeResilientMemTypeActive
+      oid: 1.3.6.1.4.1.232.6.2.14.1
+      type: EnumAsInfo
+      help: cpqHeResilientMemTypeActive (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.14.1.0
+      enum_values:
+        1: other
+        2: none
+        3: onLineSpare
+        4: mirrored
+        5: advancedEcc
+        6: mirroredSingleBoard
+        7: mirroredDualBoard
+        8: xor
+        9: lockStep
+        10: onLineSpareChannel
+        11: onLineSpareRank
+        12: mirroringIntrasocket
+        13: mirroringIntersocket
+      lookups: []
+    - name: snmp_cpqHeResilientMemStatus
+      oid: 1.3.6.1.4.1.232.6.2.14.3
+      type: gauge
+      help: cpqHeResilientMemStatus (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.14.3.0
+      enum_values:
+        1: other
+        2: notProtected
+        3: protected
+        4: degraded
+        5: dimmEcc
+        6: mirrorNoFaults
+        7: mirrorWithFaults
+        8: hotSpareNoFaults
+        9: hotSpareWithFaults
+        10: xorNoFaults
+        11: xorWithFaults
+        12: advancedEcc
+        13: advancedEccWithFaults
+        14: lockStep
+        15: lockStepWithFaults
+      lookups: []
+    - name: snmp_cpqHeResilientMemCondition
+      oid: 1.3.6.1.4.1.232.6.2.14.4
+      type: gauge
+      help: cpqHeResilientMemCondition (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.14.4.0
+      enum_values:
+        1: other
+        2: ok
+        3: degraded
+      lookups: []
+    - name: snmp_cpqHeResilientMemHotPlug
+      oid: 1.3.6.1.4.1.232.6.2.14.5
+      type: gauge
+      help: cpqHeResilientMemHotPlug (CPQHLTH-MIB) - 1.3.6.1.4.1.232.6.2.14.5.0
+      enum_values:
+        1: other
+        2: nonHotPluggable
+        3: hotPluggable
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.232.3.2.2.1
+    - 1.3.6.1.4.1.232.3.2.2.2
+    - 1.3.6.1.4.1.232.3.2.5
+    - 1.3.6.1.4.1.232.3.2.3.1
+    get:
+    - 1.3.6.1.4.1.232.6.2.5.1.0
+    - 1.3.6.1.4.1.232.6.2.5.17.0
+    - 1.3.6.1.4.1.232.6.2.6.1.0
+    - 1.3.6.1.4.1.232.6.2.9.1.0
+    - 1.3.6.1.4.1.232.6.2.9.2.0
+    - 1.3.6.1.4.1.232.6.2.14.1.0
+    - 1.3.6.1.4.1.232.6.2.14.3.0
+    - 1.3.6.1.4.1.232.6.2.14.4.0
+    - 1.3.6.1.4.1.232.6.2.14.5.0

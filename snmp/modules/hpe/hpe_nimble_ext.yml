@@ -1,0 +1,222 @@
+# GENERATED from kentik/snmp-profiles — module hpe_nimble_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  hpe_nimble_ext:
+    metrics:
+    - name: snmp_volOnline
+      oid: 1.3.6.1.4.1.37447.1.2.1.10
+      type: gauge
+      help: volOnline (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.10
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+      enum_values:
+        0: 'off'
+        1: 'on'
+    - name: snmp_volSizeLow
+      oid: 1.3.6.1.4.1.37447.1.2.1.4
+      type: gauge
+      help: volSizeLow (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.4
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volSizeHigh
+      oid: 1.3.6.1.4.1.37447.1.2.1.5
+      type: gauge
+      help: volSizeHigh (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.5
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volUsageLow
+      oid: 1.3.6.1.4.1.37447.1.2.1.6
+      type: gauge
+      help: volUsageLow (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.6
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volUsageHigh
+      oid: 1.3.6.1.4.1.37447.1.2.1.7
+      type: gauge
+      help: volUsageHigh (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.7
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volReserveLow
+      oid: 1.3.6.1.4.1.37447.1.2.1.8
+      type: gauge
+      help: volReserveLow (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.8
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volReserveHigh
+      oid: 1.3.6.1.4.1.37447.1.2.1.9
+      type: gauge
+      help: volReserveHigh (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.9
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volIoReads
+      oid: 1.3.6.1.4.1.37447.1.2.1.13
+      type: counter
+      help: volIoReads (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.13
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_volIoWrites
+      oid: 1.3.6.1.4.1.37447.1.2.1.34
+      type: counter
+      help: volIoWrites (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.2.1.34
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_ioReadBytes
+      oid: 1.3.6.1.4.1.37447.1.3.8
+      type: counter
+      help: ioReadBytes (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.8
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_ioWriteBytes
+      oid: 1.3.6.1.4.1.37447.1.3.10
+      type: counter
+      help: ioWriteBytes (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.10
+      indexes:
+      - labelname: volIndex
+        type: gauge
+      lookups:
+      - labels:
+        - volIndex
+        labelname: volName
+        oid: 1.3.6.1.4.1.37447.1.2.1.3
+        type: DisplayString
+    - name: snmp_ioReads
+      oid: 1.3.6.1.4.1.37447.1.3.2
+      type: counter
+      help: ioReads (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.2.0
+      lookups: []
+    - name: snmp_ioWrites
+      oid: 1.3.6.1.4.1.37447.1.3.4
+      type: counter
+      help: ioWrites (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.4.0
+      lookups: []
+    - name: snmp_ioReadTimeMicrosec
+      oid: 1.3.6.1.4.1.37447.1.3.6
+      type: counter
+      help: ioReadTimeMicrosec (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.6.0
+      lookups: []
+    - name: snmp_ioWriteTimeMicrosec
+      oid: 1.3.6.1.4.1.37447.1.3.7
+      type: counter
+      help: ioWriteTimeMicrosec (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.7.0
+      lookups: []
+    - name: snmp_ioSeqReadBytes
+      oid: 1.3.6.1.4.1.37447.1.3.9
+      type: counter
+      help: ioSeqReadBytes (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.9.0
+      lookups: []
+    - name: snmp_ioSeqWriteBytes
+      oid: 1.3.6.1.4.1.37447.1.3.11
+      type: counter
+      help: ioSeqWriteBytes (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.11.0
+      lookups: []
+    - name: snmp_diskVolBytesUsedLow
+      oid: 1.3.6.1.4.1.37447.1.3.12
+      type: gauge
+      help: diskVolBytesUsedLow (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.12.0
+      lookups: []
+    - name: snmp_diskVolBytesUsedHigh
+      oid: 1.3.6.1.4.1.37447.1.3.13
+      type: gauge
+      help: diskVolBytesUsedHigh (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.13.0
+      lookups: []
+    - name: snmp_diskSnapBytesUsedLow
+      oid: 1.3.6.1.4.1.37447.1.3.14
+      type: gauge
+      help: diskSnapBytesUsedLow (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.14.0
+      lookups: []
+    - name: snmp_diskSnapBytesUsedHigh
+      oid: 1.3.6.1.4.1.37447.1.3.15
+      type: gauge
+      help: diskSnapBytesUsedHigh (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.15.0
+      lookups: []
+    - name: snmp_ioNonseqReadHits
+      oid: 1.3.6.1.4.1.37447.1.3.16
+      type: counter
+      help: ioNonseqReadHits (NIMBLE-MIB) - 1.3.6.1.4.1.37447.1.3.16.0
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.37447.1.2
+    get:
+    - 1.3.6.1.4.1.37447.1.3.2.0
+    - 1.3.6.1.4.1.37447.1.3.4.0
+    - 1.3.6.1.4.1.37447.1.3.6.0
+    - 1.3.6.1.4.1.37447.1.3.7.0
+    - 1.3.6.1.4.1.37447.1.3.8.0
+    - 1.3.6.1.4.1.37447.1.3.9.0
+    - 1.3.6.1.4.1.37447.1.3.10.0
+    - 1.3.6.1.4.1.37447.1.3.11.0
+    - 1.3.6.1.4.1.37447.1.3.12.0
+    - 1.3.6.1.4.1.37447.1.3.13.0
+    - 1.3.6.1.4.1.37447.1.3.14.0
+    - 1.3.6.1.4.1.37447.1.3.15.0
+    - 1.3.6.1.4.1.37447.1.3.16.0

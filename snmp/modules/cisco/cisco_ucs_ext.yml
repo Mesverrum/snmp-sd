@@ -1,0 +1,3179 @@
+# GENERATED from kentik/snmp-profiles — module cisco_ucs_ext
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  cisco_ucs_ext:
+    metrics:
+    - name: snmp_cucsComputeBoardOperPower
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.7
+      type: gauge
+      help: cucsComputeBoardOperPower (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.7
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsComputeBoardOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.8
+      type: gauge
+      help: cucsComputeBoardOperState (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.8
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsComputeBoardOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.9
+      type: gauge
+      help: cucsComputeBoardOperability (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.9
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsComputeBoardPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.10
+      type: gauge
+      help: cucsComputeBoardPerf (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.10
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsComputeBoardPower
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.11
+      type: gauge
+      help: cucsComputeBoardPower (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.11
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsComputeBoardPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.12
+      type: gauge
+      help: cucsComputeBoardPresence (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.12
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsComputeBoardThermal
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.15
+      type: gauge
+      help: cucsComputeBoardThermal (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.15
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsComputeBoardVoltage
+      oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.17
+      type: gauge
+      help: cucsComputeBoardVoltage (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.6.1.17
+      indexes:
+      - labelname: cucsComputeBoardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.6
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.14
+        type: DisplayString
+      - labels:
+        - cucsComputeBoardInstanceId
+        labelname: cucsComputeBoardVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.6.1.16
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsComputeMbPowerStatsConsumedPower
+      oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.4
+      type: gauge
+      help: cucsComputeMbPowerStatsConsumedPower (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.14.1.4
+      indexes:
+      - labelname: cucsComputeMbPowerStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeMbPowerStatsInstanceId
+        labelname: cucsComputeMbPowerStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeMbPowerStatsInputCurrent
+      oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.8
+      type: gauge
+      help: cucsComputeMbPowerStatsInputCurrent (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.14.1.8
+      indexes:
+      - labelname: cucsComputeMbPowerStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeMbPowerStatsInstanceId
+        labelname: cucsComputeMbPowerStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeMbPowerStatsInputVoltage
+      oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.12
+      type: gauge
+      help: cucsComputeMbPowerStatsInputVoltage (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.14.1.12
+      indexes:
+      - labelname: cucsComputeMbPowerStatsInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeMbPowerStatsInstanceId
+        labelname: cucsComputeMbPowerStatsDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.14.1.2
+        type: DisplayString
+    - name: snmp_cucsComputeRackUnitAdminPower
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.4
+      type: gauge
+      help: cucsComputeRackUnitAdminPower (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.9.35.1.4
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        2: cycleImmediate
+        3: cycleWait
+        4: hardResetImmediate
+        5: hardResetWait
+        12: cmosResetImmediate
+        13: bmcResetImmediate
+        14: bmcResetWait
+        15: diagnosticInterrupt
+        16: kvmReset
+        30: policy
+        31: adminUp
+        32: adminDown
+        33: ipmiReset
+    - name: snmp_cucsComputeRackUnitAdminState
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.5
+      type: gauge
+      help: cucsComputeRackUnitAdminState (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.9.35.1.5
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        1: inService
+        2: outOfService
+        3: inMaintenance
+    - name: snmp_cucsComputeRackUnitAssociation
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.7
+      type: gauge
+      help: cucsComputeRackUnitAssociation (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.9.35.1.7
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: none
+        1: establishing
+        2: associated
+        3: removing
+        4: failed
+        5: throttled
+    - name: snmp_cucsComputeRackUnitAvailability
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.8
+      type: gauge
+      help: cucsComputeRackUnitAvailability (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.9.35.1.8
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: unavailable
+        1: available
+    - name: snmp_cucsComputeRackUnitCheckPoint
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.10
+      type: gauge
+      help: cucsComputeRackUnitCheckPoint (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.9.35.1.10
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: removing
+        2: shallowCheckpoint
+        3: deepCheckpoint
+        4: discovered
+    - name: snmp_cucsComputeRackUnitOperPower
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.40
+      type: gauge
+      help: cucsComputeRackUnitOperPower (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.35.1.40
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsComputeRackUnitOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.42
+      type: gauge
+      help: cucsComputeRackUnitOperState (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.35.1.42
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: indeterminate
+        1: unassociated
+        10: ok
+        11: discovery
+        12: config
+        13: unconfig
+        14: powerOff
+        15: restart
+        20: maintenance
+        21: test
+        29: computeMismatch
+        30: computeFailed
+        31: degraded
+        32: discoveryFailed
+        33: configFailure
+        34: unconfigFailed
+        35: testFailed
+        36: maintenanceFailed
+        40: removed
+        41: disabled
+        50: inaccessible
+        60: thermalProblem
+        61: powerProblem
+        62: voltageProblem
+        63: inoperable
+        101: decomissioning
+        201: biosRestore
+        202: cmosReset
+        203: diagnostics
+        204: diagnosticsFailed
+        210: pendingReboot
+        211: pendingReassociation
+        212: svnicNotPresent
+    - name: snmp_cucsComputeRackUnitOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.43
+      type: gauge
+      help: cucsComputeRackUnitOperability (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.9.35.1.43
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsComputeRackUnitPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.45
+      type: gauge
+      help: cucsComputeRackUnitPresence (CISCO-UNIFIED-COMPUTING-COMPUTE-MIB) - 1.3.6.1.4.1.9.9.719.1.9.35.1.45
+      indexes:
+      - labelname: cucsComputeRackUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.32
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitName
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.33
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCores
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.35
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfCpus
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.36
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitNumOfThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.39
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.47
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitUuid
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.50
+        type: DisplayString
+      - labels:
+        - cucsComputeRackUnitInstanceId
+        labelname: cucsComputeRackUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.9.35.1.51
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        101: equippedUnsupported
+        102: equippedDeprecated
+    - name: snmp_cucsEquipmentHealthLedColor
+      oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.4
+      type: gauge
+      help: cucsEquipmentHealthLedColor (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) -
+        1.3.6.1.4.1.9.9.719.1.15.114.1.4
+      indexes:
+      - labelname: cucsEquipmentHealthLedInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentHealthLedInstanceId
+        labelname: cucsEquipmentHealthLedDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.2
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: green
+        2: amber
+        3: red
+        4: blue
+    - name: snmp_cucsEquipmentHealthLedState
+      oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.5
+      type: gauge
+      help: cucsEquipmentHealthLedState (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB) -
+        1.3.6.1.4.1.9.9.719.1.15.114.1.5
+      indexes:
+      - labelname: cucsEquipmentHealthLedInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentHealthLedInstanceId
+        labelname: cucsEquipmentHealthLedDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.2
+        type: DisplayString
+      enum_values:
+        0: normal
+        1: minor
+        2: critical
+    - name: snmp_cucsEquipmentHealthLedOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.9
+      type: gauge
+      help: cucsEquipmentHealthLedOperState (CISCO-UNIFIED-COMPUTING-EQUIPMENT-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.15.114.1.9
+      indexes:
+      - labelname: cucsEquipmentHealthLedInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsEquipmentHealthLedInstanceId
+        labelname: cucsEquipmentHealthLedDn
+        oid: 1.3.6.1.4.1.9.9.719.1.15.114.1.2
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: blinking
+        4: eth
+        5: fc
+        6: unsupported
+    - name: snmp_cucsMemoryUnitCapacity
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.6
+      type: gauge
+      help: cucsMemoryUnitCapacity (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.6
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+    - name: snmp_cucsMemoryUnitOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.13
+      type: gauge
+      help: cucsMemoryUnitOperState (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.13
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsMemoryUnitOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.14
+      type: gauge
+      help: cucsMemoryUnitOperability (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.14
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsMemoryUnitPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.15
+      type: gauge
+      help: cucsMemoryUnitPerf (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.15
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsMemoryUnitPower
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.16
+      type: gauge
+      help: cucsMemoryUnitPower (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.16
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsMemoryUnitPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.17
+      type: gauge
+      help: cucsMemoryUnitPresence (CISCO-UNIFIED-COMPUTING-MEMORY-MIB) - 1.3.6.1.4.1.9.9.719.1.30.11.1.17
+      indexes:
+      - labelname: cucsMemoryUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.2
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitLocation
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.11
+        type: DisplayString
+      - labels:
+        - cucsMemoryUnitInstanceId
+        labelname: cucsMemoryUnitType
+        oid: 1.3.6.1.4.1.9.9.719.1.30.11.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsProcessorUnitOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.9
+      type: gauge
+      help: cucsProcessorUnitOperState (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB) - 1.3.6.1.4.1.9.9.719.1.41.9.1.9
+      indexes:
+      - labelname: cucsProcessorUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.2
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitArch
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.4
+        type: EnumAsInfo
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCores
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.5
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCoresEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.6
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.8
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.20
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsProcessorUnitOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.10
+      type: gauge
+      help: cucsProcessorUnitOperability (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB) -
+        1.3.6.1.4.1.9.9.719.1.41.9.1.10
+      indexes:
+      - labelname: cucsProcessorUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.2
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitArch
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.4
+        type: EnumAsInfo
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCores
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.5
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCoresEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.6
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.8
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.20
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsProcessorUnitPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.11
+      type: gauge
+      help: cucsProcessorUnitPerf (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB) - 1.3.6.1.4.1.9.9.719.1.41.9.1.11
+      indexes:
+      - labelname: cucsProcessorUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.2
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitArch
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.4
+        type: EnumAsInfo
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCores
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.5
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCoresEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.6
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.8
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.20
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsProcessorUnitPower
+      oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.12
+      type: gauge
+      help: cucsProcessorUnitPower (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB) - 1.3.6.1.4.1.9.9.719.1.41.9.1.12
+      indexes:
+      - labelname: cucsProcessorUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.2
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitArch
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.4
+        type: EnumAsInfo
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCores
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.5
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCoresEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.6
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.8
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.20
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsProcessorUnitPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.13
+      type: gauge
+      help: cucsProcessorUnitPresence (CISCO-UNIFIED-COMPUTING-PROCESSOR-MIB) - 1.3.6.1.4.1.9.9.719.1.41.9.1.13
+      indexes:
+      - labelname: cucsProcessorUnitInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitDn
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.2
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitArch
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.4
+        type: EnumAsInfo
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCores
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.5
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitCoresEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.6
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitModel
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.8
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitThreads
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.20
+        type: DisplayString
+      - labels:
+        - cucsProcessorUnitInstanceId
+        labelname: cucsProcessorUnitVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.41.9.1.21
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsStorageControllerOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.1.1.6
+      type: gauge
+      help: cucsStorageControllerOperState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.45.1.1.6
+      indexes:
+      - labelname: cucsStorageControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageControllerInstanceId
+        labelname: cucsStorageControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.1.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageControllerInstanceId
+        labelname: cucsStorageControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.1.1.5
+        type: DisplayString
+      - labels:
+        - cucsStorageControllerInstanceId
+        labelname: cucsStorageControllerPciSlot
+        oid: 1.3.6.1.4.1.9.9.719.1.45.1.1.9
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsStorageLocalDiskDiskState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.18
+      type: gauge
+      help: cucsStorageLocalDiskDiskState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.45.4.1.18
+      indexes:
+      - labelname: cucsStorageLocalDiskInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageLocalDiskInstanceId
+        labelname: cucsStorageLocalDiskDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalDiskInstanceId
+        labelname: cucsStorageLocalDiskModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalDiskInstanceId
+        labelname: cucsStorageLocalDiskSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.12
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalDiskInstanceId
+        labelname: cucsStorageLocalDiskSize
+        oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.13
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalDiskInstanceId
+        labelname: cucsStorageLocalDiskDeviceType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.4.1.17
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: online
+        2: unconfiguredGood
+        3: globalHotSpare
+        4: dedicatedHotSpare
+        5: jbod
+        6: offline
+        7: rebuilding
+        8: copyback
+        9: failed
+        10: unconfiguredBad
+        11: predictiveFailure
+        12: disabledForRemoval
+        13: foreignConfiguration
+        14: zeroing
+        15: good
+        16: bad
+        17: lockedForeignConfiguration
+    - name: snmp_cucsStorageLocalLunPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.45.8.1.10
+      type: gauge
+      help: cucsStorageLocalLunPresence (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) - 1.3.6.1.4.1.9.9.719.1.45.8.1.10
+      indexes:
+      - labelname: cucsStorageLocalLunInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageLocalLunInstanceId
+        labelname: cucsStorageLocalLunDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.8.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalLunInstanceId
+        labelname: cucsStorageLocalLunSize
+        oid: 1.3.6.1.4.1.9.9.719.1.45.8.1.13
+        type: DisplayString
+      - labels:
+        - cucsStorageLocalLunInstanceId
+        labelname: cucsStorageLocalLunType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.8.1.14
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsStorageFlexFlashCardCardHealth
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.5
+      type: gauge
+      help: cucsStorageFlexFlashCardCardHealth (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.5
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+      enum_values:
+        0: ffPhyHealthNa
+        1: ffPhyHealthOk
+        2: ffPhyUnhealthyRaid
+        3: ffPhyUnhealthyOther
+        4: ffPhyRaidSyncInProgress
+        5: ffPhyRaidOutOfSync
+    - name: snmp_cucsStorageFlexFlashCardOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.17
+      type: gauge
+      help: cucsStorageFlexFlashCardOperability (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.17
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsStorageFlexFlashCardPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.18
+      type: gauge
+      help: cucsStorageFlexFlashCardPresence (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.18
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsStorageFlexFlashCardReadIOErrorCount
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.19
+      type: gauge
+      help: cucsStorageFlexFlashCardReadIOErrorCount (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.19
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+    - name: snmp_cucsStorageFlexFlashCardSize
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.22
+      type: gauge
+      help: cucsStorageFlexFlashCardSize (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) - 1.3.6.1.4.1.9.9.719.1.45.34.1.22
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+    - name: snmp_cucsStorageFlexFlashCardWriteIOErrorCount
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.26
+      type: gauge
+      help: cucsStorageFlexFlashCardWriteIOErrorCount (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.26
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+    - name: snmp_cucsStorageFlexFlashCardCardState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.27
+      type: gauge
+      help: cucsStorageFlexFlashCardCardState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.27
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+      enum_values:
+        0: undefined
+        1: configured
+        2: initializing
+        3: active
+        4: ignored
+        5: failed
+        6: unknown
+    - name: snmp_cucsStorageFlexFlashCardCardSync
+      oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.28
+      type: gauge
+      help: cucsStorageFlexFlashCardCardSync (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.34.1.28
+      indexes:
+      - labelname: cucsStorageFlexFlashCardInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardMode
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.7
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardRevision
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.20
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardSerial
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.21
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashCardInstanceId
+        labelname: cucsStorageFlexFlashCardDrivesEnabled
+        oid: 1.3.6.1.4.1.9.9.719.1.45.34.1.29
+        type: DisplayString
+      enum_values:
+        0: na
+        1: manual
+        2: auto
+        3: unknown
+    - name: snmp_cucsStorageFlexFlashControllerControllerHealth
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.4
+      type: gauge
+      help: cucsStorageFlexFlashControllerControllerHealth (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.4
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: ffchOk
+        1: ffchMetadataFailure
+        2: ffchErrorCardsAccessError
+        3: ffchErrorOldFirmwareRunning
+        4: ffchErrorMediaWriteProtected
+        5: ffchErrorInvalidSize
+        6: ffchErrorCardSizeMismatch
+        7: ffchInconsistentMetadata
+        8: ffchErrorSecondaryUnhealthyCard
+        9: ffchErrorSdCardNotConfigured
+        10: ffchErrorInconsistantMetadataIgnored
+        11: ffchErrorSd253WithUnOrSd247
+        12: ffchErrorRebootedDuringRebuild
+        13: ffchErrorSd247CardDetected
+        14: ffchFlexdErrorSdCardOpModeMismatch
+        15: ffchFlexdErrorSdOpModeMismatchWithUn
+        16: ffchFlexdErrorImSdUnhealthySdUnIgnored
+        17: ffchFlexdErrorImSdHealthySdUnIgnored
+        18: ffchFlexdErrorImSdCardsOpModeMismatch
+        19: ffchFlexdErrorSdCard0UnhealthyOpModeMismatch
+        20: ffchFlexdErrorSdCard0HealthyOpModeMismatch
+        21: ffchFlexdErrorSdCard1UnhealthyOpModeMismatch
+        22: ffchFlexdErrorSdCard1HealthyOpModeMismatch
+        23: ffchFlexdErrorImSd0IgnoredSd1
+        24: ffchFlexdErrorImSd0Sd1Ignored
+    - name: snmp_cucsStorageFlexFlashControllerControllerState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.5
+      type: gauge
+      help: cucsStorageFlexFlashControllerControllerState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.5
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: ffcUninitalized
+        1: ffcSoftwareErr
+        2: ffcInit
+        3: ffcConfig
+        4: ffcWaitUser
+        5: ffcUsbDisconnecting
+        6: ffcUsbDisconnected
+        7: ffcUsbConnecting
+        8: ffcUsbConnected
+        9: ffcRebuilding
+        10: ffcFailed
+    - name: snmp_cucsStorageFlexFlashControllerOperState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.10
+      type: gauge
+      help: cucsStorageFlexFlashControllerOperState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.10
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsStorageFlexFlashControllerOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.11
+      type: gauge
+      help: cucsStorageFlexFlashControllerOperability (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.11
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsStorageFlexFlashControllerPerf
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.14
+      type: gauge
+      help: cucsStorageFlexFlashControllerPerf (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.14
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: ok
+        2: upperNonRecoverable
+        3: upperCritical
+        4: uppoerNonCritical
+        5: lowerNonCritical
+        6: lowerCritical
+        7: lowerNonRecoverable
+        100: notSupported
+    - name: snmp_cucsStorageFlexFlashControllerPower
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.16
+      type: gauge
+      help: cucsStorageFlexFlashControllerPower (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.16
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: 'on'
+        2: test
+        3: 'off'
+        4: online
+        5: offline
+        6: offduty
+        7: degraded
+        8: powerSave
+        9: error
+        10: ok
+        11: failed
+        100: notSupported
+    - name: snmp_cucsStorageFlexFlashControllerPresence
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.17
+      type: gauge
+      help: cucsStorageFlexFlashControllerPresence (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.17
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsStorageFlexFlashControllerHasError
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.43
+      type: gauge
+      help: cucsStorageFlexFlashControllerHasError (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.43
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: error
+        1: noError
+    - name: snmp_cucsStorageFlexFlashControllerIsFormatFSMRunning
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.45
+      type: gauge
+      help: cucsStorageFlexFlashControllerIsFormatFSMRunning (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.45
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: na
+        1: 'on'
+        2: 'off'
+    - name: snmp_cucsStorageFlexFlashControllerOperatingMode
+      oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.46
+      type: gauge
+      help: cucsStorageFlexFlashControllerOperatingMode (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.35.1.46
+      indexes:
+      - labelname: cucsStorageFlexFlashControllerInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerFlexFlashType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.6
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.8
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerPhysicalDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.15
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.24
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVendor
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.25
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashControllerInstanceId
+        labelname: cucsStorageFlexFlashControllerVirtualDriveCount
+        oid: 1.3.6.1.4.1.9.9.719.1.45.35.1.26
+        type: DisplayString
+      enum_values:
+        0: unknown
+        1: mirror
+        2: util
+    - name: snmp_cucsStorageFlexFlashDriveState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.7
+      type: gauge
+      help: cucsStorageFlexFlashDriveState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.45.36.1.7
+      indexes:
+      - labelname: cucsStorageFlexFlashDriveInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.5
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDriveType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.10
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveName
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.11
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveVisible
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.21
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRemovable
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.22
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRWType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: nonraid
+        1: raid
+    - name: snmp_cucsStorageFlexFlashDriveOperability
+      oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.14
+      type: gauge
+      help: cucsStorageFlexFlashDriveOperability (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.36.1.14
+      indexes:
+      - labelname: cucsStorageFlexFlashDriveInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.5
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDriveType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.10
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveName
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.11
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveVisible
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.21
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRemovable
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.22
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRWType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: operable
+        2: inoperable
+        3: degraded
+        4: poweredOff
+        5: powerProblem
+        6: removed
+        7: voltageProblem
+        8: thermalProblem
+        9: performanceProblem
+        10: accessibilityProblem
+        11: identityUnestablishable
+        12: biosPostTimeout
+        13: disabled
+        14: malformedFru
+        15: backplanePortProblem
+        16: chassisIntrusion
+        51: fabricConnProblem
+        52: fabricUnsupportedConn
+        81: config
+        82: equipmentProblem
+        83: decomissioning
+        84: chassisLimitExceeded
+        100: notSupported
+        101: discovery
+        102: discoveryFailed
+        103: identify
+        104: postFailure
+        105: upgradeProblem
+        106: peerCommProblem
+        107: autoUpgrade
+        108: linkActivateBlocked
+    - name: snmp_cucsStorageFlexFlashDrivePresence
+      oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.15
+      type: gauge
+      help: cucsStorageFlexFlashDrivePresence (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.36.1.15
+      indexes:
+      - labelname: cucsStorageFlexFlashDriveInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.5
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDriveType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.10
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveName
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.11
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveVisible
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.21
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRemovable
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.22
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRWType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: unknown
+        1: empty
+        10: equipped
+        11: missing
+        12: mismatch
+        13: equippedNotPrimary
+        14: equippedSlave
+        15: mismatchSlave
+        16: missingSlave
+        20: equippedIdentityUnestablishable
+        21: mismatchIdentityUnestablishable
+        22: equippedWithMalformedFru
+        30: inaccessible
+        40: unauthorized
+        100: notSupported
+        101: equippedUnsupported
+        102: equippedDiscNotStarted
+        103: equippedDiscInProgress
+        104: equippedDiscError
+        105: equippedDiscUnknown
+    - name: snmp_cucsStorageFlexFlashDriveSize
+      oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.18
+      type: gauge
+      help: cucsStorageFlexFlashDriveSize (CISCO-UNIFIED-COMPUTING-STORAGE-MIB) -
+        1.3.6.1.4.1.9.9.719.1.45.36.1.18
+      indexes:
+      - labelname: cucsStorageFlexFlashDriveInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.5
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDriveType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.10
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveName
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.11
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveVisible
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.21
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRemovable
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.22
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRWType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.23
+        type: EnumAsInfo
+    - name: snmp_cucsStorageFlexFlashDriveOperationState
+      oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.25
+      type: gauge
+      help: cucsStorageFlexFlashDriveOperationState (CISCO-UNIFIED-COMPUTING-STORAGE-MIB)
+        - 1.3.6.1.4.1.9.9.719.1.45.36.1.25
+      indexes:
+      - labelname: cucsStorageFlexFlashDriveInstanceId
+        type: gauge
+      lookups:
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDn
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.2
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveConnectionProtocol
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.5
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveDriveType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.8
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveModel
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.10
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveName
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.11
+        type: DisplayString
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveVisible
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.21
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRemovable
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.22
+        type: EnumAsInfo
+      - labels:
+        - cucsStorageFlexFlashDriveInstanceId
+        labelname: cucsStorageFlexFlashDriveRWType
+        oid: 1.3.6.1.4.1.9.9.719.1.45.36.1.23
+        type: EnumAsInfo
+      enum_values:
+        0: partitionNonMirrored
+        1: partitionMirrored
+        2: partitionMirroredSyncing
+        3: partitionMirroredErasing
+        4: partitionMirroredUpdating
+        5: partitionNonMirroredUpdating
+        6: partitionNonMirroredErasing
+        7: partitionMirroredSyncingFail
+        8: partitionMirroredErasingFail
+        9: partitionMirroredUpdatingFail
+        10: partitionNonMirroredUpdatingFail
+        11: partitionNonMirroredErasingFail
+        12: partitionMirroredSyncingSuccess
+        13: partitionMirroredErasingSuccess
+        14: partitionMirroredUpdatingSuccess
+        15: partitionNonMirroredUpdatingSuccess
+        16: partitionNonMirroredErasingSuccess
+        17: unknown
+    walk:
+    - 1.3.6.1.4.1.9.9.719.1.9.35
+    - 1.3.6.1.4.1.9.9.719.1.9.6
+    - 1.3.6.1.4.1.9.9.719.1.9.14
+    - 1.3.6.1.4.1.9.9.719.1.15.114
+    - 1.3.6.1.4.1.9.9.719.1.30.11
+    - 1.3.6.1.4.1.9.9.719.1.41.9
+    - 1.3.6.1.4.1.9.9.719.1.45.1
+    - 1.3.6.1.4.1.9.9.719.1.45.4
+    - 1.3.6.1.4.1.9.9.719.1.45.8
+    - 1.3.6.1.4.1.9.9.719.1.45.34
+    - 1.3.6.1.4.1.9.9.719.1.45.35
+    - 1.3.6.1.4.1.9.9.719.1.45.36

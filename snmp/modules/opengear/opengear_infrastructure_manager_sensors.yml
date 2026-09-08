@@ -1,0 +1,47 @@
+# GENERATED from kentik/snmp-profiles — module opengear_infrastructure_manager_sensors
+# Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
+modules:
+  opengear_infrastructure_manager_sensors:
+    metrics:
+    - name: snmp_ogRpcStatusMaxTemp
+      oid: 1.3.6.1.4.1.25049.16.3.1.3
+      type: gauge
+      help: ogRpcStatusMaxTemp (OG-STATUS-MIB) - 1.3.6.1.4.1.25049.16.3.1.3
+      indexes:
+      - labelname: ogRpcStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogRpcStatusIndex
+        labelname: ogRpcStatusName
+        oid: 1.3.6.1.4.1.25049.16.3.1.2
+        type: DisplayString
+    - name: snmp_ogEmdStatusTemp
+      oid: 1.3.6.1.4.1.25049.16.4.1.3
+      type: gauge
+      help: ogEmdStatusTemp (OG-STATUS-MIB) - 1.3.6.1.4.1.25049.16.4.1.3
+      indexes:
+      - labelname: ogEmdStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogEmdStatusIndex
+        labelname: ogEmdStatusName
+        oid: 1.3.6.1.4.1.25049.16.4.1.2
+        type: DisplayString
+    - name: snmp_ogEmdStatusHumidity
+      oid: 1.3.6.1.4.1.25049.16.4.1.4
+      type: gauge
+      help: ogEmdStatusHumidity (OG-STATUS-MIB) - 1.3.6.1.4.1.25049.16.4.1.4
+      indexes:
+      - labelname: ogEmdStatusIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ogEmdStatusIndex
+        labelname: ogEmdStatusName
+        oid: 1.3.6.1.4.1.25049.16.4.1.2
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.25049.16.3
+    - 1.3.6.1.4.1.25049.16.4
