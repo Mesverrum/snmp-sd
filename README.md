@@ -2,7 +2,7 @@
 
 Prometheus-shaped **SNMP service discovery** plus a curated [snmp_exporter](https://github.com/prometheus/snmp_exporter) module library.
 
-The exporter does not find devices. This repo does. Discovery emits targets with a named `auth` and a resolved `module` list. Secrets never appear on SD labels.
+The snmp_exporter does not find devices. This repo does. Discovery emits targets with a named `auth` and a resolved `module` list. Secrets never appear on SD labels.
 
 ```text
 CIDR / groups  →  snmp-discovery  →  /sd/prometheus
