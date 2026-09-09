@@ -137,7 +137,7 @@ On 2026-09-08 this CLI ran against a ContainerLab fabric on `172.20.20.0/24` (`e
 | leaf-br1 | 172.20.20.2 | `if_mib,nokia_srlinux` |
 | leaf-br2 | 172.20.20.7 | `if_mib,nokia_srlinux` |
 
-Cold on those boxes was `if_mib_meta,ip_addr,nokia_srlinux_sensors,nokia_srlinux_ext`. Topology (`nokia_srlinux_bgp`) stays off unless you pass `--tiers=all`. The same targets were then walked with stock `prom/snmp-exporter` and scraped by Prometheus; see [`examples/prometheus-snmp/`](examples/prometheus-snmp/).
+Cold on those boxes was `if_mib_meta,ip_addr,nokia_srlinux_sensors,nokia_srlinux_ext`. Topology (`nokia_srlinux_topo`) stays off unless you pass `--tiers=all`. The same targets were then walked with stock `prom/snmp-exporter` and scraped by Prometheus; see [`examples/prometheus-snmp/`](examples/prometheus-snmp/).
 
 ## A device the library does not cover, or OIDs you want to add
 
@@ -182,7 +182,9 @@ The `sysobjectid` comment at the top of `mymodule.yml` is a reminder of which mo
 
 ## What this is not
 
-It does not listen for SNMP traps. It does not walk a CIDR *inside* `snmp_exporter`. If SuperQ’s in-exporter fingerprinting ([#1468](https://github.com/prometheus/snmp_exporter/issues/1468)) ships, discovery can start emitting a `fingerprint=` hint instead of a resolved module list; until then we resolve modules here.
+It does not listen for SNMP traps. It does not walk a CIDR *inside* `snmp_exporter` — the exporter stays stock and walks the `module=` list we already resolved.
+
+Fingerprinting (`sysObjectID` → which modules) is this repo’s job. That is the gap [snmp_exporter#1468](https://github.com/prometheus/snmp_exporter/issues/1468) described; we do it at discovery time so Prometheus can keep a stock exporter.
 
 ## Other integrations
 

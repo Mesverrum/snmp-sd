@@ -404,14 +404,14 @@ tiers:
   - zebra_printer_ext
   - zscaler_nss_ext
   topology:
-  - arista_switch_bgp
+  - arista_switch_topo
   - barracuda_cloudgen_topo
   - bgp4_mib
-  - cisco_nexus_bgp
-  - dell_os10_bgp
+  - cisco_nexus_topo
+  - dell_os10_topo
   - huawei_all_devices_topo
-  - huawei_routers_bgp
+  - huawei_routers_topo
   - lldp_mib
-  - nokia_srlinux_bgp
+  - nokia_srlinux_topo
   - ospf_mib
-  - vmware_nsx_bgp
+  - vmware_nsx_topo

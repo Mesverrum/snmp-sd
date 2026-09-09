@@ -974,7 +974,7 @@ modules:
     - ospf_mib
     - bgp4_mib
     - lldp_mib
-    - arista_switch_bgp
+    - arista_switch_topo
   aruba_access_point:
     profile: aruba-access-point.yml
     vendor: aruba
@@ -4063,7 +4063,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
-    - cisco_nexus_bgp
+    - cisco_nexus_topo
   cisco_sb:
     profile: cisco-sb.yml
     vendor: cisco
@@ -4650,7 +4650,7 @@ modules:
     - dell_os10_sensors
     - dell_os10_ext
     module_chain_topology:
-    - dell_os10_bgp
+    - dell_os10_topo
   dell_powerconnect:
     profile: dell-powerconnect.yml
     vendor: dell
@@ -6074,7 +6074,7 @@ modules:
     - huawei_routers_ext
     module_chain_topology:
     - huawei_all_devices_topo
-    - huawei_routers_bgp
+    - huawei_routers_topo
   huawei_switches:
     profile: huawei-switches.yml
     vendor: huawei
@@ -7630,7 +7630,7 @@ modules:
     - nokia_srlinux_sensors
     - nokia_srlinux_ext
     module_chain_topology:
-    - nokia_srlinux_bgp
+    - nokia_srlinux_topo
   nutanix:
     profile: nutanix.yml
     vendor: nutanix
@@ -9224,7 +9224,7 @@ modules:
     - ip_addr
     - vmware_nsx_ext
     module_chain_topology:
-    - vmware_nsx_bgp
+    - vmware_nsx_topo
   mycloud_ex2:
     profile: mycloud-ex2.yml
     vendor: western_digital
@@ -9747,7 +9747,7 @@ modules:
     module_chain_cold:
     - apc_ups_sensors
     module_chain_topology: []
-  arista_switch_bgp:
+  arista_switch_topo:
     profile: arista-switch-bgp.yml
     vendor: arista
     sysobjectids: []
@@ -9756,11 +9756,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - arista_switch_bgp
+    - arista_switch_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - arista_switch_bgp
+    - arista_switch_topo
   arista_switch_ext:
     profile: arista-switch-ext.yml
     vendor: arista
@@ -10349,7 +10349,7 @@ modules:
     module_chain_cold:
     - cisco_load_balancer_ext
     module_chain_topology: []
-  cisco_nexus_bgp:
+  cisco_nexus_topo:
     profile: cisco-nexus-bgp.yml
     vendor: cisco
     sysobjectids: []
@@ -10358,11 +10358,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - cisco_nexus_bgp
+    - cisco_nexus_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - cisco_nexus_bgp
+    - cisco_nexus_topo
   cisco_ucs_ext:
     profile: cisco-ucs-ext.yml
     vendor: cisco
@@ -10573,7 +10573,7 @@ modules:
     module_chain_cold:
     - dell_idrac_sensors
     module_chain_topology: []
-  dell_os10_bgp:
+  dell_os10_topo:
     profile: dell-os10-bgp.yml
     vendor: dell
     sysobjectids: []
@@ -10582,11 +10582,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - dell_os10_bgp
+    - dell_os10_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - dell_os10_bgp
+    - dell_os10_topo
   dell_os10_ext:
     profile: dell-os10-ext.yml
     vendor: dell
@@ -11105,7 +11105,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - huawei_all_devices_topo
-  huawei_routers_bgp:
+  huawei_routers_topo:
     profile: huawei-routers-bgp.yml
     vendor: huawei
     sysobjectids: []
@@ -11114,11 +11114,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - huawei_routers_bgp
+    - huawei_routers_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - huawei_routers_bgp
+    - huawei_routers_topo
   huawei_routers_ext:
     profile: huawei-routers-ext.yml
     vendor: huawei
@@ -11721,7 +11721,7 @@ modules:
     module_chain_cold:
     - netoptics_switch_sensors
     module_chain_topology: []
-  nokia_srlinux_bgp:
+  nokia_srlinux_topo:
     profile: nokia-srlinux-bgp.yml
     vendor: nokia
     sysobjectids: []
@@ -11730,11 +11730,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - nokia_srlinux_bgp
+    - nokia_srlinux_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - nokia_srlinux_bgp
+    - nokia_srlinux_topo
   nokia_srlinux_sensors:
     profile: nokia-srlinux-sensors.yml
     vendor: nokia
@@ -12323,7 +12323,7 @@ modules:
     module_chain_cold:
     - esx_ext
     module_chain_topology: []
-  vmware_nsx_bgp:
+  vmware_nsx_topo:
     profile: vmware-nsx-bgp.yml
     vendor: vmware
     sysobjectids: []
@@ -12332,11 +12332,11 @@ modules:
     notes: vendor tier sidecar
     extends_modules: []
     module_chain:
-    - vmware_nsx_bgp
+    - vmware_nsx_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
-    - vmware_nsx_bgp
+    - vmware_nsx_topo
   vmware_nsx_ext:
     profile: vmware-nsx-ext.yml
     vendor: vmware

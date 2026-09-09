@@ -39,7 +39,7 @@ fingerprinters:
       - ospf_mib
       - bgp4_mib
       - lldp_mib
-      - arista_switch_bgp
+      - arista_switch_topo
       comment: arista_switch 1.3.6.1.4.1.30065.1.3011.7280.3735.2.3648.48.1654.6.972
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.30065\.1\.3011\.7050\.3741\.3\.48\.1654\.12\.761$
@@ -1528,7 +1528,7 @@ fingerprinters:
       - dell_os10_sensors
       - dell_os10_ext
       modules_topology: &id006
-      - dell_os10_bgp
+      - dell_os10_topo
       comment: dell_os10 1.3.6.1.4.1.674.11000.5000.100.2.1.20
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.674\.11000\.5000\.100\.2\.1\.21$
@@ -2706,7 +2706,7 @@ fingerprinters:
       - ip_addr
       - vmware_nsx_ext
       modules_topology: &id021
-      - vmware_nsx_bgp
+      - vmware_nsx_topo
       comment: vmware_nsx 1.3.6.1.4.1.6876.120.1.0.33.0
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.6876\.120\.1\.0\.15\.0$
@@ -3010,7 +3010,7 @@ fingerprinters:
       modules_topology: &id039
       - bgp4_mib
       - ospf_mib
-      - cisco_nexus_bgp
+      - cisco_nexus_topo
       comment: cisco_nexus 1.3.6.1.4.1.9.12.3.1.9.85.8
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.3375\.2\.1\.3\.4\.111$
@@ -9368,7 +9368,7 @@ fingerprinters:
       - huawei_routers_ext
       modules_topology: &id069
       - huawei_all_devices_topo
-      - huawei_routers_bgp
+      - huawei_routers_topo
       comment: huawei_routers 1.3.6.1.4.1.2011.2.360.1.9
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.25053\.3\.1\.5\.15$
@@ -12848,7 +12848,7 @@ fingerprinters:
       - nokia_srlinux_sensors
       - nokia_srlinux_ext
       modules_topology: &id204
-      - nokia_srlinux_bgp
+      - nokia_srlinux_topo
       comment: nokia_srlinux 1.3.6.1.4.1.6527.1.20.26
     - label: sysObjectID
       regex: ^\.?1\.3\.6\.1\.4\.1\.13742\.3\.2\.10$

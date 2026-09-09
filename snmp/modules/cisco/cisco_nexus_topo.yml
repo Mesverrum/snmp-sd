@@ -1,7 +1,7 @@
-# GENERATED from kentik/snmp-profiles — module cisco_nexus_bgp
+# GENERATED from kentik/snmp-profiles — module cisco_nexus_topo
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
-  cisco_nexus_bgp:
+  cisco_nexus_topo:
     metrics:
     - name: snmp_cbgpPeer3State
       oid: 1.3.6.1.4.1.9.9.187.1.2.9.1.5

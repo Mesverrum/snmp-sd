@@ -3,7 +3,7 @@
 
   nokia_srlinux          — identity + CPU/mem (hot)
   nokia_srlinux_sensors  — chassis / temp / fan / PSU (cold)
-  nokia_srlinux_bgp      — BGP neighbor tables (topology)
+  nokia_srlinux_topo     — neighbor tables (topology)
 
 Rewrites those module files, concatenates snmp-network.yml, and patches
 fingerprinters.yml / sysobjectid-index.yaml / module-tiers.yaml in place
@@ -48,7 +48,7 @@ NOKIA_FP_NEW = """      modules_hot: &id202
       - ip_addr
       - nokia_srlinux_sensors
       modules_topology: &id204
-      - nokia_srlinux_bgp"""
+      - nokia_srlinux_topo"""
 
 NOKIA_INDEX_OLD = """    module_chain_hot:
     - if_mib
@@ -67,7 +67,7 @@ NOKIA_INDEX_NEW = """    module_chain_hot:
     - ip_addr
     - nokia_srlinux_sensors
     module_chain_topology:
-    - nokia_srlinux_bgp"""
+    - nokia_srlinux_topo"""
 
 
 def load_modules(modules_dir: Path) -> dict:
@@ -83,7 +83,7 @@ def merge_nokia_family(modules: dict) -> dict:
     metrics: list = []
     walks: list = []
     gets: list = []
-    for name in ("nokia_srlinux", "nokia_srlinux_sensors", "nokia_srlinux_bgp"):
+    for name in ("nokia_srlinux", "nokia_srlinux_sensors", "nokia_srlinux_topo", "nokia_srlinux_bgp"):
         mod = modules.get(name) or {}
         metrics.extend(list(mod.get("metrics") or []))
         for w in mod.get("walk") or []:

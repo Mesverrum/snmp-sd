@@ -52,7 +52,7 @@ class VendorTierTests(unittest.TestCase):
         )
         self.assertIn("cisco_all_devices_sensors", parts)
         self.assertIn("cisco_all_devices_ext", parts)
-        self.assertIn("cisco_all_devices_bgp", parts)
+        self.assertIn("cisco_all_devices_topo", parts)
         self.assertEqual(
             [m["name"] for m in parts["cisco_all_devices_sensors"]["metrics"]],
             ["snmp_Temperature"],
@@ -70,13 +70,13 @@ class VendorTierTests(unittest.TestCase):
             "cisco_all_devices",
             "cisco_all_devices_sensors",
             "cisco_all_devices_ext",
-            "cisco_all_devices_bgp",
+            "cisco_all_devices_topo",
         }
         tiers = partition_module_chain(["if_mib", "cisco_all_devices"], known)
         self.assertEqual(tiers["hot"], ["if_mib", "cisco_all_devices"])
         self.assertIn("cisco_all_devices_sensors", tiers["cold"])
         self.assertIn("cisco_all_devices_ext", tiers["cold"])
-        self.assertEqual(tiers["topology"], ["cisco_all_devices_bgp"])
+        self.assertEqual(tiers["topology"], ["cisco_all_devices_topo"])
 
     def test_classify_vitals_only_leaf(self):
         self.assertEqual(

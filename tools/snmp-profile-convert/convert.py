@@ -95,6 +95,7 @@ HOT_SYSTEM_MODULES = frozenset({"device_base"})
 # Expanded at convert-time with vitals-only leaves (see hot_leaf_names).
 HOT_VENDOR_MODULES = frozenset({"nokia_srlinux"})
 VENDOR_COLD_SIDECARS = ("_sensors", "_ext")
+# ``_bgp`` is a leftover filename: merge/classify still accept it, convert only writes ``_topo``.
 VENDOR_TOPO_SIDECARS = ("_topo", "_bgp")
 VENDOR_SIDECAR_SUFFIXES = VENDOR_COLD_SIDECARS + VENDOR_TOPO_SIDECARS
 # Sensor / environment — cold even when the name mentions CPU (cpuTemp).
@@ -1546,7 +1547,7 @@ def classify_module(
 def apply_vendor_tier_splits(
     tiers: dict[str, list[str]], known: set[str] | None = None
 ) -> dict[str, list[str]]:
-    """Attach real sidecar files (``*_sensors`` / ``*_ext`` / ``*_topo`` / ``*_bgp``).
+    """Attach real sidecar files (``*_sensors`` / ``*_ext`` / ``*_topo``).
 
     Never invent names that are not in ``known``. The original module keeps
     identity + CPU/mem and is moved to hot when a sidecar exists.
@@ -1679,11 +1680,7 @@ def split_vendor_family(name: str, module: dict[str, Any]) -> dict[str, dict[str
             out[f"{name}_sensors"] = _module_part(sensor, walks, gets)
             out[f"{name}_ext"] = _module_part(ext, walks, gets)
     if topo:
-        if all(re.search(r"(?i)bgp", str(m.get("name") or "")) for m in topo):
-            topo_name = f"{name}_bgp"
-        else:
-            topo_name = f"{name}_topo"
-        out[topo_name] = _module_part(topo, walks, gets)
+        out[f"{name}_topo"] = _module_part(topo, walks, gets)
     return out or {name: module}
 
 
@@ -1938,7 +1935,7 @@ def build_fingerprinters(
     Example: nokia_srlinux extends system-mib + if-mib
       → hot: [if_mib, nokia_srlinux] (identity + CPU/mem)
       → cold: [if_mib_meta, ip_addr, nokia_srlinux_sensors]
-      → topology: [nokia_srlinux_bgp] (+ lldp_mib when present)
+      → topology: [nokia_srlinux_topo] (+ lldp_mib when present)
       Unknown sysObjectID: device_base + if_mib (hot), if_mib_meta + ip_addr (cold).
     """
     modules_meta = index.get("modules") or {}

@@ -273,7 +273,7 @@ class IpAddrModule(unittest.TestCase):
         )
         self.assertIn("nokia_srlinux", parts)
         self.assertIn("nokia_srlinux_sensors", parts)
-        self.assertIn("nokia_srlinux_bgp", parts)
+        self.assertIn("nokia_srlinux_topo", parts)
         self.assertEqual(
             [m["name"] for m in parts["nokia_srlinux"]["metrics"]], ["snmp_CPU"]
         )
@@ -282,7 +282,7 @@ class IpAddrModule(unittest.TestCase):
             ["snmp_Temperature"],
         )
         self.assertEqual(
-            [m["name"] for m in parts["nokia_srlinux_bgp"]["metrics"]],
+            [m["name"] for m in parts["nokia_srlinux_topo"]["metrics"]],
             ["snmp_tBgpPeerNgConnState"],
         )
         self.assertIn("1.3.6.1.4.1.6527.3.1.2.1.1.1.0", parts["nokia_srlinux"]["get"])
@@ -290,7 +290,7 @@ class IpAddrModule(unittest.TestCase):
             "1.3.6.1.4.1.6527.3.1.2.2.1.8", parts["nokia_srlinux_sensors"]["walk"]
         )
         self.assertIn(
-            "1.3.6.1.4.1.6527.3.1.2.14.4.7", parts["nokia_srlinux_bgp"]["walk"]
+            "1.3.6.1.4.1.6527.3.1.2.14.4.7", parts["nokia_srlinux_topo"]["walk"]
         )
 
     def test_partition_does_not_invent_missing_nokia_hot_sidecar(self):
@@ -307,14 +307,14 @@ class IpAddrModule(unittest.TestCase):
             "ip_addr",
             "nokia_srlinux",
             "nokia_srlinux_sensors",
-            "nokia_srlinux_bgp",
+            "nokia_srlinux_topo",
         }
         tiers = partition_module_chain(["if_mib", "nokia_srlinux"], known)
         self.assertEqual(tiers["hot"], ["if_mib", "nokia_srlinux"])
         self.assertIn("nokia_srlinux_sensors", tiers["cold"])
         self.assertIn("if_mib_meta", tiers["cold"])
         self.assertIn("ip_addr", tiers["cold"])
-        self.assertEqual(tiers["topology"], ["nokia_srlinux_bgp"])
+        self.assertEqual(tiers["topology"], ["nokia_srlinux_topo"])
         self.assertNotIn("nokia_srlinux_hot", tiers["hot"])
 
     def test_partition_drops_ip_addr_when_module_absent(self):

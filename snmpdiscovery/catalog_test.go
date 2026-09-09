@@ -37,7 +37,7 @@ func TestShippedCatalogNokiaClos(t *testing.T) {
 	tiers := fp.MatchTiers(map[string]string{"sysObjectID": "1.3.6.1.4.1.6527.1.20.26"})
 	wantHot := []string{"if_mib", "nokia_srlinux"}
 	wantCold := []string{"if_mib_meta", "ip_addr", "nokia_srlinux_sensors", "nokia_srlinux_ext"}
-	wantTopo := []string{"nokia_srlinux_bgp"}
+	wantTopo := []string{"nokia_srlinux_topo"}
 	if !reflect.DeepEqual(tiers.Hot, wantHot) {
 		t.Fatalf("hot: %v", tiers.Hot)
 	}
@@ -55,7 +55,7 @@ func TestShippedCatalogNokiaClos(t *testing.T) {
 		"snmp/modules/nokia/nokia_srlinux.yml",
 		"snmp/modules/nokia/nokia_srlinux_sensors.yml",
 		"snmp/modules/nokia/nokia_srlinux_ext.yml",
-		"snmp/modules/nokia/nokia_srlinux_bgp.yml",
+		"snmp/modules/nokia/nokia_srlinux_topo.yml",
 	} {
 		_ = repoPath(t, rel)
 	}

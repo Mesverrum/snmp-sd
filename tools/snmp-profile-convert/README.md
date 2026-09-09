@@ -36,9 +36,9 @@ Every vendor pack is split the same way (no invented `{name}_hot`):
 | `{name}` | hot | `snmp_device_info`, `snmp_Uptime`, CPU / CPULoad, RAM (plus `hrStorage` when RAM/disk share a table), core-service counts |
 | `{name}_sensors` | cold | chassis / temp / fans / PSU when that is the leftover |
 | `{name}_ext` | cold | leftover wide tables (per-tunnel / per-policy / NAT), separable disk MIBs, vendor IF extras |
-| `{name}_bgp` / `{name}_topo` | topology | BGP-only leftover uses `_bgp`; mixed LLDP/CDP/OSPF/ISIS uses `_topo` |
+| `{name}_topo` | topology | neighbor leftovers (BGP, LLDP/CDP, OSPF/ISIS) |
 
-Nokia is `nokia_srlinux` / `_sensors` / `_ext` / `_bgp`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
+Nokia is `nokia_srlinux` / `_sensors` / `_ext` / `_topo`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
 
 **Metric names:** every series is `snmp_<stem>`. Profile `tag` values (`CPU`, `MemoryUsed`, `MemoryFree`, `MemoryTotal`, `Temperature`) become the stem (`snmp_CPU`); other objects keep the MIB name (`snmp_ifHCInOctets`). Labels are not prefixed. Two symbols in one module that would share a vital stem and the same indexes: first wins; later keep the native stem (converter warns).
 
