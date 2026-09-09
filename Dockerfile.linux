@@ -1,3 +1,6 @@
+# Scratch wrapper for a host-built linux/amd64 binary. No module library.
+# Prefer `Dockerfile` (Go build + shipped snmp/) unless you already have
+# snmp-discovery-linux next to this file.
 FROM scratch
 COPY snmp-discovery-linux /snmp-discovery
 ENTRYPOINT ["/snmp-discovery"]

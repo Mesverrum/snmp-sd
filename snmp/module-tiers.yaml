@@ -1,5 +1,5 @@
 # GENERATED module → scrape tier (hot | cold | topology).
-description: "Scrape tiers for Alloy staggered polling. hot\u224860s octets/oper/CPU/mem;\
+description: "Scrape tiers for staggered Prometheus jobs. hot\u224860s octets/oper/CPU/mem;\
   \ cold\u2248if_mib_meta + sensors + leftover walks; topology=optional LLDP/CDP/BGP/OSPF/ISIS."
 tiers:
   hot:

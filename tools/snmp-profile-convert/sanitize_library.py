@@ -33,10 +33,11 @@ def main() -> int:
             print(f"wrote {vendor}/{name}")
     concat_snmp_network(auths, modules, CONCAT)
     print(f"concat {CONCAT} modules={len(modules)}")
+    # Optional sibling lab overlay (not part of the public product path).
     if (LAB / "fixtures" / "alloy-snmp").is_dir():
         shutil.copy2(CONCAT, LAB / "fixtures" / "alloy-snmp" / "snmp-network.yml")
         shutil.copy2(CONCAT, LAB / "alloy" / "snmp-network.yml")
-        print("copied concat to lab fixtures + local/alloy")
+        print("copied concat to sibling lab overlay")
     return 0
 
 

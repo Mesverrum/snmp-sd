@@ -48,6 +48,36 @@ func TestFileSDUsesParamLabelsNotCommunity(t *testing.T) {
 	}
 }
 
+func TestFileSDProjectedTiers(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "sd.json")
+	cat := []AlloyTarget{{
+		Name:       "spine1",
+		Address:    "172.20.20.2",
+		Module:     "if_mib,nokia_srlinux",
+		ModuleCold: "if_mib_meta",
+		Auth:       "public_v2",
+		DeviceName: "spine1",
+	}}
+	if err := writeFileSD(path, TargetsForTiers(cat, []string{"hot", "cold"})); err != nil {
+		t.Fatal(err)
+	}
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var groups []FileSDGroup
+	if err := json.Unmarshal(raw, &groups); err != nil {
+		t.Fatal(err)
+	}
+	if len(groups) != 2 {
+		t.Fatalf("groups=%d %s", len(groups), raw)
+	}
+	if groups[0].Labels["snmp_tier"] != "hot" || groups[1].Labels["snmp_tier"] != "cold" {
+		t.Fatalf("labels=%v %v", groups[0].Labels, groups[1].Labels)
+	}
+}
+
 func TestAlloyYAMLHasNamedAuthNoCommunity(t *testing.T) {
 	dir := t.TempDir()
 	path := filepath.Join(dir, "targets.yml")

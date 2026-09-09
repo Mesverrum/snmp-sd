@@ -1,22 +1,15 @@
 # SNMP credential overlay — copy this shape; do not commit real secrets.
 #
-# Library modules stay in /etc/alloy/snmp-network.yml (image). This file is
-# auths: only. discovery.snmp and prometheus.exporter.snmp both read it.
+# Named auths only. Discovery lists the names. snmp_exporter loads the
+# secrets. SD never emits community / v3 passwords.
 #
 # How to load (pick one):
-#   1) File (preferred with many named blocks):
-#        auths_file = "/etc/alloy/auths.yml"
-#      Kubernetes: mount a Secret. systemd: bind-mount the file mode 0600.
-#   2) One env blob (same YAML, comments optional):
-#        SNMP_AUTHS=<this document>
-#        auths = env("SNMP_AUTHS")
-#      Empty SNMP_AUTHS falls back to auths already in the image library.
-#
-# Fleet River names blocks only: group { auths = ["hq_v2"] }.
-# Do not paste communities into the Fleet GUI.
+#   1) Overlay into the concat snmp.yml the exporter already uses
+#      (auths: + modules:). Keep the file mode 0600.
+#   2) Separate auths.yml merged at deploy time into --config.file.
 #
 # Adding a site: duplicate a named block below, then add a discovery group
-# that lists that name. Do not invent one env var per community in River.
+# that lists that name.
 
 auths:
   # SNMPv2c — common LAN / lab

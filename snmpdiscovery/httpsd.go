@@ -174,7 +174,7 @@ func applyShardQuery(r *http.Request, targets []AlloyTarget) ([]AlloyTarget, err
 	return filterShard(targets, shard, shards), nil
 }
 
-func httpSDHandler(c *Catalog, prometheusParams bool) http.HandlerFunc {
+func httpSDHandler(c *Catalog, prometheusParams bool, tiers []string) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method != http.MethodGet && r.Method != http.MethodHead {
 			http.Error(w, "method not allowed", http.StatusMethodNotAllowed)
@@ -185,6 +185,9 @@ func httpSDHandler(c *Catalog, prometheusParams bool) http.HandlerFunc {
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusBadRequest)
 			return
+		}
+		if prometheusParams {
+			targets = TargetsForTiers(targets, tiers)
 		}
 		body, err := json.MarshalIndent(httpSDGroups(targets, prometheusParams), "", "  ")
 		if err != nil {
@@ -247,11 +250,19 @@ func healthzHandler(c *Catalog) http.HandlerFunc {
 }
 
 func NewDiscoveryMux(c *Catalog) *http.ServeMux {
+	return NewDiscoveryMuxTiers(c, nil)
+}
+
+// NewDiscoveryMuxTiers is the HTTP SD mux. /sd is one row per device
+// (name/module/auth/address). /sd/prometheus expands EnabledTiers so
+// Prometheus + snmp_exporter can scrape hot and cold as separate targets.
+func NewDiscoveryMuxTiers(c *Catalog, tiers []string) *http.ServeMux {
+	if len(tiers) == 0 {
+		tiers = append([]string{}, AllTiers...)
+	}
 	mux := http.NewServeMux()
-	// Alloy discovery.http + prometheus.exporter.snmp: labels name/module/auth.
-	mux.HandleFunc("/sd", httpSDHandler(c, false))
-	// Classic Prometheus → snmp_exporter: __param_module / __param_auth.
-	mux.HandleFunc("/sd/prometheus", httpSDHandler(c, true))
+	mux.HandleFunc("/sd", httpSDHandler(c, false, nil))
+	mux.HandleFunc("/sd/prometheus", httpSDHandler(c, true, tiers))
 	mux.HandleFunc("/alloy", alloyYAMLHandler(c))
 	mux.HandleFunc("/healthz", healthzHandler(c))
 	return mux

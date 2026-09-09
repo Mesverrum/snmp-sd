@@ -1,0 +1,76 @@
+# Prometheus + stock snmp_exporter + snmp-sd.
+#
+# Must share L2/L3 with the devices (ContainerLab bridge `clab`).
+#
+#   export SNMP_SD_IMAGE=snmp-sd:lab
+#   docker compose -f examples/prometheus-snmp/compose.yaml up -d
+#   bash examples/prometheus-snmp/check.sh
+
+name: snmp-sd-prom
+
+networks:
+  clab:
+    external: true
+    name: clab
+
+volumes:
+  snmp_library:
+
+services:
+  library:
+    image: ${SNMP_SD_IMAGE:-snmp-sd:lab}
+    user: "0:0"
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["cp /opt/snmp-sd/snmp/snmp-network.yml /library/snmp.yml && chmod 644 /library/snmp.yml"]
+    volumes:
+      - snmp_library:/library
+    networks: [clab]
+
+  snmp-discovery:
+    image: ${SNMP_SD_IMAGE:-snmp-sd:lab}
+    user: "0:0"
+    cap_add: [NET_RAW]
+    command:
+      - --config=/opt/snmp-sd/examples/colocated-clos.yml
+      - --snmp-config=/opt/snmp-sd/snmp/snmp-network.yml
+      - --fingerprinters=/opt/snmp-sd/snmp/fingerprinters.yml
+      - --out-file-sd=/tmp/snmp-file-sd.json
+      - --listen=:9780
+      - --interval=1h
+      - --tiers=hot,cold
+      - --ping=true
+      - --timeout=2s
+      - --retries=1
+      - --concurrency=16
+    ports:
+      - "19780:9780"
+    networks: [clab]
+
+  snmp-exporter:
+    image: ${SNMP_EXPORTER_IMAGE:-prom/snmp-exporter:v0.29.0}
+    depends_on:
+      library:
+        condition: service_completed_successfully
+    command:
+      - --config.file=/library/snmp.yml
+      - --snmp.module-concurrency=2
+    volumes:
+      - snmp_library:/library:ro
+    ports:
+      - "19116:9116"
+    networks: [clab]
+
+  prometheus:
+    image: ${PROMETHEUS_IMAGE:-prom/prometheus:v2.55.1}
+    depends_on:
+      - snmp-discovery
+      - snmp-exporter
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "19090:9090"
+    networks: [clab]

@@ -8,7 +8,7 @@ modules:
       type: DisplayString
       help: "Device identity (info metric, value 1). sysName is the DisplayString;\
         \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
-        \ snmp_exporter skips lookups with empty labels. Alloy copies snmp_device_info\
+        \ snmp_exporter skips lookups with empty labels. Relabel snmp_device_info\
         \ \u2192 sysName and drops snmp_scalar_index."
       indexes:
       - labelname: snmp_scalar_index

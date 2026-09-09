@@ -91,11 +91,43 @@ func TestHTTPPrometheusSDParams(t *testing.T) {
 	if l["__param_module"] != "system_mib,if_mib,nokia_srlinux" || l["__param_auth"] != "public_v2" {
 		t.Fatalf("labels=%v", l)
 	}
+	if l["snmp_tier"] != "hot" {
+		t.Fatalf("prometheus SD should project tiers: %v", l)
+	}
 	if _, ok := l["module"]; ok {
 		t.Fatal("classic /sd/prometheus should use __param_module only")
 	}
 	if _, ok := l["name"]; ok {
 		t.Fatal("name is Alloy-only")
+	}
+}
+
+func TestHTTPPrometheusSDExpandsCold(t *testing.T) {
+	c := NewCatalog()
+	c.Replace([]AlloyTarget{{
+		Name:       "spine1",
+		Address:    "172.20.20.2",
+		Module:     "if_mib,nokia_srlinux",
+		ModuleCold: "if_mib_meta,ip_addr,nokia_srlinux_sensors",
+		Auth:       "public_v2",
+		DeviceName: "spine1",
+	}})
+	mux := NewDiscoveryMuxTiers(c, []string{"hot", "cold"})
+	rr := httptest.NewRecorder()
+	mux.ServeHTTP(rr, httptest.NewRequest(http.MethodGet, "/sd/prometheus", nil))
+	var groups []FileSDGroup
+	if err := json.Unmarshal(rr.Body.Bytes(), &groups); err != nil {
+		t.Fatal(err)
+	}
+	if len(groups) != 2 {
+		t.Fatalf("groups=%d body=%s", len(groups), rr.Body.String())
+	}
+	mods := map[string]string{}
+	for _, g := range groups {
+		mods[g.Labels["snmp_tier"]] = g.Labels["__param_module"]
+	}
+	if mods["hot"] != "if_mib,nokia_srlinux" || !strings.Contains(mods["cold"], "if_mib_meta") {
+		t.Fatalf("mods=%v", mods)
 	}
 }
 

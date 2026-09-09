@@ -1,0 +1,42 @@
+# Stock Prometheus scrape of snmp_exporter, targets from snmp-sd HTTP SD.
+# __param_module / __param_auth come from /sd/prometheus (never a community).
+
+global:
+  scrape_interval: 30s
+
+scrape_configs:
+  - job_name: snmp-hot
+    scrape_interval: 60s
+    scrape_timeout: 50s
+    metrics_path: /snmp
+    http_sd_configs:
+      - url: http://snmp-discovery:9780/sd/prometheus
+        refresh_interval: 30s
+    relabel_configs:
+      - source_labels: [snmp_tier]
+        regex: hot
+        action: keep
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [device_name]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116
+
+  - job_name: snmp-cold
+    scrape_interval: 2m
+    scrape_timeout: 90s
+    metrics_path: /snmp
+    http_sd_configs:
+      - url: http://snmp-discovery:9780/sd/prometheus
+        refresh_interval: 30s
+    relabel_configs:
+      - source_labels: [snmp_tier]
+        regex: cold
+        action: keep
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [device_name]
+        target_label: instance
+      - target_label: __address__
+        replacement: snmp-exporter:9116

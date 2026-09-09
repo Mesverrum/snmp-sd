@@ -1,6 +1,6 @@
 # snmp-profile-convert
 
-**One-shot ingest.** [kentik/snmp-profiles](https://github.com/kentik/snmp-profiles) is an OID cookbook (numeric OIDs, no MIB compiler). Convert writes `snmp/modules/` — that tree **is** this repo’s library (Alloy and snmp_exporter consume it). Edit modules in place after ingest. Re-run convert only when adding a vendor pack. There is no ktranslate name-parity contract.
+**One-shot ingest.** [kentik/snmp-profiles](https://github.com/kentik/snmp-profiles) is an OID cookbook (numeric OIDs, no MIB compiler). Convert writes `snmp/modules/` — that tree **is** this repo’s library. Edit modules in place after ingest. Re-run convert only when adding a vendor pack.
 
 ## Output layout
 
@@ -8,7 +8,7 @@
 snmp/
   auths.yml                      # named communities / v3 (secrets)
   modules/<vendor>/<module>.yml  # one module per file — the edit surface
-  snmp-network.yml               # concat for a single snmp_exporter config_file
+  snmp-network.yml               # concat for a single snmp_exporter --config.file
   fingerprinters.yml
   sysobjectid-index.yaml
 ```
@@ -27,7 +27,7 @@ Skips `_template/` and trap/syslog-named files. Converts `_general/` bases (`if_
 
 Parents that both fingerprint (`sysobjectid`) **and** have children (`huawei_all_devices`, `juniper_all_devices`) keep tables only; identity lives on a `{name}_identity` sidecar so a child scrape is not two `snmp_device_info` families. Device-level scalar lookups nested on table metrics are stripped (FRU serials on a chassis INDEX stay).
 
-Alloy / exporter: `config_file` = this concat + `config_merge_strategy = "replace"` (this library replaces stock embedded snmp.yml). `snmp-discovery --snmp-config` and `--fingerprinters` must be this same convert.
+snmp_exporter `--config.file` is this concat. `snmp-discovery --snmp-config` and `--fingerprinters` must be the same convert.
 
 Every vendor pack is split the same way (no invented `{name}_hot`):
 
@@ -35,10 +35,10 @@ Every vendor pack is split the same way (no invented `{name}_hot`):
 |---|---|---|
 | `{name}` | hot | `snmp_device_info`, `snmp_Uptime`, CPU / CPULoad, RAM (plus `hrStorage` when RAM/disk share a table), core-service counts |
 | `{name}_sensors` | cold | chassis / temp / fans / PSU when that is the leftover |
-| `{name}_ext` | cold | everything else (sessions, disk, vendor IF extras, …) |
+| `{name}_ext` | cold | leftover wide tables (per-tunnel / per-policy / NAT), separable disk MIBs, vendor IF extras |
 | `{name}_bgp` / `{name}_topo` | topology | BGP-only leftover uses `_bgp`; mixed LLDP/CDP/OSPF/ISIS uses `_topo` |
 
-Nokia keeps `nokia_srlinux` / `_sensors` / `_bgp`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
+Nokia is `nokia_srlinux` / `_sensors` / `_ext` / `_bgp`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
 
 **Metric names:** every series is `snmp_<stem>`. Profile `tag` values (`CPU`, `MemoryUsed`, `MemoryFree`, `MemoryTotal`, `Temperature`) become the stem (`snmp_CPU`); other objects keep the MIB name (`snmp_ifHCInOctets`). Labels are not prefixed. Two symbols in one module that would share a vital stem and the same indexes: first wins; later keep the native stem (converter warns).
 
@@ -57,16 +57,15 @@ Nokia keeps `nokia_srlinux` / `_sensors` / `_bgp`. Re-split the library without 
 1. **Entry `.1`** — kentik symbols are `table.1.column`; keep the full column OID.
 2. **Full INDEX** — every MIB INDEX component must appear (from `snmp/table-indexes.yaml`, then builtin, then live-walk `INDEX_OVERRIDES`). Incomplete indexes → duplicate label scrape errors in snmp_exporter.
 3. **Live-check arity** — `snmpwalk -On` the column; the suffix after the column OID must match the index list length (or a known packed single sub-id).
-4. Alloy loads this library with `config_merge_strategy = "replace"` (not stock merge).
-5. **Admin-down interfaces** — modules that export `ifAdminStatus` (`if_mib`, `if32_mib`) get snmp_exporter `filters:` as a **list** (`values: ["1"]`) **and** `walk` rewritten from the parent ifTable OID to per-column metric **and lookup** OIDs (a parent-table walk bypasses filters; lookup OIDs omitted from `walk` means ifName never lands on hot counters). Generator YAML uses `filters.dynamic`; runtime/Alloy expects the flat list. Do **not** try to drop admin-down in Alloy `prometheus.relabel` from the gauge *value*.
-6. **ifHighSpeed** — kentik ships this as metric_tag `if_Speed` (a label). Convert promotes it to hot gauge `snmp_ifHighSpeed` (Mbps) so utilization can divide by a number. `ifAlias` stays a DisplayString lookup (the `as$` gauge hint would otherwise match Alias).
-7. **Counters** — prefer OBJECT-TYPE SYNTAX from `snmp/oid-syntax.yaml` (public OID lookup, not a shipped MIB tree). Counter32/64 → `type: counter`; Gauge32 / Integer / TimeTicks → `gauge`. A Counter64 PDU typed as `gauge` is dropped (`snmp_unexpected_pdu_type_total`) and `ifHCInOctets` never appears. Then honor kentik `format:`; then name hints (`octets|pkts|errors|…`). CPU / memory / temperature stay gauges.
-8. **IP / MAC inventory** — `ifPhysAddress` is a cold `if_MAC` lookup on `if_mib_meta` (1:1 with ifIndex). snmp_exporter type must be **`PhysAddress48`** (MIB name `PhysAddress` panics the collector). Address tables are **not** kentik `ip-mib.yml` (that's ipSystemStats). Authored cold module `ip_addr` scrapes `ipAddrTable` / `ipAddressTable` with **`ifIndex` as a label** so dashboards can join `on(device_name, ifIndex)`. snmp_exporter lookups are 1:1 on the metric INDEX, so IPs cannot be labels on `ifHCInOctets`. Do not `*` the raw `snmp_ipAdEntIfIndex` gauge (value is ifIndex — it would scale octets); use `count by (device_name, ifIndex, ipAdEntAddr) (snmp_ipAdEntIfIndex)`.
-9. **One catalog** — never invent sidecars (`nokia_srlinux_hot`, `*_identity`) unless that file exists under `snmp/modules/`. Fingerprinter `module=` names must be keys in `snmp-network.yml`. Discovery drops unknowns with a WARN; mixing convert generations is not a failed scan, but the walker will not load a missing module.
+4. **Admin-down interfaces** — modules that export `ifAdminStatus` (`if_mib`, `if32_mib`) get snmp_exporter `filters:` as a **list** (`values: ["1"]`) **and** `walk` rewritten from the parent ifTable OID to per-column metric **and lookup** OIDs (a parent-table walk bypasses filters; lookup OIDs omitted from `walk` means ifName never lands on hot counters). Generator YAML uses `filters.dynamic`; the runtime exporter expects the flat list. Do **not** try to drop admin-down in Prom relabel from the gauge *value*.
+5. **ifHighSpeed** — kentik ships this as metric_tag `if_Speed` (a label). Convert promotes it to hot gauge `snmp_ifHighSpeed` (Mbps) so utilization can divide by a number. `ifAlias` stays a DisplayString lookup (the `as$` gauge hint would otherwise match Alias).
+6. **Counters** — prefer OBJECT-TYPE SYNTAX from `snmp/oid-syntax.yaml` (public OID lookup, not a shipped MIB tree). Counter32/64 → `type: counter`; Gauge32 / Integer / TimeTicks → `gauge`. A Counter64 PDU typed as `gauge` is dropped (`snmp_unexpected_pdu_type_total`) and `ifHCInOctets` never appears. Then honor kentik `format:`; then name hints (`octets|pkts|errors|…`). CPU / memory / temperature stay gauges.
+7. **IP / MAC inventory** — `ifPhysAddress` is a cold `if_MAC` lookup on `if_mib_meta` (1:1 with ifIndex). snmp_exporter type must be **`PhysAddress48`** (MIB name `PhysAddress` panics the collector). Address tables are **not** kentik `ip-mib.yml` (that's ipSystemStats). Authored cold module `ip_addr` scrapes `ipAddrTable` / `ipAddressTable` with **`ifIndex` as a label** so queries can join `on(device_name, ifIndex)`. snmp_exporter lookups are 1:1 on the metric INDEX, so IPs cannot be labels on `ifHCInOctets`. Do not `*` the raw `snmp_ipAdEntIfIndex` gauge (value is ifIndex — it would scale octets); use `count by (device_name, ifIndex, ipAdEntAddr) (snmp_ipAdEntIfIndex)`.
+8. **One catalog** — never invent sidecars (`nokia_srlinux_hot`, `*_identity`) unless that file exists under `snmp/modules/`. Fingerprinter `module=` names must be keys in `snmp-network.yml`. Discovery drops unknowns with a WARN; mixing convert generations is not a failed scan, but the walker will not load a missing module.
 
 ## OID SYNTAX lookup (no MIB library)
 
-We do **not** clone or ship vendor MIB files. `lookup-oid-syntax.py` hits public OID pages ([oid-base.com](https://oid-base.com/), [oidref.com](https://oidref.com/)) for each profile OID and writes a small `oid → SYNTAX → counter|gauge` map. HTML is cached under `~/.cache/alloy-oid-syntax` so reruns skip the network.
+We do **not** clone or ship vendor MIB files. `lookup-oid-syntax.py` hits public OID pages ([oid-base.com](https://oid-base.com/), [oidref.com](https://oidref.com/)) for each profile OID and writes a small `oid → SYNTAX → counter|gauge` map. HTML is cached under `~/.cache/snmp-oid-syntax` so reruns skip the network.
 
 ```bash
 python3 tools/snmp-profile-convert/lookup-oid-syntax.py \
@@ -115,5 +114,3 @@ Enum on those:
 | `metric_tags` column with `enum` | lookup `EnumAsInfo` | String on the label (Info-shaped enrichment) |
 
 **Never** `EnumAsStateSet` from this converter (mostly-zero series + alert UX noise).
-
-Alloy consumer notes: [Mesverrum/alloy `docs/network-snmp.md`](https://github.com/Mesverrum/alloy/blob/network-snmp/docs/network-snmp.md).

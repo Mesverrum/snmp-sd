@@ -21,6 +21,8 @@ type AlloyTarget struct {
 	DeviceName     string `yaml:"device_name" json:"device_name"`
 	SysObjectID    string `yaml:"sysObjectID,omitempty" json:"sysObjectID,omitempty"`
 	SnmpGroup      string `yaml:"snmp_group,omitempty" json:"snmp_group,omitempty"`
+	// SnmpTier is set when this row is a projected scrape (hot/cold/topology).
+	SnmpTier string `yaml:"snmp_tier,omitempty" json:"snmp_tier,omitempty"`
 	// Aliases are extra SNMP-reachable IPs collapsed into this identity.
 	// Not scraped; used to join traps/syslog/flow from those addresses.
 	Aliases []string `yaml:"aliases,omitempty" json:"aliases,omitempty"`
@@ -124,6 +126,9 @@ func httpSDGroups(targets []AlloyTarget, prometheusParams bool) []FileSDGroup {
 		}
 		if t.SnmpGroup != "" {
 			labels["snmp_group"] = t.SnmpGroup
+		}
+		if t.SnmpTier != "" {
+			labels["snmp_tier"] = t.SnmpTier
 		}
 		if len(t.Aliases) > 0 {
 			labels["snmp_aliases"] = strings.Join(t.Aliases, ",")

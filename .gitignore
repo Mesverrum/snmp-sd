@@ -1,6 +1,10 @@
 /snmp-discovery
 /snmp-discovery.exe
 /snmp-discovery-linux
+_build-linux.sh
+tmp-*.sh
+__pycache__/
+*.pyc
 /snmp-targets.yml
 /snmp-targets.yml.state.json
 /snmp-file-sd.json

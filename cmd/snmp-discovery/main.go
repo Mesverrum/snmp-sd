@@ -34,8 +34,9 @@ func run(argv []string) error {
 	fpPath := fs.String("fingerprinters", "snmp/fingerprinters.yml", "fingerprinters")
 	fpName := fs.String("fingerprinter", "network", "default fingerprinter name")
 	authsFlag := fs.String("auths", "", "comma-separated auth names for --cidrs")
-	outAlloy := fs.String("out-alloy", "snmp-targets.yml", "Alloy targets YAML")
-	outSD := fs.String("out-file-sd", "snmp-file-sd.json", "Prometheus file_sd")
+	outCatalog := fs.String("out-catalog", "snmp-targets.yml", "YAML device list (one row per device; sibling -cold/-topology files)")
+	outAlloy := fs.String("out-alloy", "", "alias of --out-catalog")
+	outSD := fs.String("out-file-sd", "snmp-file-sd.json", "Prometheus file_sd (one group per enabled tier)")
 	listen := fs.String("listen", "", "HTTP SD listen (e.g. :9780)")
 	concurrency := fs.Int("concurrency", 8, "parallel probes")
 	timeout := fs.Duration("timeout", 2*time.Second, "SNMP timeout")
@@ -57,9 +58,13 @@ func run(argv []string) error {
 		return err
 	}
 
+	outYAML := strings.TrimSpace(*outCatalog)
+	if strings.TrimSpace(*outAlloy) != "" {
+		outYAML = strings.TrimSpace(*outAlloy)
+	}
 	state := strings.TrimSpace(*statePath)
-	if state == "" && strings.TrimSpace(*outAlloy) != "" {
-		state = *outAlloy + ".state.json"
+	if state == "" && outYAML != "" {
+		state = outYAML + ".state.json"
 	}
 
 	cat := snmpdiscovery.NewCatalog()
@@ -67,7 +72,7 @@ func run(argv []string) error {
 		SnmpCfg:               *snmpCfg,
 		FpPath:                *fpPath,
 		DefaultFP:             *fpName,
-		OutAlloy:              *outAlloy,
+		OutAlloy:              outYAML,
 		OutSD:                 *outSD,
 		Concurrency:           *concurrency,
 		Timeout:               *timeout,
@@ -85,9 +90,9 @@ func run(argv []string) error {
 	if entries, err := snmpdiscovery.ReadCatalogState(state); err == nil && len(entries) > 0 {
 		cat.LoadEntries(entries)
 		log.Printf("loaded %d catalog entries from %s", len(entries), state)
-	} else if prev, err := snmpdiscovery.ReadAlloyYAML(*outAlloy); err == nil && len(prev) > 0 {
+	} else if prev, err := snmpdiscovery.ReadAlloyYAML(outYAML); err == nil && len(prev) > 0 {
 		cat.Replace(prev)
-		log.Printf("seeded catalog from %s (%d targets)", *outAlloy, len(prev))
+		log.Printf("seeded catalog from %s (%d targets)", outYAML, len(prev))
 	}
 
 	var scanMu sync.Mutex
@@ -120,7 +125,7 @@ func run(argv []string) error {
 		if err != nil {
 			return fmt.Errorf("listen %s: %w", addr, err)
 		}
-		srv := &http.Server{Handler: snmpdiscovery.NewDiscoveryMux(cat), ReadHeaderTimeout: 5 * time.Second}
+		srv := &http.Server{Handler: snmpdiscovery.NewDiscoveryMuxTiers(cat, enabledTiers), ReadHeaderTimeout: 5 * time.Second}
 		go func() {
 			log.Printf("HTTP SD on %s", addr)
 			_ = srv.Serve(ln)

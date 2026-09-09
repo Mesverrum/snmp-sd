@@ -228,7 +228,10 @@ func publishCatalog(p ScanParams, published []AlloyTarget) error {
 		}
 	}
 	if p.OutSD != "" {
-		if err := writeFileSD(p.OutSD, published); err != nil {
+		// Classic Prometheus file_sd: one group per enabled tier so
+		// __param_module is if_mib,nokia_srlinux vs if_mib_meta,... .
+		expanded := TargetsForTiers(published, p.EnabledTiers)
+		if err := writeFileSD(p.OutSD, expanded); err != nil {
 			return err
 		}
 	}
@@ -279,6 +282,7 @@ func TierTargets(in []AlloyTarget, tier string) []AlloyTarget {
 			DeviceName:  t.DeviceName,
 			SysObjectID: t.SysObjectID,
 			SnmpGroup:   t.SnmpGroup,
+			SnmpTier:    tier,
 		})
 	}
 	return out

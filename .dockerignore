@@ -1,0 +1,9 @@
+.git
+**/__pycache__
+**/*.pyc
+snmp-discovery
+snmp-discovery-linux
+_build-linux.sh
+tools
+*.md
+!examples/**/*.md
