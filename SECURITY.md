@@ -2,7 +2,7 @@
 
 ## Secrets
 
-`auths.yml` (communities, v3 USM) is gitignored. Copy `snmp/auths.example.yml` and keep the real file mode `0600`. Example communities in that file are placeholders — do not commit production secrets.
+`auths.yml` (communities, v3 USM) is gitignored. `snmp-discovery init` writes that file mode `0600` and a matching `discovery.yml` so group `auths:` names cannot typo-drift. Copy `snmp/auths.example.yml` if you prefer to edit by hand. Example communities are placeholders — do not commit production secrets. The init prompts echo v3 passwords (stdin); prefer a private terminal.
 
 Discovery lists **auth names** only. `GET /sd/prometheus` and `--out-file-sd` emit `__param_auth`, never a community or password. Treat a leak of the module library as public OIDs, not credentials.
 

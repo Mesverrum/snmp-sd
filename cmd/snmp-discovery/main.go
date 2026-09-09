@@ -26,7 +26,27 @@ func main() {
 }
 
 func run(argv []string) error {
+	if len(argv) > 0 && argv[0] == "init" {
+		return runInit(argv[1:])
+	}
+	if len(argv) > 0 && argv[0] == "walk-catalog" {
+		return runWalkCatalog(argv[1:])
+	}
+	if len(argv) > 0 && argv[0] == "walk-pick" {
+		return runWalkPick(argv[1:])
+	}
+	if len(argv) > 0 && argv[0] == "walk-emit" {
+		return runWalkEmit(argv[1:])
+	}
 	fs := flag.NewFlagSet("snmp-discovery", flag.ContinueOnError)
+	fs.Usage = func() {
+		fmt.Fprintf(fs.Output(), "Usage: snmp-discovery [flags]\n       snmp-discovery init [flags]\n       snmp-discovery walk-catalog [flags]\n       snmp-discovery walk-pick [flags]\n       snmp-discovery walk-emit [flags]\n\n")
+		fmt.Fprintf(fs.Output(), "init          write matching auths.yml + discovery.yml\n")
+		fmt.Fprintf(fs.Output(), "walk-catalog  cluster an snmpwalk dump and mark OIDs the library already scrapes\n")
+		fmt.Fprintf(fs.Output(), "walk-pick     draft a pick.yml from uncovered OIDs\n")
+		fmt.Fprintf(fs.Output(), "walk-emit     turn an edited pick.yml into a one-module overlay\n\n")
+		fs.PrintDefaults()
+	}
 	configPath := fs.String("config", "", "discovery groups YAML")
 	cidrs := fs.String("cidrs", "", "comma-separated CIDRs (legacy)")
 	port := fs.Uint("port", 161, "default SNMP UDP port")
