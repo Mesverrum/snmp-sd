@@ -116,6 +116,8 @@ A full vendor walk is a lot of OIDs. Doing all of it every minute is how you mel
 
 `--tiers` defaults to `hot,cold`. `--tiers=hot` is enough to see traffic and CPU. `--tiers=all` also publishes topology. BGP flaps and link-down still belong in traps or syslog; polling will not catch them in time.
 
+Topology rows are identity + which neighbor module to walk. They are not a time series you should remote_write. Alloy (`network-snmp`) scrapes that tier into `otelcol.processor.transform`, then POSTs OTLP JSON to [network-topology-exporter](https://github.com/Mesverrum/network-topology-exporter) `/v1/metrics`. The catalog (`--out-catalog` / Alloy `discovery.snmp`) is the shared device list so the exporter does not hunt UDP/161 again. River: `examples/alloy/topology-glue.alloy` in that repo.
+
 Each enabled tier is its own Prometheus target, so you can scrape hot every minute and cold every five without walking sensors on the hot interval.
 
 ## Small things that surprise people

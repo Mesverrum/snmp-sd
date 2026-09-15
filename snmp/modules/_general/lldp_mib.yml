@@ -1,4 +1,7 @@
 # GENERATED from kentik/snmp-profiles — module lldp_mib
+# Curation: LLDP-MIB rem-table INDEX is timeMark.localPortNum.remIndex.
+# DisplayString so sysName / portId become labels the topology-exporter
+# Edge mapper can join. Do not collapse INDEX to a single `index` gauge.
 # Discovery chain is if_mib + vendor; SNMPv2 identity is inlined as snmp_device_info.
 modules:
   lldp_mib:
@@ -10,7 +13,11 @@ modules:
       type: EnumAsInfo
       help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       enum_values:
         1: interfaceAlias
@@ -23,17 +30,25 @@ modules:
       lookups: []
     - name: snmp_lldpRemPortId
       oid: 1.0.8802.1.1.2.1.4.1.1.7
-      type: gauge
+      type: DisplayString
       help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       lookups: []
     - name: snmp_lldpRemSysName
       oid: 1.0.8802.1.1.2.1.4.1.1.9
-      type: gauge
+      type: DisplayString
       help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       lookups: []
