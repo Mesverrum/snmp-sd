@@ -124,6 +124,7 @@ Each enabled tier is its own Prometheus target, so you can scrape hot every minu
 - **`snmp_group` is the group `name` you wrote** (`lab`, `dc1`, …), not a guess from the hostname.
 - **`--snmp-config` and `--fingerprinters` should be the copies from this repo.** They were generated together. If you mix an old map with a new library, unknown module names are dropped and that device walks less than you expect (you will see a WARN in the log). The scan itself still succeeds.
 - **`--out-catalog`** is a plain YAML device list if you would rather not use HTTP SD.
+- **`--listen :9780` also serves `/metrics`.** Same `discovery_snmp_*` names Alloy’s `discovery.snmp` component exports (scan pressure, probe errors by `reason`/`group`, fingerprint known vs unknown, catalog stale/drops). Probe timeouts stay Debug; `no_auth` / `no_sys` / missing-module drops are Info/Warn.
 
 ## A Clos we actually swept
 

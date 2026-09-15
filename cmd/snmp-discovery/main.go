@@ -16,6 +16,7 @@ import (
 	"time"
 
 	"github.com/Mesverrum/snmp-sd/snmpdiscovery"
+	"github.com/prometheus/client_golang/prometheus"
 )
 
 func main() {
@@ -88,6 +89,8 @@ func run(argv []string) error {
 	}
 
 	cat := snmpdiscovery.NewCatalog()
+	reg := prometheus.NewRegistry()
+	met := newCLIMetrics(reg)
 	p := snmpdiscovery.ScanParams{
 		SnmpCfg:               *snmpCfg,
 		FpPath:                *fpPath,
@@ -105,32 +108,51 @@ func run(argv []string) error {
 		StatePath:             state,
 		AllowDuplicateSysName: *allowDupSys,
 		EnabledTiers:          enabledTiers,
+		Observer:              met,
 	}
 
 	if entries, err := snmpdiscovery.ReadCatalogState(state); err == nil && len(entries) > 0 {
 		cat.LoadEntries(entries)
 		log.Printf("loaded %d catalog entries from %s", len(entries), state)
-	} else if prev, err := snmpdiscovery.ReadAlloyYAML(outYAML); err == nil && len(prev) > 0 {
-		cat.Replace(prev)
-		log.Printf("seeded catalog from %s (%d targets)", outYAML, len(prev))
+	} else {
+		if err != nil && state != "" && !os.IsNotExist(err) {
+			log.Printf("catalog state unreadable (%s): %v", state, err)
+		}
+		if prev, err := snmpdiscovery.ReadAlloyYAML(outYAML); err == nil && len(prev) > 0 {
+			cat.Replace(prev)
+			log.Printf("seeded catalog from %s (%d targets)", outYAML, len(prev))
+		}
 	}
 
 	var scanMu sync.Mutex
 	scanOnce := func() error {
 		if !scanMu.TryLock() {
+			met.skipped.Inc()
 			log.Printf("previous scan still running; skip")
 			return nil
 		}
 		defer scanMu.Unlock()
+		met.scanInFlight.Set(1)
+		defer met.scanInFlight.Set(0)
 		cfg, err := snmpdiscovery.LoadRunConfig(*configPath, *cidrs, *authsFlag, uint16(*port), *allowLarge, *fpName)
 		if err != nil {
+			met.scans.Inc()
+			met.failures.Inc()
 			return err
 		}
 		if err := snmpdiscovery.MergeOverridesFile(&cfg, *overridesPath); err != nil {
+			met.scans.Inc()
+			met.failures.Inc()
 			return err
 		}
-		_, err = snmpdiscovery.RunScan(cfg, p)
-		return err
+		published, stats, err := snmpdiscovery.Discover(cfg, p)
+		if err != nil {
+			met.scans.Inc()
+			met.failures.Inc()
+			return err
+		}
+		met.observeScan(stats, published, cat, enabledTiers)
+		return nil
 	}
 
 	if err := scanOnce(); err != nil {
@@ -145,7 +167,9 @@ func run(argv []string) error {
 		if err != nil {
 			return fmt.Errorf("listen %s: %w", addr, err)
 		}
-		srv := &http.Server{Handler: snmpdiscovery.NewDiscoveryMuxTiers(cat, enabledTiers), ReadHeaderTimeout: 5 * time.Second}
+		mux := snmpdiscovery.NewDiscoveryMuxTiers(cat, enabledTiers)
+		mux.Handle("/metrics", metricsHandler(reg))
+		srv := &http.Server{Handler: mux, ReadHeaderTimeout: 5 * time.Second}
 		go func() {
 			log.Printf("HTTP SD on %s", addr)
 			_ = srv.Serve(ln)

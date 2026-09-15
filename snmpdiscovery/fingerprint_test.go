@@ -36,4 +36,12 @@ func TestMatchNokiaSysObjectID(t *testing.T) {
 	if len(got) != len(wantDef) || got[0] != "if_mib" {
 		t.Fatalf("default: %v", got)
 	}
+	_, kind := fp.MatchTiersResult(map[string]string{"sysObjectID": "1.3.6.1.4.1.6527.1.20.26"})
+	if kind != FingerprintKnown {
+		t.Fatalf("nokia should be known: %s", kind)
+	}
+	_, kind = fp.MatchTiersResult(map[string]string{"sysObjectID": "1.3.6.1.4.1.9.1.1"})
+	if kind != FingerprintUnknown {
+		t.Fatalf("cisco-default should be unknown: %s", kind)
+	}
 }

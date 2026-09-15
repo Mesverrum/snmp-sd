@@ -37,3 +37,12 @@ func TestProbeEmptyAuths(t *testing.T) {
 		t.Fatalf("detail=%+v", d)
 	}
 }
+
+func TestProbeReasonActionable(t *testing.T) {
+	if !probeReasonActionable(ProbeReasonNoAuth) || !probeReasonActionable(ProbeReasonNoSys) {
+		t.Fatal("auth/sys should be Info")
+	}
+	if probeReasonActionable(ProbeReasonTimeout) || probeReasonActionable(ProbeReasonRefused) {
+		t.Fatal("timeout/refused stay Debug")
+	}
+}

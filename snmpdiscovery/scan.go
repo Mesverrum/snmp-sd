@@ -47,18 +47,24 @@ type ScanParams struct {
 
 // ScanStats is filled by a successful RunScan (and zero on error).
 type ScanStats struct {
-	Duration     time.Duration
-	Sweep        int
-	PingUp       int
-	Found        int
-	Catalog      int
-	Dropped      int
-	Dedupes      int // extra IPs folded into an existing sysName this scan
-	ProbeErrors  int
-	ProbeSuccess int
-	FirstAuth    int
-	AuthFallback int
-	ProbeRetries int
+	Duration           time.Duration
+	Sweep              int
+	PingUp             int
+	Found              int
+	Catalog            int
+	Dropped            int
+	Dedupes            int // extra IPs folded into an existing sysName this scan
+	ProbeErrors        int
+	ProbeSuccess       int
+	FirstAuth          int
+	AuthFallback       int
+	ProbeRetries       int
+	ModulesDropped     int
+	FingerprintKnown   int
+	FingerprintUnknown int
+	Stale              int // catalog entries with Misses > 0 after merge
+	Added              int
+	Removed            int
 }
 
 func (p ScanParams) logger() *slog.Logger {
@@ -137,10 +143,13 @@ func RunScan(cfg DiscoveryFile, p ScanParams) (ScanStats, error) {
 	// Successful complete pass only — merge misses + publish atomically.
 	published := found
 	dropped := 0
+	added := 0
+	stale := 0
+	var beforeByAddr map[string]AlloyTarget
 	if p.Catalog != nil {
-		beforeAddrs := map[string]struct{}{}
+		beforeByAddr = map[string]AlloyTarget{}
 		for _, e := range p.Catalog.SnapshotEntries() {
-			beforeAddrs[e.Target.Address] = struct{}{}
+			beforeByAddr[e.Target.Address] = e.Target
 		}
 		published = p.Catalog.MergeFound(found, time.Now().UTC(), p.Misses)
 		if n := p.Catalog.DropAddresses(collapsedAddrs); n > 0 {
@@ -151,17 +160,34 @@ func RunScan(cfg DiscoveryFile, p ScanParams) (ScanStats, error) {
 			p.logger().Info("ignore override removed catalog entries", "count", n)
 			published, _ = p.Catalog.Snapshot()
 		}
-		for addr := range beforeAddrs {
-			still := false
-			for _, t := range published {
-				if t.Address == addr {
-					still = true
-					break
-				}
+		after := p.Catalog.SnapshotEntries()
+		still := map[string]struct{}{}
+		for _, e := range after {
+			still[e.Target.Address] = struct{}{}
+			if e.Misses > 0 {
+				stale++
 			}
-			if !still {
-				dropped++
+			if _, ok := beforeByAddr[e.Target.Address]; !ok {
+				added++
+				p.logger().Info("SNMP catalog added",
+					"address", e.Target.Address,
+					"group", e.Target.SnmpGroup,
+					"device_name", e.Target.DeviceName,
+					"sysObjectID", e.Target.SysObjectID,
+					"auth", e.Target.Auth,
+				)
 			}
+		}
+		for addr, prev := range beforeByAddr {
+			if _, ok := still[addr]; ok {
+				continue
+			}
+			dropped++
+			p.logger().Info("SNMP catalog dropped",
+				"address", addr,
+				"group", prev.SnmpGroup,
+				"device_name", prev.DeviceName,
+			)
 		}
 		sort.Slice(published, func(i, k int) bool {
 			return published[i].Address < published[k].Address
@@ -173,18 +199,24 @@ func RunScan(cfg DiscoveryFile, p ScanParams) (ScanStats, error) {
 		return ScanStats{}, err
 	}
 	stats := ScanStats{
-		Duration:     time.Since(start).Truncate(time.Millisecond),
-		Sweep:        sweepN,
-		PingUp:       pingN,
-		Found:        len(found),
-		Catalog:      len(published),
-		Dropped:      dropped,
-		Dedupes:      len(collapsedAddrs),
-		ProbeErrors:  probeStats.errors,
-		ProbeSuccess: probeStats.success,
-		FirstAuth:    probeStats.firstAuth,
-		AuthFallback: probeStats.fallback,
-		ProbeRetries: probeStats.retries,
+		Duration:           time.Since(start).Truncate(time.Millisecond),
+		Sweep:              sweepN,
+		PingUp:             pingN,
+		Found:              len(found),
+		Catalog:            len(published),
+		Dropped:            dropped,
+		Dedupes:            len(collapsedAddrs),
+		ProbeErrors:        probeStats.errors,
+		ProbeSuccess:       probeStats.success,
+		FirstAuth:          probeStats.firstAuth,
+		AuthFallback:       probeStats.fallback,
+		ProbeRetries:       probeStats.retries,
+		ModulesDropped:     probeStats.modulesDropped,
+		FingerprintKnown:   probeStats.fpKnown,
+		FingerprintUnknown: probeStats.fpUnknown,
+		Stale:              stale,
+		Added:              added,
+		Removed:            dropped,
 	}
 	p.logger().Info("SNMP discovery scan complete",
 		"found", stats.Found,
@@ -193,11 +225,16 @@ func RunScan(cfg DiscoveryFile, p ScanParams) (ScanStats, error) {
 		"ping_up", stats.PingUp,
 		"catalog", stats.Catalog,
 		"dropped", stats.Dropped,
+		"added", stats.Added,
+		"stale", stats.Stale,
 		"dedupes", stats.Dedupes,
 		"probe_success", stats.ProbeSuccess,
 		"probe_errors", stats.ProbeErrors,
 		"first_auth", stats.FirstAuth,
 		"retries", stats.ProbeRetries,
+		"fingerprint_known", stats.FingerprintKnown,
+		"fingerprint_unknown", stats.FingerprintUnknown,
+		"modules_dropped", stats.ModulesDropped,
 	)
 	return stats, nil
 }
@@ -500,6 +537,7 @@ func filterPing(p ScanParams, ips []string) ([]string, error) {
 
 type probeBatchStats struct {
 	errors, success, firstAuth, fallback, retries int
+	modulesDropped, fpKnown, fpUnknown            int
 }
 
 func (s *probeBatchStats) add(o probeBatchStats) {
@@ -508,6 +546,9 @@ func (s *probeBatchStats) add(o probeBatchStats) {
 	s.firstAuth += o.firstAuth
 	s.fallback += o.fallback
 	s.retries += o.retries
+	s.modulesDropped += o.modulesDropped
+	s.fpKnown += o.fpKnown
+	s.fpUnknown += o.fpUnknown
 }
 
 func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
@@ -522,6 +563,7 @@ func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
 	var mu sync.Mutex
 	var targets []AlloyTarget
 	var errors, success, firstAuth, fallback, retries atomic.Int64
+	var modulesDropped, fpKnown, fpUnknown atomic.Int64
 	var wg sync.WaitGroup
 	wg.Add(workers)
 	for i := 0; i < workers; i++ {
@@ -532,13 +574,18 @@ func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
 					p.Observer.ProbeBegin()
 				}
 				res, detail := probe(j.ip, j.port, p.Timeout, p.Retries, j.auths, j.fp.ProbeOIDs)
+				detail.Address = j.ip
+				detail.Group = j.group.Name
+				if res != nil {
+					detail.Auth = res.AuthName
+				}
 				if p.Observer != nil {
 					p.Observer.ProbeEnd(detail)
 				}
 				retries.Add(int64(detail.Retries))
 				if !detail.Success || res == nil {
 					errors.Add(1)
-					p.logger().Debug("SNMP probe failed", "address", j.ip, "group", j.group.Name, "reason", detail.Reason)
+					logProbeFail(p, j.ip, j.group.Name, detail.Reason)
 					continue
 				}
 				success.Add(1)
@@ -552,11 +599,19 @@ func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
 					"sysName":     res.SysName,
 					"sysDescr":    res.SysDescr,
 				}
-				tiers, dropped := filterTiersToKnown(j.fp.MatchTiers(labels), p.KnownModules)
-				if len(dropped) > 0 {
+				matched, fpKind := j.fp.MatchTiersResult(labels)
+				if fpKind == FingerprintKnown {
+					fpKnown.Add(1)
+				} else {
+					fpUnknown.Add(1)
+				}
+				tiers, droppedMods := filterTiersToKnown(matched, p.KnownModules)
+				if len(droppedMods) > 0 {
+					modulesDropped.Add(int64(len(droppedMods)))
 					p.logger().Warn("dropping fingerprinter modules missing from snmp.yml",
 						"address", j.ip,
-						"dropped", dropped,
+						"group", j.group.Name,
+						"dropped", droppedMods,
 					)
 				}
 				name, deviceName := targetNames(res.SysName, res.Addr)
@@ -574,16 +629,39 @@ func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
 				mu.Lock()
 				targets = append(targets, t)
 				mu.Unlock()
-				p.logger().Debug("SNMP device found",
-					"address", t.Address,
-					"group", t.SnmpGroup,
-					"auth", t.Auth,
-					"device_name", t.DeviceName,
-					"hot", t.Module,
-					"cold", t.ModuleCold,
-					"topology", t.ModuleTopology,
-					"sysObjectID", t.SysObjectID,
-				)
+				if dobs, ok := any(p.Observer).(DeviceObserver); ok {
+					dobs.DeviceFound(DeviceFoundDetail{
+						Address:        t.Address,
+						Group:          t.SnmpGroup,
+						DeviceName:     t.DeviceName,
+						SysObjectID:    t.SysObjectID,
+						Auth:           t.Auth,
+						Fingerprint:    fpKind,
+						DroppedModules: droppedMods,
+					})
+				}
+				if fpKind == FingerprintUnknown {
+					p.logger().Info("SNMP fingerprint unknown; using defaults",
+						"address", t.Address,
+						"group", t.SnmpGroup,
+						"device_name", t.DeviceName,
+						"sysObjectID", t.SysObjectID,
+						"hot", t.Module,
+						"cold", t.ModuleCold,
+					)
+				} else {
+					p.logger().Debug("SNMP device found",
+						"address", t.Address,
+						"group", t.SnmpGroup,
+						"auth", t.Auth,
+						"device_name", t.DeviceName,
+						"hot", t.Module,
+						"cold", t.ModuleCold,
+						"topology", t.ModuleTopology,
+						"sysObjectID", t.SysObjectID,
+						"fingerprint", fpKind,
+					)
+				}
 			}
 		}()
 	}
@@ -593,12 +671,24 @@ func probeAll(jobs []probeJob, p ScanParams) ([]AlloyTarget, probeBatchStats) {
 	close(ch)
 	wg.Wait()
 	return targets, probeBatchStats{
-		errors:    int(errors.Load()),
-		success:   int(success.Load()),
-		firstAuth: int(firstAuth.Load()),
-		fallback:  int(fallback.Load()),
-		retries:   int(retries.Load()),
+		errors:         int(errors.Load()),
+		success:        int(success.Load()),
+		firstAuth:      int(firstAuth.Load()),
+		fallback:       int(fallback.Load()),
+		retries:        int(retries.Load()),
+		modulesDropped: int(modulesDropped.Load()),
+		fpKnown:        int(fpKnown.Load()),
+		fpUnknown:      int(fpUnknown.Load()),
 	}
+}
+
+func logProbeFail(p ScanParams, addr, group, reason string) {
+	args := []any{"address", addr, "group", group, "reason", reason}
+	if probeReasonActionable(reason) {
+		p.logger().Info("SNMP probe failed", args...)
+		return
+	}
+	p.logger().Debug("SNMP probe failed", args...)
 }
 
 func dedupeTargets(in []AlloyTarget) []AlloyTarget {

@@ -15,23 +15,23 @@ type FingerprintersFile struct {
 }
 
 type Fingerprinter struct {
-	ProbeOIDs                []string  `yaml:"probe_oids"`
-	DefaultModules           []string  `yaml:"default_modules"`
-	DefaultModulesHot        []string  `yaml:"default_modules_hot"`
-	DefaultModulesCold       []string  `yaml:"default_modules_cold"`
-	DefaultModulesTopology   []string  `yaml:"default_modules_topology"`
-	Matchers                 []Matcher `yaml:"matchers"`
+	ProbeOIDs              []string  `yaml:"probe_oids"`
+	DefaultModules         []string  `yaml:"default_modules"`
+	DefaultModulesHot      []string  `yaml:"default_modules_hot"`
+	DefaultModulesCold     []string  `yaml:"default_modules_cold"`
+	DefaultModulesTopology []string  `yaml:"default_modules_topology"`
+	Matchers               []Matcher `yaml:"matchers"`
 }
 
 type Matcher struct {
-	Label            string   `yaml:"label"`
-	Regex            string   `yaml:"regex"`
-	Modules          []string `yaml:"modules"`
-	ModulesHot       []string `yaml:"modules_hot"`
-	ModulesCold      []string `yaml:"modules_cold"`
-	ModulesTopology  []string `yaml:"modules_topology"`
-	Comment          string   `yaml:"comment"`
-	re               *regexp.Regexp
+	Label           string   `yaml:"label"`
+	Regex           string   `yaml:"regex"`
+	Modules         []string `yaml:"modules"`
+	ModulesHot      []string `yaml:"modules_hot"`
+	ModulesCold     []string `yaml:"modules_cold"`
+	ModulesTopology []string `yaml:"modules_topology"`
+	Comment         string   `yaml:"comment"`
+	re              *regexp.Regexp
 }
 
 // ModuleTiers is the staggered scrape split (hot≈60s, cold≈30m, topology=optional).
@@ -147,6 +147,13 @@ func partitionLegacyModules(mods []string) ModuleTiers {
 }
 
 func (f Fingerprinter) MatchTiers(labels map[string]string) ModuleTiers {
+	t, _ := f.MatchTiersResult(labels)
+	return t
+}
+
+// MatchTiersResult is MatchTiers plus whether a matcher hit (known) or the
+// default chain was used (unknown — typically device_base + if_mib).
+func (f Fingerprinter) MatchTiersResult(labels map[string]string) (ModuleTiers, string) {
 	for _, m := range f.Matchers {
 		if !matcherHit(m, labels) {
 			continue
@@ -156,18 +163,18 @@ func (f Fingerprinter) MatchTiers(labels map[string]string) ModuleTiers {
 				Hot:      uniqueModules(m.ModulesHot),
 				Cold:     uniqueModules(m.ModulesCold),
 				Topology: uniqueModules(m.ModulesTopology),
-			}
+			}, FingerprintKnown
 		}
-		return partitionLegacyModules(m.Modules)
+		return partitionLegacyModules(m.Modules), FingerprintKnown
 	}
 	if len(f.DefaultModulesHot)+len(f.DefaultModulesCold)+len(f.DefaultModulesTopology) > 0 {
 		return ModuleTiers{
 			Hot:      uniqueModules(f.DefaultModulesHot),
 			Cold:     uniqueModules(f.DefaultModulesCold),
 			Topology: uniqueModules(f.DefaultModulesTopology),
-		}
+		}, FingerprintUnknown
 	}
-	return partitionLegacyModules(f.DefaultModules)
+	return partitionLegacyModules(f.DefaultModules), FingerprintUnknown
 }
 
 // Match returns the legacy combined module list (hot+cold+topology).

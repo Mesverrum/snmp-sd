@@ -14,13 +14,25 @@ const (
 	ProbeReasonNoSys   = "no_sys"
 	ProbeReasonNoAuth  = "no_auth"
 	ProbeReasonOther   = "other"
+
+	// FingerprintKnown is a sysObjectID that hit a fingerprinter matcher.
+	FingerprintKnown = "known"
+	// FingerprintUnknown uses the fingerprinter default chain (device_base / if_mib).
+	FingerprintUnknown = "unknown"
 )
 
-// ProbeObserver is notified around each SNMP identity probe. The component
-// uses this to emit health metrics without importing Prometheus here.
+// ProbeObserver is notified around each SNMP identity probe. The Alloy
+// component and the CLI /metrics handler implement this without the library
+// importing Prometheus.
 type ProbeObserver interface {
 	ProbeBegin()
 	ProbeEnd(ProbeDetail)
+}
+
+// DeviceObserver is optional. Implement it on the same value as ProbeObserver
+// to receive fingerprint / module-drop events after a successful identity Get.
+type DeviceObserver interface {
+	DeviceFound(DeviceFoundDetail)
 }
 
 // ProbeDetail is one address probe (all auths + retries).
@@ -31,6 +43,20 @@ type ProbeDetail struct {
 	FirstAuth bool
 	AuthFails int
 	Retries   int
+	Address   string
+	Group     string
+	Auth      string // winning auth name, or last attempted
+}
+
+// DeviceFoundDetail is a successful identity probe after fingerprinting.
+type DeviceFoundDetail struct {
+	Address        string
+	Group          string
+	DeviceName     string
+	SysObjectID    string
+	Auth           string
+	Fingerprint    string // FingerprintKnown or FingerprintUnknown
+	DroppedModules []string
 }
 
 func classifyProbeError(err error) string {
@@ -54,5 +80,14 @@ func classifyProbeError(err error) string {
 		return ProbeReasonConnect
 	default:
 		return ProbeReasonOther
+	}
+}
+
+func probeReasonActionable(reason string) bool {
+	switch reason {
+	case ProbeReasonNoAuth, ProbeReasonNoSys, ProbeReasonEmpty:
+		return true
+	default:
+		return false
 	}
 }
