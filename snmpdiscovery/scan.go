@@ -317,6 +317,7 @@ func loadGroupRuntimes(cfg DiscoveryFile, p ScanParams, fps FingerprintersFile) 
 
 func planInitialJobs(rts []groupRuntime, p ScanParams, prev []AlloyTarget) ([]probeJob, map[string]string, int, int, error) {
 	claimed := map[string]string{}
+	last := lastAuthByAddr(prev)
 	var jobs []probeJob
 	sweepN, pingN := 0, 0
 	for _, rt := range rts {
@@ -355,7 +356,13 @@ func planInitialJobs(rts []groupRuntime, p ScanParams, prev []AlloyTarget) ([]pr
 				continue
 			}
 			claimed[ip] = g.Name
-			jobs = append(jobs, probeJob{ip: ip, group: g, auths: rt.auths, fp: rt.fp, port: rt.port})
+			jobs = append(jobs, probeJob{
+				ip:    ip,
+				group: g,
+				auths: preferAuth(rt.auths, last[ip]),
+				fp:    rt.fp,
+				port:  rt.port,
+			})
 		}
 	}
 	return jobs, claimed, sweepN, pingN, nil
@@ -387,6 +394,12 @@ func planCrawlJobs(rts []groupRuntime, p ScanParams, prev, found []AlloyTarget, 
 	}
 	seeds := append([]AlloyTarget{}, found...)
 	seeds = append(seeds, prev...)
+	last := lastAuthByAddr(prev)
+	for _, t := range found {
+		if t.Address != "" && t.Auth != "" {
+			last[mustCanonIP(t.Address)] = t.Auth
+		}
+	}
 	var jobs []probeJob
 	for _, rt := range rts {
 		g := rt.group
@@ -411,7 +424,7 @@ func planCrawlJobs(rts []groupRuntime, p ScanParams, prev, found []AlloyTarget, 
 		}
 		for _, addr := range uniqueStrings(walkFrom) {
 			addr = mustCanonIP(addr)
-			for _, ip := range walk(addr, rt.port, rt.auths) {
+			for _, ip := range walk(addr, rt.port, preferAuth(rt.auths, last[addr])) {
 				ip = mustCanonIP(ip)
 				if ip == addr {
 					continue
@@ -423,11 +436,53 @@ func planCrawlJobs(rts []groupRuntime, p ScanParams, prev, found []AlloyTarget, 
 					continue
 				}
 				claimed[ip] = g.Name
-				jobs = append(jobs, probeJob{ip: ip, group: g, auths: rt.auths, fp: rt.fp, port: rt.port})
+				jobs = append(jobs, probeJob{
+					ip:    ip,
+					group: g,
+					auths: preferAuth(rt.auths, last[ip]),
+					fp:    rt.fp,
+					port:  rt.port,
+				})
 			}
 		}
 	}
 	return jobs
+}
+
+func lastAuthByAddr(prev []AlloyTarget) map[string]string {
+	m := make(map[string]string, len(prev))
+	for _, t := range prev {
+		if t.Address == "" || strings.TrimSpace(t.Auth) == "" {
+			continue
+		}
+		m[mustCanonIP(t.Address)] = t.Auth
+	}
+	return m
+}
+
+// preferAuth puts the catalog's last successful auth name first when it is
+// still in the group's list. Remaining names keep discovery.yml order.
+// No extra flag: rescans should not re-hunt from the top of the list.
+func preferAuth(auths []snmpAuth, name string) []snmpAuth {
+	name = strings.TrimSpace(name)
+	if name == "" || len(auths) < 2 {
+		return auths
+	}
+	idx := -1
+	for i, a := range auths {
+		if a.Name == name {
+			idx = i
+			break
+		}
+	}
+	if idx <= 0 {
+		return auths
+	}
+	out := make([]snmpAuth, 0, len(auths))
+	out = append(out, auths[idx])
+	out = append(out, auths[:idx]...)
+	out = append(out, auths[idx+1:]...)
+	return out
 }
 
 func filterPing(p ScanParams, ips []string) ([]string, error) {

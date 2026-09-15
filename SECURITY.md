@@ -6,6 +6,8 @@
 
 Discovery lists **auth names** only. `GET /sd/prometheus` and `--out-file-sd` emit `__param_auth`, never a community or password. Treat a leak of the module library as public OIDs, not credentials.
 
+On a rescan, a known address is probed with its last catalog auth first (then the remaining group auths). That keeps mixed-community subnets from retrying the first listed credential against every already-discovered box every interval. New addresses still walk the group list from the top.
+
 ## Reporting
 
 Use [GitHub Security Advisories](https://github.com/Mesverrum/snmp-sd/security/advisories) on this repository. Do not open a public issue for a credential leak or remotely exploitable bug until it is coordinated.

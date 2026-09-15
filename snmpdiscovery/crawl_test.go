@@ -184,3 +184,59 @@ func TestPlanCrawlAddsNeighborNotSeed(t *testing.T) {
 		t.Fatalf("crawl jobs=%+v (initial jobs=%d)", extra, len(jobs))
 	}
 }
+
+func TestPlanCrawlJobsPrefersLastKnownAuthOnSeedWalk(t *testing.T) {
+	fps := FingerprintersFile{Fingerprinters: map[string]Fingerprinter{
+		"network": {DefaultModules: []string{"system_mib", "if_mib"}},
+	}}
+	cfg := DiscoveryFile{Groups: []DiscoveryGroup{{
+		Name:          "hq",
+		CIDRs:         []string{"10.12.0.0/22"},
+		Seeds:         []string{"10.12.0.10"},
+		Auths:         []string{"public_v2", "site_v2"},
+		Fingerprinter: "network",
+		Mode:          modeCrawl,
+	}}}
+	dir := t.TempDir()
+	snmp := dir + "/snmp.yml"
+	if err := os.WriteFile(snmp, []byte(`
+auths:
+  public_v2: {community: public, version: 2}
+  site_v2: {community: site, version: 2}
+`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	rts, err := loadGroupRuntimes(cfg, ScanParams{SnmpCfg: snmp, DefaultFP: "network", DefaultPort: 161}, fps)
+	if err != nil {
+		t.Fatal(err)
+	}
+	prev := []AlloyTarget{{Address: "10.12.0.10", SnmpGroup: "hq", Auth: "site_v2"}}
+	jobs, claimed, _, _, err := planInitialJobs(rts, ScanParams{Ping: false}, prev)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(jobs) != 1 || jobs[0].auths[0].Name != "site_v2" {
+		t.Fatalf("seed job auths=%+v", namesOf(jobs[0].auths))
+	}
+	var walked []string
+	extra := planCrawlJobs(rts, ScanParams{
+		WalkNeighbor: func(addr string, port uint16, auths []snmpAuth) []string {
+			if addr == "10.12.0.10" {
+				walked = namesOf(auths)
+			}
+			if addr != "10.12.0.10" {
+				return nil
+			}
+			return []string{"10.12.0.11"}
+		},
+	}, prev, nil, claimed)
+	if len(walked) < 1 || walked[0] != "site_v2" {
+		t.Fatalf("walk auths=%v, want site_v2 first", walked)
+	}
+	if len(extra) != 1 || extra[0].ip != "10.12.0.11" {
+		t.Fatalf("crawl jobs=%+v", extra)
+	}
+	if extra[0].auths[0].Name != "public_v2" {
+		t.Fatalf("new neighbor has no last-known auth, want group order: %+v", namesOf(extra[0].auths))
+	}
+}

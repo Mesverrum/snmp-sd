@@ -67,7 +67,7 @@ overrides: []
 
 `fingerprinter: network` means “use the shipped vendor map.” You do not create that map. After a successful SNMP probe, discovery reads the device’s `sysObjectID` (the vendor/model identifier every agent exposes) and fills in `module` for you.
 
-A group can list more than one auth. Discovery tries them in order, which is handy when a subnet is a mix of v2c and v3.
+A group can list more than one auth. Discovery tries them in `discovery.yml` order on a first-seen address (handy when a subnet is a mix of v2c and v3). On later scans it tries the catalog’s last successful auth first, then the rest of that group list. If that name is no longer in the group, it falls through to the written order. There is no flag for this.
 
 The image already includes a `public_v2` / `public` pair for a throwaway lab. Use `init` (or your own overlay) as soon as the community is real.
 
