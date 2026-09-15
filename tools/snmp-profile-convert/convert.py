@@ -67,7 +67,9 @@ SKIP_PROFILE_FILES = frozenset({"system-mib.yml", "system_mib.yml"})
 #              scalars / small tables (firewall sessions, WLC client totals)
 #   cold     — if_mib_meta + ip_addr + hardware sensors + everything else
 #   topology — opt-in neighbor / control-plane walks (LLDP, CDP, BGP, OSPF, ISIS)
-TOPOLOGY_MODULES = frozenset({"lldp_mib", "bgp4_mib", "ospf_mib"})
+TOPOLOGY_MODULES = frozenset({"lldp_mib", "cdp_mib", "bgp4_mib", "ospf_mib"})
+# Cisco / Meraki get CISCO-CDP-MIB on the topology tier in addition to LLDP.
+CISCO_RELATED_RE = re.compile(r"(^|_)(cisco|meraki)(_|$)", re.I)
 # Module-name matcher (lowercase file stems).
 TOPOLOGY_NAME_RE = re.compile(r"(lldp|cdp|bgp|ospf|isis)", re.I)
 # Metric-name matcher: camelCase / acronym tokens only.
@@ -1585,6 +1587,40 @@ def apply_vendor_tier_splits(
             add(topo, f"{base}{suf}")
     if known is not None and "nokia_srlinux_hot" not in known:
         hot = [m for m in hot if m != "nokia_srlinux_hot"]
+    return attach_neighbor_coverage(
+        {"hot": hot, "cold": cold, "topology": topo},
+        known,
+    )
+
+
+def is_cisco_related(names: list[str]) -> bool:
+    return any(CISCO_RELATED_RE.search(str(n) or "") for n in names)
+
+
+def attach_neighbor_coverage(
+    tiers: dict[str, list[str]],
+    known: set[str] | None,
+    extra_names: list[str] | None = None,
+) -> dict[str, list[str]]:
+    """IEEE LLDP on every topology chain; CISCO-CDP-MIB on Cisco/Meraki.
+
+    Coverage walks: empty tables are cheap at the topology interval. Do not
+    invent module names that are missing from ``known``.
+    """
+    hot = list(tiers.get("hot") or [])
+    cold = list(tiers.get("cold") or [])
+    topo = list(tiers.get("topology") or [])
+    names = [*(extra_names or []), *hot, *cold, *topo]
+
+    def add(mod: str) -> None:
+        if known is not None and mod not in known:
+            return
+        if mod not in topo:
+            topo.append(mod)
+
+    add("lldp_mib")
+    if is_cisco_related(names):
+        add("cdp_mib")
     return {"hot": hot, "cold": cold, "topology": topo}
 
 
@@ -1935,8 +1971,9 @@ def build_fingerprinters(
     Example: nokia_srlinux extends system-mib + if-mib
       → hot: [if_mib, nokia_srlinux] (identity + CPU/mem)
       → cold: [if_mib_meta, ip_addr, nokia_srlinux_sensors]
-      → topology: [nokia_srlinux_topo] (+ lldp_mib when present)
-      Unknown sysObjectID: device_base + if_mib (hot), if_mib_meta + ip_addr (cold).
+      → topology: [nokia_srlinux_topo, lldp_mib] (cdp_mib on Cisco/Meraki)
+      Unknown sysObjectID: device_base + if_mib (hot), if_mib_meta + ip_addr (cold),
+      lldp_mib (topology coverage).
     """
     modules_meta = index.get("modules") or {}
     known = set(modules_meta)

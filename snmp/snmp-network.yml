@@ -208,6 +208,78 @@ modules:
     - 1.3.6.1.2.1.1.4.0
     - 1.3.6.1.2.1.1.5.0
     - 1.3.6.1.2.1.1.6.0
+  cambium_mib:
+    metrics:
+    - name: snmp_Uptime
+      oid: 1.3.6.1.2.1.1.3
+      type: gauge
+      help: sysUpTime (SNMPv2-MIB) TimeTicks
+      lookups: []
+    - name: snmp_device_info
+      oid: 1.3.6.1.2.1.1.5
+      type: DisplayString
+      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
+        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
+        \ snmp_exporter skips lookups with empty labels. Relabel snmp_device_info\
+        \ \u2192 sysName and drops snmp_scalar_index."
+      indexes:
+      - labelname: snmp_scalar_index
+        type: gauge
+      lookups:
+      - labels:
+        - snmp_scalar_index
+        labelname: sysDescr
+        oid: 1.3.6.1.2.1.1.1
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysObjectID
+        oid: 1.3.6.1.2.1.1.2
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysContact
+        oid: 1.3.6.1.2.1.1.4
+        type: DisplayString
+      - labels:
+        - snmp_scalar_index
+        labelname: sysLocation
+        oid: 1.3.6.1.2.1.1.6
+        type: DisplayString
+    get:
+    - 1.3.6.1.2.1.1.1.0
+    - 1.3.6.1.2.1.1.2.0
+    - 1.3.6.1.2.1.1.3.0
+    - 1.3.6.1.2.1.1.4.0
+    - 1.3.6.1.2.1.1.5.0
+    - 1.3.6.1.2.1.1.6.0
+  cambium_mib_ext:
+    metrics:
+    - name: snmp_tgRadioInterfacesTable
+      oid: 1.3.6.1.4.1.17713.60.1.1
+      type: gauge
+      help: tgRadioInterfacesTable (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1
+      lookups: []
+    - name: snmp_mcs
+      oid: 1.3.6.1.4.1.17713.60.1.1.1.5
+      type: gauge
+      help: mcs (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.5
+      lookups: []
+    - name: snmp_snr
+      oid: 1.3.6.1.4.1.17713.60.1.1.1.6
+      type: gauge
+      help: snr (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.6
+      lookups: []
+    - name: snmp_rssi
+      oid: 1.3.6.1.4.1.17713.60.1.1.1.7
+      type: gauge
+      help: rssi (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.7
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.17713.60.1.1
+    - 1.3.6.1.4.1.17713.60.1.1.1.5
+    - 1.3.6.1.4.1.17713.60.1.1.1.6
+    - 1.3.6.1.4.1.17713.60.1.1.1.7
   bgp4_mib:
     walk:
     - 1.3.6.1.2.1.15.3
@@ -645,6 +717,56 @@ modules:
         - bgpPeerRemoteAddr
         labelname: min_as_origination_interval
         oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+  cdp_mib:
+    walk:
+    - 1.3.6.1.4.1.9.9.23.1.2.1
+    - 1.3.6.1.2.1.31.1.1.1.1
+    metrics:
+    - name: snmp_cdpCacheDeviceId
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.6
+      type: DisplayString
+      help: cdpCacheDeviceId (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_cdpCacheDevicePort
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.7
+      type: DisplayString
+      help: cdpCacheDevicePort (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_cdpCacheAddress
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.4
+      type: DisplayString
+      help: cdpCacheAddress (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
         type: DisplayString
   device_base:
     metrics:
@@ -2948,7 +3070,11 @@ modules:
       type: EnumAsInfo
       help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       enum_values:
         1: interfaceAlias
@@ -2961,18 +3087,26 @@ modules:
       lookups: []
     - name: snmp_lldpRemPortId
       oid: 1.0.8802.1.1.2.1.4.1.1.7
-      type: gauge
+      type: DisplayString
       help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       lookups: []
     - name: snmp_lldpRemSysName
       oid: 1.0.8802.1.1.2.1.4.1.1.9
-      type: gauge
+      type: DisplayString
       help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
       indexes:
-      - labelname: index
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
         type: gauge
       lookups: []
   net_snmp:
@@ -9312,6 +9446,120 @@ modules:
     - 1.3.6.1.2.1.1.4.0
     - 1.3.6.1.2.1.1.5.0
     - 1.3.6.1.2.1.1.6.0
+  arista_switch_ext:
+    metrics:
+    - name: snmp_aristaIngressQueuePktsDropped
+      oid: 1.3.6.1.4.1.30065.3.6.1.1.1.3
+      type: counter
+      help: aristaIngressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: interface_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.1
+        type: gauge
+      - labels:
+        - index
+        labelname: queue_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.2
+        type: gauge
+    - name: snmp_aristaEgressQueuePktsDropped
+      oid: 1.3.6.1.4.1.30065.3.6.1.2.1.6
+      type: counter
+      help: aristaEgressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.2.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: interface_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.1
+        type: gauge
+      - labels:
+        - index
+        labelname: queue_index
+        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.2
+        type: gauge
+    - name: snmp_aristaIfInPktRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.3
+      type: gauge
+      help: aristaIfInPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.3
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfOutPktRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.4
+      type: gauge
+      help: aristaIfOutPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.4
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfInOctetRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.5
+      type: counter
+      help: aristaIfInOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.5
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_aristaIfOutOctetRate
+      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.6
+      type: counter
+      help: aristaIfOutOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.6
+      indexes:
+      - labelname: index
+        type: gauge
+      lookups:
+      - labels:
+        - index
+        labelname: aristaIfRateInterval
+        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
+        type: DisplayString
+      - labels:
+        - index
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    walk:
+    - 1.3.6.1.4.1.30065.3.6.1.1
+    - 1.3.6.1.4.1.30065.3.6.1.2
+    - 1.3.6.1.4.1.30065.3.15.1.1
   arista_switch_topo:
     metrics:
     - name: snmp_aristaBgp4V2PeerLocalAddrType
@@ -9529,120 +9777,6 @@ modules:
         6: established
     walk:
     - 1.3.6.1.4.1.30065.4.1.1.2
-  arista_switch_ext:
-    metrics:
-    - name: snmp_aristaIngressQueuePktsDropped
-      oid: 1.3.6.1.4.1.30065.3.6.1.1.1.3
-      type: counter
-      help: aristaIngressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.1.1.3
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: interface_index
-        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.1
-        type: gauge
-      - labels:
-        - index
-        labelname: queue_index
-        oid: 1.3.6.1.4.1.30065.3.6.1.1.1.2
-        type: gauge
-    - name: snmp_aristaEgressQueuePktsDropped
-      oid: 1.3.6.1.4.1.30065.3.6.1.2.1.6
-      type: counter
-      help: aristaEgressQueuePktsDropped (ARISTA-QUEUE-MIB) - 1.3.6.1.4.1.30065.3.6.1.2.1.6
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: interface_index
-        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.1
-        type: gauge
-      - labels:
-        - index
-        labelname: queue_index
-        oid: 1.3.6.1.4.1.30065.3.6.1.2.1.2
-        type: gauge
-    - name: snmp_aristaIfInPktRate
-      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.3
-      type: gauge
-      help: aristaIfInPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.3
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: aristaIfRateInterval
-        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
-        type: DisplayString
-      - labels:
-        - index
-        labelname: if_interface_name
-        oid: 1.3.6.1.2.1.31.1.1.1.1
-        type: DisplayString
-    - name: snmp_aristaIfOutPktRate
-      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.4
-      type: gauge
-      help: aristaIfOutPktRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.4
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: aristaIfRateInterval
-        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
-        type: DisplayString
-      - labels:
-        - index
-        labelname: if_interface_name
-        oid: 1.3.6.1.2.1.31.1.1.1.1
-        type: DisplayString
-    - name: snmp_aristaIfInOctetRate
-      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.5
-      type: counter
-      help: aristaIfInOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.5
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: aristaIfRateInterval
-        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
-        type: DisplayString
-      - labels:
-        - index
-        labelname: if_interface_name
-        oid: 1.3.6.1.2.1.31.1.1.1.1
-        type: DisplayString
-    - name: snmp_aristaIfOutOctetRate
-      oid: 1.3.6.1.4.1.30065.3.15.1.1.1.6
-      type: counter
-      help: aristaIfOutOctetRate (ARISTA-IF-MIB) - 1.3.6.1.4.1.30065.3.15.1.1.1.6
-      indexes:
-      - labelname: index
-        type: gauge
-      lookups:
-      - labels:
-        - index
-        labelname: aristaIfRateInterval
-        oid: 1.3.6.1.4.1.30065.3.15.1.1.1.2
-        type: DisplayString
-      - labels:
-        - index
-        labelname: if_interface_name
-        oid: 1.3.6.1.2.1.31.1.1.1.1
-        type: DisplayString
-    walk:
-    - 1.3.6.1.4.1.30065.3.6.1.1
-    - 1.3.6.1.4.1.30065.3.6.1.2
-    - 1.3.6.1.4.1.30065.3.15.1.1
   aruba_access_point:
     metrics:
     - name: snmp_Uptime
@@ -20004,78 +20138,6 @@ modules:
     - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.2.0
     - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.3.0
     - 1.3.6.1.4.1.2435.2.3.9.1.1.2.10.4.0
-  cambium_mib:
-    metrics:
-    - name: snmp_Uptime
-      oid: 1.3.6.1.2.1.1.3
-      type: gauge
-      help: sysUpTime (SNMPv2-MIB) TimeTicks
-      lookups: []
-    - name: snmp_device_info
-      oid: 1.3.6.1.2.1.1.5
-      type: DisplayString
-      help: "Device identity (info metric, value 1). sysName is the DisplayString;\
-        \ SNMPv2 + vendor scalars are lookups. Dummy snmp_scalar_index (.0) is required:\
-        \ snmp_exporter skips lookups with empty labels. Relabel snmp_device_info\
-        \ \u2192 sysName and drops snmp_scalar_index."
-      indexes:
-      - labelname: snmp_scalar_index
-        type: gauge
-      lookups:
-      - labels:
-        - snmp_scalar_index
-        labelname: sysDescr
-        oid: 1.3.6.1.2.1.1.1
-        type: DisplayString
-      - labels:
-        - snmp_scalar_index
-        labelname: sysObjectID
-        oid: 1.3.6.1.2.1.1.2
-        type: DisplayString
-      - labels:
-        - snmp_scalar_index
-        labelname: sysContact
-        oid: 1.3.6.1.2.1.1.4
-        type: DisplayString
-      - labels:
-        - snmp_scalar_index
-        labelname: sysLocation
-        oid: 1.3.6.1.2.1.1.6
-        type: DisplayString
-    get:
-    - 1.3.6.1.2.1.1.1.0
-    - 1.3.6.1.2.1.1.2.0
-    - 1.3.6.1.2.1.1.3.0
-    - 1.3.6.1.2.1.1.4.0
-    - 1.3.6.1.2.1.1.5.0
-    - 1.3.6.1.2.1.1.6.0
-  cambium_mib_ext:
-    metrics:
-    - name: snmp_tgRadioInterfacesTable
-      oid: 1.3.6.1.4.1.17713.60.1.1
-      type: gauge
-      help: tgRadioInterfacesTable (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1
-      lookups: []
-    - name: snmp_mcs
-      oid: 1.3.6.1.4.1.17713.60.1.1.1.5
-      type: gauge
-      help: mcs (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.5
-      lookups: []
-    - name: snmp_snr
-      oid: 1.3.6.1.4.1.17713.60.1.1.1.6
-      type: gauge
-      help: snr (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.6
-      lookups: []
-    - name: snmp_rssi
-      oid: 1.3.6.1.4.1.17713.60.1.1.1.7
-      type: gauge
-      help: rssi (TERRAGRAPH-RADIO-MIB) - 1.3.6.1.4.1.17713.60.1.1.1.7
-      lookups: []
-    get:
-    - 1.3.6.1.4.1.17713.60.1.1
-    - 1.3.6.1.4.1.17713.60.1.1.1.5
-    - 1.3.6.1.4.1.17713.60.1.1.1.6
-    - 1.3.6.1.4.1.17713.60.1.1.1.7
   checkpoint_firewall:
     metrics:
     - name: snmp_Uptime
@@ -39089,6 +39151,128 @@ modules:
     - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.6
     - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.7
     - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.8
+  dell_os10_ext:
+    metrics:
+    - name: snmp_os10CardStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
+      type: gauge
+      help: os10CardStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
+      indexes:
+      - labelname: os10ChassisIndex
+        type: gauge
+      - labelname: os10CardIndex
+        type: gauge
+      lookups:
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
+        type: DisplayString
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardServiceTag
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
+        type: DisplayString
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+    walk:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4
+  dell_os10_sensors:
+    metrics:
+    - name: snmp_os10ChassisTemp
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
+      type: gauge
+      help: os10ChassisTemp (HOST-RESOURCES-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
+      lookups: []
+    - name: snmp_os10CardTemp
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
+      type: gauge
+      help: os10CardTemp (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
+      indexes:
+      - labelname: os10ChassisIndex
+        type: gauge
+      - labelname: os10CardIndex
+        type: gauge
+      lookups:
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardDescription
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
+        type: DisplayString
+      - labels:
+        - os10ChassisIndex
+        - os10CardIndex
+        labelname: os10CardServiceTag
+        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
+        type: DisplayString
+    - name: snmp_os10PowerSupplyOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
+      type: gauge
+      help: os10PowerSupplyOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
+      indexes:
+      - labelname: os10PowerSupplyIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    - name: snmp_os10FanTrayOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
+      type: gauge
+      help: os10FanTrayOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
+      indexes:
+      - labelname: os10FanTrayIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    - name: snmp_os10FanOperStatus
+      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
+      type: gauge
+      help: os10FanOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
+      indexes:
+      - labelname: os10FanIndex
+        type: gauge
+      enum_values:
+        1: up
+        2: down
+        3: testing
+        4: unknown
+        5: dormant
+        6: notPresent
+        7: lowerLayerDown
+        8: failed
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3
+    get:
+    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
   dell_os10_topo:
     metrics:
     - name: snmp_os10bgp4V2PeerAdminStatus
@@ -39255,128 +39439,6 @@ modules:
         6: established
     walk:
     - 1.3.6.1.4.1.674.11000.5000.200.1.1.2
-  dell_os10_ext:
-    metrics:
-    - name: snmp_os10CardStatus
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
-      type: gauge
-      help: os10CardStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.4
-      indexes:
-      - labelname: os10ChassisIndex
-        type: gauge
-      - labelname: os10CardIndex
-        type: gauge
-      lookups:
-      - labels:
-        - os10ChassisIndex
-        - os10CardIndex
-        labelname: os10CardDescription
-        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
-        type: DisplayString
-      - labels:
-        - os10ChassisIndex
-        - os10CardIndex
-        labelname: os10CardServiceTag
-        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
-        type: DisplayString
-      enum_values:
-        1: up
-        2: down
-        3: testing
-        4: unknown
-        5: dormant
-        6: notPresent
-        7: lowerLayerDown
-        8: failed
-    walk:
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4
-  dell_os10_sensors:
-    metrics:
-    - name: snmp_os10ChassisTemp
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
-      type: gauge
-      help: os10ChassisTemp (HOST-RESOURCES-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
-      lookups: []
-    - name: snmp_os10CardTemp
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
-      type: gauge
-      help: os10CardTemp (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.5
-      indexes:
-      - labelname: os10ChassisIndex
-        type: gauge
-      - labelname: os10CardIndex
-        type: gauge
-      lookups:
-      - labels:
-        - os10ChassisIndex
-        - os10CardIndex
-        labelname: os10CardDescription
-        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.3
-        type: DisplayString
-      - labels:
-        - os10ChassisIndex
-        - os10CardIndex
-        labelname: os10CardServiceTag
-        oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4.1.9
-        type: DisplayString
-    - name: snmp_os10PowerSupplyOperStatus
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
-      type: gauge
-      help: os10PowerSupplyOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1.1.4
-      indexes:
-      - labelname: os10PowerSupplyIndex
-        type: gauge
-      enum_values:
-        1: up
-        2: down
-        3: testing
-        4: unknown
-        5: dormant
-        6: notPresent
-        7: lowerLayerDown
-        8: failed
-      lookups: []
-    - name: snmp_os10FanTrayOperStatus
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
-      type: gauge
-      help: os10FanTrayOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2.1.4
-      indexes:
-      - labelname: os10FanTrayIndex
-        type: gauge
-      enum_values:
-        1: up
-        2: down
-        3: testing
-        4: unknown
-        5: dormant
-        6: notPresent
-        7: lowerLayerDown
-        8: failed
-      lookups: []
-    - name: snmp_os10FanOperStatus
-      oid: 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
-      type: gauge
-      help: os10FanOperStatus (DELLEMC-OS10-CHASSIS-MIB) - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3.1.7
-      indexes:
-      - labelname: os10FanIndex
-        type: gauge
-      enum_values:
-        1: up
-        2: down
-        3: testing
-        4: unknown
-        5: dormant
-        6: notPresent
-        7: lowerLayerDown
-        8: failed
-      lookups: []
-    walk:
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.4
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.1
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.2
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.2.3
-    get:
-    - 1.3.6.1.4.1.674.11000.5000.100.4.1.1.3.1.11
   dell_powerconnect:
     metrics:
     - name: snmp_Uptime
@@ -51045,6 +51107,360 @@ modules:
     - 1.3.6.1.2.1.1.5.0
     - 1.3.6.1.2.1.1.6.0
     - 1.3.6.1.4.1.2011.5.25.31.6.5.0
+  huawei_routers_ext:
+    metrics:
+    - name: snmp_hwDnsTtl
+      oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
+      type: gauge
+      help: hwDnsTtl (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
+      indexes:
+      - labelname: hwDnsDomainName
+        type: DisplayString
+      lookups:
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsDomainName
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.1
+        type: DisplayString
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsIpAddress
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.2
+        type: DisplayString
+      - labels:
+        - hwDnsDomainName
+        labelname: hwDnsAlias
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.4
+        type: DisplayString
+    - name: snmp_hwServerStatus
+      oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
+      type: gauge
+      help: hwServerStatus (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
+      indexes:
+      - labelname: hwServerAddr
+        type: InetAddress
+      lookups:
+      - labels:
+        - hwServerAddr
+        labelname: hwServerAddr
+        oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.1
+        type: DisplayString
+      enum_values:
+        1: static
+        2: dynamic
+    - name: snmp_hwFwNetEventInterface
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
+      type: gauge
+      help: hwFwNetEventInterface (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcVrfName
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
+      type: gauge
+      help: hwFwNetEventSrcVrfName (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcIpAddress
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
+      type: gauge
+      help: hwFwNetEventSrcIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDstIpAddress
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
+      type: gauge
+      help: hwFwNetEventDstIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventSrcIpPort
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
+      type: gauge
+      help: hwFwNetEventSrcIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDstIpPort
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
+      type: gauge
+      help: hwFwNetEventDstIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwFwNetEventDescription
+      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
+      type: gauge
+      help: hwFwNetEventDescription (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
+      indexes:
+      - labelname: hwFwNetEventIndex
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatAddrPoolRefTimes
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
+      type: gauge
+      help: hwNatAddrPoolRefTimes (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
+      indexes:
+      - labelname: hwNatAddrPoolIndex
+        type: gauge
+      lookups:
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolStartAddr
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.2
+        type: DisplayString
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolEndAddr
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.3
+        type: DisplayString
+      - labels:
+        - hwNatAddrPoolIndex
+        labelname: hwNatAddrPoolRefType
+        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.5
+        type: EnumAsInfo
+    - name: snmp_hwNatSessionSrcLocalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
+      type: gauge
+      help: hwNatSessionSrcLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstLocalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
+      type: gauge
+      help: hwNatSessionDstLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcLocalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
+      type: gauge
+      help: hwNatSessionSrcLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstLocalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
+      type: gauge
+      help: hwNatSessionDstLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionProtocol
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
+      type: EnumAsInfo
+      help: hwNatSessionProtocol (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      enum_values:
+        1: other
+        2: icmp
+        3: udp
+        4: tcp
+      lookups: []
+    - name: snmp_hwNatSessionSrcGlobalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
+      type: gauge
+      help: hwNatSessionSrcGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstGlobalAddr
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
+      type: gauge
+      help: hwNatSessionDstGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcGlobalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
+      type: gauge
+      help: hwNatSessionSrcGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstGlobalPort
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
+      type: gauge
+      help: hwNatSessionDstGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionSrcVPN
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
+      type: gauge
+      help: hwNatSessionSrcVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionDstVPN
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
+      type: gauge
+      help: hwNatSessionDstVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      lookups: []
+    - name: snmp_hwNatSessionStatus
+      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
+      type: gauge
+      help: hwNatSessionStatus (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
+      indexes:
+      - labelname: hwNatSessionSrcLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionDstLocalAddr
+        type: InetAddress
+      - labelname: hwNatSessionSrcLocalPort
+        type: gauge
+      - labelname: hwNatSessionDstLocalPort
+        type: gauge
+      - labelname: hwNatSessionProtocol
+        type: gauge
+      - labelname: hwNatSessionSrcVPN
+        type: gauge
+      enum_values:
+        1: active
+        2: notInService
+        3: notReady
+        4: createAndGo
+        5: createAndWait
+        6: destroy
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.2011.5.25.194.1.1
+    - 1.3.6.1.4.1.2011.5.25.194.1.4
+    - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4
+    - 1.3.6.1.4.1.2011.5.25.226.2.3.2
+    - 1.3.6.1.4.1.2011.5.25.226.2.14.2
   huawei_routers_topo:
     metrics:
     - name: snmp_hwBgpPeerState
@@ -51448,360 +51864,6 @@ modules:
     - 1.3.6.1.4.1.2011.5.25.177.1.1.2
     - 1.3.6.1.4.1.2011.5.25.177.1.1.3
     - 1.3.6.1.4.1.2011.5.25.177.1.1.4
-  huawei_routers_ext:
-    metrics:
-    - name: snmp_hwDnsTtl
-      oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
-      type: gauge
-      help: hwDnsTtl (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.1.1.3
-      indexes:
-      - labelname: hwDnsDomainName
-        type: DisplayString
-      lookups:
-      - labels:
-        - hwDnsDomainName
-        labelname: hwDnsDomainName
-        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.1
-        type: DisplayString
-      - labels:
-        - hwDnsDomainName
-        labelname: hwDnsIpAddress
-        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.2
-        type: DisplayString
-      - labels:
-        - hwDnsDomainName
-        labelname: hwDnsAlias
-        oid: 1.3.6.1.4.1.2011.5.25.194.1.1.1.4
-        type: DisplayString
-    - name: snmp_hwServerStatus
-      oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
-      type: gauge
-      help: hwServerStatus (HUAWEI-DNS-MIB) - 1.3.6.1.4.1.2011.5.25.194.1.4.1.2
-      indexes:
-      - labelname: hwServerAddr
-        type: InetAddress
-      lookups:
-      - labels:
-        - hwServerAddr
-        labelname: hwServerAddr
-        oid: 1.3.6.1.4.1.2011.5.25.194.1.4.1.1
-        type: DisplayString
-      enum_values:
-        1: static
-        2: dynamic
-    - name: snmp_hwFwNetEventInterface
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
-      type: gauge
-      help: hwFwNetEventInterface (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.2
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventSrcVrfName
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
-      type: gauge
-      help: hwFwNetEventSrcVrfName (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.3
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventSrcIpAddress
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
-      type: gauge
-      help: hwFwNetEventSrcIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.4
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventDstIpAddress
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
-      type: gauge
-      help: hwFwNetEventDstIpAddress (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.7
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventSrcIpPort
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
-      type: gauge
-      help: hwFwNetEventSrcIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.9
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventDstIpPort
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
-      type: gauge
-      help: hwFwNetEventDstIpPort (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.11
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwFwNetEventDescription
-      oid: 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
-      type: gauge
-      help: hwFwNetEventDescription (HUAWEI-FIREWALL-MIB) - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4.1.16
-      indexes:
-      - labelname: hwFwNetEventIndex
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatAddrPoolRefTimes
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
-      type: gauge
-      help: hwNatAddrPoolRefTimes (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.4
-      indexes:
-      - labelname: hwNatAddrPoolIndex
-        type: gauge
-      lookups:
-      - labels:
-        - hwNatAddrPoolIndex
-        labelname: hwNatAddrPoolStartAddr
-        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.2
-        type: DisplayString
-      - labels:
-        - hwNatAddrPoolIndex
-        labelname: hwNatAddrPoolEndAddr
-        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.3
-        type: DisplayString
-      - labels:
-        - hwNatAddrPoolIndex
-        labelname: hwNatAddrPoolRefType
-        oid: 1.3.6.1.4.1.2011.5.25.226.2.3.2.1.5
-        type: EnumAsInfo
-    - name: snmp_hwNatSessionSrcLocalAddr
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
-      type: gauge
-      help: hwNatSessionSrcLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.1
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionDstLocalAddr
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
-      type: gauge
-      help: hwNatSessionDstLocalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.2
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionSrcLocalPort
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
-      type: gauge
-      help: hwNatSessionSrcLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.3
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionDstLocalPort
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
-      type: gauge
-      help: hwNatSessionDstLocalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.4
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionProtocol
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
-      type: EnumAsInfo
-      help: hwNatSessionProtocol (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.5
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      enum_values:
-        1: other
-        2: icmp
-        3: udp
-        4: tcp
-      lookups: []
-    - name: snmp_hwNatSessionSrcGlobalAddr
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
-      type: gauge
-      help: hwNatSessionSrcGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.6
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionDstGlobalAddr
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
-      type: gauge
-      help: hwNatSessionDstGlobalAddr (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.7
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionSrcGlobalPort
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
-      type: gauge
-      help: hwNatSessionSrcGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.8
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionDstGlobalPort
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
-      type: gauge
-      help: hwNatSessionDstGlobalPort (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.9
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionSrcVPN
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
-      type: gauge
-      help: hwNatSessionSrcVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.10
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionDstVPN
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
-      type: gauge
-      help: hwNatSessionDstVPN (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.11
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      lookups: []
-    - name: snmp_hwNatSessionStatus
-      oid: 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
-      type: gauge
-      help: hwNatSessionStatus (HUAWEI-NAT-EXT-MIB) - 1.3.6.1.4.1.2011.5.25.226.2.14.2.1.12
-      indexes:
-      - labelname: hwNatSessionSrcLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionDstLocalAddr
-        type: InetAddress
-      - labelname: hwNatSessionSrcLocalPort
-        type: gauge
-      - labelname: hwNatSessionDstLocalPort
-        type: gauge
-      - labelname: hwNatSessionProtocol
-        type: gauge
-      - labelname: hwNatSessionSrcVPN
-        type: gauge
-      enum_values:
-        1: active
-        2: notInService
-        3: notReady
-        4: createAndGo
-        5: createAndWait
-        6: destroy
-      lookups: []
-    walk:
-    - 1.3.6.1.4.1.2011.5.25.194.1.1
-    - 1.3.6.1.4.1.2011.5.25.194.1.4
-    - 1.3.6.1.4.1.2011.5.25.222.1.1.2.4
-    - 1.3.6.1.4.1.2011.5.25.226.2.3.2
-    - 1.3.6.1.4.1.2011.5.25.226.2.14.2
   huawei_switches:
     metrics:
     - name: snmp_Uptime
@@ -67379,6 +67441,121 @@ modules:
     - 1.3.6.1.2.1.1.4.0
     - 1.3.6.1.2.1.1.5.0
     - 1.3.6.1.2.1.1.6.0
+  nokia_srlinux_ext:
+    metrics:
+    - name: snmp_tmnxPhysChassisPMOutputStatus
+      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.24.9.1.7
+      type: gauge
+      help: tmnxPhysChassisPMOutputStatus (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.24.9.1.7
+      indexes:
+      - labelname: tmnxPhysChassisPMIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: online
+        3: notEquipped
+        4: failed
+        5: outOfService
+        6: degraded
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.6527.3.1.2.2.1.24.9
+  nokia_srlinux_sensors:
+    metrics:
+    - name: snmp_tmnxHwOperState
+      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.16
+      type: gauge
+      help: tmnxHwOperState (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.16
+      indexes:
+      - labelname: tmnxChassisIndex
+        type: gauge
+      - labelname: tmnxHwIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_name
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.8
+        type: DisplayString
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_serial
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.5
+        type: DisplayString
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_class
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.7
+        type: DisplayString
+      enum_values:
+        1: unknown
+        2: inService
+        3: outOfService
+        4: diagnosing
+        5: failed
+        6: booting
+        7: empty
+        8: provisioned
+        9: unprovisioned
+        10: upgrade
+        11: downgrade
+        12: inServiceUpgrade
+        13: inServiceDowngrade
+        14: resetPending
+    - name: snmp_Temperature
+      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18
+      type: gauge
+      help: tmnxHwTemperature (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18
+      indexes:
+      - labelname: tmnxChassisIndex
+        type: gauge
+      - labelname: tmnxHwIndex
+        type: gauge
+      lookups:
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_name
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.8
+        type: DisplayString
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_serial
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.5
+        type: DisplayString
+      - labels:
+        - tmnxChassisIndex
+        - tmnxHwIndex
+        labelname: hw_class
+        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.7
+        type: DisplayString
+    - name: snmp_tmnxPhysChassisFanOperStatus
+      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.24.1.1.2
+      type: gauge
+      help: tmnxPhysChassisFanOperStatus (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.24.1.1.2
+      indexes:
+      - labelname: tmnxPhysChassisClass
+        type: gauge
+      - labelname: tmnxPhysChassisNum
+        type: gauge
+      - labelname: tmnxPhysChassisFanIndex
+        type: gauge
+      enum_values:
+        1: unknown
+        2: deviceStateInService
+        3: deviceStateOutOfService
+        4: deviceStateDiagnosing
+        5: deviceStateFailed
+        6: deviceStateBooting
+        7: deviceStateEmpty
+      lookups: []
+    walk:
+    - 1.3.6.1.4.1.6527.3.1.2.2.1.8
+    - 1.3.6.1.4.1.6527.3.1.2.2.1.24.1
   nokia_srlinux_topo:
     metrics:
     - name: snmp_tBgpPeerNgConnState
@@ -67574,121 +67751,6 @@ modules:
     walk:
     - 1.3.6.1.4.1.6527.3.1.2.14.4.7
     - 1.3.6.1.4.1.6527.3.1.2.14.4.8
-  nokia_srlinux_ext:
-    metrics:
-    - name: snmp_tmnxPhysChassisPMOutputStatus
-      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.24.9.1.7
-      type: gauge
-      help: tmnxPhysChassisPMOutputStatus (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.24.9.1.7
-      indexes:
-      - labelname: tmnxPhysChassisPMIndex
-        type: gauge
-      enum_values:
-        1: unknown
-        2: online
-        3: notEquipped
-        4: failed
-        5: outOfService
-        6: degraded
-      lookups: []
-    walk:
-    - 1.3.6.1.4.1.6527.3.1.2.2.1.24.9
-  nokia_srlinux_sensors:
-    metrics:
-    - name: snmp_tmnxHwOperState
-      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.16
-      type: gauge
-      help: tmnxHwOperState (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.16
-      indexes:
-      - labelname: tmnxChassisIndex
-        type: gauge
-      - labelname: tmnxHwIndex
-        type: gauge
-      lookups:
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_name
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.8
-        type: DisplayString
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_serial
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.5
-        type: DisplayString
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_class
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.7
-        type: DisplayString
-      enum_values:
-        1: unknown
-        2: inService
-        3: outOfService
-        4: diagnosing
-        5: failed
-        6: booting
-        7: empty
-        8: provisioned
-        9: unprovisioned
-        10: upgrade
-        11: downgrade
-        12: inServiceUpgrade
-        13: inServiceDowngrade
-        14: resetPending
-    - name: snmp_Temperature
-      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18
-      type: gauge
-      help: tmnxHwTemperature (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.18
-      indexes:
-      - labelname: tmnxChassisIndex
-        type: gauge
-      - labelname: tmnxHwIndex
-        type: gauge
-      lookups:
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_name
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.8
-        type: DisplayString
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_serial
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.5
-        type: DisplayString
-      - labels:
-        - tmnxChassisIndex
-        - tmnxHwIndex
-        labelname: hw_class
-        oid: 1.3.6.1.4.1.6527.3.1.2.2.1.8.1.7
-        type: DisplayString
-    - name: snmp_tmnxPhysChassisFanOperStatus
-      oid: 1.3.6.1.4.1.6527.3.1.2.2.1.24.1.1.2
-      type: gauge
-      help: tmnxPhysChassisFanOperStatus (TIMETRA-CHASSIS-MIB) - 1.3.6.1.4.1.6527.3.1.2.2.1.24.1.1.2
-      indexes:
-      - labelname: tmnxPhysChassisClass
-        type: gauge
-      - labelname: tmnxPhysChassisNum
-        type: gauge
-      - labelname: tmnxPhysChassisFanIndex
-        type: gauge
-      enum_values:
-        1: unknown
-        2: deviceStateInService
-        3: deviceStateOutOfService
-        4: deviceStateDiagnosing
-        5: deviceStateFailed
-        6: deviceStateBooting
-        7: deviceStateEmpty
-      lookups: []
-    walk:
-    - 1.3.6.1.4.1.6527.3.1.2.2.1.8
-    - 1.3.6.1.4.1.6527.3.1.2.2.1.24.1
   nutanix:
     metrics:
     - name: snmp_Uptime
@@ -81972,21 +82034,6 @@ modules:
     - 1.3.6.1.2.1.1.6.0
     - 1.3.6.1.4.1.6876.120.1.1.133
     - 1.3.6.1.4.1.6876.120.1.1.142
-  vmware_nsx_topo:
-    metrics:
-    - name: snmp_vmwNsxTDataCenterBGPNeighborIP
-      oid: 1.3.6.1.4.1.6876.120.1.1.52
-      type: gauge
-      help: vmwNsxTDataCenterBGPNeighborIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.52
-      lookups: []
-    - name: snmp_vmwNsxTDataCenterBGPSourceIP
-      oid: 1.3.6.1.4.1.6876.120.1.1.66
-      type: gauge
-      help: vmwNsxTDataCenterBGPSourceIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.66
-      lookups: []
-    get:
-    - 1.3.6.1.4.1.6876.120.1.1.52
-    - 1.3.6.1.4.1.6876.120.1.1.66
   vmware_nsx_ext:
     metrics:
     - name: snmp_vmwNsxTDataCenterAPICollectionPath
@@ -82686,6 +82733,21 @@ modules:
     - 1.3.6.1.4.1.6876.120.1.1.74
     - 1.3.6.1.4.1.6876.120.1.1.62
     - 1.3.6.1.4.1.6876.120.1.1.35
+  vmware_nsx_topo:
+    metrics:
+    - name: snmp_vmwNsxTDataCenterBGPNeighborIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.52
+      type: gauge
+      help: vmwNsxTDataCenterBGPNeighborIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.52
+      lookups: []
+    - name: snmp_vmwNsxTDataCenterBGPSourceIP
+      oid: 1.3.6.1.4.1.6876.120.1.1.66
+      type: gauge
+      help: vmwNsxTDataCenterBGPSourceIP (VMWARE-NSX-MIB) - 1.3.6.1.4.1.6876.120.1.1.66
+      lookups: []
+    get:
+    - 1.3.6.1.4.1.6876.120.1.1.52
+    - 1.3.6.1.4.1.6876.120.1.1.66
   mycloud_ex2:
     metrics:
     - name: snmp_Uptime

@@ -407,6 +407,7 @@ tiers:
   - arista_switch_topo
   - barracuda_cloudgen_topo
   - bgp4_mib
+  - cdp_mib
   - cisco_nexus_topo
   - dell_os10_topo
   - huawei_all_devices_topo

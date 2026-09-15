@@ -95,7 +95,7 @@ func (m Matcher) hasTier() bool {
 func isTopologyModule(name string) bool {
 	n := strings.ToLower(strings.TrimSpace(name))
 	switch n {
-	case "lldp_mib", "bgp4_mib", "ospf_mib":
+	case "lldp_mib", "cdp_mib", "bgp4_mib", "ospf_mib":
 		return true
 	}
 	for _, suf := range []string{"_topo", "_bgp"} {

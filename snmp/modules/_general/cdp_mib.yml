@@ -1,0 +1,53 @@
+# CISCO-CDP-MIB cdpCacheTable — topology coverage for Cisco / Meraki.
+# Index is (ifIndex, cdpCacheDeviceIndex). ifName lookup is the local port.
+modules:
+  cdp_mib:
+    walk:
+    - 1.3.6.1.4.1.9.9.23.1.2.1
+    - 1.3.6.1.2.1.31.1.1.1.1
+    metrics:
+    - name: snmp_cdpCacheDeviceId
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.6
+      type: DisplayString
+      help: cdpCacheDeviceId (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.6
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_cdpCacheDevicePort
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.7
+      type: DisplayString
+      help: cdpCacheDevicePort (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.7
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_cdpCacheAddress
+      oid: 1.3.6.1.4.1.9.9.23.1.2.1.1.4
+      type: DisplayString
+      help: cdpCacheAddress (CISCO-CDP-MIB) - 1.3.6.1.4.1.9.9.23.1.2.1.1.4
+      indexes:
+      - labelname: ifIndex
+        type: gauge
+      - labelname: cdpCacheDeviceIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ifIndex
+        labelname: if_interface_name
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

@@ -25,7 +25,8 @@ modules:
     - ip_addr
     - 3com_huawei_sensors
     - 3com_huawei_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   3com:
     profile: 3com.yml
     vendor: 3com
@@ -49,7 +50,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   6wind_vsr:
     profile: 6wind-vsr.yml
     vendor: 6wind
@@ -90,6 +92,7 @@ modules:
     - udp_mib
     module_chain_topology:
     - bgp4_mib
+    - lldp_mib
   cambium_mib:
     profile: cambium-mib.yml
     vendor: Cambium
@@ -119,7 +122,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     - cambium_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   bgp4_mib:
     profile: bgp4-mib.yml
     vendor: _general
@@ -136,6 +140,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - bgp4_mib
+    - lldp_mib
   entity_sensor_mib:
     profile: entity-sensor-mib.yml
     vendor: _general
@@ -151,7 +156,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - entity_sensor_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   host_resources_mib:
     profile: host-resources-mib.yml
     vendor: _general
@@ -168,7 +174,8 @@ modules:
     - host_resources_mib
     module_chain_cold:
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   if_mib:
     profile: if-mib.yml
     vendor: _general
@@ -186,7 +193,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   if_mib_meta:
     profile: if-mib-meta.yml
     vendor: _general
@@ -200,7 +208,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - if_mib_meta
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   if32_mib:
     profile: if32-mib.yml
     vendor: _general
@@ -218,7 +227,8 @@ modules:
     module_chain_cold:
     - if32_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   if32_mib_meta:
     profile: if32-mib-meta.yml
     vendor: _general
@@ -232,7 +242,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - if32_mib_meta
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ip_mib:
     profile: ip-mib.yml
     vendor: _general
@@ -248,7 +259,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ip_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   lldp_mib:
     profile: lldp-mib.yml
     vendor: _general
@@ -305,7 +317,8 @@ modules:
     - ucd_mib_ext
     - dell_poweredge_sensors
     - dell_poweredge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ospf_mib:
     profile: ospf-mib.yml
     vendor: _general
@@ -322,6 +335,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - ospf_mib
+    - lldp_mib
   tcp_mib:
     profile: tcp-mib.yml
     vendor: _general
@@ -337,7 +351,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - tcp_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ucd_mib:
     profile: ucd-mib.yml
     vendor: _general
@@ -354,7 +369,8 @@ modules:
     - ucd_mib
     module_chain_cold:
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   udp_mib:
     profile: udp-mib.yml
     vendor: _general
@@ -370,7 +386,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - udp_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ups_mib:
     profile: ups-mib.yml
     vendor: _general
@@ -408,7 +425,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ups_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   a10_thunder:
     profile: a10-thunder.yml
     vendor: a10_networks
@@ -485,6 +503,7 @@ modules:
     - a10_thunder_ext
     module_chain_topology:
     - ospf_mib
+    - lldp_mib
   alcatel_lucent_ent:
     profile: alcatel-lucent-ent.yml
     vendor: alcatel_lucent
@@ -514,7 +533,8 @@ modules:
     - ip_addr
     - alcatel_lucent_ent_sensors
     - alcatel_lucent_ent_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   alcatel_lucent_ind:
     profile: alcatel-lucent-ind.yml
     vendor: alcatel_lucent
@@ -553,7 +573,8 @@ modules:
     - ip_addr
     - alcatel_lucent_ind_sensors
     - alcatel_lucent_ind_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   omni_access_wlc:
     profile: omni-access-wlc.yml
     vendor: alcatel_lucent
@@ -591,7 +612,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - omni_access_wlc_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   anue_packet_broker:
     profile: anue-packet-broker.yml
     vendor: anue
@@ -615,7 +637,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_netbotz:
     profile: apc-netbotz.yml
     vendor: apc
@@ -635,7 +658,8 @@ modules:
     module_chain_cold:
     - apc_netbotz_sensors
     - apc_netbotz_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ats:
     profile: apc_ats.yml
     vendor: apc
@@ -679,7 +703,8 @@ modules:
     module_chain_cold:
     - apc_ats_sensors
     - apc_ats_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_pdu:
     profile: apc_pdu.yml
     vendor: apc
@@ -729,7 +754,8 @@ modules:
     module_chain_cold:
     - apc_pdu_sensors
     - apc_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ups:
     profile: apc_ups.yml
     vendor: apc
@@ -780,7 +806,8 @@ modules:
     - ups_mib
     - apc_ups_sensors
     - apc_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   arista_switch:
     profile: arista-switch.yml
     vendor: arista
@@ -1116,7 +1143,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_clearpass:
     profile: aruba-clearpass.yml
     vendor: aruba
@@ -1147,7 +1175,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - aruba_clearpass_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_cx_switch:
     profile: aruba-cx-switch.yml
     vendor: aruba
@@ -1185,7 +1214,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - aruba_cx_switch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_mobility_controller:
     profile: aruba-mobility-controller.yml
     vendor: aruba
@@ -1212,7 +1242,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_switch:
     profile: aruba-switch.yml
     vendor: aruba
@@ -1397,7 +1428,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - aruba_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_wireless_controller:
     profile: aruba-wireless-controller.yml
     vendor: aruba
@@ -1489,7 +1521,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - aruba_wireless_controller_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   audiocodes_mediant_sbc:
     profile: audiocodes-mediant-sbc.yml
     vendor: audiocodes
@@ -1513,7 +1546,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aura_media_server:
     profile: aura-media-server.yml
     vendor: avaya
@@ -1542,7 +1576,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   avaya_cajun_switch:
     profile: avaya-cajun-switch.yml
     vendor: avaya
@@ -1563,7 +1598,8 @@ modules:
     - avaya_cajun_switch
     module_chain_cold:
     - avaya_cajun_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   avaya_media_gateway:
     profile: avaya-media-gateway.yml
     vendor: avaya
@@ -1610,6 +1646,7 @@ modules:
     - avaya_media_gateway_ext
     module_chain_topology:
     - ospf_mib
+    - lldp_mib
   nortel_ethernet_routing_switch:
     profile: nortel-ethernet-routing-switch.yml
     vendor: avaya
@@ -1634,7 +1671,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - nortel_ethernet_routing_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   acs:
     profile: acs.yml
     vendor: avocent
@@ -1672,7 +1710,8 @@ modules:
     - ucd_mib_ext
     - acs_sensors
     - acs_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_32s:
     profile: roomalert-32s.yml
     vendor: avtech
@@ -1692,7 +1731,8 @@ modules:
     module_chain_cold:
     - roomalert_32s_sensors
     - roomalert_32s_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_3e:
     profile: roomalert-3e.yml
     vendor: avtech
@@ -1711,7 +1751,8 @@ modules:
     - roomalert_3e
     module_chain_cold:
     - roomalert_3e_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_3s:
     profile: roomalert-3s.yml
     vendor: avtech
@@ -1730,7 +1771,8 @@ modules:
     - roomalert_3s
     module_chain_cold:
     - roomalert_3s_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_cloudgen:
     profile: barracuda-cloudgen.yml
     vendor: barracuda
@@ -1763,6 +1805,7 @@ modules:
     - barracuda_cloudgen_ext
     module_chain_topology:
     - barracuda_cloudgen_topo
+    - lldp_mib
   barracuda_email_gateway:
     profile: barracuda-email-gateway.yml
     vendor: barracuda
@@ -1792,7 +1835,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     - barracuda_email_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_waf:
     profile: barracuda-waf.yml
     vendor: barracuda
@@ -1834,7 +1878,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     - barracuda_waf_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   bluecat_server:
     profile: bluecat-server.yml
     vendor: bluecat
@@ -1886,7 +1931,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     - bluecat_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   diameter:
     profile: diameter.yml
     vendor: broadforward
@@ -1922,7 +1968,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     - diameter_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   brocade_fc_switch:
     profile: brocade-fc-switch.yml
     vendor: brocade
@@ -1964,7 +2011,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - brocade_fc_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   brother_net_printer:
     profile: brother-net-printer.yml
     vendor: brother
@@ -1989,7 +2037,8 @@ modules:
     - brother_net_printer
     module_chain_cold:
     - brother_net_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   checkpoint_firewall:
     profile: checkpoint-firewall.yml
     vendor: checkpoint
@@ -2016,7 +2065,8 @@ modules:
     - ip_addr
     - checkpoint_firewall_sensors
     - checkpoint_firewall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   watchguard:
     profile: watchguard.yml
     vendor: checkpoint
@@ -2049,7 +2099,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   luna_hsm:
     profile: luna-hsm.yml
     vendor: chrysalis
@@ -2077,7 +2128,8 @@ modules:
     - tcp_mib
     - ucd_mib_ext
     - luna_hsm_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cisco_access_point:
     profile: cisco-access-point.yml
     vendor: cisco
@@ -2136,7 +2188,9 @@ modules:
     - if_mib_meta
     - ip_addr
     - cisco_access_point_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_all_devices:
     profile: cisco-all-devices.yml
     vendor: cisco
@@ -2172,6 +2226,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_apic_server:
     profile: cisco-apic-server.yml
     vendor: cisco
@@ -2191,7 +2247,9 @@ modules:
     module_chain_cold:
     - cisco_apic_server_sensors
     - cisco_apic_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_asa:
     profile: cisco-asa.yml
     vendor: cisco
@@ -2370,6 +2428,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_asr:
     profile: cisco-asr.yml
     vendor: cisco
@@ -3225,6 +3285,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_call_manager:
     profile: cisco-call-manager.yml
     vendor: cisco
@@ -3262,6 +3324,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_catalyst:
     profile: cisco-catalyst.yml
     vendor: cisco
@@ -3691,6 +3755,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_csr:
     profile: cisco-csr.yml
     vendor: cisco
@@ -3722,6 +3788,8 @@ modules:
     - cisco_csr_ext
     module_chain_topology:
     - bgp4_mib
+    - lldp_mib
+    - cdp_mib
   cisco_firepower:
     profile: cisco-firepower.yml
     vendor: cisco
@@ -3783,7 +3851,9 @@ modules:
     - ip_addr
     - cisco_firepower_sensors
     - cisco_firepower_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ironport_email:
     profile: cisco-ironport-email.yml
     vendor: cisco
@@ -3822,7 +3892,9 @@ modules:
     - ip_addr
     - cisco_ironport_email_sensors
     - cisco_ironport_email_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ise:
     profile: cisco-ise.yml
     vendor: cisco
@@ -3857,7 +3929,9 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_load_balancer:
     profile: cisco-load-balancer.yml
     vendor: cisco
@@ -3909,6 +3983,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_nexus:
     profile: cisco-nexus.yml
     vendor: cisco
@@ -4064,6 +4140,8 @@ modules:
     - bgp4_mib
     - ospf_mib
     - cisco_nexus_topo
+    - lldp_mib
+    - cdp_mib
   cisco_sb:
     profile: cisco-sb.yml
     vendor: cisco
@@ -4088,7 +4166,9 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ucs:
     profile: cisco-ucs.yml
     vendor: cisco
@@ -4118,7 +4198,9 @@ modules:
     - ip_addr
     - cisco_ucs_sensors
     - cisco_ucs_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_voice:
     profile: cisco-voice.yml
     vendor: cisco
@@ -4155,6 +4237,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_wan_optimizer:
     profile: cisco-wan-optimizer.yml
     vendor: cisco
@@ -4208,6 +4292,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   cisco_wlc:
     profile: cisco-wlc.yml
     vendor: cisco
@@ -4280,6 +4366,8 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
+    - cdp_mib
   netscaler_sdx:
     profile: netscaler-sdx.yml
     vendor: citrix
@@ -4317,7 +4405,8 @@ modules:
     - netscaler_sdx
     module_chain_cold:
     - netscaler_sdx_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netscaler:
     profile: netscaler.yml
     vendor: citrix
@@ -4360,7 +4449,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - netscaler_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cradlepoint:
     profile: cradlepoint.yml
     vendor: cradlepoint
@@ -4432,7 +4522,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - cradlepoint_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_pdu:
     profile: cyberpower-pdu.yml
     vendor: cyberpower
@@ -4496,7 +4587,8 @@ modules:
     module_chain_cold:
     - cyberpower_pdu_sensors
     - cyberpower_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_ups:
     profile: cyberpower-ups.yml
     vendor: cyberpower
@@ -4545,7 +4637,8 @@ modules:
     - ups_mib
     - cyberpower_ups_sensors
     - cyberpower_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_avamar:
     profile: dell-avamar.yml
     vendor: dell
@@ -4574,7 +4667,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_idrac:
     profile: dell-idrac.yml
     vendor: dell
@@ -4596,7 +4690,8 @@ modules:
     module_chain_cold:
     - dell_idrac_sensors
     - dell_idrac_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_os10:
     profile: dell-os10.yml
     vendor: dell
@@ -4651,6 +4746,7 @@ modules:
     - dell_os10_ext
     module_chain_topology:
     - dell_os10_topo
+    - lldp_mib
   dell_powerconnect:
     profile: dell-powerconnect.yml
     vendor: dell
@@ -4759,7 +4855,8 @@ modules:
     - ip_addr
     - dell_powerconnect_sensors
     - dell_powerconnect_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_poweredge:
     profile: dell-poweredge.yml
     vendor: dell
@@ -4777,7 +4874,8 @@ modules:
     module_chain_cold:
     - dell_poweredge_sensors
     - dell_poweredge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   emc_data_domain:
     profile: emc-data-domain.yml
     vendor: dell
@@ -4839,7 +4937,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - emc_data_domain_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   force10:
     profile: force10.yml
     vendor: dell
@@ -4863,7 +4962,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sonicwall_sma:
     profile: sonicwall-sma.yml
     vendor: dell
@@ -4911,7 +5011,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - sonicwall_sma_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sonicwall:
     profile: sonicwall.yml
     vendor: dell
@@ -4960,7 +5061,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - sonicwall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dialogic_media_gateway:
     profile: dialogic-media-gateway.yml
     vendor: dialogic
@@ -4984,7 +5086,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dlink_dgs_switch:
     profile: dlink-dgs-switch.yml
     vendor: dlink
@@ -5017,7 +5120,8 @@ modules:
     - ip_addr
     - dlink_dgs_switch_sensors
     - dlink_dgs_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   eaton_epdu:
     profile: eaton_epdu.yml
     vendor: eaton
@@ -5063,7 +5167,8 @@ modules:
     module_chain_cold:
     - eaton_epdu_sensors
     - eaton_epdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   elemental_device:
     profile: elemental-device.yml
     vendor: elemental
@@ -5100,7 +5205,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - elemental_device_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   exagrid:
     profile: exagrid.yml
     vendor: exagrid
@@ -5136,7 +5242,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - exagrid_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   extreme_switching:
     profile: extreme-switching.yml
     vendor: extreme_networks
@@ -5179,7 +5286,8 @@ modules:
     - entity_sensor_mib
     - extreme_switching_sensors
     - extreme_switching_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   f5:
     profile: f5.yml
     vendor: f5
@@ -5219,7 +5327,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - f5_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fireeye:
     profile: fireeye.yml
     vendor: fireeye
@@ -5263,7 +5372,8 @@ modules:
     - ip_addr
     - fireeye_sensors
     - fireeye_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_appliance:
     profile: fortinet-appliance.yml
     vendor: fortinet
@@ -5355,7 +5465,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - fortinet_appliance_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_fortiap:
     profile: fortinet-fortiap.yml
     vendor: fortinet
@@ -5438,7 +5549,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - fortinet_fortiap_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_fortigate:
     profile: fortinet-fortigate.yml
     vendor: fortinet
@@ -5585,6 +5697,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   fortinet_fortiswitch:
     profile: fortinet-fortiswitch.yml
     vendor: fortinet
@@ -5630,7 +5743,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - fortinet_fortiswitch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   base:
     profile: base.yml
     vendor: generic
@@ -5671,6 +5785,7 @@ modules:
     - udp_mib
     module_chain_topology:
     - ospf_mib
+    - lldp_mib
   ups:
     profile: ups.yml
     vendor: generic
@@ -5692,7 +5807,8 @@ modules:
     - ups
     module_chain_cold:
     - ups_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   gigamon:
     profile: gigamon.yml
     vendor: gigamon
@@ -5717,7 +5833,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_h3c_switch:
     profile: hp-h3c-switch.yml
     vendor: hp
@@ -5742,7 +5859,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - hp_h3c_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_icf_switch:
     profile: hp-icf-switch.yml
     vendor: hp
@@ -5766,7 +5884,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_ilo:
     profile: hp-ilo.yml
     vendor: hp
@@ -5825,7 +5944,8 @@ modules:
     - ip_addr
     - hp_ilo_sensors
     - hp_ilo_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_bladesystem_enclosure:
     profile: hpe-bladesystem-enclosure.yml
     vendor: hpe
@@ -5856,7 +5976,8 @@ modules:
     - ucd_mib_ext
     - hpe_bladesystem_enclosure_sensors
     - hpe_bladesystem_enclosure_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_cambium:
     profile: hpe-cambium.yml
     vendor: hpe
@@ -5880,7 +6001,8 @@ modules:
     - ups_mib
     - hpe_cambium_sensors
     - hpe_cambium_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_msa:
     profile: hpe-msa.yaml
     vendor: hpe
@@ -5923,7 +6045,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - hpe_msa_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_nimble:
     profile: hpe-nimble.yml
     vendor: hpe
@@ -5948,7 +6071,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - hpe_nimble_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_synergy:
     profile: hpe-synergy.yml
     vendor: hpe
@@ -5977,7 +6101,8 @@ modules:
     - ip_addr
     - ip_mib
     - hpe_synergy_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_access_controllers:
     profile: huawei-access-controllers.yml
     vendor: huawei
@@ -6001,7 +6126,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_all_devices:
     profile: huawei-all-devices.yml
     vendor: huawei
@@ -6040,6 +6166,7 @@ modules:
     - huawei_all_devices_ext
     module_chain_topology:
     - huawei_all_devices_topo
+    - lldp_mib
   huawei_routers:
     profile: huawei-routers.yml
     vendor: huawei
@@ -6075,6 +6202,7 @@ modules:
     module_chain_topology:
     - huawei_all_devices_topo
     - huawei_routers_topo
+    - lldp_mib
   huawei_switches:
     profile: huawei-switches.yml
     vendor: huawei
@@ -6107,6 +6235,7 @@ modules:
     - huawei_switches_ext
     module_chain_topology:
     - huawei_all_devices_topo
+    - lldp_mib
   ibm_datapower_gateway:
     profile: ibm-datapower-gateway.yml
     vendor: ibm
@@ -6126,7 +6255,8 @@ modules:
     module_chain_cold:
     - ibm_datapower_gateway_sensors
     - ibm_datapower_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ibm_lenovo_server:
     profile: ibm-lenovo-server.yml
     vendor: ibm
@@ -6175,7 +6305,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     - ibm_lenovo_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ibm_wga:
     profile: ibm-wga.yml
     vendor: ibm
@@ -6209,7 +6340,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   infinera:
     profile: infinera.yml
     vendor: infinera
@@ -6235,7 +6367,8 @@ modules:
     - ip_addr
     - infinera_sensors
     - infinera_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   infoblox_ipam:
     profile: infoblox-ipam.yml
     vendor: infoblox
@@ -6331,7 +6464,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     - infoblox_ipam_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sensor_gateway_base_unit:
     profile: sensor-gateway-base-unit.yml
     vendor: infrasensing
@@ -6350,7 +6484,8 @@ modules:
     - sensor_gateway_base_unit
     module_chain_cold:
     - sensor_gateway_base_unit_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ipower_mib:
     profile: ipower-mib.yaml
     vendor: ipower
@@ -6370,7 +6505,8 @@ modules:
     module_chain_cold:
     - ipower_mib_sensors
     - ipower_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   isilon:
     profile: isilon.yml
     vendor: isilon
@@ -6389,7 +6525,8 @@ modules:
     - isilon
     module_chain_cold:
     - isilon_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_all_devices:
     profile: juniper-all-devices.yml
     vendor: juniper
@@ -6434,6 +6571,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   juniper_ex_switches:
     profile: juniper-ex-switches.yml
     vendor: juniper
@@ -6500,6 +6638,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   juniper_mx_router:
     profile: juniper-mx-router.yml
     vendor: juniper
@@ -6564,6 +6703,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   juniper_qfx_switches:
     profile: juniper-qfx-switches.yml
     vendor: juniper
@@ -6600,6 +6740,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   juniper_srx_firewalls:
     profile: juniper-srx-firewalls.yml
     vendor: juniper
@@ -6680,6 +6821,7 @@ modules:
     module_chain_topology:
     - bgp4_mib
     - ospf_mib
+    - lldp_mib
   pulse_secure:
     profile: pulse-secure.yml
     vendor: juniper
@@ -6733,7 +6875,8 @@ modules:
     - ucd_mib_ext
     - pulse_secure_sensors
     - pulse_secure_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   kyocera_printer:
     profile: kyocera-printer.yml
     vendor: kyocera
@@ -6772,7 +6915,8 @@ modules:
     - if32_mib_meta
     - ip_addr
     - kyocera_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   lenovo_rackswitch:
     profile: lenovo-rackswitch.yml
     vendor: lenovo
@@ -6816,7 +6960,8 @@ modules:
     - ip_addr
     - lenovo_rackswitch_sensors
     - lenovo_rackswitch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   linksys:
     profile: linksys.yml
     vendor: linksys
@@ -6840,7 +6985,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mcafee_web_gateway:
     profile: mcafee-web-gateway.yml
     vendor: mcafee
@@ -6943,7 +7089,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - mcafee_web_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   meraki_cloud_controller:
     profile: meraki-cloud-controller.yml
     vendor: meraki
@@ -6968,7 +7115,9 @@ modules:
     - if_mib_meta
     - ip_addr
     - meraki_cloud_controller_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   meraki_device:
     profile: meraki-device.yaml
     vendor: meraki
@@ -7076,7 +7225,9 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   mikrotik_router:
     profile: mikrotik-router.yml
     vendor: mikrotik
@@ -7102,7 +7253,8 @@ modules:
     - ip_addr
     - mikrotik_router_sensors
     - mikrotik_router_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mikrotik_switch:
     profile: mikrotik-switch.yml
     vendor: mikrotik
@@ -7128,7 +7280,8 @@ modules:
     - ip_addr
     - mikrotik_switch_sensors
     - mikrotik_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mimosa_device:
     profile: mimosa-device.yml
     vendor: mimosa
@@ -7172,7 +7325,8 @@ modules:
     - ip_addr
     - mimosa_device_sensors
     - mimosa_device_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   minuteman_pdu:
     profile: minuteman-pdu.yml
     vendor: minuteman
@@ -7215,7 +7369,8 @@ modules:
     - minuteman_pdu
     module_chain_cold:
     - minuteman_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nasuni_filer:
     profile: nasuni-filer.yml
     vendor: nasuni
@@ -7283,7 +7438,8 @@ modules:
     - ucd_mib_ext
     - nasuni_filer_sensors
     - nasuni_filer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   univerge:
     profile: univerge.yml
     vendor: nec
@@ -7314,6 +7470,7 @@ modules:
     - univerge_ext
     module_chain_topology:
     - bgp4_mib
+    - lldp_mib
   netapp_cluster:
     profile: netapp-cluster.yml
     vendor: netapp
@@ -7370,7 +7527,8 @@ modules:
     - ip_addr
     - netapp_cluster_sensors
     - netapp_cluster_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netapp_hci:
     profile: netapp-hci.yml
     vendor: netapp
@@ -7419,7 +7577,8 @@ modules:
     - host_resources_mib_ext
     - netapp_hci_sensors
     - netapp_hci_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netgear_access_point:
     profile: netgear-access-point.yml
     vendor: netgear
@@ -7443,7 +7602,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netgear_generic:
     profile: netgear-generic.yml
     vendor: netgear
@@ -7467,7 +7627,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netgear_switch:
     profile: netgear-switch.yml
     vendor: netgear
@@ -7498,7 +7659,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   readynas:
     profile: readynas.yml
     vendor: netgear
@@ -7538,7 +7700,8 @@ modules:
     - ucd_mib_ext
     - readynas_sensors
     - readynas_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netoptics_switch:
     profile: netoptics-switch.yml
     vendor: netoptics
@@ -7573,7 +7736,8 @@ modules:
     - ip_addr
     - netoptics_switch_sensors
     - netoptics_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netskope_appliance:
     profile: netskope-appliance.yml
     vendor: netskope
@@ -7602,7 +7766,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nokia_srlinux:
     profile: nokia-srlinux.yml
     vendor: nokia
@@ -7631,6 +7796,7 @@ modules:
     - nokia_srlinux_ext
     module_chain_topology:
     - nokia_srlinux_topo
+    - lldp_mib
   nutanix:
     profile: nutanix.yml
     vendor: nutanix
@@ -7665,7 +7831,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     - nutanix_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cumulus_linux_switch:
     profile: cumulus-linux-switch.yml
     vendor: nvidia
@@ -7699,7 +7866,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - cumulus_linux_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mellanox_switchx:
     profile: mellanox-switchx.yml
     vendor: nvidia
@@ -7782,7 +7950,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - entity_sensor_mib
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   omron_cj_ethernet_ip:
     profile: omron-cj-ethernet-ip.yml
     vendor: omron
@@ -7807,7 +7976,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opengear_console_manager:
     profile: opengear-console-manager.yml
     vendor: opengear
@@ -7843,7 +8013,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - opengear_console_manager_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opengear_infrastructure_manager:
     profile: opengear-infrastructure-manager.yml
     vendor: opengear
@@ -7870,7 +8041,8 @@ modules:
     - ip_addr
     - opengear_infrastructure_manager_sensors
     - opengear_infrastructure_manager_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opnsense_protectli:
     profile: opnsense-protectli.yml
     vendor: opnsense
@@ -7894,7 +8066,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cloudgenix:
     profile: cloudgenix.yml
     vendor: palo_alto
@@ -7934,7 +8107,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   palo_alto:
     profile: palo-alto.yml
     vendor: palo_alto
@@ -8039,6 +8213,7 @@ modules:
     - palo_alto_ext
     module_chain_topology:
     - ospf_mib
+    - lldp_mib
   panduit_pdu:
     profile: panduit_pdu.yml
     vendor: panduit
@@ -8057,7 +8232,8 @@ modules:
     - panduit_pdu
     module_chain_cold:
     - panduit_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   peplink:
     profile: peplink.yml
     vendor: peplink
@@ -8119,7 +8295,8 @@ modules:
     - host_resources_mib_ext
     - peplink_sensors
     - peplink_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   pf_sense:
     profile: pf_sense.yml
     vendor: pf_sense
@@ -8153,7 +8330,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dominion:
     profile: dominion.yml
     vendor: raritan
@@ -8180,7 +8358,8 @@ modules:
     - ip_addr
     - dominion_sensors
     - dominion_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   raritan_pdu:
     profile: raritan-pdu.yml
     vendor: raritan
@@ -8201,7 +8380,8 @@ modules:
     module_chain_cold:
     - raritan_pdu_sensors
     - raritan_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   riverbed_interceptor:
     profile: riverbed-interceptor.yml
     vendor: riverbed
@@ -8240,7 +8420,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - riverbed_interceptor_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   riverbed_steelhead:
     profile: riverbed-steelhead.yml
     vendor: riverbed
@@ -8265,7 +8446,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - riverbed_steelhead_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   Ruckus_Contoller_SNMP:
     profile: Ruckus_Contoller_SNMP.yml
     vendor: ruckus
@@ -8281,7 +8463,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - Ruckus_Contoller_SNMP
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ruckus_unleashed:
     profile: ruckus-unleashed.yml
     vendor: ruckus
@@ -8317,7 +8500,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - ruckus_unleashed_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ruckus_wap:
     profile: ruckus-wap.yml
     vendor: ruckus
@@ -8347,7 +8531,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   server_iron_switch:
     profile: server-iron-switch.yml
     vendor: server_iron
@@ -8376,7 +8561,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   servertech_pdu3:
     profile: servertech-pdu3.yml
     vendor: servertech
@@ -8408,7 +8594,8 @@ modules:
     module_chain_cold:
     - servertech_pdu3_sensors
     - servertech_pdu3_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   servertech_pdu4:
     profile: servertech-pdu4.yml
     vendor: servertech
@@ -8457,7 +8644,8 @@ modules:
     - servertech_pdu4
     module_chain_cold:
     - servertech_pdu4_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   edgeconnect:
     profile: edgeconnect.yml
     vendor: silverpeak
@@ -8500,7 +8688,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - edgeconnect_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   eagle_i:
     profile: eagle-i.yml
     vendor: sinetica
@@ -8537,7 +8726,8 @@ modules:
     - eagle_i
     module_chain_cold:
     - eagle_i_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   xgs_firewall:
     profile: xgs-firewall.yml
     vendor: sophos
@@ -8580,7 +8770,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - xgs_firewall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dctrack:
     profile: dctrack.yml
     vendor: sunbird
@@ -8610,7 +8801,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - dctrack_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   power_iq:
     profile: power-iq.yml
     vendor: sunbird
@@ -8640,7 +8832,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - power_iq_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   disk_station:
     profile: disk_station.yml
     vendor: synology
@@ -8684,7 +8877,8 @@ modules:
     - ip_addr
     - disk_station_sensors
     - disk_station_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tp_link:
     profile: tp_link.yml
     vendor: tp_link
@@ -8711,7 +8905,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_pdu:
     profile: tripplite-pdu.yml
     vendor: tripplite
@@ -8731,7 +8926,8 @@ modules:
     module_chain_cold:
     - tripplite_pdu_sensors
     - tripplite_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_ups:
     profile: tripplite-ups.yml
     vendor: tripplite
@@ -8778,7 +8974,8 @@ modules:
     - ups_mib
     - tripplite_ups_sensors
     - tripplite_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   truenas:
     profile: truenas.yml
     vendor: truenas
@@ -8813,7 +9010,8 @@ modules:
     - ucd_mib_ext
     - host_resources_mib_ext
     - truenas_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   unifi_access_point:
     profile: unifi-access-point.yml
     vendor: ubiquiti
@@ -8839,7 +9037,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - unifi_access_point_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   unifi_security_gateway:
     profile: unifi-security-gateway.yml
     vendor: ubiquiti
@@ -8868,7 +9067,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   unifi_switch:
     profile: unifi-switch.yml
     vendor: ubiquiti
@@ -8892,7 +9092,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   velocloud_edge:
     profile: velocloud-edge.yml
     vendor: velocloud
@@ -8922,7 +9123,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - velocloud_edge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   liebert_ac:
     profile: liebert-ac.yml
     vendor: vertiv
@@ -8954,7 +9156,8 @@ modules:
     module_chain_cold:
     - liebert_ac_sensors
     - liebert_ac_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vertiv_pdu:
     profile: vertiv-pdu.yml
     vendor: vertiv
@@ -8997,7 +9200,8 @@ modules:
     - vertiv_pdu
     module_chain_cold:
     - vertiv_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vertiv_ups:
     profile: vertiv-ups.yml
     vendor: vertiv
@@ -9036,7 +9240,8 @@ modules:
     - ups_mib
     - vertiv_ups_sensors
     - vertiv_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   watchdog:
     profile: watchdog.yml
     vendor: vertiv
@@ -9080,7 +9285,8 @@ modules:
     module_chain_cold:
     - watchdog_sensors
     - watchdog_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   esx:
     profile: esx.yml
     vendor: vmware
@@ -9110,7 +9316,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     - esx_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vmware_nsx:
     profile: vmware-nsx.yml
     vendor: vmware
@@ -9225,6 +9432,7 @@ modules:
     - vmware_nsx_ext
     module_chain_topology:
     - vmware_nsx_topo
+    - lldp_mib
   mycloud_ex2:
     profile: mycloud-ex2.yml
     vendor: western_digital
@@ -9270,7 +9478,8 @@ modules:
     - host_resources_mib_ext
     - mycloud_ex2_sensors
     - mycloud_ex2_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   workcentre:
     profile: workcentre.yml
     vendor: xerox
@@ -9309,7 +9518,8 @@ modules:
     - if_mib_meta
     - ip_addr
     - workcentre_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   zebra_printer:
     profile: zebra-printer.yml
     vendor: zebra
@@ -9346,7 +9556,8 @@ modules:
     - zebra_printer
     module_chain_cold:
     - zebra_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   zscaler_nss:
     profile: zscaler_nss.yml
     vendor: zscaler
@@ -9372,7 +9583,8 @@ modules:
     - zscaler_nss
     module_chain_cold:
     - zscaler_nss_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   zyxel_switch:
     profile: zyxel-switch.yml
     vendor: zyxel
@@ -9420,7 +9632,8 @@ modules:
     module_chain_cold:
     - if_mib_meta
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   device_base:
     profile: device_base.yml
     vendor: _general
@@ -9434,7 +9647,8 @@ modules:
     module_chain_hot:
     - device_base
     module_chain_cold: []
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ip_addr:
     profile: ip-addr.yml
     vendor: _general
@@ -9449,7 +9663,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ip_addr
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_all_devices_identity:
     profile: huawei-all-devices-identity.yml
     vendor: huawei
@@ -9465,7 +9680,8 @@ modules:
     module_chain_hot:
     - huawei_all_devices_identity
     module_chain_cold: []
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_all_devices_identity:
     profile: juniper-all-devices-identity.yml
     vendor: juniper
@@ -9480,7 +9696,8 @@ modules:
     module_chain_hot:
     - juniper_all_devices_identity
     module_chain_cold: []
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   3com_huawei_ext:
     profile: 3com-huawei-ext.yml
     vendor: 3com
@@ -9494,7 +9711,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - 3com_huawei_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   3com_huawei_sensors:
     profile: 3com-huawei-sensors.yml
     vendor: 3com
@@ -9508,7 +9726,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - 3com_huawei_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   host_resources_mib_ext:
     profile: host-resources-mib-ext.yml
     vendor: _general
@@ -9522,7 +9741,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - host_resources_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ucd_mib_ext:
     profile: ucd-mib-ext.yml
     vendor: _general
@@ -9536,7 +9756,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ucd_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   a10_thunder_ext:
     profile: a10-thunder-ext.yml
     vendor: a10_networks
@@ -9550,7 +9771,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - a10_thunder_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   a10_thunder_sensors:
     profile: a10-thunder-sensors.yml
     vendor: a10_networks
@@ -9564,7 +9786,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - a10_thunder_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   alcatel_lucent_ent_ext:
     profile: alcatel-lucent-ent-ext.yml
     vendor: alcatel_lucent
@@ -9578,7 +9801,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - alcatel_lucent_ent_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   alcatel_lucent_ent_sensors:
     profile: alcatel-lucent-ent-sensors.yml
     vendor: alcatel_lucent
@@ -9592,7 +9816,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - alcatel_lucent_ent_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   alcatel_lucent_ind_ext:
     profile: alcatel-lucent-ind-ext.yml
     vendor: alcatel_lucent
@@ -9606,7 +9831,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - alcatel_lucent_ind_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   alcatel_lucent_ind_sensors:
     profile: alcatel-lucent-ind-sensors.yml
     vendor: alcatel_lucent
@@ -9620,7 +9846,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - alcatel_lucent_ind_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   omni_access_wlc_ext:
     profile: omni-access-wlc-ext.yml
     vendor: alcatel_lucent
@@ -9634,7 +9861,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - omni_access_wlc_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ats_ext:
     profile: apc-ats-ext.yml
     vendor: apc
@@ -9648,7 +9876,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_ats_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ats_sensors:
     profile: apc-ats-sensors.yml
     vendor: apc
@@ -9662,7 +9891,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_ats_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_netbotz_ext:
     profile: apc-netbotz-ext.yml
     vendor: apc
@@ -9676,7 +9906,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_netbotz_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_netbotz_sensors:
     profile: apc-netbotz-sensors.yml
     vendor: apc
@@ -9690,7 +9921,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_netbotz_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_pdu_ext:
     profile: apc-pdu-ext.yml
     vendor: apc
@@ -9704,7 +9936,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_pdu_sensors:
     profile: apc-pdu-sensors.yml
     vendor: apc
@@ -9718,7 +9951,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_pdu_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ups_ext:
     profile: apc-ups-ext.yml
     vendor: apc
@@ -9732,7 +9966,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   apc_ups_sensors:
     profile: apc-ups-sensors.yml
     vendor: apc
@@ -9746,7 +9981,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - apc_ups_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   arista_switch_topo:
     profile: arista-switch-bgp.yml
     vendor: arista
@@ -9761,6 +9997,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - arista_switch_topo
+    - lldp_mib
   arista_switch_ext:
     profile: arista-switch-ext.yml
     vendor: arista
@@ -9774,7 +10011,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - arista_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_clearpass_ext:
     profile: aruba-clearpass-ext.yml
     vendor: aruba
@@ -9788,7 +10026,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - aruba_clearpass_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_cx_switch_sensors:
     profile: aruba-cx-switch-sensors.yml
     vendor: aruba
@@ -9802,7 +10041,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - aruba_cx_switch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_switch_ext:
     profile: aruba-switch-ext.yml
     vendor: aruba
@@ -9816,7 +10056,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - aruba_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   aruba_wireless_controller_ext:
     profile: aruba-wireless-controller-ext.yml
     vendor: aruba
@@ -9830,7 +10071,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - aruba_wireless_controller_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   avaya_cajun_switch_ext:
     profile: avaya-cajun-switch-ext.yml
     vendor: avaya
@@ -9844,7 +10086,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - avaya_cajun_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   avaya_media_gateway_ext:
     profile: avaya-media-gateway-ext.yml
     vendor: avaya
@@ -9858,7 +10101,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - avaya_media_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nortel_ethernet_routing_switch_ext:
     profile: nortel-ethernet-routing-switch-ext.yml
     vendor: avaya
@@ -9872,7 +10116,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nortel_ethernet_routing_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   acs_ext:
     profile: acs-ext.yml
     vendor: avocent
@@ -9886,7 +10131,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - acs_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   acs_sensors:
     profile: acs-sensors.yml
     vendor: avocent
@@ -9900,7 +10146,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - acs_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_32s_ext:
     profile: roomalert-32s-ext.yml
     vendor: avtech
@@ -9914,7 +10161,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - roomalert_32s_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_32s_sensors:
     profile: roomalert-32s-sensors.yml
     vendor: avtech
@@ -9928,7 +10176,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - roomalert_32s_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_3e_ext:
     profile: roomalert-3e-ext.yml
     vendor: avtech
@@ -9942,7 +10191,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - roomalert_3e_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   roomalert_3s_ext:
     profile: roomalert-3s-ext.yml
     vendor: avtech
@@ -9956,7 +10206,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - roomalert_3s_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_cloudgen_ext:
     profile: barracuda-cloudgen-ext.yml
     vendor: barracuda
@@ -9970,7 +10221,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - barracuda_cloudgen_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_cloudgen_sensors:
     profile: barracuda-cloudgen-sensors.yml
     vendor: barracuda
@@ -9984,7 +10236,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - barracuda_cloudgen_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_cloudgen_topo:
     profile: barracuda-cloudgen-topo.yml
     vendor: barracuda
@@ -9999,6 +10252,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - barracuda_cloudgen_topo
+    - lldp_mib
   barracuda_email_gateway_ext:
     profile: barracuda-email-gateway-ext.yml
     vendor: barracuda
@@ -10012,7 +10266,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - barracuda_email_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   barracuda_waf_ext:
     profile: barracuda-waf-ext.yml
     vendor: barracuda
@@ -10026,7 +10281,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - barracuda_waf_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   bluecat_server_ext:
     profile: bluecat-server-ext.yml
     vendor: bluecat
@@ -10040,7 +10296,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - bluecat_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   diameter_ext:
     profile: diameter-ext.yml
     vendor: broadforward
@@ -10054,7 +10311,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - diameter_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   brocade_fc_switch_ext:
     profile: brocade-fc-switch-ext.yml
     vendor: brocade
@@ -10068,7 +10326,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - brocade_fc_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   brother_net_printer_ext:
     profile: brother-net-printer-ext.yml
     vendor: brother
@@ -10082,7 +10341,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - brother_net_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cambium_mib_ext:
     profile: cambium-mib-ext.yml
     vendor: Cambium
@@ -10096,7 +10356,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cambium_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   checkpoint_firewall_ext:
     profile: checkpoint-firewall-ext.yml
     vendor: checkpoint
@@ -10110,7 +10371,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - checkpoint_firewall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   checkpoint_firewall_sensors:
     profile: checkpoint-firewall-sensors.yml
     vendor: checkpoint
@@ -10124,7 +10386,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - checkpoint_firewall_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   luna_hsm_ext:
     profile: luna-hsm-ext.yml
     vendor: chrysalis
@@ -10138,7 +10401,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - luna_hsm_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cisco_access_point_ext:
     profile: cisco-access-point-ext.yml
     vendor: cisco
@@ -10152,7 +10416,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_access_point_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_all_devices_ext:
     profile: cisco-all-devices-ext.yml
     vendor: cisco
@@ -10166,7 +10432,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_all_devices_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_all_devices_sensors:
     profile: cisco-all-devices-sensors.yml
     vendor: cisco
@@ -10180,7 +10448,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_all_devices_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_apic_server_ext:
     profile: cisco-apic-server-ext.yml
     vendor: cisco
@@ -10194,7 +10464,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_apic_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_apic_server_sensors:
     profile: cisco-apic-server-sensors.yml
     vendor: cisco
@@ -10208,7 +10480,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_apic_server_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_asa_ext:
     profile: cisco-asa-ext.yml
     vendor: cisco
@@ -10222,7 +10496,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_asa_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_asr_ext:
     profile: cisco-asr-ext.yml
     vendor: cisco
@@ -10236,7 +10512,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_asr_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_call_manager_ext:
     profile: cisco-call-manager-ext.yml
     vendor: cisco
@@ -10250,7 +10528,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_call_manager_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_catalyst_ext:
     profile: cisco-catalyst-ext.yml
     vendor: cisco
@@ -10264,7 +10544,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_catalyst_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_csr_ext:
     profile: cisco-csr-ext.yml
     vendor: cisco
@@ -10278,7 +10560,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_csr_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_firepower_ext:
     profile: cisco-firepower-ext.yml
     vendor: cisco
@@ -10292,7 +10576,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_firepower_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_firepower_sensors:
     profile: cisco-firepower-sensors.yml
     vendor: cisco
@@ -10306,7 +10592,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_firepower_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ironport_email_ext:
     profile: cisco-ironport-email-ext.yml
     vendor: cisco
@@ -10320,7 +10608,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_ironport_email_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ironport_email_sensors:
     profile: cisco-ironport-email-sensors.yml
     vendor: cisco
@@ -10334,7 +10624,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_ironport_email_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_load_balancer_ext:
     profile: cisco-load-balancer-ext.yml
     vendor: cisco
@@ -10348,7 +10640,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_load_balancer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_nexus_topo:
     profile: cisco-nexus-bgp.yml
     vendor: cisco
@@ -10363,6 +10657,8 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - cisco_nexus_topo
+    - lldp_mib
+    - cdp_mib
   cisco_ucs_ext:
     profile: cisco-ucs-ext.yml
     vendor: cisco
@@ -10376,7 +10672,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_ucs_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_ucs_sensors:
     profile: cisco-ucs-sensors.yml
     vendor: cisco
@@ -10390,7 +10688,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_ucs_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_voice_ext:
     profile: cisco-voice-ext.yml
     vendor: cisco
@@ -10404,7 +10704,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_voice_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_wan_optimizer_ext:
     profile: cisco-wan-optimizer-ext.yml
     vendor: cisco
@@ -10418,7 +10720,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_wan_optimizer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_wlc_ext:
     profile: cisco-wlc-ext.yml
     vendor: cisco
@@ -10432,7 +10736,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_wlc_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   cisco_wlc_sensors:
     profile: cisco-wlc-sensors.yml
     vendor: cisco
@@ -10446,7 +10752,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cisco_wlc_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   netscaler_ext:
     profile: netscaler-ext.yml
     vendor: citrix
@@ -10460,7 +10768,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netscaler_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netscaler_sdx_ext:
     profile: netscaler-sdx-ext.yml
     vendor: citrix
@@ -10474,7 +10783,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netscaler_sdx_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cradlepoint_ext:
     profile: cradlepoint-ext.yml
     vendor: cradlepoint
@@ -10488,7 +10798,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cradlepoint_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_pdu_ext:
     profile: cyberpower-pdu-ext.yml
     vendor: cyberpower
@@ -10502,7 +10813,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cyberpower_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_pdu_sensors:
     profile: cyberpower-pdu-sensors.yml
     vendor: cyberpower
@@ -10516,7 +10828,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cyberpower_pdu_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_ups_ext:
     profile: cyberpower-ups-ext.yml
     vendor: cyberpower
@@ -10530,7 +10843,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cyberpower_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cyberpower_ups_sensors:
     profile: cyberpower-ups-sensors.yml
     vendor: cyberpower
@@ -10544,7 +10858,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cyberpower_ups_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_idrac_ext:
     profile: dell-idrac-ext.yml
     vendor: dell
@@ -10558,7 +10873,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_idrac_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_idrac_sensors:
     profile: dell-idrac-sensors.yml
     vendor: dell
@@ -10572,7 +10888,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_idrac_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_os10_topo:
     profile: dell-os10-bgp.yml
     vendor: dell
@@ -10587,6 +10904,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - dell_os10_topo
+    - lldp_mib
   dell_os10_ext:
     profile: dell-os10-ext.yml
     vendor: dell
@@ -10600,7 +10918,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_os10_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_os10_sensors:
     profile: dell-os10-sensors.yml
     vendor: dell
@@ -10614,7 +10933,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_os10_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_powerconnect_ext:
     profile: dell-powerconnect-ext.yml
     vendor: dell
@@ -10628,7 +10948,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_powerconnect_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_powerconnect_sensors:
     profile: dell-powerconnect-sensors.yml
     vendor: dell
@@ -10642,7 +10963,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_powerconnect_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_poweredge_ext:
     profile: dell-poweredge-ext.yml
     vendor: dell
@@ -10656,7 +10978,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_poweredge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dell_poweredge_sensors:
     profile: dell-poweredge-sensors.yml
     vendor: dell
@@ -10670,7 +10993,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dell_poweredge_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   emc_data_domain_ext:
     profile: emc-data-domain-ext.yml
     vendor: dell
@@ -10684,7 +11008,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - emc_data_domain_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sonicwall_ext:
     profile: sonicwall-ext.yml
     vendor: dell
@@ -10698,7 +11023,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - sonicwall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sonicwall_sma_ext:
     profile: sonicwall-sma-ext.yml
     vendor: dell
@@ -10712,7 +11038,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - sonicwall_sma_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dlink_dgs_switch_ext:
     profile: dlink-dgs-switch-ext.yml
     vendor: dlink
@@ -10726,7 +11053,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dlink_dgs_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dlink_dgs_switch_sensors:
     profile: dlink-dgs-switch-sensors.yml
     vendor: dlink
@@ -10740,7 +11068,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dlink_dgs_switch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   eaton_epdu_ext:
     profile: eaton-epdu-ext.yml
     vendor: eaton
@@ -10754,7 +11083,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - eaton_epdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   eaton_epdu_sensors:
     profile: eaton-epdu-sensors.yml
     vendor: eaton
@@ -10768,7 +11098,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - eaton_epdu_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   elemental_device_ext:
     profile: elemental-device-ext.yml
     vendor: elemental
@@ -10782,7 +11113,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - elemental_device_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   exagrid_ext:
     profile: exagrid-ext.yml
     vendor: exagrid
@@ -10796,7 +11128,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - exagrid_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   extreme_switching_ext:
     profile: extreme-switching-ext.yml
     vendor: extreme_networks
@@ -10810,7 +11143,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - extreme_switching_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   extreme_switching_sensors:
     profile: extreme-switching-sensors.yml
     vendor: extreme_networks
@@ -10824,7 +11158,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - extreme_switching_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   f5_ext:
     profile: f5-ext.yml
     vendor: f5
@@ -10838,7 +11173,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - f5_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fireeye_ext:
     profile: fireeye-ext.yml
     vendor: fireeye
@@ -10852,7 +11188,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fireeye_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fireeye_sensors:
     profile: fireeye-sensors.yml
     vendor: fireeye
@@ -10866,7 +11203,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fireeye_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_appliance_ext:
     profile: fortinet-appliance-ext.yml
     vendor: fortinet
@@ -10880,7 +11218,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fortinet_appliance_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_fortiap_ext:
     profile: fortinet-fortiap-ext.yml
     vendor: fortinet
@@ -10894,7 +11233,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fortinet_fortiap_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_fortigate_ext:
     profile: fortinet-fortigate-ext.yml
     vendor: fortinet
@@ -10908,7 +11248,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fortinet_fortigate_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   fortinet_fortiswitch_ext:
     profile: fortinet-fortiswitch-ext.yml
     vendor: fortinet
@@ -10922,7 +11263,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - fortinet_fortiswitch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_h3c_switch_ext:
     profile: hp-h3c-switch-ext.yml
     vendor: hp
@@ -10936,7 +11278,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hp_h3c_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_ilo_ext:
     profile: hp-ilo-ext.yml
     vendor: hp
@@ -10950,7 +11293,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hp_ilo_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hp_ilo_sensors:
     profile: hp-ilo-sensors.yml
     vendor: hp
@@ -10964,7 +11308,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hp_ilo_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_bladesystem_enclosure_ext:
     profile: hpe-bladesystem-enclosure-ext.yml
     vendor: hpe
@@ -10978,7 +11323,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_bladesystem_enclosure_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_bladesystem_enclosure_sensors:
     profile: hpe-bladesystem-enclosure-sensors.yml
     vendor: hpe
@@ -10992,7 +11338,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_bladesystem_enclosure_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_cambium_ext:
     profile: hpe-cambium-ext.yml
     vendor: hpe
@@ -11006,7 +11353,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_cambium_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_cambium_sensors:
     profile: hpe-cambium-sensors.yml
     vendor: hpe
@@ -11020,7 +11368,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_cambium_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_msa_ext:
     profile: hpe-msa-ext.yml
     vendor: hpe
@@ -11034,7 +11383,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_msa_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_nimble_ext:
     profile: hpe-nimble-ext.yml
     vendor: hpe
@@ -11048,7 +11398,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_nimble_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   hpe_synergy_ext:
     profile: hpe-synergy-ext.yml
     vendor: hpe
@@ -11062,7 +11413,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - hpe_synergy_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_all_devices_ext:
     profile: huawei-all-devices-ext.yml
     vendor: huawei
@@ -11076,7 +11428,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - huawei_all_devices_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_all_devices_sensors:
     profile: huawei-all-devices-sensors.yml
     vendor: huawei
@@ -11090,7 +11443,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - huawei_all_devices_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_all_devices_topo:
     profile: huawei-all-devices-topo.yml
     vendor: huawei
@@ -11105,6 +11459,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - huawei_all_devices_topo
+    - lldp_mib
   huawei_routers_topo:
     profile: huawei-routers-bgp.yml
     vendor: huawei
@@ -11119,6 +11474,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - huawei_routers_topo
+    - lldp_mib
   huawei_routers_ext:
     profile: huawei-routers-ext.yml
     vendor: huawei
@@ -11132,7 +11488,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - huawei_routers_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   huawei_switches_ext:
     profile: huawei-switches-ext.yml
     vendor: huawei
@@ -11146,7 +11503,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - huawei_switches_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ibm_datapower_gateway_ext:
     profile: ibm-datapower-gateway-ext.yml
     vendor: ibm
@@ -11160,7 +11518,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ibm_datapower_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ibm_datapower_gateway_sensors:
     profile: ibm-datapower-gateway-sensors.yml
     vendor: ibm
@@ -11174,7 +11533,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ibm_datapower_gateway_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ibm_lenovo_server_ext:
     profile: ibm-lenovo-server-ext.yml
     vendor: ibm
@@ -11188,7 +11548,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ibm_lenovo_server_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   infinera_ext:
     profile: infinera-ext.yml
     vendor: infinera
@@ -11202,7 +11563,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - infinera_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   infinera_sensors:
     profile: infinera-sensors.yml
     vendor: infinera
@@ -11216,7 +11578,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - infinera_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   infoblox_ipam_ext:
     profile: infoblox-ipam-ext.yml
     vendor: infoblox
@@ -11230,7 +11593,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - infoblox_ipam_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   sensor_gateway_base_unit_ext:
     profile: sensor-gateway-base-unit-ext.yml
     vendor: infrasensing
@@ -11244,7 +11608,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - sensor_gateway_base_unit_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ipower_mib_ext:
     profile: ipower-mib-ext.yml
     vendor: ipower
@@ -11258,7 +11623,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ipower_mib_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ipower_mib_sensors:
     profile: ipower-mib-sensors.yml
     vendor: ipower
@@ -11272,7 +11638,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ipower_mib_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   isilon_ext:
     profile: isilon-ext.yml
     vendor: isilon
@@ -11286,7 +11653,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - isilon_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_all_devices_ext:
     profile: juniper-all-devices-ext.yml
     vendor: juniper
@@ -11300,7 +11668,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_all_devices_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_all_devices_sensors:
     profile: juniper-all-devices-sensors.yml
     vendor: juniper
@@ -11314,7 +11683,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_all_devices_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_ex_switches_ext:
     profile: juniper-ex-switches-ext.yml
     vendor: juniper
@@ -11328,7 +11698,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_ex_switches_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_mx_router_ext:
     profile: juniper-mx-router-ext.yml
     vendor: juniper
@@ -11342,7 +11713,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_mx_router_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_qfx_switches_ext:
     profile: juniper-qfx-switches-ext.yml
     vendor: juniper
@@ -11356,7 +11728,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_qfx_switches_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   juniper_srx_firewalls_ext:
     profile: juniper-srx-firewalls-ext.yml
     vendor: juniper
@@ -11370,7 +11743,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - juniper_srx_firewalls_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   pulse_secure_ext:
     profile: pulse-secure-ext.yml
     vendor: juniper
@@ -11384,7 +11758,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - pulse_secure_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   pulse_secure_sensors:
     profile: pulse-secure-sensors.yml
     vendor: juniper
@@ -11398,7 +11773,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - pulse_secure_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   kyocera_printer_ext:
     profile: kyocera-printer-ext.yml
     vendor: kyocera
@@ -11412,7 +11788,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - kyocera_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   lenovo_rackswitch_ext:
     profile: lenovo-rackswitch-ext.yml
     vendor: lenovo
@@ -11426,7 +11803,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - lenovo_rackswitch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   lenovo_rackswitch_sensors:
     profile: lenovo-rackswitch-sensors.yml
     vendor: lenovo
@@ -11440,7 +11818,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - lenovo_rackswitch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mcafee_web_gateway_ext:
     profile: mcafee-web-gateway-ext.yml
     vendor: mcafee
@@ -11454,7 +11833,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mcafee_web_gateway_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   meraki_cloud_controller_ext:
     profile: meraki-cloud-controller-ext.yml
     vendor: meraki
@@ -11468,7 +11848,9 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - meraki_cloud_controller_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+    - cdp_mib
   mikrotik_router_ext:
     profile: mikrotik-router-ext.yml
     vendor: mikrotik
@@ -11482,7 +11864,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mikrotik_router_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mikrotik_router_sensors:
     profile: mikrotik-router-sensors.yml
     vendor: mikrotik
@@ -11496,7 +11879,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mikrotik_router_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mikrotik_switch_ext:
     profile: mikrotik-switch-ext.yml
     vendor: mikrotik
@@ -11510,7 +11894,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mikrotik_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mikrotik_switch_sensors:
     profile: mikrotik-switch-sensors.yml
     vendor: mikrotik
@@ -11524,7 +11909,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mikrotik_switch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mimosa_device_ext:
     profile: mimosa-device-ext.yml
     vendor: mimosa
@@ -11538,7 +11924,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mimosa_device_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mimosa_device_sensors:
     profile: mimosa-device-sensors.yml
     vendor: mimosa
@@ -11552,7 +11939,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mimosa_device_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   minuteman_pdu_ext:
     profile: minuteman-pdu-ext.yml
     vendor: minuteman
@@ -11566,7 +11954,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - minuteman_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nasuni_filer_ext:
     profile: nasuni-filer-ext.yml
     vendor: nasuni
@@ -11580,7 +11969,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nasuni_filer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nasuni_filer_sensors:
     profile: nasuni-filer-sensors.yml
     vendor: nasuni
@@ -11594,7 +11984,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nasuni_filer_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   univerge_ext:
     profile: univerge-ext.yml
     vendor: nec
@@ -11608,7 +11999,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - univerge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netapp_cluster_ext:
     profile: netapp-cluster-ext.yml
     vendor: netapp
@@ -11622,7 +12014,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netapp_cluster_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netapp_cluster_sensors:
     profile: netapp-cluster-sensors.yml
     vendor: netapp
@@ -11636,7 +12029,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netapp_cluster_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netapp_hci_ext:
     profile: netapp-hci-ext.yml
     vendor: netapp
@@ -11650,7 +12044,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netapp_hci_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netapp_hci_sensors:
     profile: netapp-hci-sensors.yml
     vendor: netapp
@@ -11664,7 +12059,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netapp_hci_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   readynas_ext:
     profile: readynas-ext.yml
     vendor: netgear
@@ -11678,7 +12074,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - readynas_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   readynas_sensors:
     profile: readynas-sensors.yml
     vendor: netgear
@@ -11692,7 +12089,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - readynas_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netoptics_switch_ext:
     profile: netoptics-switch-ext.yml
     vendor: netoptics
@@ -11706,7 +12104,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netoptics_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   netoptics_switch_sensors:
     profile: netoptics-switch-sensors.yml
     vendor: netoptics
@@ -11720,7 +12119,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - netoptics_switch_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nokia_srlinux_topo:
     profile: nokia-srlinux-bgp.yml
     vendor: nokia
@@ -11735,6 +12135,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - nokia_srlinux_topo
+    - lldp_mib
   nokia_srlinux_sensors:
     profile: nokia-srlinux-sensors.yml
     vendor: nokia
@@ -11748,7 +12149,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nokia_srlinux_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nutanix_ext:
     profile: nutanix-ext.yml
     vendor: nutanix
@@ -11762,7 +12164,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nutanix_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   cumulus_linux_switch_ext:
     profile: cumulus-linux-switch-ext.yml
     vendor: nvidia
@@ -11776,7 +12179,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - cumulus_linux_switch_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opengear_console_manager_ext:
     profile: opengear-console-manager-ext.yml
     vendor: opengear
@@ -11790,7 +12194,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - opengear_console_manager_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opengear_infrastructure_manager_ext:
     profile: opengear-infrastructure-manager-ext.yml
     vendor: opengear
@@ -11804,7 +12209,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - opengear_infrastructure_manager_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   opengear_infrastructure_manager_sensors:
     profile: opengear-infrastructure-manager-sensors.yml
     vendor: opengear
@@ -11818,7 +12224,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - opengear_infrastructure_manager_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   palo_alto_ext:
     profile: palo-alto-ext.yml
     vendor: palo_alto
@@ -11832,7 +12239,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - palo_alto_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   panduit_pdu_ext:
     profile: panduit-pdu-ext.yml
     vendor: panduit
@@ -11846,7 +12254,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - panduit_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   peplink_ext:
     profile: peplink-ext.yml
     vendor: peplink
@@ -11860,7 +12269,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - peplink_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   peplink_sensors:
     profile: peplink-sensors.yml
     vendor: peplink
@@ -11874,7 +12284,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - peplink_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dominion_ext:
     profile: dominion-ext.yml
     vendor: raritan
@@ -11888,7 +12299,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dominion_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dominion_sensors:
     profile: dominion-sensors.yml
     vendor: raritan
@@ -11902,7 +12314,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dominion_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   raritan_pdu_ext:
     profile: raritan-pdu-ext.yml
     vendor: raritan
@@ -11916,7 +12329,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - raritan_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   raritan_pdu_sensors:
     profile: raritan-pdu-sensors.yml
     vendor: raritan
@@ -11930,7 +12344,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - raritan_pdu_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   riverbed_interceptor_ext:
     profile: riverbed-interceptor-ext.yml
     vendor: riverbed
@@ -11944,7 +12359,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - riverbed_interceptor_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   riverbed_steelhead_ext:
     profile: riverbed-steelhead-ext.yml
     vendor: riverbed
@@ -11958,7 +12374,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - riverbed_steelhead_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   ruckus_unleashed_ext:
     profile: ruckus-unleashed-ext.yml
     vendor: ruckus
@@ -11972,7 +12389,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - ruckus_unleashed_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   servertech_pdu3_ext:
     profile: servertech-pdu3-ext.yml
     vendor: servertech
@@ -11986,7 +12404,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - servertech_pdu3_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   servertech_pdu3_sensors:
     profile: servertech-pdu3-sensors.yml
     vendor: servertech
@@ -12000,7 +12419,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - servertech_pdu3_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   servertech_pdu4_ext:
     profile: servertech-pdu4-ext.yml
     vendor: servertech
@@ -12014,7 +12434,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - servertech_pdu4_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   edgeconnect_ext:
     profile: edgeconnect-ext.yml
     vendor: silverpeak
@@ -12028,7 +12449,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - edgeconnect_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   eagle_i_ext:
     profile: eagle-i-ext.yml
     vendor: sinetica
@@ -12042,7 +12464,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - eagle_i_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   xgs_firewall_ext:
     profile: xgs-firewall-ext.yml
     vendor: sophos
@@ -12056,7 +12479,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - xgs_firewall_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   dctrack_ext:
     profile: dctrack-ext.yml
     vendor: sunbird
@@ -12070,7 +12494,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - dctrack_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   power_iq_ext:
     profile: power-iq-ext.yml
     vendor: sunbird
@@ -12084,7 +12509,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - power_iq_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   disk_station_ext:
     profile: disk-station-ext.yml
     vendor: synology
@@ -12098,7 +12524,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - disk_station_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   disk_station_sensors:
     profile: disk-station-sensors.yml
     vendor: synology
@@ -12112,7 +12539,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - disk_station_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_pdu_ext:
     profile: tripplite-pdu-ext.yml
     vendor: tripplite
@@ -12126,7 +12554,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - tripplite_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_pdu_sensors:
     profile: tripplite-pdu-sensors.yml
     vendor: tripplite
@@ -12140,7 +12569,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - tripplite_pdu_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_ups_ext:
     profile: tripplite-ups-ext.yml
     vendor: tripplite
@@ -12154,7 +12584,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - tripplite_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   tripplite_ups_sensors:
     profile: tripplite-ups-sensors.yml
     vendor: tripplite
@@ -12168,7 +12599,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - tripplite_ups_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   truenas_ext:
     profile: truenas-ext.yml
     vendor: truenas
@@ -12182,7 +12614,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - truenas_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   unifi_access_point_ext:
     profile: unifi-access-point-ext.yml
     vendor: ubiquiti
@@ -12196,7 +12629,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - unifi_access_point_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   velocloud_edge_ext:
     profile: velocloud-edge-ext.yml
     vendor: velocloud
@@ -12210,7 +12644,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - velocloud_edge_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   liebert_ac_ext:
     profile: liebert-ac-ext.yml
     vendor: vertiv
@@ -12224,7 +12659,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - liebert_ac_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   liebert_ac_sensors:
     profile: liebert-ac-sensors.yml
     vendor: vertiv
@@ -12238,7 +12674,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - liebert_ac_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vertiv_pdu_ext:
     profile: vertiv-pdu-ext.yml
     vendor: vertiv
@@ -12252,7 +12689,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - vertiv_pdu_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vertiv_ups_ext:
     profile: vertiv-ups-ext.yml
     vendor: vertiv
@@ -12266,7 +12704,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - vertiv_ups_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vertiv_ups_sensors:
     profile: vertiv-ups-sensors.yml
     vendor: vertiv
@@ -12280,7 +12719,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - vertiv_ups_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   watchdog_ext:
     profile: watchdog-ext.yml
     vendor: vertiv
@@ -12294,7 +12734,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - watchdog_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   watchdog_sensors:
     profile: watchdog-sensors.yml
     vendor: vertiv
@@ -12308,7 +12749,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - watchdog_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   esx_ext:
     profile: esx-ext.yml
     vendor: vmware
@@ -12322,7 +12764,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - esx_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   vmware_nsx_topo:
     profile: vmware-nsx-bgp.yml
     vendor: vmware
@@ -12337,6 +12780,7 @@ modules:
     module_chain_cold: []
     module_chain_topology:
     - vmware_nsx_topo
+    - lldp_mib
   vmware_nsx_ext:
     profile: vmware-nsx-ext.yml
     vendor: vmware
@@ -12350,7 +12794,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - vmware_nsx_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mycloud_ex2_ext:
     profile: mycloud-ex2-ext.yml
     vendor: western_digital
@@ -12364,7 +12809,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mycloud_ex2_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   mycloud_ex2_sensors:
     profile: mycloud-ex2-sensors.yml
     vendor: western_digital
@@ -12378,7 +12824,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - mycloud_ex2_sensors
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   workcentre_ext:
     profile: workcentre-ext.yml
     vendor: xerox
@@ -12392,7 +12839,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - workcentre_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   zebra_printer_ext:
     profile: zebra-printer-ext.yml
     vendor: zebra
@@ -12406,7 +12854,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - zebra_printer_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   zscaler_nss_ext:
     profile: zscaler-nss-ext.yml
     vendor: zscaler
@@ -12420,7 +12869,8 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - zscaler_nss_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
   nokia_srlinux_ext:
     profile: nokia-srlinux-ext.yml
     vendor: nokia
@@ -12434,4 +12884,20 @@ modules:
     module_chain_hot: []
     module_chain_cold:
     - nokia_srlinux_ext
-    module_chain_topology: []
+    module_chain_topology:
+    - lldp_mib
+  cdp_mib:
+    profile: cdp-mib.yml
+    vendor: _general
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: IEEE LLDP / CISCO-CDP coverage module
+    extends_modules: []
+    module_chain:
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cdp_mib
+    - lldp_mib

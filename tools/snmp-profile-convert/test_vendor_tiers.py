@@ -67,6 +67,8 @@ class VendorTierTests(unittest.TestCase):
             "if_mib",
             "if_mib_meta",
             "ip_addr",
+            "lldp_mib",
+            "cdp_mib",
             "cisco_all_devices",
             "cisco_all_devices_sensors",
             "cisco_all_devices_ext",
@@ -76,7 +78,24 @@ class VendorTierTests(unittest.TestCase):
         self.assertEqual(tiers["hot"], ["if_mib", "cisco_all_devices"])
         self.assertIn("cisco_all_devices_sensors", tiers["cold"])
         self.assertIn("cisco_all_devices_ext", tiers["cold"])
-        self.assertEqual(tiers["topology"], ["cisco_all_devices_topo"])
+        self.assertEqual(
+            tiers["topology"],
+            ["cisco_all_devices_topo", "lldp_mib", "cdp_mib"],
+        )
+
+    def test_partition_lldp_on_non_cisco(self):
+        known = {
+            "if_mib",
+            "if_mib_meta",
+            "ip_addr",
+            "lldp_mib",
+            "cdp_mib",
+            "nokia_srlinux",
+            "nokia_srlinux_topo",
+        }
+        tiers = partition_module_chain(["if_mib", "nokia_srlinux"], known)
+        self.assertEqual(tiers["topology"], ["nokia_srlinux_topo", "lldp_mib"])
+        self.assertNotIn("cdp_mib", tiers["topology"])
 
     def test_classify_vitals_only_leaf(self):
         self.assertEqual(
