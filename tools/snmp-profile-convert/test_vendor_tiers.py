@@ -2,8 +2,12 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+
+import yaml
 
 from convert import (
+    CISCO_RELATED_RE,
     classify_module,
     metric_tier,
     partition_module_chain,
@@ -102,6 +106,45 @@ class VendorTierTests(unittest.TestCase):
             classify_module("zyxel_switch", hot_leaves={"zyxel_switch"}),
             "hot",
         )
+
+
+class ShippedCatalogTests(unittest.TestCase):
+    """Load snmp/fingerprinters.yml so convert CI fails if coverage drifts."""
+
+    @classmethod
+    def setUpClass(cls):
+        repo = Path(__file__).resolve().parents[2]
+        data = yaml.safe_load(
+            (repo / "snmp" / "fingerprinters.yml").read_text(encoding="utf-8")
+        )
+        cls.fp = data["fingerprinters"]["network"]
+
+    def test_default_topology_is_lldp(self):
+        self.assertIn("lldp_mib", self.fp["default_modules_topology"])
+
+    def test_every_tiered_matcher_has_lldp(self):
+        missing = []
+        for m in self.fp["matchers"]:
+            if not (m.get("modules_hot") or m.get("modules_cold") or m.get("modules_topology")):
+                continue
+            if "lldp_mib" not in (m.get("modules_topology") or []):
+                missing.append(m.get("comment") or m.get("regex"))
+        self.assertEqual(missing[:5], [], msg=f"{len(missing)} matchers missing lldp_mib")
+
+    def test_cisco_meraki_matchers_have_cdp(self):
+        missing = []
+        for m in self.fp["matchers"]:
+            names = [
+                *(m.get("modules") or []),
+                *(m.get("modules_hot") or []),
+                *(m.get("modules_cold") or []),
+                *(m.get("modules_topology") or []),
+            ]
+            if not any(CISCO_RELATED_RE.search(str(n) or "") for n in names):
+                continue
+            if "cdp_mib" not in (m.get("modules_topology") or []):
+                missing.append(m.get("comment") or m.get("regex"))
+        self.assertEqual(missing[:5], [], msg=f"{len(missing)} cisco/meraki matchers missing cdp_mib")
 
 
 if __name__ == "__main__":

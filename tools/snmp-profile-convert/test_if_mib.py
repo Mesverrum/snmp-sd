@@ -305,6 +305,8 @@ class IpAddrModule(unittest.TestCase):
             "if_mib",
             "if_mib_meta",
             "ip_addr",
+            "lldp_mib",
+            "cdp_mib",
             "nokia_srlinux",
             "nokia_srlinux_sensors",
             "nokia_srlinux_topo",
@@ -314,7 +316,8 @@ class IpAddrModule(unittest.TestCase):
         self.assertIn("nokia_srlinux_sensors", tiers["cold"])
         self.assertIn("if_mib_meta", tiers["cold"])
         self.assertIn("ip_addr", tiers["cold"])
-        self.assertEqual(tiers["topology"], ["nokia_srlinux_topo"])
+        self.assertEqual(tiers["topology"], ["nokia_srlinux_topo", "lldp_mib"])
+        self.assertNotIn("cdp_mib", tiers["topology"])
         self.assertNotIn("nokia_srlinux_hot", tiers["hot"])
 
     def test_partition_drops_ip_addr_when_module_absent(self):
