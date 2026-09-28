@@ -15,8 +15,14 @@ type DiscoveryFile struct {
 	Overrides []Override       `yaml:"overrides"`
 }
 
+// MaxGroupDescription bounds the operator note so it can be a Prometheus
+// label on discovery_snmp_group_info without carrying a pasted paragraph.
+const MaxGroupDescription = 256
+
 type DiscoveryGroup struct {
-	Name          string   `yaml:"name"`
+	Name string `yaml:"name"`
+	// Description is an operator note for the next person. The scan ignores it.
+	Description   string   `yaml:"description,omitempty"`
 	CIDRs         []string `yaml:"cidrs"`
 	Exclude       []string `yaml:"exclude"`
 	Seeds         []string `yaml:"seeds"`
@@ -35,6 +41,16 @@ const (
 	modeCrawl = "crawl"
 	modeBoth  = "both"
 )
+
+func validateGroupDescription(name, description string) error {
+	if strings.ContainsAny(description, "\r\n") {
+		return fmt.Errorf("discovery config: group %q description must be a single line", name)
+	}
+	if len(description) > MaxGroupDescription {
+		return fmt.Errorf("discovery config: group %q description longer than %d characters", name, MaxGroupDescription)
+	}
+	return nil
+}
 
 func groupMode(g DiscoveryGroup) string {
 	m := strings.ToLower(strings.TrimSpace(g.Mode))
@@ -109,6 +125,9 @@ func (f DiscoveryFile) validate() error {
 		}
 		if len(g.Auths) == 0 {
 			return fmt.Errorf("discovery config: group %q has no auths (name the snmp.yml auth; do not omit)", name)
+		}
+		if err := validateGroupDescription(name, g.Description); err != nil {
+			return err
 		}
 		switch groupMode(g) {
 		case modeSweep, modeCrawl, modeBoth:

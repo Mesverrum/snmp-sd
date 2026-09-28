@@ -234,3 +234,33 @@ auths:
 		t.Fatalf("%+v %+v", jobs[0].group, jobs[0].auths)
 	}
 }
+
+func TestGroupDescriptionRoundTrip(t *testing.T) {
+	dir := t.TempDir()
+	path := filepath.Join(dir, "d.yml")
+	body := `
+groups:
+  - name: dc-fabric
+    description: Switches in the lab data center. They all use the same login.
+    cidrs: ["172.20.20.0/24"]
+    auths: ["public_v2"]
+`
+	if err := os.WriteFile(path, []byte(body), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	cfg, err := LoadDiscoveryFile(path)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if cfg.Groups[0].Description != "Switches in the lab data center. They all use the same login." {
+		t.Fatalf("%q", cfg.Groups[0].Description)
+	}
+	cfg.Groups[0].Description = "two\nlines"
+	if err := cfg.Validate(); err == nil {
+		t.Fatal("expected multiline description to fail")
+	}
+	cfg.Groups[0].Description = string(make([]byte, MaxGroupDescription+1))
+	if err := cfg.Validate(); err == nil {
+		t.Fatal("expected long description to fail")
+	}
+}
