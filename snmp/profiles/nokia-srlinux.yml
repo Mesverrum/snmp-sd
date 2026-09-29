@@ -130,6 +130,13 @@ metrics:
           OID: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7
           name: tBgpPeerNgDescription
         tag: peer_description
+      # Session local address. Every device names its own side, so a topology
+      # reconciler can resolve the peer address to its owner without an alias
+      # catalog (SR Linux 24.10 answers this column; IP-MIB ipAddrTable it does not).
+      - column:
+          OID: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13
+          name: tBgpPeerNgLocalAddress
+        tag: local_address
       - column:
           OID: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.65
           name: tBgpPeerNgLocalAS4Byte

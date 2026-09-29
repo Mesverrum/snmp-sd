@@ -979,7 +979,30 @@ def claim_metric_stem(
     return want
 
 
-def lookup_type(column_name: str, tag: str, enum: dict[str, Any] | None = None) -> str:
+# OBJECT-TYPE SYNTAX → snmp_exporter lookup type for address columns. A
+# DisplayString lookup on a 4/16-byte InetAddress renders raw bytes; the
+# topology reconciler needs dotted text to match a peer against an owner.
+#
+# snmp_exporter decodes a *value* typed ``InetAddress`` with its INDEX parser,
+# which expects ``type.length.bytes``; a column value is bare bytes, so that
+# type yields ``0x0A00`` / zero-padded blobs (seen on SR Linux). Only the
+# fixed-size types render bare bytes. Emit IPv4 (the ipAdEntAddr precedent);
+# a 16-byte IPv6 value renders its first 4 bytes and stays unresolved.
+ADDRESS_SYNTAX_TYPES = {
+    "InetAddress": "InetAddressIPv4",
+    "InetAddressIPv4": "InetAddressIPv4",
+    "InetAddressIPv6": "InetAddressIPv6",
+    "IpAddress": "IpAddr",
+}
+ADDRESS_NAME_HINT = re.compile(r"(?<!phys)(?<!mac)(address|addr)$", re.I)
+
+
+def lookup_type(
+    column_name: str,
+    tag: str,
+    enum: dict[str, Any] | None = None,
+    oid: str | None = None,
+) -> str:
     """metric_tags → lookup label types.
 
     Enum on a tag = stable enrichment (kentik <~30m indifference) → EnumAsInfo
@@ -987,12 +1010,22 @@ def lookup_type(column_name: str, tag: str, enum: dict[str, Any] | None = None) 
 
     ``ifAlias`` / ``if_Alias`` must stay DisplayString: GAUGE_TAG_HINT's ``as$``
     otherwise matches the trailing ``as`` in Alias.
+
+    Address columns (``tBgpPeerNgLocalAddress``, ``bgpPeerLocalAddr``) render
+    as dotted text: SYNTAX from oid-syntax.yaml first, then the column name.
     """
     if invert_enum(enum):
         return "EnumAsInfo"
     blob = f"{column_name} {tag}"
     if re.search(r"alias", blob, re.I):
         return "DisplayString"
+    syntax = (lookup_oid_syntax(oid) or {}).get("syntax") if oid else None
+    if syntax in ADDRESS_SYNTAX_TYPES:
+        return ADDRESS_SYNTAX_TYPES[syntax]
+    if syntax is None and ADDRESS_NAME_HINT.search(column_name or "") and not re.search(
+        r"type$", column_name or "", re.I
+    ):
+        return "InetAddressIPv4"
     if GAUGE_TAG_HINT.search(blob):
         return "gauge"
     return "DisplayString"
@@ -1259,7 +1292,7 @@ def lookups_from_tags(metric_tags: list[dict[str, Any]] | None, indexes: list[di
                 "labelname": str(label),
                 "oid": str(oid).strip().lstrip("."),
                 "type": exporter_safe_type(
-                    lookup_type(str(name or ""), str(label), col.get("enum"))
+                    lookup_type(str(name or ""), str(label), col.get("enum"), str(oid))
                 ),
             }
         )

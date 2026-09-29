@@ -93104,6 +93104,12 @@ modules:
       - labels:
         - tBgpPeerNgInstanceIndex
         - tBgpPeerNgAddress
+        labelname: local_address
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13
+        type: InetAddressIPv4
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
         labelname: local_as
         oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.65
         type: gauge
@@ -93142,6 +93148,12 @@ modules:
         labelname: peer_description
         oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.7
         type: DisplayString
+      - labels:
+        - tBgpPeerNgInstanceIndex
+        - tBgpPeerNgAddress
+        labelname: local_address
+        oid: 1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13
+        type: InetAddressIPv4
       - labels:
         - tBgpPeerNgInstanceIndex
         - tBgpPeerNgAddress

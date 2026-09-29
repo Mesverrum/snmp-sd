@@ -6,15 +6,64 @@ from pathlib import Path
 
 import yaml
 
+import convert
 from convert import (
     CISCO_RELATED_RE,
     classify_module,
     consolidate_topology_modules,
+    lookup_type,
+    lookups_from_tags,
     merge_topology_modules,
     metric_tier,
     partition_module_chain,
     split_vendor_family,
 )
+
+
+class LookupTypeTests(unittest.TestCase):
+    def test_address_columns_render_dotted(self):
+        saved = dict(convert.OID_SYNTAX)
+        try:
+            convert.OID_SYNTAX.clear()
+            convert.OID_SYNTAX["1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13"] = {
+                "name": "tBgpPeerNgLocalAddress",
+                "syntax": "InetAddress",
+            }
+            # snmp_exporter decodes a bare InetAddress value with the INDEX parser
+            # (type.length.bytes) and renders garbage; IPv4 is the fixed-size type.
+            self.assertEqual(
+                lookup_type("tBgpPeerNgLocalAddress", "local_address", None, "1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13"),
+                "InetAddressIPv4",
+            )
+            # No SYNTAX row: the column name still says address.
+            self.assertEqual(lookup_type("bgpPeerLocalAddr", "local_address", None, "1.3.6.1.2.1.15.3.1.5"), "InetAddressIPv4")
+            self.assertEqual(lookup_type("tBgpPeerNgLocalAddressType", "local_address_type"), "DisplayString")
+            self.assertEqual(lookup_type("ifPhysAddress", "if_MAC"), "DisplayString")
+            self.assertEqual(lookup_type("tBgpPeerNgDescription", "peer_description"), "DisplayString")
+            self.assertEqual(lookup_type("tBgpPeerNgLocalAS4Byte", "local_as"), "gauge")
+        finally:
+            convert.OID_SYNTAX.clear()
+            convert.OID_SYNTAX.update(saved)
+
+    def test_lookups_from_tags_passes_oid(self):
+        saved = dict(convert.OID_SYNTAX)
+        try:
+            convert.OID_SYNTAX.clear()
+            convert.OID_SYNTAX["1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13"] = {"syntax": "InetAddress"}
+            out = lookups_from_tags(
+                [
+                    {
+                        "column": {"OID": "1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13", "name": "tBgpPeerNgLocalAddress"},
+                        "tag": "local_address",
+                    }
+                ],
+                [{"labelname": "tBgpPeerNgAddress", "type": "InetAddress"}],
+            )
+            self.assertEqual(out[0]["type"], "InetAddressIPv4")
+            self.assertEqual(out[0]["labelname"], "local_address")
+        finally:
+            convert.OID_SYNTAX.clear()
+            convert.OID_SYNTAX.update(saved)
 
 
 class VendorTierTests(unittest.TestCase):

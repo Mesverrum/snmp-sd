@@ -19576,6 +19576,16 @@ oids:
     syntax: DisplayString
     type: gauge
     source: oid-base
+  1.3.6.1.4.1.6527.3.1.2.14.4.7.1.12:
+    name: tBgpPeerNgLocalAddressType
+    syntax: InetAddressType
+    type: gauge
+    source: live-walk
+  1.3.6.1.4.1.6527.3.1.2.14.4.7.1.13:
+    name: tBgpPeerNgLocalAddress
+    syntax: InetAddress
+    type: gauge
+    source: live-walk
   1.3.6.1.4.1.6527.3.1.2.14.4.8:
     name: tBgpPeerNgOperTable
     syntax: SEQUENCE
