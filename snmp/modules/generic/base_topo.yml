@@ -1,0 +1,250 @@
+# GENERATED consolidated topology object — module base_topo
+# Vendor and generic neighbor/control-plane fragments are folded into this one scrape.
+modules:
+  base_topo:
+    walk:
+    - 1.3.6.1.2.1.14.10
+    - 1.3.6.1.2.1.14.7
+    - 1.0.8802.1.1.2.1.3.7
+    - 1.0.8802.1.1.2.1.4.1
+    metrics:
+    - name: snmp_ospfNbrState
+      oid: 1.3.6.1.2.1.14.10.1.6
+      type: gauge
+      help: ospfNbrState (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.6
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+      enum_values:
+        1: down
+        2: attempt
+        3: init
+        4: twoWay
+        5: exchangeStart
+        6: exchange
+        7: loading
+        8: full
+    - name: snmp_ospfNbrEvents
+      oid: 1.3.6.1.2.1.14.10.1.7
+      type: counter
+      help: ospfNbrEvents (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.7
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+    - name: snmp_ospfNbrLsRetransQLen
+      oid: 1.3.6.1.2.1.14.10.1.8
+      type: gauge
+      help: ospfNbrLsRetransQLen (OSPF-MIB) - 1.3.6.1.2.1.14.10.1.8
+      indexes:
+      - labelname: ospfNbrIpAddr
+        type: InetAddress
+      - labelname: ospfNbrAddressLessIndex
+        type: gauge
+      lookups:
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      - labels:
+        - ospfNbrIpAddr
+        - ospfNbrAddressLessIndex
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.14.10.1.1
+        type: DisplayString
+    - name: snmp_ospfIfRetransInterval
+      oid: 1.3.6.1.2.1.14.7.1.8
+      type: gauge
+      help: ospfIfRetransInterval (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.8
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+    - name: snmp_ospfIfState
+      oid: 1.3.6.1.2.1.14.7.1.12
+      type: gauge
+      help: ospfIfState (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.12
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+      enum_values:
+        1: down
+        2: loopback
+        3: waiting
+        4: pointToPoint
+        5: designatedRouter
+        6: backupDesignatedRouter
+        7: otherDesignatedRouter
+    - name: snmp_ospfIfLsaCount
+      oid: 1.3.6.1.2.1.14.7.1.21
+      type: gauge
+      help: ospfIfLsaCount (OSPF-MIB) - 1.3.6.1.2.1.14.7.1.21
+      indexes:
+      - labelname: ospfIfIpAddress
+        type: InetAddress
+      - labelname: ospfAddressLessIf
+        type: gauge
+      lookups:
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: ospf_ip_address
+        oid: 1.3.6.1.2.1.14.7.1.1
+        type: DisplayString
+      - labels:
+        - ospfIfIpAddress
+        - ospfAddressLessIf
+        labelname: neighbor_id
+        oid: 1.3.6.1.2.1.14.10.1.3
+        type: DisplayString
+    - name: snmp_lldpLocPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.3.7.1.2
+      type: EnumAsInfo
+      help: lldpLocPortIdSubtype (LLDP-MIB) - how to read lldpLocPortId
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups: []
+    - name: snmp_lldpLocPortId
+      oid: 1.0.8802.1.1.2.1.3.7.1.3
+      type: OctetString
+      help: lldpLocPortId (LLDP-MIB) - local port id for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpLocPortDesc
+      oid: 1.0.8802.1.1.2.1.3.7.1.4
+      type: DisplayString
+      help: lldpLocPortDesc (LLDP-MIB) - local port description for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpRemPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.4.1.1.6
+      type: EnumAsInfo
+      help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemPortId
+      oid: 1.0.8802.1.1.2.1.4.1.1.7
+      type: OctetString
+      help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemSysName
+      oid: 1.0.8802.1.1.2.1.4.1.1.9
+      type: DisplayString
+      help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

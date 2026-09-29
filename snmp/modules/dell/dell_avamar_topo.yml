@@ -1,0 +1,99 @@
+# GENERATED consolidated topology object — module dell_avamar_topo
+# Vendor and generic neighbor/control-plane fragments are folded into this one scrape.
+modules:
+  dell_avamar_topo:
+    walk:
+    - 1.0.8802.1.1.2.1.3.7
+    - 1.0.8802.1.1.2.1.4.1
+    metrics:
+    - name: snmp_lldpLocPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.3.7.1.2
+      type: EnumAsInfo
+      help: lldpLocPortIdSubtype (LLDP-MIB) - how to read lldpLocPortId
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups: []
+    - name: snmp_lldpLocPortId
+      oid: 1.0.8802.1.1.2.1.3.7.1.3
+      type: OctetString
+      help: lldpLocPortId (LLDP-MIB) - local port id for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpLocPortDesc
+      oid: 1.0.8802.1.1.2.1.3.7.1.4
+      type: DisplayString
+      help: lldpLocPortDesc (LLDP-MIB) - local port description for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpRemPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.4.1.1.6
+      type: EnumAsInfo
+      help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemPortId
+      oid: 1.0.8802.1.1.2.1.4.1.1.7
+      type: OctetString
+      help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemSysName
+      oid: 1.0.8802.1.1.2.1.4.1.1.9
+      type: DisplayString
+      help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

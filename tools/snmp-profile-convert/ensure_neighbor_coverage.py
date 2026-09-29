@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Rebuild catalogs so every topology chain includes lldp_mib (cdp_mib on Cisco).
+"""Rebuild catalogs with one consolidated topology object per fingerprint.
 
 Does not re-ingest Kentik profiles. Rewrites fingerprinters / sysobjectid-index
-/ module-tiers / snmp-network.yml from the on-disk module library.
+/ module-tiers / snmp-network.yml from the on-disk module library, folding
+generic LLDP/CDP/control-plane fragments into each ``*_topo`` module.
 """
 from __future__ import annotations
 
@@ -15,10 +16,12 @@ from convert import (
     DEFAULT_AUTHS,
     build_fingerprinters,
     build_module_tiers_doc,
+    consolidate_topology_modules,
     concat_snmp_network,
     dump_yaml,
     hot_leaf_names,
     partition_module_chain,
+    write_module_file,
 )
 
 REPO = Path(__file__).resolve().parents[2]
@@ -76,6 +79,17 @@ def main() -> int:
         entry["module_chain_cold"] = tiers["cold"]
         entry["module_chain_topology"] = tiers["topology"]
 
+    consolidated = consolidate_topology_modules(
+        modules,
+        index,
+        hot_leaves=leaves,
+    )
+    for name, entry in meta.items():
+        if not entry.get("topology_fragments"):
+            continue
+        vendor = str(entry.get("vendor") or "_general")
+        write_module_file(MODULES, vendor, name, modules[name])
+
     auths = {}
     if AUTHS.exists():
         auths = (yaml.safe_load(AUTHS.read_text(encoding="utf-8")) or {}).get("auths") or {}
@@ -104,6 +118,7 @@ def main() -> int:
     print(f"wrote {INDEX}")
     print(f"wrote {TIERS}")
     print(f"concat {CONCAT} modules={len(modules)}")
+    print(f"consolidated topology objects={consolidated}")
     return 0
 
 

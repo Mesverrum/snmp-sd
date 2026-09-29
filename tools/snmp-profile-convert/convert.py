@@ -13,9 +13,11 @@ Layout:
   snmp/sysobjectid-index.yaml
   snmp/fingerprinters.yml
 
-``extends`` becomes a comma-separated ``module=`` list (snmp_exporter has no
-DAG). Fingerprinter names must be a subset of converted ``modules:`` keys —
-never invent sidecars such as ``nokia_srlinux_hot`` unless that file was written.
+``extends`` becomes a comma-separated ``module=`` list for hot/cold scrapes.
+Topology fragments are materialized into one ``{profile}_topo`` module per
+fingerprint because snmp_exporter has no DAG. Fingerprinter names must be a
+subset of converted ``modules:`` keys — never invent sidecars unless that file
+was written.
 SNMPv2 identity is inlined as ``snmp_device_info`` on each fingerprint
 module (``device_base`` for unknown sysObjectID). Ancestor 1:1 scalars fold
 onto that metric. Point snmp_exporter ``--config.file`` at this concat; do not
@@ -1774,6 +1776,125 @@ def partition_module_chain(
     }
 
 
+def merge_topology_modules(
+    module_names: list[str],
+    modules: dict[str, Any],
+) -> dict[str, Any]:
+    """Materialize reusable topology fragments as one snmp_exporter module.
+
+    snmp_exporter accepts a comma-separated module list, but topology is one
+    product object: every neighbor, adjacency, FDB, and ARP walk selected for a
+    fingerprint belongs to its single ``*_topo`` scrape. Keep the reusable
+    generic modules in the source library, then flatten them here.
+    """
+    merged: dict[str, Any] = {}
+    list_keys = ("walk", "get", "metrics", "filters")
+    seen_scalars: dict[str, Any] = {}
+
+    def append_unique(key: str, value: Any) -> None:
+        bucket = merged.setdefault(key, [])
+        if key in {"walk", "get"}:
+            normalized = str(value).strip().lstrip(".")
+            if normalized and normalized not in bucket:
+                bucket.append(normalized)
+            return
+        if value not in bucket:
+            bucket.append(value)
+
+    metric_names: dict[str, str] = {}
+    for module_name in module_names:
+        module = modules.get(module_name)
+        if not isinstance(module, dict):
+            raise ValueError(f"topology fragment {module_name!r} is missing")
+        for key, value in module.items():
+            if key in list_keys:
+                values = value or []
+                if not isinstance(values, list):
+                    raise ValueError(
+                        f"topology fragment {module_name!r} field {key!r} is not a list"
+                    )
+                for item in values:
+                    if key == "metrics" and isinstance(item, dict):
+                        metric_name = str(item.get("name") or "")
+                        metric_oid = str(item.get("oid") or "").strip().lstrip(".")
+                        previous_oid = metric_names.get(metric_name)
+                        if previous_oid is not None and previous_oid != metric_oid:
+                            raise ValueError(
+                                f"topology metric {metric_name!r} has conflicting OIDs "
+                                f"{previous_oid!r} and {metric_oid!r}"
+                            )
+                        metric_names[metric_name] = metric_oid
+                    append_unique(key, item)
+                continue
+            previous = seen_scalars.get(key)
+            if previous is not None and previous != value:
+                raise ValueError(
+                    f"topology fragments disagree on {key!r}: "
+                    f"{previous!r} != {value!r}"
+                )
+            seen_scalars[key] = value
+            merged[key] = value
+
+    merged.setdefault("metrics", [])
+    return merged
+
+
+def consolidate_topology_modules(
+    modules: dict[str, Any],
+    index: dict[str, Any],
+    *,
+    hot_leaves: set[str] | frozenset[str] | None = None,
+) -> int:
+    """Create one complete ``*_topo`` module for every fingerprinted profile.
+
+    ``build_fingerprinters`` first records each profile's source topology
+    fragments. This function merges those fragments, records the resulting
+    module as the profile's topology object, and leaves the generic fragments
+    available as converter inputs and explicit operator modules.
+    """
+    modules_meta = index.get("modules") or {}
+    # Populate module_chain_topology from extends and generic coverage before
+    # replacing it with the consolidated object.
+    build_fingerprinters(index, hot_leaves=hot_leaves)
+
+    bases = [
+        name
+        for name, meta in list(modules_meta.items())
+        if name == "device_base" or (meta.get("sysobjectids") or [])
+    ]
+    written = 0
+    for base in bases:
+        meta = modules_meta[base]
+        topo_name = f"{base}_topo"
+        existing = modules_meta.get(topo_name) or {}
+        fragments = list(
+            existing.get("topology_fragments")
+            or meta.get("module_chain_topology")
+            or []
+        )
+        if not fragments:
+            continue
+        modules[topo_name] = merge_topology_modules(fragments, modules)
+
+        modules_meta[topo_name] = {
+            **existing,
+            "profile": existing.get("profile") or f"{topo_name.replace('_', '-')}.yml",
+            "vendor": existing.get("vendor") or meta.get("vendor") or "_general",
+            "sysobjectids": [],
+            "extends": [],
+            "identity_lookups": [],
+            "notes": (
+                "consolidated topology object; source fragments: "
+                + ", ".join(fragments)
+            ),
+            "topology_fragments": fragments,
+        }
+        meta["topology_module"] = topo_name
+        meta["module_chain_topology"] = [topo_name]
+        written += 1
+    return written
+
+
 def _thin_lookups(metric: dict[str, Any], keep: frozenset[str]) -> dict[str, Any]:
     m = dict(metric)
     lookups = m.get("lookups") or []
@@ -1971,9 +2092,9 @@ def build_fingerprinters(
     Example: nokia_srlinux extends system-mib + if-mib
       → hot: [if_mib, nokia_srlinux] (identity + CPU/mem)
       → cold: [if_mib_meta, ip_addr, nokia_srlinux_sensors]
-      → topology: [nokia_srlinux_topo, lldp_mib] (cdp_mib on Cisco/Meraki)
+      → topology: [nokia_srlinux_topo], with LLDP and vendor BGP folded in
       Unknown sysObjectID: device_base + if_mib (hot), if_mib_meta + ip_addr (cold),
-      lldp_mib (topology coverage).
+      device_base_topo (LLDP folded in).
     """
     modules_meta = index.get("modules") or {}
     known = set(modules_meta)
@@ -2027,6 +2148,9 @@ def build_fingerprinters(
             chain = list(chain) + [sidecar]
         meta["module_chain"] = chain
         tiers = partition_module_chain(chain, known, hot_leaves=hot_leaves)
+        topology_module = str(meta.get("topology_module") or "")
+        if topology_module in known:
+            tiers["topology"] = [topology_module]
         meta["module_chain_hot"] = tiers["hot"]
         meta["module_chain_cold"] = tiers["cold"]
         meta["module_chain_topology"] = tiers["topology"]
@@ -2035,6 +2159,9 @@ def build_fingerprinters(
     for mod_name, meta in modules_meta.items():
         chain = meta.get("module_chain") or [mod_name]
         tiers = partition_module_chain(chain, known, hot_leaves=hot_leaves)
+        topology_module = str(meta.get("topology_module") or "")
+        if topology_module in known:
+            tiers["topology"] = [topology_module]
         for glob in meta.get("sysobjectids") or []:
             matchers.append(
                 {
@@ -2055,6 +2182,11 @@ def build_fingerprinters(
         )
     )
     default_tiers = partition_module_chain(["device_base", "if_mib"], known)
+    default_topology_module = str(
+        (modules_meta.get("device_base") or {}).get("topology_module") or ""
+    )
+    if default_topology_module in known:
+        default_tiers["topology"] = [default_topology_module]
     return {
         "fingerprinters": {
             "network": {
@@ -2172,6 +2304,11 @@ def write_module_file(modules_dir: Path, vendor: str, mod_name: str, module: dic
         header = (
             "# Authored IP-MIB address inventory (not kentik ip-mib.yml stats).\n"
             "# ipAddrTable + ipAddressTable with ifIndex labels for dashboard joins.\n"
+        )
+    elif mod_name.endswith("_topo"):
+        header = (
+            f"# GENERATED consolidated topology object — module {mod_name}\n"
+            "# Vendor and generic neighbor/control-plane fragments are folded into this one scrape.\n"
         )
     else:
         header = (
@@ -2386,6 +2523,13 @@ def main() -> int:
                 f"({len(part_mod.get('metrics') or [])} metrics)"
             )
     print(f"vendor tier splits: {split_n} packs")
+
+    topology_n = consolidate_topology_modules(
+        modules,
+        index,
+        hot_leaves=hot_leaf_names(modules),
+    )
+    print(f"consolidated topology objects: {topology_n}")
 
     for name, module in modules.items():
         vendor = str((index["modules"].get(name) or {}).get("vendor") or "_general")

@@ -1,0 +1,534 @@
+# GENERATED consolidated topology object — module 6wind_vsr_topo
+# Vendor and generic neighbor/control-plane fragments are folded into this one scrape.
+modules:
+  6wind_vsr_topo:
+    walk:
+    - 1.3.6.1.2.1.15.3
+    - 1.0.8802.1.1.2.1.3.7
+    - 1.0.8802.1.1.2.1.4.1
+    metrics:
+    - name: snmp_bgpPeerState
+      oid: 1.3.6.1.2.1.15.3.1.2
+      type: gauge
+      help: bgpPeerState (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.2
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+      enum_values:
+        1: idle
+        2: connect
+        3: active
+        4: opensent
+        5: openconfirm
+        6: established
+    - name: snmp_bgpPeerAdminStatus
+      oid: 1.3.6.1.2.1.15.3.1.3
+      type: gauge
+      help: bgpPeerAdminStatus (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.3
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+      enum_values:
+        1: stop
+        2: start
+    - name: snmp_bgpPeerInUpdates
+      oid: 1.3.6.1.2.1.15.3.1.10
+      type: counter
+      help: bgpPeerInUpdates (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.10
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_bgpPeerOutUpdates
+      oid: 1.3.6.1.2.1.15.3.1.11
+      type: counter
+      help: bgpPeerOutUpdates (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.11
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_bgpPeerInTotalMessages
+      oid: 1.3.6.1.2.1.15.3.1.12
+      type: counter
+      help: bgpPeerInTotalMessages (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.12
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_bgpPeerOutTotalMessages
+      oid: 1.3.6.1.2.1.15.3.1.13
+      type: counter
+      help: bgpPeerOutTotalMessages (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.13
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_bgpPeerFsmEstablishedTransitions
+      oid: 1.3.6.1.2.1.15.3.1.15
+      type: counter
+      help: bgpPeerFsmEstablishedTransitions (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.15
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_bgpPeerFsmEstablishedTime
+      oid: 1.3.6.1.2.1.15.3.1.16
+      type: gauge
+      help: bgpPeerFsmEstablishedTime (BGP4-MIB) - 1.3.6.1.2.1.15.3.1.16
+      indexes:
+      - labelname: bgpPeerRemoteAddr
+        type: gauge
+      lookups:
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: negotiated_version
+        oid: 1.3.6.1.2.1.15.3.1.4
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: neighbor_ip
+        oid: 1.3.6.1.2.1.15.3.1.7
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: remote_as
+        oid: 1.3.6.1.2.1.15.3.1.9
+        type: gauge
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: retry_interval
+        oid: 1.3.6.1.2.1.15.3.1.17
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_established
+        oid: 1.3.6.1.2.1.15.3.1.18
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_established
+        oid: 1.3.6.1.2.1.15.3.1.19
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: hold_time_configured
+        oid: 1.3.6.1.2.1.15.3.1.20
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: keep_alive_configured
+        oid: 1.3.6.1.2.1.15.3.1.21
+        type: DisplayString
+      - labels:
+        - bgpPeerRemoteAddr
+        labelname: min_as_origination_interval
+        oid: 1.3.6.1.2.1.15.3.1.22
+        type: DisplayString
+    - name: snmp_lldpLocPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.3.7.1.2
+      type: EnumAsInfo
+      help: lldpLocPortIdSubtype (LLDP-MIB) - how to read lldpLocPortId
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups: []
+    - name: snmp_lldpLocPortId
+      oid: 1.0.8802.1.1.2.1.3.7.1.3
+      type: OctetString
+      help: lldpLocPortId (LLDP-MIB) - local port id for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpLocPortDesc
+      oid: 1.0.8802.1.1.2.1.3.7.1.4
+      type: DisplayString
+      help: lldpLocPortDesc (LLDP-MIB) - local port description for lldpRemLocalPortNum
+      indexes:
+      - labelname: lldpLocPortNum
+        type: gauge
+      lookups: []
+    - name: snmp_lldpRemPortIdSubtype
+      oid: 1.0.8802.1.1.2.1.4.1.1.6
+      type: EnumAsInfo
+      help: lldpRemPortIdSubtype (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.6
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      enum_values:
+        1: interfaceAlias
+        2: portComponent
+        3: macAddress
+        4: networkAddress
+        5: interfaceName
+        6: agentCircuitId
+        7: local
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemPortId
+      oid: 1.0.8802.1.1.2.1.4.1.1.7
+      type: OctetString
+      help: lldpRemPortId (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.7
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString
+    - name: snmp_lldpRemSysName
+      oid: 1.0.8802.1.1.2.1.4.1.1.9
+      type: DisplayString
+      help: lldpRemSysName (LLDP-MIB) - 1.0.8802.1.1.2.1.4.1.1.9
+      indexes:
+      - labelname: lldpRemTimeMark
+        type: gauge
+      - labelname: lldpRemLocalPortNum
+        type: gauge
+      - labelname: lldpRemIndex
+        type: gauge
+      lookups:
+      - labels:
+        - lldpRemLocalPortNum
+        labelname: ifName
+        oid: 1.3.6.1.2.1.31.1.1.1.1
+        type: DisplayString

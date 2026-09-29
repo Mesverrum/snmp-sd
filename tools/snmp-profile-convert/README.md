@@ -36,9 +36,14 @@ Every vendor pack is split the same way (no invented `{name}_hot`):
 | `{name}` | hot | `snmp_device_info`, `snmp_Uptime`, CPU / CPULoad, RAM (plus `hrStorage` when RAM/disk share a table), core-service counts |
 | `{name}_sensors` | cold | chassis / temp / fans / PSU when that is the leftover |
 | `{name}_ext` | cold | leftover wide tables (per-tunnel / per-policy / NAT), separable disk MIBs, vendor IF extras |
-| `{name}_topo` | topology | neighbor leftovers (BGP, LLDP/CDP, OSPF/ISIS) |
+| `{name}_topo` | topology | one complete topology object: vendor neighbors plus folded generic LLDP/CDP/BGP/OSPF/ISIS fragments |
 
-Nokia is `nokia_srlinux` / `_sensors` / `_ext` / `_topo`. Re-split the library without a full ingest: `python3 tools/snmp-profile-convert/split_vendor_tiers.py`.
+Nokia is `nokia_srlinux` / `_sensors` / `_ext` / `_topo`. A topology target
+always receives exactly one module name. Generic modules remain reusable source
+fragments, but convert materializes their walks and metrics into the
+fingerprinted `{name}_topo`; unknown devices use `device_base_topo`. Rebuild
+that shape without a full Kentik ingest:
+`python3 tools/snmp-profile-convert/ensure_neighbor_coverage.py`.
 
 **Metric names:** every series is `snmp_<stem>`. Profile `tag` values (`CPU`, `MemoryUsed`, `MemoryFree`, `MemoryTotal`, `Temperature`) become the stem (`snmp_CPU`); other objects keep the MIB name (`snmp_ifHCInOctets`). Labels are not prefixed. Two symbols in one module that would share a vital stem and the same indexes: first wins; later keep the native stem (converter warns).
 
@@ -87,7 +92,8 @@ python3 tools/snmp-profile-convert/refresh_if_mib.py \
 
 ## Extends → discovery module chains
 
-Kentik `extends:` is **not** inlined into one YAML blob. Each extended profile is its own module; discovery sets:
+Kentik `extends:` is **not** inlined for hot/cold. Each extended profile is its
+own module; discovery sets:
 
 ```text
 module: if_mib,nokia_srlinux
@@ -95,6 +101,14 @@ module: if_mib,cisco_all_devices,cisco_catalyst
 ```
 
 (transitive: `cisco_catalyst` → `cisco_all_devices` → `if_mib`). SNMPv2 identity is already on the leaf module’s `snmp_device_info`. Default for unknown sysObjectID: `device_base,if_mib`.
+
+Topology is intentionally different: reusable generic and vendor-private
+fragments are folded into one `{fingerprint}_topo` module because topology is a
+single collection object. A Nokia target therefore uses
+`module=nokia_srlinux_topo`, not
+`module=nokia_srlinux_topo,lldp_mib`; a Catalyst target uses
+`module=cisco_catalyst_topo`, with CDP/LLDP/control-plane metrics already
+inside.
 
 ## Enum / enrichment (mirror stock if_mib)
 

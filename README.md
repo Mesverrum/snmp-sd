@@ -112,13 +112,24 @@ A full vendor walk is a lot of OIDs. Doing all of it every minute is how you mel
 |---|---|---|
 | ~60s | `hot` | Link counters, oper status, CPU, memory, “is the box doing its job” totals |
 | a few minutes | `cold` | Interface names and MACs, sensors, wide leftover tables |
-| only if you ask | `topology` | LLDP / CDP neighbors, BGP / OSPF / ISIS tables |
+| only if you ask | `topology` | One `*_topo` object containing LLDP/CDP neighbors and BGP/OSPF/ISIS tables |
 
 `--tiers` defaults to `hot,cold`. `--tiers=hot` is enough to see traffic and CPU. `--tiers=all` also publishes topology. BGP flaps and link-down still belong in traps or syslog; polling will not catch them in time.
 
-Every topology chain includes `lldp_mib`. Cisco / Meraki also get `cdp_mib`. Vendor `*_topo` sidecars (BGP, …) stay in front of those coverage walks.
+Every fingerprint selects exactly one topology module. The converter folds
+reusable generic fragments into that object: LLDP for every device, CDP for
+Cisco/Meraki, and any BGP/OSPF/ISIS or vendor-private neighbor tables selected
+by the profile. For example, Nokia publishes only `nokia_srlinux_topo`; that
+module contains its TIMETRA BGP metrics plus generic LLDP. Unknown devices use
+`device_base_topo`.
 
-Topology rows are identity + which neighbor module to walk. They are not a time series you should remote_write. Alloy (`network-snmp`) scrapes that tier into `otelcol.processor.transform`, then POSTs OTLP JSON to [network-topology-exporter](https://github.com/Mesverrum/network-topology-exporter) `/v1/metrics`. The catalog (`--out-catalog` / Alloy `discovery.snmp`) is the shared device list so the exporter does not hunt UDP/161 again. River: `examples/alloy/topology-glue.alloy` in that repo.
+Topology rows are identity + one complete topology object to walk. They are not
+a time series you should remote_write. Alloy (`network-snmp`) scrapes that tier
+into `otelcol.processor.transform`, then POSTs OTLP JSON to
+[network-topology-exporter](https://github.com/Mesverrum/network-topology-exporter)
+`/v1/metrics`. The catalog (`--out-catalog` / Alloy `discovery.snmp`) is the
+shared device list so the exporter does not hunt UDP/161 again. River:
+`examples/alloy/topology-glue.alloy` in that repo.
 
 Each enabled tier is its own Prometheus target, so you can scrape hot every minute and cold every five without walking sensors on the hot interval.
 
@@ -142,7 +153,11 @@ On 2026-09-08 this CLI ran against a ContainerLab fabric on `172.20.20.0/24` (`e
 | leaf-br1 | 172.20.20.2 | `if_mib,nokia_srlinux` |
 | leaf-br2 | 172.20.20.7 | `if_mib,nokia_srlinux` |
 
-Cold on those boxes was `if_mib_meta,ip_addr,nokia_srlinux_sensors,nokia_srlinux_ext`. Topology (`nokia_srlinux_topo`) stays off unless you pass `--tiers=all`. The same targets were then walked with stock `prom/snmp-exporter` and scraped by Prometheus; see [`examples/prometheus-snmp/`](examples/prometheus-snmp/).
+Cold on those boxes was `if_mib_meta,ip_addr,nokia_srlinux_sensors,nokia_srlinux_ext`.
+Topology is the single consolidated `nokia_srlinux_topo` object and stays off
+unless you pass `--tiers=all`. The same targets were then walked with stock
+`prom/snmp-exporter` and scraped by Prometheus; see
+[`examples/prometheus-snmp/`](examples/prometheus-snmp/).
 
 ## A device the library does not cover, or OIDs you want to add
 

@@ -56,7 +56,7 @@ func TestShippedCatalogNokiaClos(t *testing.T) {
 	tiers := fp.MatchTiers(map[string]string{"sysObjectID": "1.3.6.1.4.1.6527.1.20.26"})
 	wantHot := []string{"if_mib", "nokia_srlinux"}
 	wantCold := []string{"if_mib_meta", "ip_addr", "nokia_srlinux_sensors", "nokia_srlinux_ext"}
-	wantTopo := []string{"nokia_srlinux_topo", "lldp_mib"}
+	wantTopo := []string{"nokia_srlinux_topo"}
 	if !reflect.DeepEqual(tiers.Hot, wantHot) {
 		t.Fatalf("hot: %v", tiers.Hot)
 	}
@@ -66,8 +66,11 @@ func TestShippedCatalogNokiaClos(t *testing.T) {
 	if !reflect.DeepEqual(tiers.Topology, wantTopo) {
 		t.Fatalf("topology: %v", tiers.Topology)
 	}
-	if containsModule(tiers.Topology, "cdp_mib") {
-		t.Fatalf("nokia must not get cdp_mib: %v", tiers.Topology)
+	if !shippedModuleHasMetric(t, "nokia_srlinux_topo", "snmp_lldpRemSysName") {
+		t.Fatal("nokia_srlinux_topo must fold in LLDP")
+	}
+	if shippedModuleHasMetric(t, "nokia_srlinux_topo", "snmp_cdpCacheDeviceId") {
+		t.Fatal("nokia_srlinux_topo must not fold in CDP")
 	}
 
 	for _, rel := range []string{
@@ -87,8 +90,14 @@ func TestShippedCatalogNokiaClos(t *testing.T) {
 func TestShippedCatalogCiscoGetsCDP(t *testing.T) {
 	fp := loadNetworkFingerprinter(t)
 	tiers := fp.MatchTiers(map[string]string{"sysObjectID": "1.3.6.1.4.1.9.6.1.23.3.13.0.4"})
-	if !containsModule(tiers.Topology, "lldp_mib") || !containsModule(tiers.Topology, "cdp_mib") {
+	if len(tiers.Topology) != 1 {
 		t.Fatalf("cisco_asr topology: %v", tiers.Topology)
+	}
+	if !shippedModuleHasMetric(t, tiers.Topology[0], "snmp_lldpRemSysName") {
+		t.Fatalf("%s missing folded LLDP", tiers.Topology[0])
+	}
+	if !shippedModuleHasMetric(t, tiers.Topology[0], "snmp_cdpCacheDeviceId") {
+		t.Fatalf("%s missing folded CDP", tiers.Topology[0])
 	}
 }
 
@@ -110,21 +119,18 @@ func matcherCiscoRelated(m Matcher) bool {
 
 func TestShippedTopologyCoverage(t *testing.T) {
 	fp := loadNetworkFingerprinter(t)
-	if !containsModule(fp.DefaultModulesTopology, "lldp_mib") {
+	if !reflect.DeepEqual(fp.DefaultModulesTopology, []string{"device_base_topo"}) {
 		t.Fatalf("default_modules_topology: %v", fp.DefaultModulesTopology)
 	}
 
 	known := shippedModuleNames(t)
-	var missingLLDP, missingCDP, missingMod []string
+	var invalidTopology, missingMod []string
 	for _, m := range fp.Matchers {
 		if !m.hasTier() {
 			continue
 		}
-		if !containsModule(m.ModulesTopology, "lldp_mib") {
-			missingLLDP = append(missingLLDP, m.Comment)
-		}
-		if matcherCiscoRelated(m) && !containsModule(m.ModulesTopology, "cdp_mib") {
-			missingCDP = append(missingCDP, m.Comment)
+		if len(m.ModulesTopology) != 1 || !strings.HasSuffix(m.ModulesTopology[0], "_topo") {
+			invalidTopology = append(invalidTopology, m.Comment)
 		}
 		for _, name := range uniqueModules(append(append(m.ModulesHot, m.ModulesCold...), m.ModulesTopology...)) {
 			if _, ok := known[name]; !ok {
@@ -132,15 +138,52 @@ func TestShippedTopologyCoverage(t *testing.T) {
 			}
 		}
 	}
-	if len(missingLLDP) > 0 {
-		t.Fatalf("matchers missing lldp_mib (%d): %v", len(missingLLDP), missingLLDP[:min(5, len(missingLLDP))])
-	}
-	if len(missingCDP) > 0 {
-		t.Fatalf("cisco/meraki matchers missing cdp_mib (%d): %v", len(missingCDP), missingCDP[:min(5, len(missingCDP))])
+	if len(invalidTopology) > 0 {
+		t.Fatalf("matchers without one *_topo object (%d): %v", len(invalidTopology), invalidTopology[:min(5, len(invalidTopology))])
 	}
 	if len(missingMod) > 0 {
 		t.Fatalf("fingerprinter names missing from snmp/modules (%d): %v", len(missingMod), missingMod[:min(5, len(missingMod))])
 	}
+}
+
+func shippedModuleHasMetric(t *testing.T, moduleName, metricName string) bool {
+	t.Helper()
+	root := repoPath(t, "snmp/modules")
+	found := false
+	err := filepath.WalkDir(root, func(path string, d fs.DirEntry, err error) error {
+		if err != nil || found || d.IsDir() || !strings.HasSuffix(path, ".yml") {
+			return err
+		}
+		b, err := os.ReadFile(path)
+		if err != nil {
+			return err
+		}
+		var doc struct {
+			Modules map[string]struct {
+				Metrics []struct {
+					Name string `yaml:"name"`
+				} `yaml:"metrics"`
+			} `yaml:"modules"`
+		}
+		if err := yaml.Unmarshal(b, &doc); err != nil {
+			return err
+		}
+		module, ok := doc.Modules[moduleName]
+		if !ok {
+			return nil
+		}
+		for _, metric := range module.Metrics {
+			if metric.Name == metricName {
+				found = true
+				break
+			}
+		}
+		return nil
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	return found
 }
 
 func shippedModuleNames(t *testing.T) map[string]struct{} {

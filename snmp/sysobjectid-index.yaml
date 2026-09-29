@@ -26,7 +26,8 @@ modules:
     - 3com_huawei_sensors
     - 3com_huawei_ext
     module_chain_topology:
-    - lldp_mib
+    - 3com_huawei_topo
+    topology_module: 3com_huawei_topo
   3com:
     profile: 3com.yml
     vendor: 3com
@@ -51,7 +52,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - 3com_topo
+    topology_module: 3com_topo
   6wind_vsr:
     profile: 6wind-vsr.yml
     vendor: 6wind
@@ -91,8 +93,8 @@ modules:
     - tcp_mib
     - udp_mib
     module_chain_topology:
-    - bgp4_mib
-    - lldp_mib
+    - 6wind_vsr_topo
+    topology_module: 6wind_vsr_topo
   cambium_mib:
     profile: cambium-mib.yml
     vendor: Cambium
@@ -123,7 +125,8 @@ modules:
     - ucd_mib_ext
     - cambium_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - cambium_mib_topo
+    topology_module: cambium_mib_topo
   bgp4_mib:
     profile: bgp4-mib.yml
     vendor: _general
@@ -318,7 +321,8 @@ modules:
     - dell_poweredge_sensors
     - dell_poweredge_ext
     module_chain_topology:
-    - lldp_mib
+    - net_snmp_topo
+    topology_module: net_snmp_topo
   ospf_mib:
     profile: ospf-mib.yml
     vendor: _general
@@ -502,8 +506,8 @@ modules:
     - a10_thunder_sensors
     - a10_thunder_ext
     module_chain_topology:
-    - ospf_mib
-    - lldp_mib
+    - a10_thunder_topo
+    topology_module: a10_thunder_topo
   alcatel_lucent_ent:
     profile: alcatel-lucent-ent.yml
     vendor: alcatel_lucent
@@ -534,7 +538,8 @@ modules:
     - alcatel_lucent_ent_sensors
     - alcatel_lucent_ent_ext
     module_chain_topology:
-    - lldp_mib
+    - alcatel_lucent_ent_topo
+    topology_module: alcatel_lucent_ent_topo
   alcatel_lucent_ind:
     profile: alcatel-lucent-ind.yml
     vendor: alcatel_lucent
@@ -574,7 +579,8 @@ modules:
     - alcatel_lucent_ind_sensors
     - alcatel_lucent_ind_ext
     module_chain_topology:
-    - lldp_mib
+    - alcatel_lucent_ind_topo
+    topology_module: alcatel_lucent_ind_topo
   omni_access_wlc:
     profile: omni-access-wlc.yml
     vendor: alcatel_lucent
@@ -613,7 +619,8 @@ modules:
     - ip_addr
     - omni_access_wlc_ext
     module_chain_topology:
-    - lldp_mib
+    - omni_access_wlc_topo
+    topology_module: omni_access_wlc_topo
   anue_packet_broker:
     profile: anue-packet-broker.yml
     vendor: anue
@@ -638,7 +645,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - anue_packet_broker_topo
+    topology_module: anue_packet_broker_topo
   apc_netbotz:
     profile: apc-netbotz.yml
     vendor: apc
@@ -659,7 +667,8 @@ modules:
     - apc_netbotz_sensors
     - apc_netbotz_ext
     module_chain_topology:
-    - lldp_mib
+    - apc_netbotz_topo
+    topology_module: apc_netbotz_topo
   apc_ats:
     profile: apc_ats.yml
     vendor: apc
@@ -704,7 +713,8 @@ modules:
     - apc_ats_sensors
     - apc_ats_ext
     module_chain_topology:
-    - lldp_mib
+    - apc_ats_topo
+    topology_module: apc_ats_topo
   apc_pdu:
     profile: apc_pdu.yml
     vendor: apc
@@ -755,7 +765,8 @@ modules:
     - apc_pdu_sensors
     - apc_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - apc_pdu_topo
+    topology_module: apc_pdu_topo
   apc_ups:
     profile: apc_ups.yml
     vendor: apc
@@ -807,7 +818,8 @@ modules:
     - apc_ups_sensors
     - apc_ups_ext
     module_chain_topology:
-    - lldp_mib
+    - apc_ups_topo
+    topology_module: apc_ups_topo
   arista_switch:
     profile: arista-switch.yml
     vendor: arista
@@ -998,10 +1010,8 @@ modules:
     - ip_addr
     - arista_switch_ext
     module_chain_topology:
-    - ospf_mib
-    - bgp4_mib
-    - lldp_mib
     - arista_switch_topo
+    topology_module: arista_switch_topo
   aruba_access_point:
     profile: aruba-access-point.yml
     vendor: aruba
@@ -1144,7 +1154,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - aruba_access_point_topo
+    topology_module: aruba_access_point_topo
   aruba_clearpass:
     profile: aruba-clearpass.yml
     vendor: aruba
@@ -1176,7 +1187,8 @@ modules:
     - ip_addr
     - aruba_clearpass_ext
     module_chain_topology:
-    - lldp_mib
+    - aruba_clearpass_topo
+    topology_module: aruba_clearpass_topo
   aruba_cx_switch:
     profile: aruba-cx-switch.yml
     vendor: aruba
@@ -1215,7 +1227,8 @@ modules:
     - ip_addr
     - aruba_cx_switch_sensors
     module_chain_topology:
-    - lldp_mib
+    - aruba_cx_switch_topo
+    topology_module: aruba_cx_switch_topo
   aruba_mobility_controller:
     profile: aruba-mobility-controller.yml
     vendor: aruba
@@ -1243,7 +1256,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - aruba_mobility_controller_topo
+    topology_module: aruba_mobility_controller_topo
   aruba_switch:
     profile: aruba-switch.yml
     vendor: aruba
@@ -1429,7 +1443,8 @@ modules:
     - ip_addr
     - aruba_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - aruba_switch_topo
+    topology_module: aruba_switch_topo
   aruba_wireless_controller:
     profile: aruba-wireless-controller.yml
     vendor: aruba
@@ -1522,7 +1537,8 @@ modules:
     - ip_addr
     - aruba_wireless_controller_ext
     module_chain_topology:
-    - lldp_mib
+    - aruba_wireless_controller_topo
+    topology_module: aruba_wireless_controller_topo
   audiocodes_mediant_sbc:
     profile: audiocodes-mediant-sbc.yml
     vendor: audiocodes
@@ -1547,7 +1563,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - audiocodes_mediant_sbc_topo
+    topology_module: audiocodes_mediant_sbc_topo
   aura_media_server:
     profile: aura-media-server.yml
     vendor: avaya
@@ -1577,7 +1594,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - aura_media_server_topo
+    topology_module: aura_media_server_topo
   avaya_cajun_switch:
     profile: avaya-cajun-switch.yml
     vendor: avaya
@@ -1599,7 +1617,8 @@ modules:
     module_chain_cold:
     - avaya_cajun_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - avaya_cajun_switch_topo
+    topology_module: avaya_cajun_switch_topo
   avaya_media_gateway:
     profile: avaya-media-gateway.yml
     vendor: avaya
@@ -1645,8 +1664,8 @@ modules:
     - entity_sensor_mib
     - avaya_media_gateway_ext
     module_chain_topology:
-    - ospf_mib
-    - lldp_mib
+    - avaya_media_gateway_topo
+    topology_module: avaya_media_gateway_topo
   nortel_ethernet_routing_switch:
     profile: nortel-ethernet-routing-switch.yml
     vendor: avaya
@@ -1672,7 +1691,8 @@ modules:
     - ip_addr
     - nortel_ethernet_routing_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - nortel_ethernet_routing_switch_topo
+    topology_module: nortel_ethernet_routing_switch_topo
   acs:
     profile: acs.yml
     vendor: avocent
@@ -1711,7 +1731,8 @@ modules:
     - acs_sensors
     - acs_ext
     module_chain_topology:
-    - lldp_mib
+    - acs_topo
+    topology_module: acs_topo
   roomalert_32s:
     profile: roomalert-32s.yml
     vendor: avtech
@@ -1732,7 +1753,8 @@ modules:
     - roomalert_32s_sensors
     - roomalert_32s_ext
     module_chain_topology:
-    - lldp_mib
+    - roomalert_32s_topo
+    topology_module: roomalert_32s_topo
   roomalert_3e:
     profile: roomalert-3e.yml
     vendor: avtech
@@ -1752,7 +1774,8 @@ modules:
     module_chain_cold:
     - roomalert_3e_ext
     module_chain_topology:
-    - lldp_mib
+    - roomalert_3e_topo
+    topology_module: roomalert_3e_topo
   roomalert_3s:
     profile: roomalert-3s.yml
     vendor: avtech
@@ -1772,7 +1795,8 @@ modules:
     module_chain_cold:
     - roomalert_3s_ext
     module_chain_topology:
-    - lldp_mib
+    - roomalert_3s_topo
+    topology_module: roomalert_3s_topo
   barracuda_cloudgen:
     profile: barracuda-cloudgen.yml
     vendor: barracuda
@@ -1805,7 +1829,7 @@ modules:
     - barracuda_cloudgen_ext
     module_chain_topology:
     - barracuda_cloudgen_topo
-    - lldp_mib
+    topology_module: barracuda_cloudgen_topo
   barracuda_email_gateway:
     profile: barracuda-email-gateway.yml
     vendor: barracuda
@@ -1836,7 +1860,8 @@ modules:
     - ucd_mib_ext
     - barracuda_email_gateway_ext
     module_chain_topology:
-    - lldp_mib
+    - barracuda_email_gateway_topo
+    topology_module: barracuda_email_gateway_topo
   barracuda_waf:
     profile: barracuda-waf.yml
     vendor: barracuda
@@ -1879,7 +1904,8 @@ modules:
     - ucd_mib_ext
     - barracuda_waf_ext
     module_chain_topology:
-    - lldp_mib
+    - barracuda_waf_topo
+    topology_module: barracuda_waf_topo
   bluecat_server:
     profile: bluecat-server.yml
     vendor: bluecat
@@ -1932,7 +1958,8 @@ modules:
     - ucd_mib_ext
     - bluecat_server_ext
     module_chain_topology:
-    - lldp_mib
+    - bluecat_server_topo
+    topology_module: bluecat_server_topo
   diameter:
     profile: diameter.yml
     vendor: broadforward
@@ -1969,7 +1996,8 @@ modules:
     - ucd_mib_ext
     - diameter_ext
     module_chain_topology:
-    - lldp_mib
+    - diameter_topo
+    topology_module: diameter_topo
   brocade_fc_switch:
     profile: brocade-fc-switch.yml
     vendor: brocade
@@ -2012,7 +2040,8 @@ modules:
     - ip_addr
     - brocade_fc_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - brocade_fc_switch_topo
+    topology_module: brocade_fc_switch_topo
   brother_net_printer:
     profile: brother-net-printer.yml
     vendor: brother
@@ -2038,7 +2067,8 @@ modules:
     module_chain_cold:
     - brother_net_printer_ext
     module_chain_topology:
-    - lldp_mib
+    - brother_net_printer_topo
+    topology_module: brother_net_printer_topo
   checkpoint_firewall:
     profile: checkpoint-firewall.yml
     vendor: checkpoint
@@ -2066,7 +2096,8 @@ modules:
     - checkpoint_firewall_sensors
     - checkpoint_firewall_ext
     module_chain_topology:
-    - lldp_mib
+    - checkpoint_firewall_topo
+    topology_module: checkpoint_firewall_topo
   watchguard:
     profile: watchguard.yml
     vendor: checkpoint
@@ -2100,7 +2131,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - watchguard_topo
+    topology_module: watchguard_topo
   luna_hsm:
     profile: luna-hsm.yml
     vendor: chrysalis
@@ -2129,7 +2161,8 @@ modules:
     - ucd_mib_ext
     - luna_hsm_ext
     module_chain_topology:
-    - lldp_mib
+    - luna_hsm_topo
+    topology_module: luna_hsm_topo
   cisco_access_point:
     profile: cisco-access-point.yml
     vendor: cisco
@@ -2189,8 +2222,8 @@ modules:
     - ip_addr
     - cisco_access_point_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_access_point_topo
+    topology_module: cisco_access_point_topo
   cisco_all_devices:
     profile: cisco-all-devices.yml
     vendor: cisco
@@ -2248,8 +2281,8 @@ modules:
     - cisco_apic_server_sensors
     - cisco_apic_server_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_apic_server_topo
+    topology_module: cisco_apic_server_topo
   cisco_asa:
     profile: cisco-asa.yml
     vendor: cisco
@@ -2426,10 +2459,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_asa_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_asa_topo
+    topology_module: cisco_asa_topo
   cisco_asr:
     profile: cisco-asr.yml
     vendor: cisco
@@ -3283,10 +3314,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_asr_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_asr_topo
+    topology_module: cisco_asr_topo
   cisco_call_manager:
     profile: cisco-call-manager.yml
     vendor: cisco
@@ -3322,10 +3351,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_call_manager_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_call_manager_topo
+    topology_module: cisco_call_manager_topo
   cisco_catalyst:
     profile: cisco-catalyst.yml
     vendor: cisco
@@ -3753,10 +3780,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_catalyst_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_catalyst_topo
+    topology_module: cisco_catalyst_topo
   cisco_csr:
     profile: cisco-csr.yml
     vendor: cisco
@@ -3787,9 +3812,8 @@ modules:
     - ip_addr
     - cisco_csr_ext
     module_chain_topology:
-    - bgp4_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_csr_topo
+    topology_module: cisco_csr_topo
   cisco_firepower:
     profile: cisco-firepower.yml
     vendor: cisco
@@ -3852,8 +3876,8 @@ modules:
     - cisco_firepower_sensors
     - cisco_firepower_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_firepower_topo
+    topology_module: cisco_firepower_topo
   cisco_ironport_email:
     profile: cisco-ironport-email.yml
     vendor: cisco
@@ -3893,8 +3917,8 @@ modules:
     - cisco_ironport_email_sensors
     - cisco_ironport_email_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_ironport_email_topo
+    topology_module: cisco_ironport_email_topo
   cisco_ise:
     profile: cisco-ise.yml
     vendor: cisco
@@ -3930,8 +3954,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_ise_topo
+    topology_module: cisco_ise_topo
   cisco_load_balancer:
     profile: cisco-load-balancer.yml
     vendor: cisco
@@ -3981,10 +4005,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_load_balancer_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_load_balancer_topo
+    topology_module: cisco_load_balancer_topo
   cisco_nexus:
     profile: cisco-nexus.yml
     vendor: cisco
@@ -4137,11 +4159,8 @@ modules:
     - cisco_all_devices_sensors
     - cisco_all_devices_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
     - cisco_nexus_topo
-    - lldp_mib
-    - cdp_mib
+    topology_module: cisco_nexus_topo
   cisco_sb:
     profile: cisco-sb.yml
     vendor: cisco
@@ -4167,8 +4186,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_sb_topo
+    topology_module: cisco_sb_topo
   cisco_ucs:
     profile: cisco-ucs.yml
     vendor: cisco
@@ -4199,8 +4218,8 @@ modules:
     - cisco_ucs_sensors
     - cisco_ucs_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - cisco_ucs_topo
+    topology_module: cisco_ucs_topo
   cisco_voice:
     profile: cisco-voice.yml
     vendor: cisco
@@ -4235,10 +4254,8 @@ modules:
     - cisco_all_devices_ext
     - cisco_voice_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_voice_topo
+    topology_module: cisco_voice_topo
   cisco_wan_optimizer:
     profile: cisco-wan-optimizer.yml
     vendor: cisco
@@ -4290,10 +4307,8 @@ modules:
     - host_resources_mib_ext
     - cisco_wan_optimizer_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_wan_optimizer_topo
+    topology_module: cisco_wan_optimizer_topo
   cisco_wlc:
     profile: cisco-wlc.yml
     vendor: cisco
@@ -4364,10 +4379,8 @@ modules:
     - cisco_wlc_sensors
     - cisco_wlc_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
-    - cdp_mib
+    - cisco_wlc_topo
+    topology_module: cisco_wlc_topo
   netscaler_sdx:
     profile: netscaler-sdx.yml
     vendor: citrix
@@ -4406,7 +4419,8 @@ modules:
     module_chain_cold:
     - netscaler_sdx_ext
     module_chain_topology:
-    - lldp_mib
+    - netscaler_sdx_topo
+    topology_module: netscaler_sdx_topo
   netscaler:
     profile: netscaler.yml
     vendor: citrix
@@ -4450,7 +4464,8 @@ modules:
     - ip_addr
     - netscaler_ext
     module_chain_topology:
-    - lldp_mib
+    - netscaler_topo
+    topology_module: netscaler_topo
   cradlepoint:
     profile: cradlepoint.yml
     vendor: cradlepoint
@@ -4523,7 +4538,8 @@ modules:
     - ip_addr
     - cradlepoint_ext
     module_chain_topology:
-    - lldp_mib
+    - cradlepoint_topo
+    topology_module: cradlepoint_topo
   cyberpower_pdu:
     profile: cyberpower-pdu.yml
     vendor: cyberpower
@@ -4588,7 +4604,8 @@ modules:
     - cyberpower_pdu_sensors
     - cyberpower_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - cyberpower_pdu_topo
+    topology_module: cyberpower_pdu_topo
   cyberpower_ups:
     profile: cyberpower-ups.yml
     vendor: cyberpower
@@ -4638,7 +4655,8 @@ modules:
     - cyberpower_ups_sensors
     - cyberpower_ups_ext
     module_chain_topology:
-    - lldp_mib
+    - cyberpower_ups_topo
+    topology_module: cyberpower_ups_topo
   dell_avamar:
     profile: dell-avamar.yml
     vendor: dell
@@ -4668,7 +4686,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - dell_avamar_topo
+    topology_module: dell_avamar_topo
   dell_idrac:
     profile: dell-idrac.yml
     vendor: dell
@@ -4691,7 +4710,8 @@ modules:
     - dell_idrac_sensors
     - dell_idrac_ext
     module_chain_topology:
-    - lldp_mib
+    - dell_idrac_topo
+    topology_module: dell_idrac_topo
   dell_os10:
     profile: dell-os10.yml
     vendor: dell
@@ -4746,7 +4766,7 @@ modules:
     - dell_os10_ext
     module_chain_topology:
     - dell_os10_topo
-    - lldp_mib
+    topology_module: dell_os10_topo
   dell_powerconnect:
     profile: dell-powerconnect.yml
     vendor: dell
@@ -4856,7 +4876,8 @@ modules:
     - dell_powerconnect_sensors
     - dell_powerconnect_ext
     module_chain_topology:
-    - lldp_mib
+    - dell_powerconnect_topo
+    topology_module: dell_powerconnect_topo
   dell_poweredge:
     profile: dell-poweredge.yml
     vendor: dell
@@ -4938,7 +4959,8 @@ modules:
     - ip_addr
     - emc_data_domain_ext
     module_chain_topology:
-    - lldp_mib
+    - emc_data_domain_topo
+    topology_module: emc_data_domain_topo
   force10:
     profile: force10.yml
     vendor: dell
@@ -4963,7 +4985,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - force10_topo
+    topology_module: force10_topo
   sonicwall_sma:
     profile: sonicwall-sma.yml
     vendor: dell
@@ -5012,7 +5035,8 @@ modules:
     - host_resources_mib_ext
     - sonicwall_sma_ext
     module_chain_topology:
-    - lldp_mib
+    - sonicwall_sma_topo
+    topology_module: sonicwall_sma_topo
   sonicwall:
     profile: sonicwall.yml
     vendor: dell
@@ -5062,7 +5086,8 @@ modules:
     - ip_addr
     - sonicwall_ext
     module_chain_topology:
-    - lldp_mib
+    - sonicwall_topo
+    topology_module: sonicwall_topo
   dialogic_media_gateway:
     profile: dialogic-media-gateway.yml
     vendor: dialogic
@@ -5087,7 +5112,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - dialogic_media_gateway_topo
+    topology_module: dialogic_media_gateway_topo
   dlink_dgs_switch:
     profile: dlink-dgs-switch.yml
     vendor: dlink
@@ -5121,7 +5147,8 @@ modules:
     - dlink_dgs_switch_sensors
     - dlink_dgs_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - dlink_dgs_switch_topo
+    topology_module: dlink_dgs_switch_topo
   eaton_epdu:
     profile: eaton_epdu.yml
     vendor: eaton
@@ -5168,7 +5195,8 @@ modules:
     - eaton_epdu_sensors
     - eaton_epdu_ext
     module_chain_topology:
-    - lldp_mib
+    - eaton_epdu_topo
+    topology_module: eaton_epdu_topo
   elemental_device:
     profile: elemental-device.yml
     vendor: elemental
@@ -5206,7 +5234,8 @@ modules:
     - host_resources_mib_ext
     - elemental_device_ext
     module_chain_topology:
-    - lldp_mib
+    - elemental_device_topo
+    topology_module: elemental_device_topo
   exagrid:
     profile: exagrid.yml
     vendor: exagrid
@@ -5243,7 +5272,8 @@ modules:
     - host_resources_mib_ext
     - exagrid_ext
     module_chain_topology:
-    - lldp_mib
+    - exagrid_topo
+    topology_module: exagrid_topo
   extreme_switching:
     profile: extreme-switching.yml
     vendor: extreme_networks
@@ -5287,7 +5317,8 @@ modules:
     - extreme_switching_sensors
     - extreme_switching_ext
     module_chain_topology:
-    - lldp_mib
+    - extreme_switching_topo
+    topology_module: extreme_switching_topo
   f5:
     profile: f5.yml
     vendor: f5
@@ -5328,7 +5359,8 @@ modules:
     - ip_addr
     - f5_ext
     module_chain_topology:
-    - lldp_mib
+    - f5_topo
+    topology_module: f5_topo
   fireeye:
     profile: fireeye.yml
     vendor: fireeye
@@ -5373,7 +5405,8 @@ modules:
     - fireeye_sensors
     - fireeye_ext
     module_chain_topology:
-    - lldp_mib
+    - fireeye_topo
+    topology_module: fireeye_topo
   fortinet_appliance:
     profile: fortinet-appliance.yml
     vendor: fortinet
@@ -5466,7 +5499,8 @@ modules:
     - ip_addr
     - fortinet_appliance_ext
     module_chain_topology:
-    - lldp_mib
+    - fortinet_appliance_topo
+    topology_module: fortinet_appliance_topo
   fortinet_fortiap:
     profile: fortinet-fortiap.yml
     vendor: fortinet
@@ -5550,7 +5584,8 @@ modules:
     - ip_addr
     - fortinet_fortiap_ext
     module_chain_topology:
-    - lldp_mib
+    - fortinet_fortiap_topo
+    topology_module: fortinet_fortiap_topo
   fortinet_fortigate:
     profile: fortinet-fortigate.yml
     vendor: fortinet
@@ -5695,9 +5730,8 @@ modules:
     - ip_addr
     - fortinet_fortigate_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - fortinet_fortigate_topo
+    topology_module: fortinet_fortigate_topo
   fortinet_fortiswitch:
     profile: fortinet-fortiswitch.yml
     vendor: fortinet
@@ -5744,7 +5778,8 @@ modules:
     - ip_addr
     - fortinet_fortiswitch_ext
     module_chain_topology:
-    - lldp_mib
+    - fortinet_fortiswitch_topo
+    topology_module: fortinet_fortiswitch_topo
   base:
     profile: base.yml
     vendor: generic
@@ -5784,8 +5819,8 @@ modules:
     - tcp_mib
     - udp_mib
     module_chain_topology:
-    - ospf_mib
-    - lldp_mib
+    - base_topo
+    topology_module: base_topo
   ups:
     profile: ups.yml
     vendor: generic
@@ -5808,7 +5843,8 @@ modules:
     module_chain_cold:
     - ups_mib
     module_chain_topology:
-    - lldp_mib
+    - ups_topo
+    topology_module: ups_topo
   gigamon:
     profile: gigamon.yml
     vendor: gigamon
@@ -5834,7 +5870,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - gigamon_topo
+    topology_module: gigamon_topo
   hp_h3c_switch:
     profile: hp-h3c-switch.yml
     vendor: hp
@@ -5860,7 +5897,8 @@ modules:
     - ip_addr
     - hp_h3c_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - hp_h3c_switch_topo
+    topology_module: hp_h3c_switch_topo
   hp_icf_switch:
     profile: hp-icf-switch.yml
     vendor: hp
@@ -5885,7 +5923,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - hp_icf_switch_topo
+    topology_module: hp_icf_switch_topo
   hp_ilo:
     profile: hp-ilo.yml
     vendor: hp
@@ -5945,7 +5984,8 @@ modules:
     - hp_ilo_sensors
     - hp_ilo_ext
     module_chain_topology:
-    - lldp_mib
+    - hp_ilo_topo
+    topology_module: hp_ilo_topo
   hpe_bladesystem_enclosure:
     profile: hpe-bladesystem-enclosure.yml
     vendor: hpe
@@ -5977,7 +6017,8 @@ modules:
     - hpe_bladesystem_enclosure_sensors
     - hpe_bladesystem_enclosure_ext
     module_chain_topology:
-    - lldp_mib
+    - hpe_bladesystem_enclosure_topo
+    topology_module: hpe_bladesystem_enclosure_topo
   hpe_cambium:
     profile: hpe-cambium.yml
     vendor: hpe
@@ -6002,7 +6043,8 @@ modules:
     - hpe_cambium_sensors
     - hpe_cambium_ext
     module_chain_topology:
-    - lldp_mib
+    - hpe_cambium_topo
+    topology_module: hpe_cambium_topo
   hpe_msa:
     profile: hpe-msa.yaml
     vendor: hpe
@@ -6046,7 +6088,8 @@ modules:
     - ip_addr
     - hpe_msa_ext
     module_chain_topology:
-    - lldp_mib
+    - hpe_msa_topo
+    topology_module: hpe_msa_topo
   hpe_nimble:
     profile: hpe-nimble.yml
     vendor: hpe
@@ -6072,7 +6115,8 @@ modules:
     - ip_addr
     - hpe_nimble_ext
     module_chain_topology:
-    - lldp_mib
+    - hpe_nimble_topo
+    topology_module: hpe_nimble_topo
   hpe_synergy:
     profile: hpe-synergy.yml
     vendor: hpe
@@ -6102,7 +6146,8 @@ modules:
     - ip_mib
     - hpe_synergy_ext
     module_chain_topology:
-    - lldp_mib
+    - hpe_synergy_topo
+    topology_module: hpe_synergy_topo
   huawei_access_controllers:
     profile: huawei-access-controllers.yml
     vendor: huawei
@@ -6127,7 +6172,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - huawei_access_controllers_topo
+    topology_module: huawei_access_controllers_topo
   huawei_all_devices:
     profile: huawei-all-devices.yml
     vendor: huawei
@@ -6166,7 +6212,7 @@ modules:
     - huawei_all_devices_ext
     module_chain_topology:
     - huawei_all_devices_topo
-    - lldp_mib
+    topology_module: huawei_all_devices_topo
   huawei_routers:
     profile: huawei-routers.yml
     vendor: huawei
@@ -6200,9 +6246,8 @@ modules:
     - huawei_all_devices_ext
     - huawei_routers_ext
     module_chain_topology:
-    - huawei_all_devices_topo
     - huawei_routers_topo
-    - lldp_mib
+    topology_module: huawei_routers_topo
   huawei_switches:
     profile: huawei-switches.yml
     vendor: huawei
@@ -6234,8 +6279,8 @@ modules:
     - huawei_all_devices_ext
     - huawei_switches_ext
     module_chain_topology:
-    - huawei_all_devices_topo
-    - lldp_mib
+    - huawei_switches_topo
+    topology_module: huawei_switches_topo
   ibm_datapower_gateway:
     profile: ibm-datapower-gateway.yml
     vendor: ibm
@@ -6256,7 +6301,8 @@ modules:
     - ibm_datapower_gateway_sensors
     - ibm_datapower_gateway_ext
     module_chain_topology:
-    - lldp_mib
+    - ibm_datapower_gateway_topo
+    topology_module: ibm_datapower_gateway_topo
   ibm_lenovo_server:
     profile: ibm-lenovo-server.yml
     vendor: ibm
@@ -6306,7 +6352,8 @@ modules:
     - ucd_mib_ext
     - ibm_lenovo_server_ext
     module_chain_topology:
-    - lldp_mib
+    - ibm_lenovo_server_topo
+    topology_module: ibm_lenovo_server_topo
   ibm_wga:
     profile: ibm-wga.yml
     vendor: ibm
@@ -6341,7 +6388,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - ibm_wga_topo
+    topology_module: ibm_wga_topo
   infinera:
     profile: infinera.yml
     vendor: infinera
@@ -6368,7 +6416,8 @@ modules:
     - infinera_sensors
     - infinera_ext
     module_chain_topology:
-    - lldp_mib
+    - infinera_topo
+    topology_module: infinera_topo
   infoblox_ipam:
     profile: infoblox-ipam.yml
     vendor: infoblox
@@ -6465,7 +6514,8 @@ modules:
     - ucd_mib_ext
     - infoblox_ipam_ext
     module_chain_topology:
-    - lldp_mib
+    - infoblox_ipam_topo
+    topology_module: infoblox_ipam_topo
   sensor_gateway_base_unit:
     profile: sensor-gateway-base-unit.yml
     vendor: infrasensing
@@ -6485,7 +6535,8 @@ modules:
     module_chain_cold:
     - sensor_gateway_base_unit_ext
     module_chain_topology:
-    - lldp_mib
+    - sensor_gateway_base_unit_topo
+    topology_module: sensor_gateway_base_unit_topo
   ipower_mib:
     profile: ipower-mib.yaml
     vendor: ipower
@@ -6506,7 +6557,8 @@ modules:
     - ipower_mib_sensors
     - ipower_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - ipower_mib_topo
+    topology_module: ipower_mib_topo
   isilon:
     profile: isilon.yml
     vendor: isilon
@@ -6526,7 +6578,8 @@ modules:
     module_chain_cold:
     - isilon_ext
     module_chain_topology:
-    - lldp_mib
+    - isilon_topo
+    topology_module: isilon_topo
   juniper_all_devices:
     profile: juniper-all-devices.yml
     vendor: juniper
@@ -6569,9 +6622,8 @@ modules:
     - juniper_all_devices_sensors
     - juniper_all_devices_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - juniper_all_devices_topo
+    topology_module: juniper_all_devices_topo
   juniper_ex_switches:
     profile: juniper-ex-switches.yml
     vendor: juniper
@@ -6636,9 +6688,8 @@ modules:
     - juniper_all_devices_ext
     - juniper_ex_switches_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - juniper_ex_switches_topo
+    topology_module: juniper_ex_switches_topo
   juniper_mx_router:
     profile: juniper-mx-router.yml
     vendor: juniper
@@ -6701,9 +6752,8 @@ modules:
     - juniper_all_devices_ext
     - juniper_mx_router_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - juniper_mx_router_topo
+    topology_module: juniper_mx_router_topo
   juniper_qfx_switches:
     profile: juniper-qfx-switches.yml
     vendor: juniper
@@ -6738,9 +6788,8 @@ modules:
     - juniper_all_devices_ext
     - juniper_qfx_switches_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - juniper_qfx_switches_topo
+    topology_module: juniper_qfx_switches_topo
   juniper_srx_firewalls:
     profile: juniper-srx-firewalls.yml
     vendor: juniper
@@ -6819,9 +6868,8 @@ modules:
     - juniper_all_devices_ext
     - juniper_srx_firewalls_ext
     module_chain_topology:
-    - bgp4_mib
-    - ospf_mib
-    - lldp_mib
+    - juniper_srx_firewalls_topo
+    topology_module: juniper_srx_firewalls_topo
   pulse_secure:
     profile: pulse-secure.yml
     vendor: juniper
@@ -6876,7 +6924,8 @@ modules:
     - pulse_secure_sensors
     - pulse_secure_ext
     module_chain_topology:
-    - lldp_mib
+    - pulse_secure_topo
+    topology_module: pulse_secure_topo
   kyocera_printer:
     profile: kyocera-printer.yml
     vendor: kyocera
@@ -6916,7 +6965,8 @@ modules:
     - ip_addr
     - kyocera_printer_ext
     module_chain_topology:
-    - lldp_mib
+    - kyocera_printer_topo
+    topology_module: kyocera_printer_topo
   lenovo_rackswitch:
     profile: lenovo-rackswitch.yml
     vendor: lenovo
@@ -6961,7 +7011,8 @@ modules:
     - lenovo_rackswitch_sensors
     - lenovo_rackswitch_ext
     module_chain_topology:
-    - lldp_mib
+    - lenovo_rackswitch_topo
+    topology_module: lenovo_rackswitch_topo
   linksys:
     profile: linksys.yml
     vendor: linksys
@@ -6986,7 +7037,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - linksys_topo
+    topology_module: linksys_topo
   mcafee_web_gateway:
     profile: mcafee-web-gateway.yml
     vendor: mcafee
@@ -7090,7 +7142,8 @@ modules:
     - ip_addr
     - mcafee_web_gateway_ext
     module_chain_topology:
-    - lldp_mib
+    - mcafee_web_gateway_topo
+    topology_module: mcafee_web_gateway_topo
   meraki_cloud_controller:
     profile: meraki-cloud-controller.yml
     vendor: meraki
@@ -7116,8 +7169,8 @@ modules:
     - ip_addr
     - meraki_cloud_controller_ext
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - meraki_cloud_controller_topo
+    topology_module: meraki_cloud_controller_topo
   meraki_device:
     profile: meraki-device.yaml
     vendor: meraki
@@ -7226,8 +7279,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
-    - cdp_mib
+    - meraki_device_topo
+    topology_module: meraki_device_topo
   mikrotik_router:
     profile: mikrotik-router.yml
     vendor: mikrotik
@@ -7254,7 +7307,8 @@ modules:
     - mikrotik_router_sensors
     - mikrotik_router_ext
     module_chain_topology:
-    - lldp_mib
+    - mikrotik_router_topo
+    topology_module: mikrotik_router_topo
   mikrotik_switch:
     profile: mikrotik-switch.yml
     vendor: mikrotik
@@ -7281,7 +7335,8 @@ modules:
     - mikrotik_switch_sensors
     - mikrotik_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - mikrotik_switch_topo
+    topology_module: mikrotik_switch_topo
   mimosa_device:
     profile: mimosa-device.yml
     vendor: mimosa
@@ -7326,7 +7381,8 @@ modules:
     - mimosa_device_sensors
     - mimosa_device_ext
     module_chain_topology:
-    - lldp_mib
+    - mimosa_device_topo
+    topology_module: mimosa_device_topo
   minuteman_pdu:
     profile: minuteman-pdu.yml
     vendor: minuteman
@@ -7370,7 +7426,8 @@ modules:
     module_chain_cold:
     - minuteman_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - minuteman_pdu_topo
+    topology_module: minuteman_pdu_topo
   nasuni_filer:
     profile: nasuni-filer.yml
     vendor: nasuni
@@ -7439,7 +7496,8 @@ modules:
     - nasuni_filer_sensors
     - nasuni_filer_ext
     module_chain_topology:
-    - lldp_mib
+    - nasuni_filer_topo
+    topology_module: nasuni_filer_topo
   univerge:
     profile: univerge.yml
     vendor: nec
@@ -7469,8 +7527,8 @@ modules:
     - ip_addr
     - univerge_ext
     module_chain_topology:
-    - bgp4_mib
-    - lldp_mib
+    - univerge_topo
+    topology_module: univerge_topo
   netapp_cluster:
     profile: netapp-cluster.yml
     vendor: netapp
@@ -7528,7 +7586,8 @@ modules:
     - netapp_cluster_sensors
     - netapp_cluster_ext
     module_chain_topology:
-    - lldp_mib
+    - netapp_cluster_topo
+    topology_module: netapp_cluster_topo
   netapp_hci:
     profile: netapp-hci.yml
     vendor: netapp
@@ -7578,7 +7637,8 @@ modules:
     - netapp_hci_sensors
     - netapp_hci_ext
     module_chain_topology:
-    - lldp_mib
+    - netapp_hci_topo
+    topology_module: netapp_hci_topo
   netgear_access_point:
     profile: netgear-access-point.yml
     vendor: netgear
@@ -7603,7 +7663,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - netgear_access_point_topo
+    topology_module: netgear_access_point_topo
   netgear_generic:
     profile: netgear-generic.yml
     vendor: netgear
@@ -7628,7 +7689,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - netgear_generic_topo
+    topology_module: netgear_generic_topo
   netgear_switch:
     profile: netgear-switch.yml
     vendor: netgear
@@ -7660,7 +7722,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - netgear_switch_topo
+    topology_module: netgear_switch_topo
   readynas:
     profile: readynas.yml
     vendor: netgear
@@ -7701,7 +7764,8 @@ modules:
     - readynas_sensors
     - readynas_ext
     module_chain_topology:
-    - lldp_mib
+    - readynas_topo
+    topology_module: readynas_topo
   netoptics_switch:
     profile: netoptics-switch.yml
     vendor: netoptics
@@ -7737,7 +7801,8 @@ modules:
     - netoptics_switch_sensors
     - netoptics_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - netoptics_switch_topo
+    topology_module: netoptics_switch_topo
   netskope_appliance:
     profile: netskope-appliance.yml
     vendor: netskope
@@ -7767,7 +7832,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - netskope_appliance_topo
+    topology_module: netskope_appliance_topo
   nokia_srlinux:
     profile: nokia-srlinux.yml
     vendor: nokia
@@ -7796,7 +7862,7 @@ modules:
     - nokia_srlinux_ext
     module_chain_topology:
     - nokia_srlinux_topo
-    - lldp_mib
+    topology_module: nokia_srlinux_topo
   nutanix:
     profile: nutanix.yml
     vendor: nutanix
@@ -7832,7 +7898,8 @@ modules:
     - ucd_mib_ext
     - nutanix_ext
     module_chain_topology:
-    - lldp_mib
+    - nutanix_topo
+    topology_module: nutanix_topo
   cumulus_linux_switch:
     profile: cumulus-linux-switch.yml
     vendor: nvidia
@@ -7867,7 +7934,8 @@ modules:
     - host_resources_mib_ext
     - cumulus_linux_switch_ext
     module_chain_topology:
-    - lldp_mib
+    - cumulus_linux_switch_topo
+    topology_module: cumulus_linux_switch_topo
   mellanox_switchx:
     profile: mellanox-switchx.yml
     vendor: nvidia
@@ -7951,7 +8019,8 @@ modules:
     - ip_addr
     - entity_sensor_mib
     module_chain_topology:
-    - lldp_mib
+    - mellanox_switchx_topo
+    topology_module: mellanox_switchx_topo
   omron_cj_ethernet_ip:
     profile: omron-cj-ethernet-ip.yml
     vendor: omron
@@ -7977,7 +8046,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - omron_cj_ethernet_ip_topo
+    topology_module: omron_cj_ethernet_ip_topo
   opengear_console_manager:
     profile: opengear-console-manager.yml
     vendor: opengear
@@ -8014,7 +8084,8 @@ modules:
     - host_resources_mib_ext
     - opengear_console_manager_ext
     module_chain_topology:
-    - lldp_mib
+    - opengear_console_manager_topo
+    topology_module: opengear_console_manager_topo
   opengear_infrastructure_manager:
     profile: opengear-infrastructure-manager.yml
     vendor: opengear
@@ -8042,7 +8113,8 @@ modules:
     - opengear_infrastructure_manager_sensors
     - opengear_infrastructure_manager_ext
     module_chain_topology:
-    - lldp_mib
+    - opengear_infrastructure_manager_topo
+    topology_module: opengear_infrastructure_manager_topo
   opnsense_protectli:
     profile: opnsense-protectli.yml
     vendor: opnsense
@@ -8067,7 +8139,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - opnsense_protectli_topo
+    topology_module: opnsense_protectli_topo
   cloudgenix:
     profile: cloudgenix.yml
     vendor: palo_alto
@@ -8108,7 +8181,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - cloudgenix_topo
+    topology_module: cloudgenix_topo
   palo_alto:
     profile: palo-alto.yml
     vendor: palo_alto
@@ -8212,8 +8286,8 @@ modules:
     - host_resources_mib_ext
     - palo_alto_ext
     module_chain_topology:
-    - ospf_mib
-    - lldp_mib
+    - palo_alto_topo
+    topology_module: palo_alto_topo
   panduit_pdu:
     profile: panduit_pdu.yml
     vendor: panduit
@@ -8233,7 +8307,8 @@ modules:
     module_chain_cold:
     - panduit_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - panduit_pdu_topo
+    topology_module: panduit_pdu_topo
   peplink:
     profile: peplink.yml
     vendor: peplink
@@ -8296,7 +8371,8 @@ modules:
     - peplink_sensors
     - peplink_ext
     module_chain_topology:
-    - lldp_mib
+    - peplink_topo
+    topology_module: peplink_topo
   pf_sense:
     profile: pf_sense.yml
     vendor: pf_sense
@@ -8331,7 +8407,8 @@ modules:
     - host_resources_mib_ext
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - pf_sense_topo
+    topology_module: pf_sense_topo
   dominion:
     profile: dominion.yml
     vendor: raritan
@@ -8359,7 +8436,8 @@ modules:
     - dominion_sensors
     - dominion_ext
     module_chain_topology:
-    - lldp_mib
+    - dominion_topo
+    topology_module: dominion_topo
   raritan_pdu:
     profile: raritan-pdu.yml
     vendor: raritan
@@ -8381,7 +8459,8 @@ modules:
     - raritan_pdu_sensors
     - raritan_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - raritan_pdu_topo
+    topology_module: raritan_pdu_topo
   riverbed_interceptor:
     profile: riverbed-interceptor.yml
     vendor: riverbed
@@ -8421,7 +8500,8 @@ modules:
     - ip_addr
     - riverbed_interceptor_ext
     module_chain_topology:
-    - lldp_mib
+    - riverbed_interceptor_topo
+    topology_module: riverbed_interceptor_topo
   riverbed_steelhead:
     profile: riverbed-steelhead.yml
     vendor: riverbed
@@ -8447,7 +8527,8 @@ modules:
     - ip_addr
     - riverbed_steelhead_ext
     module_chain_topology:
-    - lldp_mib
+    - riverbed_steelhead_topo
+    topology_module: riverbed_steelhead_topo
   Ruckus_Contoller_SNMP:
     profile: Ruckus_Contoller_SNMP.yml
     vendor: ruckus
@@ -8501,7 +8582,8 @@ modules:
     - ip_addr
     - ruckus_unleashed_ext
     module_chain_topology:
-    - lldp_mib
+    - ruckus_unleashed_topo
+    topology_module: ruckus_unleashed_topo
   ruckus_wap:
     profile: ruckus-wap.yml
     vendor: ruckus
@@ -8532,7 +8614,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - ruckus_wap_topo
+    topology_module: ruckus_wap_topo
   server_iron_switch:
     profile: server-iron-switch.yml
     vendor: server_iron
@@ -8562,7 +8645,8 @@ modules:
     - ip_addr
     - host_resources_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - server_iron_switch_topo
+    topology_module: server_iron_switch_topo
   servertech_pdu3:
     profile: servertech-pdu3.yml
     vendor: servertech
@@ -8595,7 +8679,8 @@ modules:
     - servertech_pdu3_sensors
     - servertech_pdu3_ext
     module_chain_topology:
-    - lldp_mib
+    - servertech_pdu3_topo
+    topology_module: servertech_pdu3_topo
   servertech_pdu4:
     profile: servertech-pdu4.yml
     vendor: servertech
@@ -8645,7 +8730,8 @@ modules:
     module_chain_cold:
     - servertech_pdu4_ext
     module_chain_topology:
-    - lldp_mib
+    - servertech_pdu4_topo
+    topology_module: servertech_pdu4_topo
   edgeconnect:
     profile: edgeconnect.yml
     vendor: silverpeak
@@ -8689,7 +8775,8 @@ modules:
     - ip_addr
     - edgeconnect_ext
     module_chain_topology:
-    - lldp_mib
+    - edgeconnect_topo
+    topology_module: edgeconnect_topo
   eagle_i:
     profile: eagle-i.yml
     vendor: sinetica
@@ -8727,7 +8814,8 @@ modules:
     module_chain_cold:
     - eagle_i_ext
     module_chain_topology:
-    - lldp_mib
+    - eagle_i_topo
+    topology_module: eagle_i_topo
   xgs_firewall:
     profile: xgs-firewall.yml
     vendor: sophos
@@ -8771,7 +8859,8 @@ modules:
     - ip_addr
     - xgs_firewall_ext
     module_chain_topology:
-    - lldp_mib
+    - xgs_firewall_topo
+    topology_module: xgs_firewall_topo
   dctrack:
     profile: dctrack.yml
     vendor: sunbird
@@ -8802,7 +8891,8 @@ modules:
     - host_resources_mib_ext
     - dctrack_ext
     module_chain_topology:
-    - lldp_mib
+    - dctrack_topo
+    topology_module: dctrack_topo
   power_iq:
     profile: power-iq.yml
     vendor: sunbird
@@ -8833,7 +8923,8 @@ modules:
     - host_resources_mib_ext
     - power_iq_ext
     module_chain_topology:
-    - lldp_mib
+    - power_iq_topo
+    topology_module: power_iq_topo
   disk_station:
     profile: disk_station.yml
     vendor: synology
@@ -8878,7 +8969,8 @@ modules:
     - disk_station_sensors
     - disk_station_ext
     module_chain_topology:
-    - lldp_mib
+    - disk_station_topo
+    topology_module: disk_station_topo
   tp_link:
     profile: tp_link.yml
     vendor: tp_link
@@ -8906,7 +8998,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - tp_link_topo
+    topology_module: tp_link_topo
   tripplite_pdu:
     profile: tripplite-pdu.yml
     vendor: tripplite
@@ -8927,7 +9020,8 @@ modules:
     - tripplite_pdu_sensors
     - tripplite_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - tripplite_pdu_topo
+    topology_module: tripplite_pdu_topo
   tripplite_ups:
     profile: tripplite-ups.yml
     vendor: tripplite
@@ -8975,7 +9069,8 @@ modules:
     - tripplite_ups_sensors
     - tripplite_ups_ext
     module_chain_topology:
-    - lldp_mib
+    - tripplite_ups_topo
+    topology_module: tripplite_ups_topo
   truenas:
     profile: truenas.yml
     vendor: truenas
@@ -9011,7 +9106,8 @@ modules:
     - host_resources_mib_ext
     - truenas_ext
     module_chain_topology:
-    - lldp_mib
+    - truenas_topo
+    topology_module: truenas_topo
   unifi_access_point:
     profile: unifi-access-point.yml
     vendor: ubiquiti
@@ -9038,7 +9134,8 @@ modules:
     - ip_addr
     - unifi_access_point_ext
     module_chain_topology:
-    - lldp_mib
+    - unifi_access_point_topo
+    topology_module: unifi_access_point_topo
   unifi_security_gateway:
     profile: unifi-security-gateway.yml
     vendor: ubiquiti
@@ -9068,7 +9165,8 @@ modules:
     - ip_addr
     - ucd_mib_ext
     module_chain_topology:
-    - lldp_mib
+    - unifi_security_gateway_topo
+    topology_module: unifi_security_gateway_topo
   unifi_switch:
     profile: unifi-switch.yml
     vendor: ubiquiti
@@ -9093,7 +9191,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - unifi_switch_topo
+    topology_module: unifi_switch_topo
   velocloud_edge:
     profile: velocloud-edge.yml
     vendor: velocloud
@@ -9124,7 +9223,8 @@ modules:
     - host_resources_mib_ext
     - velocloud_edge_ext
     module_chain_topology:
-    - lldp_mib
+    - velocloud_edge_topo
+    topology_module: velocloud_edge_topo
   liebert_ac:
     profile: liebert-ac.yml
     vendor: vertiv
@@ -9157,7 +9257,8 @@ modules:
     - liebert_ac_sensors
     - liebert_ac_ext
     module_chain_topology:
-    - lldp_mib
+    - liebert_ac_topo
+    topology_module: liebert_ac_topo
   vertiv_pdu:
     profile: vertiv-pdu.yml
     vendor: vertiv
@@ -9201,7 +9302,8 @@ modules:
     module_chain_cold:
     - vertiv_pdu_ext
     module_chain_topology:
-    - lldp_mib
+    - vertiv_pdu_topo
+    topology_module: vertiv_pdu_topo
   vertiv_ups:
     profile: vertiv-ups.yml
     vendor: vertiv
@@ -9241,7 +9343,8 @@ modules:
     - vertiv_ups_sensors
     - vertiv_ups_ext
     module_chain_topology:
-    - lldp_mib
+    - vertiv_ups_topo
+    topology_module: vertiv_ups_topo
   watchdog:
     profile: watchdog.yml
     vendor: vertiv
@@ -9286,7 +9389,8 @@ modules:
     - watchdog_sensors
     - watchdog_ext
     module_chain_topology:
-    - lldp_mib
+    - watchdog_topo
+    topology_module: watchdog_topo
   esx:
     profile: esx.yml
     vendor: vmware
@@ -9317,7 +9421,8 @@ modules:
     - host_resources_mib_ext
     - esx_ext
     module_chain_topology:
-    - lldp_mib
+    - esx_topo
+    topology_module: esx_topo
   vmware_nsx:
     profile: vmware-nsx.yml
     vendor: vmware
@@ -9432,7 +9537,7 @@ modules:
     - vmware_nsx_ext
     module_chain_topology:
     - vmware_nsx_topo
-    - lldp_mib
+    topology_module: vmware_nsx_topo
   mycloud_ex2:
     profile: mycloud-ex2.yml
     vendor: western_digital
@@ -9479,7 +9584,8 @@ modules:
     - mycloud_ex2_sensors
     - mycloud_ex2_ext
     module_chain_topology:
-    - lldp_mib
+    - mycloud_ex2_topo
+    topology_module: mycloud_ex2_topo
   workcentre:
     profile: workcentre.yml
     vendor: xerox
@@ -9519,7 +9625,8 @@ modules:
     - ip_addr
     - workcentre_ext
     module_chain_topology:
-    - lldp_mib
+    - workcentre_topo
+    topology_module: workcentre_topo
   zebra_printer:
     profile: zebra-printer.yml
     vendor: zebra
@@ -9557,7 +9664,8 @@ modules:
     module_chain_cold:
     - zebra_printer_ext
     module_chain_topology:
-    - lldp_mib
+    - zebra_printer_topo
+    topology_module: zebra_printer_topo
   zscaler_nss:
     profile: zscaler_nss.yml
     vendor: zscaler
@@ -9584,7 +9692,8 @@ modules:
     module_chain_cold:
     - zscaler_nss_ext
     module_chain_topology:
-    - lldp_mib
+    - zscaler_nss_topo
+    topology_module: zscaler_nss_topo
   zyxel_switch:
     profile: zyxel-switch.yml
     vendor: zyxel
@@ -9633,7 +9742,8 @@ modules:
     - if_mib_meta
     - ip_addr
     module_chain_topology:
-    - lldp_mib
+    - zyxel_switch_topo
+    topology_module: zyxel_switch_topo
   device_base:
     profile: device_base.yml
     vendor: _general
@@ -9648,7 +9758,8 @@ modules:
     - device_base
     module_chain_cold: []
     module_chain_topology:
-    - lldp_mib
+    - device_base_topo
+    topology_module: device_base_topo
   ip_addr:
     profile: ip-addr.yml
     vendor: _general
@@ -9989,7 +10100,8 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: ospf_mib, bgp4_mib, lldp_mib,
+      arista_switch_topo'
     extends_modules: []
     module_chain:
     - arista_switch_topo
@@ -9998,6 +10110,11 @@ modules:
     module_chain_topology:
     - arista_switch_topo
     - lldp_mib
+    topology_fragments:
+    - ospf_mib
+    - bgp4_mib
+    - lldp_mib
+    - arista_switch_topo
   arista_switch_ext:
     profile: arista-switch-ext.yml
     vendor: arista
@@ -10244,13 +10361,17 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: barracuda_cloudgen_topo,
+      lldp_mib'
     extends_modules: []
     module_chain:
     - barracuda_cloudgen_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - barracuda_cloudgen_topo
+    - lldp_mib
+    topology_fragments:
     - barracuda_cloudgen_topo
     - lldp_mib
   barracuda_email_gateway_ext:
@@ -10649,13 +10770,20 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, cisco_nexus_topo,
+      lldp_mib, cdp_mib'
     extends_modules: []
     module_chain:
     - cisco_nexus_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - cisco_nexus_topo
+    - lldp_mib
+    - cdp_mib
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
     - cisco_nexus_topo
     - lldp_mib
     - cdp_mib
@@ -10896,13 +11024,16 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: dell_os10_topo, lldp_mib'
     extends_modules: []
     module_chain:
     - dell_os10_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - dell_os10_topo
+    - lldp_mib
+    topology_fragments:
     - dell_os10_topo
     - lldp_mib
   dell_os10_ext:
@@ -11451,7 +11582,8 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: huawei_all_devices_topo,
+      lldp_mib'
     extends_modules: []
     module_chain:
     - huawei_all_devices_topo
@@ -11460,19 +11592,27 @@ modules:
     module_chain_topology:
     - huawei_all_devices_topo
     - lldp_mib
+    topology_fragments:
+    - huawei_all_devices_topo
+    - lldp_mib
   huawei_routers_topo:
     profile: huawei-routers-bgp.yml
     vendor: huawei
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: huawei_all_devices_topo,
+      huawei_routers_topo, lldp_mib'
     extends_modules: []
     module_chain:
     - huawei_routers_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - huawei_routers_topo
+    - lldp_mib
+    topology_fragments:
+    - huawei_all_devices_topo
     - huawei_routers_topo
     - lldp_mib
   huawei_routers_ext:
@@ -12127,13 +12267,16 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: nokia_srlinux_topo, lldp_mib'
     extends_modules: []
     module_chain:
     - nokia_srlinux_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - nokia_srlinux_topo
+    - lldp_mib
+    topology_fragments:
     - nokia_srlinux_topo
     - lldp_mib
   nokia_srlinux_sensors:
@@ -12772,13 +12915,16 @@ modules:
     sysobjectids: []
     extends: []
     identity_lookups: []
-    notes: vendor tier sidecar
+    notes: 'consolidated topology object; source fragments: vmware_nsx_topo, lldp_mib'
     extends_modules: []
     module_chain:
     - vmware_nsx_topo
     module_chain_hot: []
     module_chain_cold: []
     module_chain_topology:
+    - vmware_nsx_topo
+    - lldp_mib
+    topology_fragments:
     - vmware_nsx_topo
     - lldp_mib
   vmware_nsx_ext:
@@ -12901,3 +13047,2991 @@ modules:
     module_chain_topology:
     - cdp_mib
     - lldp_mib
+  3com_huawei_topo:
+    profile: 3com-huawei-topo.yml
+    vendor: 3com
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - 3com_huawei_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - 3com_huawei_topo
+  3com_topo:
+    profile: 3com-topo.yml
+    vendor: 3com
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - 3com_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - 3com_topo
+  6wind_vsr_topo:
+    profile: 6wind-vsr-topo.yml
+    vendor: 6wind
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - 6wind_vsr_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - 6wind_vsr_topo
+  cambium_mib_topo:
+    profile: cambium-mib-topo.yml
+    vendor: Cambium
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cambium_mib_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cambium_mib_topo
+  net_snmp_topo:
+    profile: net-snmp-topo.yml
+    vendor: _general
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - net_snmp_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - net_snmp_topo
+  a10_thunder_topo:
+    profile: a10-thunder-topo.yml
+    vendor: a10_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: ospf_mib, lldp_mib'
+    topology_fragments:
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - a10_thunder_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - a10_thunder_topo
+  alcatel_lucent_ent_topo:
+    profile: alcatel-lucent-ent-topo.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - alcatel_lucent_ent_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ent_topo
+  alcatel_lucent_ind_topo:
+    profile: alcatel-lucent-ind-topo.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - alcatel_lucent_ind_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - alcatel_lucent_ind_topo
+  omni_access_wlc_topo:
+    profile: omni-access-wlc-topo.yml
+    vendor: alcatel_lucent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - omni_access_wlc_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - omni_access_wlc_topo
+  anue_packet_broker_topo:
+    profile: anue-packet-broker-topo.yml
+    vendor: anue
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - anue_packet_broker_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - anue_packet_broker_topo
+  apc_netbotz_topo:
+    profile: apc-netbotz-topo.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - apc_netbotz_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - apc_netbotz_topo
+  apc_ats_topo:
+    profile: apc-ats-topo.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - apc_ats_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - apc_ats_topo
+  apc_pdu_topo:
+    profile: apc-pdu-topo.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - apc_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - apc_pdu_topo
+  apc_ups_topo:
+    profile: apc-ups-topo.yml
+    vendor: apc
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - apc_ups_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - apc_ups_topo
+  aruba_access_point_topo:
+    profile: aruba-access-point-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_access_point_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_access_point_topo
+  aruba_clearpass_topo:
+    profile: aruba-clearpass-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_clearpass_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_clearpass_topo
+  aruba_cx_switch_topo:
+    profile: aruba-cx-switch-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_cx_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_cx_switch_topo
+  aruba_mobility_controller_topo:
+    profile: aruba-mobility-controller-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_mobility_controller_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_mobility_controller_topo
+  aruba_switch_topo:
+    profile: aruba-switch-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_switch_topo
+  aruba_wireless_controller_topo:
+    profile: aruba-wireless-controller-topo.yml
+    vendor: aruba
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aruba_wireless_controller_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aruba_wireless_controller_topo
+  audiocodes_mediant_sbc_topo:
+    profile: audiocodes-mediant-sbc-topo.yml
+    vendor: audiocodes
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - audiocodes_mediant_sbc_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - audiocodes_mediant_sbc_topo
+  aura_media_server_topo:
+    profile: aura-media-server-topo.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - aura_media_server_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - aura_media_server_topo
+  avaya_cajun_switch_topo:
+    profile: avaya-cajun-switch-topo.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - avaya_cajun_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - avaya_cajun_switch_topo
+  avaya_media_gateway_topo:
+    profile: avaya-media-gateway-topo.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: ospf_mib, lldp_mib'
+    topology_fragments:
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - avaya_media_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - avaya_media_gateway_topo
+  nortel_ethernet_routing_switch_topo:
+    profile: nortel-ethernet-routing-switch-topo.yml
+    vendor: avaya
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - nortel_ethernet_routing_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - nortel_ethernet_routing_switch_topo
+  acs_topo:
+    profile: acs-topo.yml
+    vendor: avocent
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - acs_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - acs_topo
+  roomalert_32s_topo:
+    profile: roomalert-32s-topo.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - roomalert_32s_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - roomalert_32s_topo
+  roomalert_3e_topo:
+    profile: roomalert-3e-topo.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - roomalert_3e_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - roomalert_3e_topo
+  roomalert_3s_topo:
+    profile: roomalert-3s-topo.yml
+    vendor: avtech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - roomalert_3s_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - roomalert_3s_topo
+  barracuda_email_gateway_topo:
+    profile: barracuda-email-gateway-topo.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - barracuda_email_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - barracuda_email_gateway_topo
+  barracuda_waf_topo:
+    profile: barracuda-waf-topo.yml
+    vendor: barracuda
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - barracuda_waf_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - barracuda_waf_topo
+  bluecat_server_topo:
+    profile: bluecat-server-topo.yml
+    vendor: bluecat
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - bluecat_server_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - bluecat_server_topo
+  diameter_topo:
+    profile: diameter-topo.yml
+    vendor: broadforward
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - diameter_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - diameter_topo
+  brocade_fc_switch_topo:
+    profile: brocade-fc-switch-topo.yml
+    vendor: brocade
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - brocade_fc_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - brocade_fc_switch_topo
+  brother_net_printer_topo:
+    profile: brother-net-printer-topo.yml
+    vendor: brother
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - brother_net_printer_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - brother_net_printer_topo
+  checkpoint_firewall_topo:
+    profile: checkpoint-firewall-topo.yml
+    vendor: checkpoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - checkpoint_firewall_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - checkpoint_firewall_topo
+  watchguard_topo:
+    profile: watchguard-topo.yml
+    vendor: checkpoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - watchguard_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - watchguard_topo
+  luna_hsm_topo:
+    profile: luna-hsm-topo.yml
+    vendor: chrysalis
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - luna_hsm_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - luna_hsm_topo
+  cisco_access_point_topo:
+    profile: cisco-access-point-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_access_point_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_access_point_topo
+  cisco_apic_server_topo:
+    profile: cisco-apic-server-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_apic_server_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_apic_server_topo
+  cisco_asa_topo:
+    profile: cisco-asa-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_asa_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_asa_topo
+  cisco_asr_topo:
+    profile: cisco-asr-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_asr_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_asr_topo
+  cisco_call_manager_topo:
+    profile: cisco-call-manager-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_call_manager_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_call_manager_topo
+  cisco_catalyst_topo:
+    profile: cisco-catalyst-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_catalyst_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_catalyst_topo
+  cisco_csr_topo:
+    profile: cisco-csr-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, lldp_mib, cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_csr_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_csr_topo
+  cisco_firepower_topo:
+    profile: cisco-firepower-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_firepower_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_firepower_topo
+  cisco_ironport_email_topo:
+    profile: cisco-ironport-email-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_ironport_email_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_ironport_email_topo
+  cisco_ise_topo:
+    profile: cisco-ise-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_ise_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_ise_topo
+  cisco_load_balancer_topo:
+    profile: cisco-load-balancer-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_load_balancer_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_load_balancer_topo
+  cisco_sb_topo:
+    profile: cisco-sb-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_sb_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_sb_topo
+  cisco_ucs_topo:
+    profile: cisco-ucs-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_ucs_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_ucs_topo
+  cisco_voice_topo:
+    profile: cisco-voice-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_voice_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_voice_topo
+  cisco_wan_optimizer_topo:
+    profile: cisco-wan-optimizer-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_wan_optimizer_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_wan_optimizer_topo
+  cisco_wlc_topo:
+    profile: cisco-wlc-topo.yml
+    vendor: cisco
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib,
+      cdp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cisco_wlc_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - cisco_wlc_topo
+  netscaler_sdx_topo:
+    profile: netscaler-sdx-topo.yml
+    vendor: citrix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netscaler_sdx_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netscaler_sdx_topo
+  netscaler_topo:
+    profile: netscaler-topo.yml
+    vendor: citrix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netscaler_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netscaler_topo
+  cradlepoint_topo:
+    profile: cradlepoint-topo.yml
+    vendor: cradlepoint
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cradlepoint_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cradlepoint_topo
+  cyberpower_pdu_topo:
+    profile: cyberpower-pdu-topo.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cyberpower_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cyberpower_pdu_topo
+  cyberpower_ups_topo:
+    profile: cyberpower-ups-topo.yml
+    vendor: cyberpower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cyberpower_ups_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cyberpower_ups_topo
+  dell_avamar_topo:
+    profile: dell-avamar-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dell_avamar_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dell_avamar_topo
+  dell_idrac_topo:
+    profile: dell-idrac-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dell_idrac_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dell_idrac_topo
+  dell_powerconnect_topo:
+    profile: dell-powerconnect-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dell_powerconnect_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dell_powerconnect_topo
+  emc_data_domain_topo:
+    profile: emc-data-domain-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - emc_data_domain_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - emc_data_domain_topo
+  force10_topo:
+    profile: force10-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - force10_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - force10_topo
+  sonicwall_sma_topo:
+    profile: sonicwall-sma-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - sonicwall_sma_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - sonicwall_sma_topo
+  sonicwall_topo:
+    profile: sonicwall-topo.yml
+    vendor: dell
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - sonicwall_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - sonicwall_topo
+  dialogic_media_gateway_topo:
+    profile: dialogic-media-gateway-topo.yml
+    vendor: dialogic
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dialogic_media_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dialogic_media_gateway_topo
+  dlink_dgs_switch_topo:
+    profile: dlink-dgs-switch-topo.yml
+    vendor: dlink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dlink_dgs_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dlink_dgs_switch_topo
+  eaton_epdu_topo:
+    profile: eaton-epdu-topo.yml
+    vendor: eaton
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - eaton_epdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - eaton_epdu_topo
+  elemental_device_topo:
+    profile: elemental-device-topo.yml
+    vendor: elemental
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - elemental_device_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - elemental_device_topo
+  exagrid_topo:
+    profile: exagrid-topo.yml
+    vendor: exagrid
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - exagrid_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - exagrid_topo
+  extreme_switching_topo:
+    profile: extreme-switching-topo.yml
+    vendor: extreme_networks
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - extreme_switching_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - extreme_switching_topo
+  f5_topo:
+    profile: f5-topo.yml
+    vendor: f5
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - f5_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - f5_topo
+  fireeye_topo:
+    profile: fireeye-topo.yml
+    vendor: fireeye
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - fireeye_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - fireeye_topo
+  fortinet_appliance_topo:
+    profile: fortinet-appliance-topo.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - fortinet_appliance_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - fortinet_appliance_topo
+  fortinet_fortiap_topo:
+    profile: fortinet-fortiap-topo.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - fortinet_fortiap_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - fortinet_fortiap_topo
+  fortinet_fortigate_topo:
+    profile: fortinet-fortigate-topo.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - fortinet_fortigate_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - fortinet_fortigate_topo
+  fortinet_fortiswitch_topo:
+    profile: fortinet-fortiswitch-topo.yml
+    vendor: fortinet
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - fortinet_fortiswitch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - fortinet_fortiswitch_topo
+  base_topo:
+    profile: base-topo.yml
+    vendor: generic
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: ospf_mib, lldp_mib'
+    topology_fragments:
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - base_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - base_topo
+  ups_topo:
+    profile: ups-topo.yml
+    vendor: generic
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ups_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ups_topo
+  gigamon_topo:
+    profile: gigamon-topo.yml
+    vendor: gigamon
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - gigamon_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - gigamon_topo
+  hp_h3c_switch_topo:
+    profile: hp-h3c-switch-topo.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hp_h3c_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hp_h3c_switch_topo
+  hp_icf_switch_topo:
+    profile: hp-icf-switch-topo.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hp_icf_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hp_icf_switch_topo
+  hp_ilo_topo:
+    profile: hp-ilo-topo.yml
+    vendor: hp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hp_ilo_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hp_ilo_topo
+  hpe_bladesystem_enclosure_topo:
+    profile: hpe-bladesystem-enclosure-topo.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hpe_bladesystem_enclosure_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hpe_bladesystem_enclosure_topo
+  hpe_cambium_topo:
+    profile: hpe-cambium-topo.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hpe_cambium_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hpe_cambium_topo
+  hpe_msa_topo:
+    profile: hpe-msa-topo.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hpe_msa_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hpe_msa_topo
+  hpe_nimble_topo:
+    profile: hpe-nimble-topo.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hpe_nimble_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hpe_nimble_topo
+  hpe_synergy_topo:
+    profile: hpe-synergy-topo.yml
+    vendor: hpe
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - hpe_synergy_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - hpe_synergy_topo
+  huawei_access_controllers_topo:
+    profile: huawei-access-controllers-topo.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - huawei_access_controllers_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - huawei_access_controllers_topo
+  huawei_switches_topo:
+    profile: huawei-switches-topo.yml
+    vendor: huawei
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: huawei_all_devices_topo,
+      lldp_mib'
+    topology_fragments:
+    - huawei_all_devices_topo
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - huawei_switches_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - huawei_switches_topo
+  ibm_datapower_gateway_topo:
+    profile: ibm-datapower-gateway-topo.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ibm_datapower_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ibm_datapower_gateway_topo
+  ibm_lenovo_server_topo:
+    profile: ibm-lenovo-server-topo.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ibm_lenovo_server_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ibm_lenovo_server_topo
+  ibm_wga_topo:
+    profile: ibm-wga-topo.yml
+    vendor: ibm
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ibm_wga_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ibm_wga_topo
+  infinera_topo:
+    profile: infinera-topo.yml
+    vendor: infinera
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - infinera_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - infinera_topo
+  infoblox_ipam_topo:
+    profile: infoblox-ipam-topo.yml
+    vendor: infoblox
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - infoblox_ipam_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - infoblox_ipam_topo
+  sensor_gateway_base_unit_topo:
+    profile: sensor-gateway-base-unit-topo.yml
+    vendor: infrasensing
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - sensor_gateway_base_unit_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - sensor_gateway_base_unit_topo
+  ipower_mib_topo:
+    profile: ipower-mib-topo.yml
+    vendor: ipower
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ipower_mib_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ipower_mib_topo
+  isilon_topo:
+    profile: isilon-topo.yml
+    vendor: isilon
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - isilon_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - isilon_topo
+  juniper_all_devices_topo:
+    profile: juniper-all-devices-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - juniper_all_devices_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - juniper_all_devices_topo
+  juniper_ex_switches_topo:
+    profile: juniper-ex-switches-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - juniper_ex_switches_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - juniper_ex_switches_topo
+  juniper_mx_router_topo:
+    profile: juniper-mx-router-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - juniper_mx_router_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - juniper_mx_router_topo
+  juniper_qfx_switches_topo:
+    profile: juniper-qfx-switches-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - juniper_qfx_switches_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - juniper_qfx_switches_topo
+  juniper_srx_firewalls_topo:
+    profile: juniper-srx-firewalls-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, ospf_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - juniper_srx_firewalls_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - juniper_srx_firewalls_topo
+  pulse_secure_topo:
+    profile: pulse-secure-topo.yml
+    vendor: juniper
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - pulse_secure_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - pulse_secure_topo
+  kyocera_printer_topo:
+    profile: kyocera-printer-topo.yml
+    vendor: kyocera
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - kyocera_printer_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - kyocera_printer_topo
+  lenovo_rackswitch_topo:
+    profile: lenovo-rackswitch-topo.yml
+    vendor: lenovo
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - lenovo_rackswitch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - lenovo_rackswitch_topo
+  linksys_topo:
+    profile: linksys-topo.yml
+    vendor: linksys
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - linksys_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - linksys_topo
+  mcafee_web_gateway_topo:
+    profile: mcafee-web-gateway-topo.yml
+    vendor: mcafee
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mcafee_web_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mcafee_web_gateway_topo
+  meraki_cloud_controller_topo:
+    profile: meraki-cloud-controller-topo.yml
+    vendor: meraki
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - meraki_cloud_controller_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - meraki_cloud_controller_topo
+  meraki_device_topo:
+    profile: meraki-device-topo.yml
+    vendor: meraki
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib, cdp_mib'
+    topology_fragments:
+    - lldp_mib
+    - cdp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - meraki_device_topo
+    - lldp_mib
+    - cdp_mib
+    extends_modules: []
+    module_chain:
+    - meraki_device_topo
+  mikrotik_router_topo:
+    profile: mikrotik-router-topo.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mikrotik_router_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mikrotik_router_topo
+  mikrotik_switch_topo:
+    profile: mikrotik-switch-topo.yml
+    vendor: mikrotik
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mikrotik_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mikrotik_switch_topo
+  mimosa_device_topo:
+    profile: mimosa-device-topo.yml
+    vendor: mimosa
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mimosa_device_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mimosa_device_topo
+  minuteman_pdu_topo:
+    profile: minuteman-pdu-topo.yml
+    vendor: minuteman
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - minuteman_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - minuteman_pdu_topo
+  nasuni_filer_topo:
+    profile: nasuni-filer-topo.yml
+    vendor: nasuni
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - nasuni_filer_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - nasuni_filer_topo
+  univerge_topo:
+    profile: univerge-topo.yml
+    vendor: nec
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: bgp4_mib, lldp_mib'
+    topology_fragments:
+    - bgp4_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - univerge_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - univerge_topo
+  netapp_cluster_topo:
+    profile: netapp-cluster-topo.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netapp_cluster_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netapp_cluster_topo
+  netapp_hci_topo:
+    profile: netapp-hci-topo.yml
+    vendor: netapp
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netapp_hci_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netapp_hci_topo
+  netgear_access_point_topo:
+    profile: netgear-access-point-topo.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netgear_access_point_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netgear_access_point_topo
+  netgear_generic_topo:
+    profile: netgear-generic-topo.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netgear_generic_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netgear_generic_topo
+  netgear_switch_topo:
+    profile: netgear-switch-topo.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netgear_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netgear_switch_topo
+  readynas_topo:
+    profile: readynas-topo.yml
+    vendor: netgear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - readynas_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - readynas_topo
+  netoptics_switch_topo:
+    profile: netoptics-switch-topo.yml
+    vendor: netoptics
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netoptics_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netoptics_switch_topo
+  netskope_appliance_topo:
+    profile: netskope-appliance-topo.yml
+    vendor: netskope
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - netskope_appliance_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - netskope_appliance_topo
+  nutanix_topo:
+    profile: nutanix-topo.yml
+    vendor: nutanix
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - nutanix_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - nutanix_topo
+  cumulus_linux_switch_topo:
+    profile: cumulus-linux-switch-topo.yml
+    vendor: nvidia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cumulus_linux_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cumulus_linux_switch_topo
+  mellanox_switchx_topo:
+    profile: mellanox-switchx-topo.yml
+    vendor: nvidia
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mellanox_switchx_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mellanox_switchx_topo
+  omron_cj_ethernet_ip_topo:
+    profile: omron-cj-ethernet-ip-topo.yml
+    vendor: omron
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - omron_cj_ethernet_ip_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - omron_cj_ethernet_ip_topo
+  opengear_console_manager_topo:
+    profile: opengear-console-manager-topo.yml
+    vendor: opengear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - opengear_console_manager_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - opengear_console_manager_topo
+  opengear_infrastructure_manager_topo:
+    profile: opengear-infrastructure-manager-topo.yml
+    vendor: opengear
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - opengear_infrastructure_manager_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - opengear_infrastructure_manager_topo
+  opnsense_protectli_topo:
+    profile: opnsense-protectli-topo.yml
+    vendor: opnsense
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - opnsense_protectli_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - opnsense_protectli_topo
+  cloudgenix_topo:
+    profile: cloudgenix-topo.yml
+    vendor: palo_alto
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - cloudgenix_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - cloudgenix_topo
+  palo_alto_topo:
+    profile: palo-alto-topo.yml
+    vendor: palo_alto
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: ospf_mib, lldp_mib'
+    topology_fragments:
+    - ospf_mib
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - palo_alto_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - palo_alto_topo
+  panduit_pdu_topo:
+    profile: panduit-pdu-topo.yml
+    vendor: panduit
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - panduit_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - panduit_pdu_topo
+  peplink_topo:
+    profile: peplink-topo.yml
+    vendor: peplink
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - peplink_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - peplink_topo
+  pf_sense_topo:
+    profile: pf-sense-topo.yml
+    vendor: pf_sense
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - pf_sense_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - pf_sense_topo
+  dominion_topo:
+    profile: dominion-topo.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dominion_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dominion_topo
+  raritan_pdu_topo:
+    profile: raritan-pdu-topo.yml
+    vendor: raritan
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - raritan_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - raritan_pdu_topo
+  riverbed_interceptor_topo:
+    profile: riverbed-interceptor-topo.yml
+    vendor: riverbed
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - riverbed_interceptor_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - riverbed_interceptor_topo
+  riverbed_steelhead_topo:
+    profile: riverbed-steelhead-topo.yml
+    vendor: riverbed
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - riverbed_steelhead_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - riverbed_steelhead_topo
+  ruckus_unleashed_topo:
+    profile: ruckus-unleashed-topo.yml
+    vendor: ruckus
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ruckus_unleashed_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ruckus_unleashed_topo
+  ruckus_wap_topo:
+    profile: ruckus-wap-topo.yml
+    vendor: ruckus
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - ruckus_wap_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - ruckus_wap_topo
+  server_iron_switch_topo:
+    profile: server-iron-switch-topo.yml
+    vendor: server_iron
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - server_iron_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - server_iron_switch_topo
+  servertech_pdu3_topo:
+    profile: servertech-pdu3-topo.yml
+    vendor: servertech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - servertech_pdu3_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - servertech_pdu3_topo
+  servertech_pdu4_topo:
+    profile: servertech-pdu4-topo.yml
+    vendor: servertech
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - servertech_pdu4_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - servertech_pdu4_topo
+  edgeconnect_topo:
+    profile: edgeconnect-topo.yml
+    vendor: silverpeak
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - edgeconnect_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - edgeconnect_topo
+  eagle_i_topo:
+    profile: eagle-i-topo.yml
+    vendor: sinetica
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - eagle_i_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - eagle_i_topo
+  xgs_firewall_topo:
+    profile: xgs-firewall-topo.yml
+    vendor: sophos
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - xgs_firewall_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - xgs_firewall_topo
+  dctrack_topo:
+    profile: dctrack-topo.yml
+    vendor: sunbird
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - dctrack_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - dctrack_topo
+  power_iq_topo:
+    profile: power-iq-topo.yml
+    vendor: sunbird
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - power_iq_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - power_iq_topo
+  disk_station_topo:
+    profile: disk-station-topo.yml
+    vendor: synology
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - disk_station_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - disk_station_topo
+  tp_link_topo:
+    profile: tp-link-topo.yml
+    vendor: tp_link
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - tp_link_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - tp_link_topo
+  tripplite_pdu_topo:
+    profile: tripplite-pdu-topo.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - tripplite_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - tripplite_pdu_topo
+  tripplite_ups_topo:
+    profile: tripplite-ups-topo.yml
+    vendor: tripplite
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - tripplite_ups_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - tripplite_ups_topo
+  truenas_topo:
+    profile: truenas-topo.yml
+    vendor: truenas
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - truenas_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - truenas_topo
+  unifi_access_point_topo:
+    profile: unifi-access-point-topo.yml
+    vendor: ubiquiti
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - unifi_access_point_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - unifi_access_point_topo
+  unifi_security_gateway_topo:
+    profile: unifi-security-gateway-topo.yml
+    vendor: ubiquiti
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - unifi_security_gateway_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - unifi_security_gateway_topo
+  unifi_switch_topo:
+    profile: unifi-switch-topo.yml
+    vendor: ubiquiti
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - unifi_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - unifi_switch_topo
+  velocloud_edge_topo:
+    profile: velocloud-edge-topo.yml
+    vendor: velocloud
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - velocloud_edge_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - velocloud_edge_topo
+  liebert_ac_topo:
+    profile: liebert-ac-topo.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - liebert_ac_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - liebert_ac_topo
+  vertiv_pdu_topo:
+    profile: vertiv-pdu-topo.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - vertiv_pdu_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - vertiv_pdu_topo
+  vertiv_ups_topo:
+    profile: vertiv-ups-topo.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - vertiv_ups_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - vertiv_ups_topo
+  watchdog_topo:
+    profile: watchdog-topo.yml
+    vendor: vertiv
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - watchdog_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - watchdog_topo
+  esx_topo:
+    profile: esx-topo.yml
+    vendor: vmware
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - esx_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - esx_topo
+  mycloud_ex2_topo:
+    profile: mycloud-ex2-topo.yml
+    vendor: western_digital
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - mycloud_ex2_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - mycloud_ex2_topo
+  workcentre_topo:
+    profile: workcentre-topo.yml
+    vendor: xerox
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - workcentre_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - workcentre_topo
+  zebra_printer_topo:
+    profile: zebra-printer-topo.yml
+    vendor: zebra
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - zebra_printer_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - zebra_printer_topo
+  zscaler_nss_topo:
+    profile: zscaler-nss-topo.yml
+    vendor: zscaler
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - zscaler_nss_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - zscaler_nss_topo
+  zyxel_switch_topo:
+    profile: zyxel-switch-topo.yml
+    vendor: zyxel
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - zyxel_switch_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - zyxel_switch_topo
+  device_base_topo:
+    profile: device-base-topo.yml
+    vendor: _general
+    sysobjectids: []
+    extends: []
+    identity_lookups: []
+    notes: 'consolidated topology object; source fragments: lldp_mib'
+    topology_fragments:
+    - lldp_mib
+    module_chain_hot: []
+    module_chain_cold: []
+    module_chain_topology:
+    - device_base_topo
+    - lldp_mib
+    extends_modules: []
+    module_chain:
+    - device_base_topo
