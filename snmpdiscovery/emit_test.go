@@ -141,6 +141,40 @@ func TestUniquifyNames(t *testing.T) {
 		t.Fatalf("second uniquified: %s", in[1].Name)
 	}
 	if in[1].DeviceName != "spine" {
-		t.Fatalf("device_name should stay friendly: %s", in[1].DeviceName)
+		t.Fatalf("device_name should stay the normalised sysName: %s", in[1].DeviceName)
+	}
+}
+
+func TestTargetNamesKeepsFullSysName(t *testing.T) {
+	name, device := targetNames("Leaf1.lab.Example.NET", "172.20.20.9")
+	if name != "Leaf1" {
+		t.Fatalf("scrape name=%q", name)
+	}
+	if device != "leaf1.lab.example.net" {
+		t.Fatalf("device_name=%q", device)
+	}
+
+	name, device = targetNames("leaf-br1", "172.20.20.6")
+	if name != "leaf-br1" || device != "leaf-br1" {
+		t.Fatalf("short name=%q device=%q", name, device)
+	}
+
+	name, device = targetNames("Leaf1\r.lab.Example.NET", "172.20.20.9")
+	if name != "Leaf1" || device != "leaf1.lab.example.net" {
+		t.Fatalf("control strip name=%q device=%q", name, device)
+	}
+
+	name, device = targetNames("", "172.20.20.9")
+	if name != "172.20.20.9" || device != "172.20.20.9" {
+		t.Fatalf("empty sysName name=%q device=%q", name, device)
+	}
+
+	long := strings.Repeat("a", 200) + "." + strings.Repeat("b", 80)
+	_, device = targetNames(long, "10.0.0.1")
+	if len(device) > 255 {
+		t.Fatalf("device_name len=%d", len(device))
+	}
+	if !strings.HasPrefix(device, strings.Repeat("a", 200)+".") {
+		t.Fatalf("domain was cut: %q", device)
 	}
 }

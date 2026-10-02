@@ -137,6 +137,7 @@ Each enabled tier is its own Prometheus target, so you can scrape hot every minu
 
 - **Secrets stay in `auths.yml` / the exporter config.** SD only emits the auth **name**. If a community shows up in Prometheus labels, something is wrong.
 - **`snmp_group` is the group `name` you wrote** (`lab`, `dc1`, …), not a guess from the hostname.
+- **`device_name` is the full sysName**, controls stripped, lowercased, domain kept, capped at 255 bytes. It is the same string topology-exporter uses for `device_id`. The Alloy target `name` stays the short id before the first dot, because that is the scrape target, not the join key.
 - **`--snmp-config` and `--fingerprinters` should be the copies from this repo.** They were generated together. If you mix an old map with a new library, unknown module names are dropped and that device walks less than you expect (you will see a WARN in the log). The scan itself still succeeds.
 - **`--out-catalog`** is a plain YAML device list if you would rather not use HTTP SD.
 - **`--listen :9780` also serves `/metrics`.** Same `discovery_snmp_*` names Alloy’s `discovery.snmp` component exports (scan pressure, probe errors by `reason`/`group`, fingerprint known vs unknown, catalog stale/drops). Probe timeouts stay Debug; `no_auth` / `no_sys` / missing-module drops are Info/Warn.

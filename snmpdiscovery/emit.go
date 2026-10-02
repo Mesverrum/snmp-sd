@@ -6,6 +6,8 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"unicode"
+	"unicode/utf8"
 
 	"gopkg.in/yaml.v3"
 )
@@ -154,22 +156,61 @@ func writeFileSD(path string, targets []AlloyTarget) error {
 	return writeFileAtomic(path, b, 0o644)
 }
 
-// targetNames returns Alloy name and device_name (human/sysName for joins).
-// Same-sysName addresses are collapsed later unless AllowDuplicateSysName.
+// targetNames returns the Alloy scrape-target name and the join key.
+//
+// name stays the short id (text before the first dot) so the exporter target
+// stays a stable label. device_name matches network-topology-exporter
+// NormaliseName: the full sysName, controls stripped, trimmed, lowercased,
+// domain kept, capped at 255 bytes on a UTF-8 boundary. An empty sysName
+// falls back to the canonical address. Same-sysName addresses are collapsed
+// later unless AllowDuplicateSysName.
 func targetNames(sysName, addr string) (name, deviceName string) {
 	addr = mustCanonIP(addr)
-	n := strings.TrimSpace(sysName)
+	n := strings.TrimSpace(stripControls(sysName))
 	if n == "" || n == addr {
 		return nameAddrSuffix(addr), addr
 	}
-	if i := strings.IndexByte(n, '.'); i > 0 {
-		n = n[:i]
+	short := n
+	if i := strings.IndexByte(short, '.'); i > 0 {
+		short = short[:i]
 	}
-	return n, n
+	return short, normaliseDeviceName(n)
+}
+
+// normaliseDeviceName is the device_id rule from network-topology-exporter:
+// lowercase the full sysName and cap it at the DisplayString limit.
+func normaliseDeviceName(s string) string {
+	s = strings.ToLower(strings.TrimSpace(stripControls(s)))
+	return truncateAtRuneBoundary(s, 255)
+}
+
+func stripControls(s string) string {
+	return strings.Map(func(r rune) rune {
+		if unicode.IsControl(r) {
+			return -1
+		}
+		return r
+	}, s)
+}
+
+// truncateAtRuneBoundary matches sanitize.TruncateAtRuneBoundary in
+// network-topology-exporter: never cut a multi-byte UTF-8 sequence.
+func truncateAtRuneBoundary(s string, maxBytes int) string {
+	if maxBytes <= 0 {
+		return ""
+	}
+	if len(s) <= maxBytes {
+		return s
+	}
+	n := maxBytes
+	for n > 0 && !utf8.RuneStart(s[n]) {
+		n--
+	}
+	return s[:n]
 }
 
 // uniquifyNames ensures prometheus.exporter.snmp `name` is unique. On collision,
-// suffixes with -<address>. device_name is left as the friendly sysName.
+// suffixes with -<address>. device_name is left as the normalised sysName.
 func uniquifyNames(targets []AlloyTarget) {
 	used := map[string]string{} // name -> address that owns it
 	for i := range targets {
